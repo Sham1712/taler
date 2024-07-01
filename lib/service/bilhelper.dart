@@ -36,6 +36,7 @@ class BillHelper {
     return await colpat.doc(party.id).update(party.toMap());
   }
 
+
   Future<void> deleteparty(Party party) async {
     return await colpat.doc(party.id).delete();
   }
