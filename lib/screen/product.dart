@@ -5,8 +5,16 @@ import 'package:taler/flutter_flow/flutter_flow_util.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+class AddProduct extends StatefulWidget {
+  const AddProduct({super.key});
 
-class AddProduct extends StatelessWidget {
+
+  @override
+  State<AddProduct> createState() => _AddProductState();
+}
+
+class _AddProductState extends State<AddProduct> {
+
   TextEditingController textController1 = TextEditingController(),
       textController2 = TextEditingController(),
       textController3 = TextEditingController(),
