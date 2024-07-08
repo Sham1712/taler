@@ -288,6 +288,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin{
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               32.0, 8.0, 32.0, 0.0),
                           child: Container(
+                            height: 204.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).secondary,
                               borderRadius: BorderRadius.circular(24.0),
