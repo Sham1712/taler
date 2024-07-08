@@ -3,7 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../object/item.dart';
+import '../object/product.dart';
 import '../object/party.dart';
 import 'authHelper.dart';
 
@@ -16,7 +16,7 @@ class BillHelper {
       store.collection('/users/${user!.uid}/party/');
 
   CollectionReference get colitm =>
-      store.collection('/users/${user!.uid}/item/');
+      store.collection('/users/${user!.uid}/product/');
 
   CollectionReference get colbnk =>
       store.collection('/users/${user!.uid}/bank/');
@@ -53,20 +53,20 @@ class BillHelper {
     ).asBroadcastStream();
   }
 
-  Future<void> additem(Item item) async {
-    item.id = DateTime.now().toIso8601String();
-    return await colpat.doc(item.id).set(item.toMap());
+  Future<void> addproduct(Product product) async {
+    product.id = DateTime.now().toIso8601String();
+    return await colpat.doc(product.id).set(product.toMap());
   }
 
-  Future<void> updateitem(Party item) async {
-    return await colpat.doc(item.id).update(item.toMap());
+  Future<void> updateproduct(Party product) async {
+    return await colpat.doc(product.id).update(product.toMap());
   }
 
-  Future<void> deleteitem(Party item) async {
-    return await colpat.doc(item.id).delete();
+  Future<void> deleteproduct(Party product) async {
+    return await colpat.doc(product.id).delete();
   }
 
-  Stream<List<Party>> getitems() {
+  Stream<List<Party>> getproducts() {
     final snapshots = colpat.orderBy(col_id,descending: true).snapshots();
     return snapshots.map(
       (snapshot) => snapshot.docs.map(

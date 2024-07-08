@@ -34,5 +34,31 @@
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
+  <script type="text/javascript">
+    window.flutterWebRenderer = "html";
+  </script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyA1kz8FEUAp3XLoEXn3g3MtlwXwxBB7Iks",
+      authDomain: "taler-shop.firebaseapp.com",
+      projectId: "taler-shop",
+      storageBucket: "taler-shop.appspot.com",
+      messagingSenderId: "398496650641",
+      appId: "1:398496650641:web:d0109d88082c85cb59f630",
+      measurementId: "G-CVDENH5PYK"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </body>
 </html>

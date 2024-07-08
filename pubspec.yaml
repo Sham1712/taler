@@ -51,7 +51,9 @@ dependencies:
   flutter_animate: any
   provider: any
   auto_size_text: any
-
+  http: any
+  loading_animations: any
+  cached_network_image: any
 
   firebase_core: any
   firebase_auth: any

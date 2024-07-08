@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:taler/service/authHelper.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -24,26 +26,28 @@ class _LoginState extends State<Login> {
             Align(
               alignment: const AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(96.0, 72.0, 64.0, 18.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(
+                    96.0, 72.0, 64.0, 18.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 32.0, 0.0, 32.0),
                       child: Container(
                         width: 200.0,
-                        height: 70.0,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16.0),
                         ),
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          'sbills.ai',
+                          'Taler',
                           style: FlutterFlowTheme.of(context)
                               .displaySmall
                               .override(
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold,
                                 fontFamily: 'Outfit',
                                 letterSpacing: 0.0,
                               ),
@@ -60,7 +64,6 @@ class _LoginState extends State<Login> {
                         ),
                         child: Container(
                           width: double.infinity,
-                          height: 492.0,
                           constraints: const BoxConstraints(
                             maxWidth: 570.0,
                           ),
@@ -91,8 +94,9 @@ class _LoginState extends State<Login> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 48.0, 0.0, 64.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 48.0, 0.0, 64.0),
                                     child: Text(
                                       '"Why cram? \nJust bill it! 📚💸"',
                                       textAlign: TextAlign.center,
@@ -109,10 +113,11 @@ class _LoginState extends State<Login> {
                                     color: Color(0x81636370),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 32.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 32.0, 0.0, 0.0),
                                     child: Text(
-                                      'Select Your Account',
+                                      'Select Your Account${AuthHelper.myuser==null ? '' : AuthHelper.myuser!.email}',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
                                           .displaySmall
@@ -123,10 +128,16 @@ class _LoginState extends State<Login> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 32.0, 0.0, 16.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 32.0, 0.0, 16.0),
                                     child: FFButtonWidget(
-                                      onPressed: () {
+                                      onPressed: () async{
+                                        User? user = await AuthHelper().signInGoogle();
+                                        if(user != null)
+                                          print(user.toString());
+                                        else
+                                          print('user.email');
                                       },
                                       text: 'Continue with Google',
                                       icon: const FaIcon(
@@ -137,11 +148,10 @@ class _LoginState extends State<Login> {
                                       options: FFButtonOptions(
                                         width: 380.0,
                                         height: 64.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 8.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                        iconPadding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 0.0, 8.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                         textStyle: FlutterFlowTheme.of(context)
@@ -178,7 +188,8 @@ class _LoginState extends State<Login> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(

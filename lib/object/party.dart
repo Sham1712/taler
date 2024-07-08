@@ -4,7 +4,6 @@
 
 const String col_id = 'id';
 const String col_name = 'name';
-
 const String col_gstin = 'gstin';
 const String col_address = 'address';
 const String col_city = 'city';

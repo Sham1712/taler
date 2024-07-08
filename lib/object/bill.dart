@@ -8,7 +8,7 @@ const String col_totalQuantity = 'totalQuantity';
 const String col_referenceBy = 'referenceBy';
 const String col_totalAmount = 'totalAmount';
 
-class Bill{
+class Bill {
 
   int totalAmount,totalQuantity;
   String partyid,billDate,saleType,description,referenceBy;

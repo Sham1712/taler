@@ -12,9 +12,9 @@ class SearchFieldDrawer extends StatelessWidget {
 
   Color color;
 
-  SearchFieldDrawer({Key? key,
+  SearchFieldDrawer({super.key,
     this.color = Colors.white
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -116,8 +116,8 @@ class MenuItem extends StatelessWidget {
     required this.text,
     required this.icon,
     this.onClicked,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +135,7 @@ class MenuItem extends StatelessWidget {
 
 class Draw3r extends Drawer {
 
-  const Draw3r({Key? key}) : super(key: key);
+  const Draw3r({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -223,8 +223,8 @@ class GlassCard extends StatelessWidget {
     this.heigth = 200,
     this.color,
     this.padding = const EdgeInsets.all(10),
-    Key? key
-  }) : super(key: key);
+    super.key
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -253,7 +253,7 @@ class Glassbutton extends StatelessWidget {
   Function onpressed;
   String name;
   Color color;
-  Glassbutton({Key? key,required this.name,required this.color,required this.onpressed}) : super(key: key);
+  Glassbutton({super.key,required this.name,required this.color,required this.onpressed});
 
   @override
   Widget build(BuildContext context) {
@@ -290,10 +290,10 @@ class Glassbutton extends StatelessWidget {
 
 class GlassIcon extends StatelessWidget {
   GlassIcon(this.icon,{
-    Key? key,
+    super.key,
     required this.color,
     required this.onpressed,
-  }) : super(key: key);
+  });
   Color color;
   Function onpressed;
   IconData icon;
@@ -385,12 +385,12 @@ OutlineInputBorder border = const OutlineInputBorder(
 
 class Textbox extends StatelessWidget{
   Textbox({
-    Key? key,
+    super.key,
     required this.controller,
     required this.texttype,
     required this.hint,
     required this.err,
-  }) : super(key: key);
+  });
   TextEditingController controller;
   TextInputType texttype;
   String hint;
@@ -423,12 +423,12 @@ class Textbox extends StatelessWidget{
 
 class DateTextbox extends StatelessWidget {
   DateTextbox({
-    Key? key,
+    super.key,
     required this.controller,
     required this.texttype,
     required this.hint,
     required this.onpressd,
-  }) : super(key: key);
+  });
   TextEditingController controller;
   TextInputType texttype;
   String hint;
@@ -463,12 +463,12 @@ class DateTextbox extends StatelessWidget {
 
 class Togglelist extends StatelessWidget {
 
-  Togglelist({Key? key,
+  Togglelist({super.key,
     required this.title,
     required this.tlist,
     required this.tvalue,
     required this.onchange,
-  }) : super(key: key);
+  });
   List<String> tlist;
   String tvalue,title;
   Function(String? value) onchange;
@@ -598,7 +598,7 @@ Widget future(){
 class ButtonImageFb1 extends StatelessWidget {
   final String text;
   final Function() onPressed;
-  const ButtonImageFb1({required this.text, required this.onPressed, Key? key}) : super(key: key);
+  const ButtonImageFb1({required this.text, required this.onPressed, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -679,8 +679,7 @@ class InfoCard extends StatelessWidget {
         ),
         this.subInfoText = "545 miles",
         this.subInfoTitle = "Directions",
-        Key? key})
-      : super(key: key);
+        super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -782,7 +781,7 @@ class InfoCard extends StatelessWidget {
 }
 
 class CustomCarouselFB2 extends StatefulWidget {
-  const CustomCarouselFB2({Key? key}) : super(key: key);
+  const CustomCarouselFB2({super.key});
 
   @override
   _CustomCarouselFB2State createState() => _CustomCarouselFB2State();
@@ -862,8 +861,7 @@ class CardFb1 extends StatelessWidget {
         required this.imageUrl,
         required this.subtitle,
         required this.onPressed,
-        Key? key})
-      : super(key: key);
+        super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -917,7 +915,7 @@ class CardFb1 extends StatelessWidget {
 }
 
 class DialogFb1 extends StatelessWidget {
-  const DialogFb1({Key? key}) : super(key: key);
+  const DialogFb1({super.key});
   final primaryColor = const Color(0xff4338CA);
   final accentColor = const Color(0xffffffff);
 
@@ -995,8 +993,7 @@ class SimpleBtn1 extends StatelessWidget {
       {required this.text,
         required this.onPressed,
         this.invertedColors = false,
-        Key? key})
-      : super(key: key);
+        super.key});
   final primaryColor = const Color(0xff4338CA);
   final accentColor = const Color(0xffffffff);
 
@@ -1004,7 +1001,7 @@ class SimpleBtn1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ButtonStyle(
-            elevation: MaterialStateProperty.all(0),
+            elevation: WidgetStateProperty.all(0),
             alignment: Alignment.center,
             side: MaterialStateProperty.all(
                 BorderSide(width: 1, color: primaryColor)),
@@ -1026,7 +1023,7 @@ class SimpleBtn1 extends StatelessWidget {
 
 class EmailInputFb1 extends StatelessWidget {
   final TextEditingController inputController;
-  const EmailInputFb1({Key? key,required this.inputController}) : super(key: key);
+  const EmailInputFb1({super.key,required this.inputController});
 
 
   @override
@@ -1103,7 +1100,7 @@ gradient4(){
 
 class AnimatedPageIndicatorFb1 extends StatelessWidget {
   const AnimatedPageIndicatorFb1(
-      {Key? key,
+      {super.key,
         required this.currentPage,
         required this.numPages,
         this.dotHeight = 10,
@@ -1113,8 +1110,7 @@ class AnimatedPageIndicatorFb1 extends StatelessWidget {
         this.gradient =
         const LinearGradient(colors: [Color(0xff4338CA), Color(0xff6D28D9)]),
         this.activeGradient =
-        const LinearGradient(colors: [Color(0xff4338CA), Color(0xff6D28D9)])})
-      : super(key: key);
+        const LinearGradient(colors: [Color(0xff4338CA), Color(0xff6D28D9)])});
 
   final int currentPage; //the index of the active dot, i.e. the index of the page you're on
   final int numPages; //the total number of dots, i.e. the number of pages your displaying
@@ -1150,15 +1146,14 @@ class AnimatedPageIndicatorFb1 extends StatelessWidget {
 
 class AnimatedPageIndicatorDot extends StatelessWidget {
   const AnimatedPageIndicatorDot(
-      {Key? key,
+      {super.key,
         required this.isActive,
         this.height = 10,
         this.width = 10,
         this.activeWidth = 20,
         this.activeHeight = 10,
         required this.gradient,
-        required this.activeGradient})
-      : super(key: key);
+        required this.activeGradient});
 
   final bool isActive;
   final double height;
