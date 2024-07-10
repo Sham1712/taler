@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 const String col_uid = 'uid';
+const String col_ename = 'ename';
 const String col_name = 'name';
 const String col_address = 'address';
 const String col_gstin = 'gstin';
@@ -16,6 +17,7 @@ const String col_url = 'photo_url';
 
 class Users {
   String uid,
+      ename,
       name,
       crtime,
       email,
@@ -31,6 +33,7 @@ class Users {
   Users({
     required this.uid,
     required this.name,
+    required this.ename,
     required this.crtime,
     required this.logins,
     required this.email,
@@ -49,7 +52,7 @@ class Users {
         crtime: map[col_crtm],
         email: map[col_email] ?? '',
         url: map[col_url] ?? '',
-
+        ename: map[col_ename] ?? '',
         name: map[col_name] ?? '',
         address: map[col_address] ?? '',
         gstin: map[col_gstin] ?? '',
@@ -62,6 +65,7 @@ class Users {
   Map<String, dynamic> toMap() {
     return {
       col_uid: uid,
+      col_ename: ename,
       col_name: name,
       col_crtm: crtime,
       col_email: email,

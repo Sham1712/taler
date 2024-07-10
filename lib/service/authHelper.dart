@@ -1,4 +1,3 @@
-
 // ignore_for_file: file_names
 
 import 'dart:async';
@@ -13,19 +12,20 @@ import 'package:http/http.dart' as http;
 import '../constant/functions.dart';
 import '../object/users.dart';
 
-class AuthHelper{
-
+class AuthHelper {
   static FirebaseAuth firebaseauth = FirebaseAuth.instance;
 
   static User? get myuser => FirebaseAuth.instance.currentUser;
 
-  static DocumentReference get docuser => FirebaseFirestore.instance.doc('/Users/${myuser!.uid}');
+  static DocumentReference get docuser =>
+      FirebaseFirestore.instance.doc('/Users/${myuser!.uid}');
 
   Stream<User?> authchanges() => firebaseauth.authStateChanges();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<User?> signInGoogle() async {
-    const clientId = '398496650641-ukp9oios96n9ruu3pupqh114pddctq4k.apps.googleusercontent.com';
+    const clientId =
+        '398496650641-ukp9oios96n9ruu3pupqh114pddctq4k.apps.googleusercontent.com';
     const scopes = ['email', 'profile', 'openid'];
     const redirectUri = 'http://localhost';
 
@@ -59,7 +59,7 @@ class AuthHelper{
           idToken: idToken,
         );
         final userCredential = await _auth.signInWithCredential(credential);
-        //createUser();
+        createUser();
         return userCredential.user;
       }
     }
@@ -90,17 +90,41 @@ class AuthHelper{
   Future<void> signOut() async {
     await _auth.signOut();
   }
+
   Future<User?> signInAnonymously() async {
     UserCredential userCredential = await firebaseauth.signInAnonymously();
     return userCredential.user;
   }
 
   Stream<Users?> startup() {
-    addlogins();
-    return docuser.snapshots().map((data) => data.data()==null ? null : Users.fromMap(data.data() as Map<String,dynamic>));
+    return docuser.snapshots().map((data) {
+      if (data.data() == null) {
+        return null;
+      } else {
+        //addlogins();
+        return Users.fromMap(data.data() as Map<String, dynamic>);
+      }
+    });
   }
 
-  Future<void> createUser(Users users) async {
+  Future<void> createUser() async {
+    User? user = myuser;
+    Users users = Users(
+        uid: user!.uid,
+        ename: user.displayName!,
+        crtime: timenow,
+        logins: [timenow],
+        email: user.email!,
+        url: user.photoURL!,
+        name: '',
+        address: '',
+        gstin: '',
+        city: '',
+        pincode: '',
+        state: '',
+        mobileno: '',
+    );
+
     docuser.get().then((value) {
       if (value.exists) {
         return;
@@ -111,10 +135,17 @@ class AuthHelper{
     return;
   }
 
+  Future<void> updateUser(Users users) async {
+    docuser.update(users.toMap()).then((h){},onError: (e){
+      print(e.toString());
+    });
+    return;
+  }
+
   Future<void> addlogins() async {
     if (myuser != null) {
       docuser.update({
-        col_logins: FieldValue.arrayUnion([timenow.substring(0,16)])
+        col_logins: FieldValue.arrayUnion([timenow.substring(0, 16)])
       });
     } else {
       msg('Finish your login');

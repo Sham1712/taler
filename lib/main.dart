@@ -1,9 +1,13 @@
+import 'dart:isolate';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:taler/screen/company.dart';
 import 'package:taler/screen/home.dart';
 import 'package:taler/screen/login.dart';
@@ -15,11 +19,19 @@ import 'constant/widget.dart';
 import 'firebase_options.dart';
 import 'object/users.dart';
 
+void _isolateMain(RootIsolateToken rootIsolateToken) async {
+  BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken);
+  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  print(sharedPreferences.getBool('isDebug'));
+}
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  RootIsolateToken rootIsolateToken = RootIsolateToken.instance!;
+  Isolate.spawn(_isolateMain, rootIsolateToken);
   runApp(const App());
 }
 
@@ -65,8 +77,7 @@ class GetUser extends StatelessWidget {
       builder: (context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
           if (snapshot.hasData) {
-
-            return const Home();
+            //return const Home();
             return StreamBuilder<Users?>(
               stream: authHelper.startup(),
               builder: (context, AsyncSnapshot<Users?> snapshot) {

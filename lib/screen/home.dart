@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconly/iconly.dart';
-import 'package:taler/constant/functions.dart';
 import 'package:taler/screen/addproduct.dart';
+import 'package:taler/screen/product.dart';
 import 'package:taler/service/authHelper.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 
@@ -806,7 +806,7 @@ class _HomeState extends State<Home> {
                   ),
                   Builder(builder: (context){
                     if(pageindex==0){
-                      return Expanded(child: const AddProduct());
+                      return ProductPage();
                     }
                      return  Container(
                        child: const Center(

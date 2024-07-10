@@ -5,10 +5,12 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taler/constant/widget.dart';
 import 'package:taler/flutter_flow/flutter_flow_animations.dart';
-import 'package:taler/service/authHelper.dart';
+import 'package:taler/service/authHelper.dart ';
 
+import '../constant/functions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../object/users.dart';
 
 class Company extends StatefulWidget {
   const Company({super.key});
@@ -18,13 +20,13 @@ class Company extends StatefulWidget {
 }
 
 class _CompanyState extends State<Company> with TickerProviderStateMixin {
-  TextEditingController textController1 = TextEditingController(),
-      textController2 = TextEditingController(),
-      textController3 = TextEditingController(),
-      textController4 = TextEditingController(),
-      textController5 = TextEditingController(),
-      textController6 = TextEditingController(),
-      textController7 = TextEditingController();
+  TextEditingController namecon = TextEditingController(),
+      gstcon = TextEditingController(),
+      doorcon = TextEditingController(),
+      citycon = TextEditingController(),
+      pincodecon = TextEditingController(),
+      statecon = TextEditingController(),
+      phonecon = TextEditingController();
   FocusNode textFieldFocusNode1 = FocusNode(),
       textFieldFocusNode2 = FocusNode(),
       textFieldFocusNode3 = FocusNode(),
@@ -43,7 +45,6 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     animationsMap.addAll({
@@ -176,18 +177,26 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                           0.0,
                           0.0,
                         ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            'https://firebasestorage.googleapis.com/v0/b/firesamp-uhaalm.appspot.com/o/Team%20work-bro.png?alt=media&token=31ee41c5-0141-4645-8cfb-a6728be0b94f',
-                            width: 650.0,
-                            fit: BoxFit.cover,
+                        child: InkWell(
+                          onTap: (){
+                            AuthHelper().signOut();
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.network(
+                              'https://firebasestorage.googleapis.com/v0/b/firesamp-uhaalm.appspot.com/o/Team%20work-bro.png?alt=media&token=31ee41c5-0141-4645-8cfb-a6728be0b94f',
+                              width: 650.0,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            72.0, 0.0, 0.0, 0.0,
+                          72.0,
+                          0.0,
+                          0.0,
+                          0.0,
                         ),
                         child: Container(
                           width: 628.0,
@@ -201,17 +210,20 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                             children: [
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 48.0, 32.0, 0.0,
+                                  32.0,
+                                  48.0,
+                                  32.0,
+                                  0.0,
                                 ),
                                 child: TextFormField(
-                                  controller: textController1,
+                                  controller: namecon,
                                   focusNode: textFieldFocusNode1,
                                   autofocus: true,
                                   textCapitalization: TextCapitalization.words,
                                   textInputAction: TextInputAction.next,
                                   obscureText: false,
-                                  onChanged: (val){
-                                    isname=val.isEmpty;
+                                  onChanged: (val) {
+                                    isname = val.isNotEmpty;
                                   },
                                   decoration: InputDecoration(
                                     isDense: false,
@@ -284,7 +296,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     32.0, 24.0, 32.0, 0.0),
                                 child: TextFormField(
-                                  controller: textController2,
+                                  controller: gstcon,
                                   focusNode: textFieldFocusNode2,
                                   autofocus: true,
                                   textCapitalization:
@@ -393,15 +405,15 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                         padding: const EdgeInsetsDirectional
                                             .fromSTEB(16.0, 0.0, 16.0, 0.0),
                                         child: TextFormField(
-                                          controller: textController3,
+                                          controller: doorcon,
                                           focusNode: textFieldFocusNode3,
                                           autofocus: true,
                                           textCapitalization:
                                               TextCapitalization.words,
                                           textInputAction: TextInputAction.next,
                                           obscureText: false,
-                                          onChanged: (val){
-                                            isdoor =val.isEmpty;
+                                          onChanged: (val) {
+                                            isdoor = val.isNotEmpty;
                                           },
                                           decoration: InputDecoration(
                                             labelText: 'Door No., Street Name',
@@ -492,7 +504,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                         .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 child: TextFormField(
-                                                  controller: textController4,
+                                                  controller: citycon,
                                                   focusNode:
                                                       textFieldFocusNode4,
                                                   autofocus: true,
@@ -501,8 +513,8 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                   textInputAction:
                                                       TextInputAction.next,
                                                   obscureText: false,
-                                                  onChanged: (val){
-                                                    iscity =val.isEmpty;
+                                                  onChanged: (val) {
+                                                    iscity = val.isNotEmpty;
                                                   },
                                                   decoration: InputDecoration(
                                                     labelText: 'City',
@@ -601,15 +613,15 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                         .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 child: TextFormField(
-                                                  controller: textController5,
+                                                  controller: pincodecon,
                                                   focusNode:
                                                       textFieldFocusNode5,
                                                   autofocus: true,
                                                   textInputAction:
                                                       TextInputAction.next,
                                                   obscureText: false,
-                                                  onChanged: (val){
-                                                    ispin =val.isEmpty;
+                                                  onChanged: (val) {
+                                                    ispin = val.isNotEmpty;
                                                   },
                                                   decoration: InputDecoration(
                                                     labelText: 'Pincode',
@@ -716,7 +728,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                         .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 child: TextFormField(
-                                                  controller: textController6,
+                                                  controller: statecon,
                                                   focusNode:
                                                       textFieldFocusNode6,
                                                   autofocus: true,
@@ -725,8 +737,8 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                   textInputAction:
                                                       TextInputAction.next,
                                                   obscureText: false,
-                                                  onChanged: (val){
-                                                    isstate=val.isEmpty;
+                                                  onChanged: (val) {
+                                                    isstate = val.isNotEmpty;
                                                   },
                                                   decoration: InputDecoration(
                                                     labelText: 'State',
@@ -820,15 +832,15 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                         .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 child: TextFormField(
-                                                  controller: textController7,
+                                                  controller: phonecon,
                                                   focusNode:
                                                       textFieldFocusNode7,
                                                   autofocus: true,
                                                   textInputAction:
                                                       TextInputAction.done,
                                                   obscureText: false,
-                                                  onChanged: (val){
-                                                    isphone=val.isEmpty;
+                                                  onChanged: (val) {
+                                                    isphone = val.isNotEmpty;
                                                   },
                                                   decoration: InputDecoration(
                                                     labelText: 'Contact Number',
@@ -936,81 +948,97 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                       0.0, 36.0, 36.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      if (isname == false) {
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation1'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation1']!
+                                              .controller
+                                              .forward(from: 0.0);
+                                        }
+                                        return;
+                                      }
+                                      if (isdoor == false) {
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation2'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation2']!
+                                              .controller
+                                              .forward(from: 0.0);
+                                        }
+                                        return;
+                                      }
+                                      if (iscity == false) {
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation3'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation3']!
+                                              .controller
+                                              .forward(from: 0.0);
+                                        }
+                                        return;
+                                      }
+                                      if (ispin == false) {
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation4'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation4']!
+                                              .controller
+                                              .forward(from: 0.0);
+                                        }
+                                        return;
+                                      }
+                                      if (isstate == false) {
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation5'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation5']!
+                                              .controller
+                                              .forward(from: 0.0);
+                                        }
+                                        return;
+                                      }
+                                      if (isphone == false) {
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation6'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation6']!
+                                              .controller
+                                              .forward(from: 0.0);
+                                        }
+                                        return;
+                                      }
+
                                       if (!isname &&
                                           !isdoor &&
                                           !iscity &&
                                           !ispin &&
                                           !isstate &&
                                           !isphone) {
-
-                                        //AuthHelper().createUser(Users(uid: user.uid, name: user.displayName!, crtime: timenow, logins: [timenow], email: user.email!, url: user.photoURL!, address: , gstin: , city: , pincode: , state: , mobileno: ,));
-
-                                      } else {
-
-                                        if (isname == false) {
-
-                                          if (animationsMap[
-                                                  'textFieldOnActionTriggerAnimation1'] !=
-                                              null) {
-                                            await animationsMap[
-                                                    'textFieldOnActionTriggerAnimation1']!
-                                                .controller
-                                                .forward(from: 0.0);
-                                          }
-
-                                        }
-
-
-                                        if (isdoor == false) {
-                                          if (animationsMap[
-                                                  'textFieldOnActionTriggerAnimation2'] !=
-                                              null) {
-                                            await animationsMap[
-                                                    'textFieldOnActionTriggerAnimation2']!
-                                                .controller
-                                                .forward(from: 0.0);
-                                          }
-                                        }
-                                        if (iscity == false) {
-                                          if (animationsMap[
-                                                  'textFieldOnActionTriggerAnimation3'] !=
-                                              null) {
-                                            await animationsMap[
-                                                    'textFieldOnActionTriggerAnimation3']!
-                                                .controller
-                                                .forward(from: 0.0);
-                                          }
-                                        }
-                                        if (ispin == false) {
-                                          if (animationsMap[
-                                                  'textFieldOnActionTriggerAnimation4'] !=
-                                              null) {
-                                            await animationsMap[
-                                                    'textFieldOnActionTriggerAnimation4']!
-                                                .controller
-                                                .forward(from: 0.0);
-                                          }
-                                        }
-                                        if (isstate == false) {
-                                          if (animationsMap[
-                                                  'textFieldOnActionTriggerAnimation5'] !=
-                                              null) {
-                                            await animationsMap[
-                                                    'textFieldOnActionTriggerAnimation5']!
-                                                .controller
-                                                .forward(from: 0.0);
-                                          }
-                                        }
-                                        if (isphone == false) {
-                                          if (animationsMap[
-                                                  'textFieldOnActionTriggerAnimation6'] !=
-                                              null) {
-                                            await animationsMap[
-                                                    'textFieldOnActionTriggerAnimation6']!
-                                                .controller
-                                                .forward(from: 0.0);
-                                          }
-                                        }
+                                        User user = AuthHelper.myuser!;
+                                        AuthHelper().updateUser(
+                                          Users(
+                                            uid: user.uid,
+                                            ename: user.displayName!,
+                                            name: namecon.text,
+                                            crtime: timenow,
+                                            logins: [timenow],
+                                            email: user.email!,
+                                            url: user.photoURL!,
+                                            address: doorcon.text,
+                                            gstin: gstcon.text,
+                                            city: citycon.text,
+                                            pincode: pincodecon.text,
+                                            state: statecon.text,
+                                            mobileno: phonecon.text,
+                                          ),
+                                        );
                                       }
                                     },
                                     text: 'Submit',
