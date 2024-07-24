@@ -4,8 +4,9 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firedart/firestore/firestore.dart';
+import 'package:firedart/firestore/models.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 
@@ -18,7 +19,7 @@ class AuthHelper {
   static User? get myuser => FirebaseAuth.instance.currentUser;
 
   static DocumentReference get docuser =>
-      FirebaseFirestore.instance.doc('/Users/${myuser!.uid}');
+      Firestore.instance.document('/Users/${myuser!.uid}');
 
   Stream<User?> authchanges() => firebaseauth.authStateChanges();
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -96,15 +97,8 @@ class AuthHelper {
     return userCredential.user;
   }
 
-  Stream<Users?> startup() {
-    return docuser.snapshots().map((data) {
-      if (data.data() == null) {
-        return null;
-      } else {
-        //addlogins();
-        return Users.fromMap(data.data() as Map<String, dynamic>);
-      }
-    });
+  Future<Users?> startup() async{
+    return Users.fromMap((await docuser.get()).map);
   }
 
   Future<void> createUser() async {
@@ -126,7 +120,7 @@ class AuthHelper {
     );
 
     docuser.get().then((value) {
-      if (value.exists) {
+      if (value.map.isEmpty) {
         return;
       } else {
         docuser.set(users.toMap());
@@ -144,8 +138,10 @@ class AuthHelper {
 
   Future<void> addlogins() async {
     if (myuser != null) {
+      List<String> logins = (await docuser.get()).map[col_logins];
+      logins.add(timenow.substring(0, 16));
       docuser.update({
-        col_logins: FieldValue.arrayUnion([timenow.substring(0, 16)])
+        col_logins: logins
       });
     } else {
       msg('Finish your login');

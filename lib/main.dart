@@ -2,6 +2,7 @@ import 'dart:isolate';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firedart/firedart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,23 +16,13 @@ import 'package:taler/service/authHelper.dart';
 import '../constant/functions.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'constant/color.dart';
-import 'constant/widget.dart';
 import 'firebase_options.dart';
 import 'object/users.dart';
 
-void _isolateMain(RootIsolateToken rootIsolateToken) async {
-  BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken);
-  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  print(sharedPreferences.getBool('isDebug'));
-}
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  RootIsolateToken rootIsolateToken = RootIsolateToken.instance!;
-  Isolate.spawn(_isolateMain, rootIsolateToken);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  Firestore.initialize('taler-shop');
   runApp(const App());
 }
 
@@ -42,27 +33,25 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(1000, 500),
-        builder: (BuildContext context,Widget? child) {
+        builder: (BuildContext context, Widget? child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               primaryColor: cr_pri,
-              appBarTheme: AppBarTheme(
-                  backgroundColor: Theme.of(context).primaryColor
-              ),
+              appBarTheme:
+                  AppBarTheme(backgroundColor: Theme.of(context).primaryColor),
               textTheme: null,
             ),
             initialRoute: '/',
             routes: {
               '/splash': (context) => const Spalsh(),
-              '/': (context) =>  GetUser(),
+              '/': (context) => GetUser(),
               '/login': (context) => const Login(),
               '/company': (context) => const Company(),
               //'/': (context) => (),
             },
           );
-        }
-    );
+        });
   }
 }
 
@@ -78,15 +67,16 @@ class GetUser extends StatelessWidget {
         if (snapshot.connectionState != ConnectionState.done) {
           if (snapshot.hasData) {
             //return const Home();
-            return StreamBuilder<Users?>(
-              stream: authHelper.startup(),
+            return FutureBuilder<Users?>(
+              future: authHelper.startup(),
               builder: (context, AsyncSnapshot<Users?> snapshot) {
+                return const Home();
                 if (!snapshot.hasError) {
-                  if (snapshot.connectionState != ConnectionState.done) {
+                  if (snapshot.connectionState != ConnectionState.active) {
                     if (snapshot.data == null) {
-                      return const Company();
-                    }else {
                       return const Home();
+                    } else {
+                      return const Company();
                     }
                   }
                   return const Loading();
@@ -95,9 +85,6 @@ class GetUser extends StatelessWidget {
                 }
               },
             );
-
-
-
           } else {
             return const Login();
           }
@@ -111,7 +98,6 @@ class GetUser extends StatelessWidget {
   }
 }
 
-
 class Loading extends StatelessWidget {
   const Loading({Key? key}) : super(key: key);
 
@@ -124,7 +110,7 @@ class Loading extends StatelessWidget {
           height: double.infinity,
           color: cr_pri.withOpacity(0.7),
           child:
-          LoadingAnimationWidget.halfTriangleDot(color: cr_wht, size: 50),
+              LoadingAnimationWidget.halfTriangleDot(color: cr_wht, size: 50),
         ),
       ),
     );
@@ -174,7 +160,6 @@ class Inform extends StatelessWidget {
     );
   }
 }
-
 
 class _SpalshState extends State<Spalsh> {
   @override

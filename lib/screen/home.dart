@@ -1,13 +1,8 @@
-
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iconly/iconly.dart';
-import 'package:taler/screen/addproduct.dart';
-import 'package:taler/screen/product.dart';
-import 'package:taler/service/authHelper.dart';
+import 'package:badges/badges.dart' as badges;
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,804 +12,1761 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   bool compactView = false;
-  int pageindex = 0;
+  int pageindex = 0,page=0;
+  
+  bool mouseRegionHovered1 = true,
+      mouseRegionHovered2 = true,
+      mouseRegionHovered3 = true,
+      mouseRegionHovered4 = true,
+      mouseRegionHovered5 = true,
+      mouseRegionHovered6 = true,
+      mouseRegionHovered7 = true,
+      mouseRegionHovered8 = true,
+      mouseRegionHovered9 = true; 
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+    return Scaffold(
+      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       body: SafeArea(
         top: true,
-        child: Column(
+        child: Row(
           mainAxisSize: MainAxisSize.max,
           children: [
             Container(
-              width: double.infinity,
-              height: 70.0,
+              width: compactView == false ? 212.0 : 96.0,
+              height: MediaQuery.sizeOf(context).height * 1.0,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
+                color: FlutterFlowTheme.of(context).primaryBackground,
+                borderRadius: BorderRadius.circular(0.0),
+                shape: BoxShape.rectangle,
               ),
-              child: Row(
+              child: Column(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                    child: Icon(
-                      Icons.biotech_outlined,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      size: 36.0,
-                    ),
-                  ),
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: const AlignmentDirectional(-1.0, -1.0),
-                        child: Text(
-                          'Taler',
-                          style: FlutterFlowTheme.of(context)
-                              .titleLarge
-                              .override(
-                            fontFamily: 'Outfit',
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w500,
+                  Expanded(
+                    child: Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          borderRadius: BorderRadius.circular(32.0),
+                          border: Border.all(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            width: 2.0,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    valueOrDefault<double>(
+                                      compactView == true ? 8.0 : 0.0,
+                                      0.0,
+                                    ),
+                                    0.0,
+                                    8.0,
+                                    0.0),
+                                child: Icon(
+                                  Icons.biotech_outlined,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 36.0,
+                                ),
+                              ),
+                              if (compactView == false)
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 16.0, 0.0),
+                                  child: Text(
+                                    'Taler',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Noto Sans',
+                                          fontSize: 32.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w800,
+                                        ),
+                                  ),
+                                ),
+                            ],
                           ),
                         ),
                       ),
-                      Text(
-                        'Smart Textile Garments',
-                        style: FlutterFlowTheme.of(context)
-                            .bodyLarge
-                            .override(
-                          fontFamily: 'Readex Pro',
-                          color:
-                          FlutterFlowTheme.of(context).secondaryText,
-                          fontSize: 18.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                  const Spacer(),
-                  Padding(
-                    padding:
-                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.solidBell,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
+                  Expanded(
+                    flex: 5,
+                    child: SingleChildScrollView(
+                      primary: false,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          MouseRegion(
+                            opaque: false,
+                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            onEnter: ((event) async {
+                              setState(() => mouseRegionHovered1 = true);
+                            }),
+                            onExit: ((event) async {
+                              setState(() => mouseRegionHovered1 = false);
+                            }),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  pageindex = 0;
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  height: 48.0,
+                                  decoration: BoxDecoration(
+                                    color: mouseRegionHovered1 == true
+                                        ? (pageindex == 0
+                                            ? const Color(0x00000000)
+                                            : const Color(0xFFEEEEEE))
+                                        : const Color(0x00000000),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      if (pageindex == 0)
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -1.0, 0.0),
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                            child: Container(
+                                              width: 0.5,
+                                              height: double.infinity,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                border: Border.all(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (pageindex == 0)
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -1.0, 0.0),
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                            child: Container(
+                                              width: 6.0,
+                                              height: double.infinity,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                borderRadius:
+                                                    const BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(2.0),
+                                                  bottomRight:
+                                                      Radius.circular(24.0),
+                                                  topLeft: Radius.circular(2.0),
+                                                  topRight:
+                                                      Radius.circular(24.0),
+                                                ),
+                                                border: Border.all(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Align(
+                                          alignment: AlignmentDirectional(
+                                              valueOrDefault<double>(
+                                                compactView == false
+                                                    ? 1.0
+                                                    : 0.0,
+                                                0.0,
+                                              ),
+                                              0.0),
+                                          child: Icon(
+                                            Icons.pages,
+                                            color: pageindex == 0
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            size: pageindex == 0 ? 22.0 : 20.0,
+                                          ),
+                                        ),
+                                      ),
+                                      if (compactView == false)
+                                        Expanded(
+                                          flex: 8,
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Sales',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    color: pageindex == 0
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    fontSize: 18.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          MouseRegion(
+                            opaque: false,
+                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            onEnter: ((event) async {
+                              setState(() => mouseRegionHovered2 = true);
+                            }),
+                            onExit: ((event) async {
+                              setState(() => mouseRegionHovered2 = false);
+                            }),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  pageindex = 1;
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  height: 48.0,
+                                  decoration: BoxDecoration(
+                                    color: mouseRegionHovered2 == true
+                                        ? (pageindex == 1
+                                            ? const Color(0x00000000)
+                                            : const Color(0xFFEEEEEE))
+                                        : const Color(0x00000000),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      if (pageindex == 1)
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -1.0, 0.0),
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                            child: Container(
+                                              width: 0.5,
+                                              height: double.infinity,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                border: Border.all(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (pageindex == 1)
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -1.0, 0.0),
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                            child: Container(
+                                              width: 6.0,
+                                              height: double.infinity,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                borderRadius:
+                                                    const BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(2.0),
+                                                  bottomRight:
+                                                      Radius.circular(24.0),
+                                                  topLeft: Radius.circular(2.0),
+                                                  topRight:
+                                                      Radius.circular(24.0),
+                                                ),
+                                                border: Border.all(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Align(
+                                          alignment: AlignmentDirectional(
+                                              valueOrDefault<double>(
+                                                compactView == false
+                                                    ? 1.0
+                                                    : 0.0,
+                                                0.0,
+                                              ),
+                                              0.0),
+                                          child: Icon(
+                                            Icons.shopping_cart_outlined,
+                                            color: pageindex == 1
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            size: pageindex == 1 ? 22.0 : 20.0,
+                                          ),
+                                        ),
+                                      ),
+                                      if (compactView == false)
+                                        Expanded(
+                                          flex: 8,
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Purchases',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    color: pageindex == 1
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          MouseRegion(
+                            opaque: false,
+                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            onEnter: ((event) async {
+                              setState(() => mouseRegionHovered3 = true);
+                            }),
+                            onExit: ((event) async {
+                              setState(() => mouseRegionHovered3 = false);
+                            }),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  pageindex = 2;
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  height: 48.0,
+                                  decoration: BoxDecoration(
+                                    color: mouseRegionHovered3 == true
+                                        ? (pageindex == 2
+                                            ? const Color(0x00000000)
+                                            : const Color(0xFFEEEEEE))
+                                        : const Color(0x00000000),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      if (pageindex == 2)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 0.5,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (pageindex == 2)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 6.0,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(2.0),
+                                                bottomRight:
+                                                    Radius.circular(24.0),
+                                                topLeft: Radius.circular(2.0),
+                                                topRight: Radius.circular(24.0),
+                                              ),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Align(
+                                          alignment: AlignmentDirectional(
+                                              valueOrDefault<double>(
+                                                compactView == false
+                                                    ? 1.0
+                                                    : 0.0,
+                                                0.0,
+                                              ),
+                                              0.0),
+                                          child: Icon(
+                                            Icons.person_outline,
+                                            color: pageindex == 2
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            size: pageindex == 2 ? 22.0 : 20.0,
+                                          ),
+                                        ),
+                                      ),
+                                      if (compactView == false)
+                                        Expanded(
+                                          flex: 8,
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Customers',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    color: pageindex == 2
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          MouseRegion(
+                            opaque: false,
+                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            onEnter: ((event) async {
+                              setState(() => mouseRegionHovered4 = true);
+                            }),
+                            onExit: ((event) async {
+                              setState(() => mouseRegionHovered4 = false);
+                            }),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  pageindex = 3;
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  height: 48.0,
+                                  decoration: BoxDecoration(
+                                    color: mouseRegionHovered4 == true
+                                        ? (pageindex == 3
+                                            ? const Color(0x00000000)
+                                            : const Color(0xFFEEEEEE))
+                                        : const Color(0x00000000),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      if (pageindex == 3)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 0.5,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (pageindex == 3)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 6.0,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(2.0),
+                                                bottomRight:
+                                                    Radius.circular(24.0),
+                                                topLeft: Radius.circular(2.0),
+                                                topRight: Radius.circular(24.0),
+                                              ),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Align(
+                                          alignment: AlignmentDirectional(
+                                              valueOrDefault<double>(
+                                                compactView == false
+                                                    ? 1.0
+                                                    : 0.0,
+                                                0.0,
+                                              ),
+                                              0.0),
+                                          child: Icon(
+                                            Icons.groups_outlined,
+                                            color: pageindex == 3
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            size: pageindex == 3 ? 22.0 : 20.0,
+                                          ),
+                                        ),
+                                      ),
+                                      if (compactView == false)
+                                        Expanded(
+                                          flex: 8,
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Vendors',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    color: pageindex == 3
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          MouseRegion(
+                            opaque: false,
+                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            onEnter: ((event) async {
+                              setState(() => mouseRegionHovered5 = true);
+                            }),
+                            onExit: ((event) async {
+                              setState(() => mouseRegionHovered5 = false);
+                            }),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  pageindex = 4;
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  height: 48.0,
+                                  decoration: BoxDecoration(
+                                    color: mouseRegionHovered5 == true
+                                        ? (pageindex == 4
+                                            ? const Color(0x00000000)
+                                            : const Color(0xFFEEEEEE))
+                                        : const Color(0x00000000),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      if (pageindex == 4)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 0.5,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (pageindex == 4)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 6.0,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(2.0),
+                                                bottomRight:
+                                                    Radius.circular(24.0),
+                                                topLeft: Radius.circular(2.0),
+                                                topRight: Radius.circular(24.0),
+                                              ),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Align(
+                                          alignment: AlignmentDirectional(
+                                              valueOrDefault<double>(
+                                                compactView == false
+                                                    ? 1.0
+                                                    : 0.0,
+                                                0.0,
+                                              ),
+                                              0.0),
+                                          child: Icon(
+                                            Icons.add_circle_outline_rounded,
+                                            color: pageindex == 4
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            size: pageindex == 4 ? 22.0 : 20.0,
+                                          ),
+                                        ),
+                                      ),
+                                      if (compactView == false)
+                                        Expanded(
+                                          flex: 8,
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Products',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    color: pageindex == 4
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          MouseRegion(
+                            opaque: false,
+                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            onEnter: ((event) async {
+                              setState(() => mouseRegionHovered6 = true);
+                            }),
+                            onExit: ((event) async {
+                              setState(() => mouseRegionHovered6 = false);
+                            }),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  pageindex = 5;
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  height: 48.0,
+                                  decoration: BoxDecoration(
+                                    color: mouseRegionHovered6 == true
+                                        ? (pageindex == 5
+                                            ? const Color(0x00000000)
+                                            : const Color(0xFFEEEEEE))
+                                        : const Color(0x00000000),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      if (pageindex == 5)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 0.5,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (pageindex == 5)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 6.0,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(2.0),
+                                                bottomRight:
+                                                    Radius.circular(24.0),
+                                                topLeft: Radius.circular(2.0),
+                                                topRight: Radius.circular(24.0),
+                                              ),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Align(
+                                          alignment: AlignmentDirectional(
+                                              valueOrDefault<double>(
+                                                compactView == false
+                                                    ? 1.0
+                                                    : 0.0,
+                                                0.0,
+                                              ),
+                                              0.0),
+                                          child: Icon(
+                                            Icons.attach_money_rounded,
+                                            color: pageindex == 5
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            size: pageindex == 5 ? 22.0 : 20.0,
+                                          ),
+                                        ),
+                                      ),
+                                      if (compactView == false)
+                                        Expanded(
+                                          flex: 8,
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Payments',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    color: pageindex == 5
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          MouseRegion(
+                            opaque: false,
+                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            onEnter: ((event) async {
+                              setState(() => mouseRegionHovered7 = true);
+                            }),
+                            onExit: ((event) async {
+                              setState(() => mouseRegionHovered7 = false);
+                            }),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  pageindex = 6;
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  height: 48.0,
+                                  decoration: BoxDecoration(
+                                    color: mouseRegionHovered7 == true
+                                        ? (pageindex == 6
+                                            ? const Color(0x00000000)
+                                            : const Color(0xFFEEEEEE))
+                                        : const Color(0x00000000),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      if (pageindex == 6)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 0.5,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (pageindex == 6)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 6.0,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(2.0),
+                                                bottomRight:
+                                                    Radius.circular(24.0),
+                                                topLeft: Radius.circular(2.0),
+                                                topRight: Radius.circular(24.0),
+                                              ),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Align(
+                                          alignment: AlignmentDirectional(
+                                              valueOrDefault<double>(
+                                                compactView == false
+                                                    ? 1.0
+                                                    : 0.0,
+                                                0.0,
+                                              ),
+                                              0.0),
+                                          child: Icon(
+                                            Icons.dashboard_outlined,
+                                            color: pageindex == 6
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            size: pageindex == 6 ? 22.0 : 20.0,
+                                          ),
+                                        ),
+                                      ),
+                                      if (compactView == false)
+                                        Expanded(
+                                          flex: 8,
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Dashboard',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    color: pageindex == 6
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          MouseRegion(
+                            opaque: false,
+                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            onEnter: ((event) async {
+                              setState(() => mouseRegionHovered8 = true);
+                            }),
+                            onExit: ((event) async {
+                              setState(() => mouseRegionHovered8 = false);
+                            }),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  pageindex = 7;
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  height: 48.0,
+                                  decoration: BoxDecoration(
+                                    color: mouseRegionHovered8 == true
+                                        ? (pageindex == 7
+                                            ? const Color(0x00000000)
+                                            : const Color(0xFFEEEEEE))
+                                        : const Color(0x00000000),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      if (pageindex == 7)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 0.5,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (pageindex == 7)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 6.0,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(2.0),
+                                                bottomRight:
+                                                    Radius.circular(24.0),
+                                                topLeft: Radius.circular(2.0),
+                                                topRight: Radius.circular(24.0),
+                                              ),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Align(
+                                          alignment: AlignmentDirectional(
+                                              valueOrDefault<double>(
+                                                compactView == false
+                                                    ? 1.0
+                                                    : 0.0,
+                                                0.0,
+                                              ),
+                                              0.0),
+                                          child: Icon(
+                                            Icons.attach_money_rounded,
+                                            color: pageindex == 7
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            size: pageindex == 7 ? 22.0 : 20.0,
+                                          ),
+                                        ),
+                                      ),
+                                      if (compactView == false)
+                                        Expanded(
+                                          flex: 8,
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Expenses',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    color: pageindex == 7
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          MouseRegion(
+                            opaque: false,
+                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            onEnter: ((event) async {
+                              setState(() => mouseRegionHovered9 = true);
+                            }),
+                            onExit: ((event) async {
+                              setState(() => mouseRegionHovered9 = false);
+                            }),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  pageindex = 8;
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  height: 48.0,
+                                  decoration: BoxDecoration(
+                                    color: mouseRegionHovered9 == true
+                                        ? (pageindex == 8
+                                            ? const Color(0x00000000)
+                                            : const Color(0xFFEEEEEE))
+                                        : const Color(0x00000000),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      if (pageindex == 8)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 0.5,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (pageindex == 8)
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 2.0, 0.0, 2.0),
+                                          child: Container(
+                                            width: 6.0,
+                                            height: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(2.0),
+                                                bottomRight:
+                                                    Radius.circular(24.0),
+                                                topLeft: Radius.circular(2.0),
+                                                topRight: Radius.circular(24.0),
+                                              ),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Align(
+                                          alignment: AlignmentDirectional(
+                                              valueOrDefault<double>(
+                                                compactView == false
+                                                    ? 1.0
+                                                    : 0.0,
+                                                0.0,
+                                              ),
+                                              0.0),
+                                          child: Icon(
+                                            Icons.settings_outlined,
+                                            color: pageindex == 8
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            size: pageindex == 8 ? 22.0 : 20.0,
+                                          ),
+                                        ),
+                                      ),
+                                      if (compactView == false)
+                                        Expanded(
+                                          flex: 8,
+                                          child: Padding(
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Settings',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    color: pageindex == 8
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 10.w),
-                    child: ClipOval(
-                      child: CachedNetworkImage(
-                        imageUrl: AuthHelper.myuser!.photoURL!,
-                        fit: BoxFit.cover,
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        8.0, 4.0, 4.0, 0.0),
+                    child: Container(
+                      height: 48.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        shape: BoxShape.rectangle,
                       ),
-                    )
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          badges.Badge(
+                            badgeContent: Text(
+                              '1',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    color: Colors.white,
+                                    fontSize: 10.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            showBadge: true,
+                            shape: badges.BadgeShape.circle,
+                            badgeColor:
+                                FlutterFlowTheme.of(context).primaryText,
+                            elevation: 0.0,
+                            padding: const EdgeInsets.all(6.0),
+                            position: badges.BadgePosition.topStart(),
+                            animationType: badges.BadgeAnimationType.scale,
+                            toAnimate: false,
+                            child: Container(
+                              clipBehavior: Clip.antiAlias,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                              ),
+                              child: Image.network(
+                                ,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          if (compactView == false)
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 0.0, 0.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Welcome Back!',
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                          child: Icon(
+                                            Icons.keyboard_arrow_right_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 18.0,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Text(
+                                      'Smart Textile',
+                                      textAlign: TextAlign.start,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontSize: 18.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 32.0, 0.0, 32.0),
+                      child: Builder(
+                        builder: (context) {
+                          if (compactView == false) {
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                compactView = true;
+                                setState(() {});
+                              },
+                              child: Icon(
+                                Icons.menu_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 24.0,
+                              ),
+                            );
+                          } else {
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                compactView = false;
+                                setState(() {});
+                              },
+                              child: Icon(
+                                Icons.filter_list_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 24.0,
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
             Expanded(
-              child: Row(
+              child: Column(
                 mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Container(
-                    width: compactView == false ? 250.0 : 100.0,
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, -1.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'Products',
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineLarge
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      fontSize: 32.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ),
+                          ),
+                          const Expanded(
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [],
+                            ),
+                          ),
+              Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * 0.3,
+                    height: MediaQuery.sizeOf(context).height * 0.07,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
-                        topLeft: Radius.circular(0.0),
-                        topRight: Radius.circular(0.0),
-                      ),
-                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
-                    child: Column(
+                    child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 24.0, 0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Icon(
-                                Icons.navigation_rounded,
-                                color:
-                                FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
-                              ),
-                              if (compactView == false)
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Navigation Bar',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                            fontFamily: 'Readex Pro',
-                                            color:
-                                            FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 4.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Hello there!',
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelSmall
-                                                .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                        Flexible(
+                          child: Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding:
+                              EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  page = 1;
+                                  setState(() {});
+                                },
+                                child: Material(
+                                  color: Colors.transparent,
+                                  elevation: page == 1 ? 1.5 : 0.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                ),
-                              if (compactView == true)
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    compactView = false;
-                                    setState(() {});
-                                  },
                                   child: Container(
-                                    width: 24.0,
-                                    height: 48.0,
+                                    width: MediaQuery.sizeOf(context).width * 0.333,
+                                    height: MediaQuery.sizeOf(context).height * 0.5,
                                     decoration: BoxDecoration(
-                                      color:
-                                      FlutterFlowTheme.of(context).primary,
-                                      borderRadius: const BorderRadius.only(
-                                        bottomLeft: Radius.circular(48.0),
-                                        bottomRight: Radius.circular(0.0),
-                                        topLeft: Radius.circular(48.0),
-                                        topRight: Radius.circular(0.0),
+                                      color: page == 1
+                                          ? Colors.white
+                                          : FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Text(
+                                        'View',
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .override(
+                                          fontFamily: 'Inter',
+                                          color: page == 1
+                                              ? FlutterFlowTheme.of(context)
+                                              .primaryText
+                                              : FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: page == 1 ? 20.0 : 18.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
-                                    child: Icon(
-                                      Icons.keyboard_arrow_left_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 16.0,
-                                    ),
                                   ),
                                 ),
-                            ],
+                              ),
+                            ),
                           ),
                         ),
-                        const Divider(
-                          height: 48.0,
-                          thickness: 1.0,
-                          indent: 24.0,
-                          endIndent: 24.0,
-                          color: Color(0xFFF2F2F2),
-                        ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    pageindex = 0;
-                                    setState(() {});
-                                  },
+                        Flexible(
+                          child: Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding:
+                              EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  page = 2;
+                                  setState(() {});
+                                },
+                                child: Material(
+                                  color: Colors.transparent,
+                                  elevation: page == 2 ? 1.5 : 0.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
                                   child: Container(
-                                    height: 48.0,
+                                    width: MediaQuery.sizeOf(context).width * 0.333,
+                                    height: MediaQuery.sizeOf(context).height * 0.5,
                                     decoration: BoxDecoration(
-                                      color: pageindex == 0
-                                          ? FlutterFlowTheme.of(context).primary
+                                      color: page == 2
+                                          ? Colors.white
                                           : FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(16.0),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: Icon(
-                                            IconlyLight.category,
-                                            color: pageindex == 0
-                                                ? FlutterFlowTheme.of(context)
-                                                .tertiary
-                                                : FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 20.0,
-                                          ),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Text(
+                                        'Create',
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .override(
+                                          fontFamily: 'Inter',
+                                          color: page == 2
+                                              ? FlutterFlowTheme.of(context)
+                                              .primaryText
+                                              : FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: page == 2 ? 20.0 : 18.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                        if (compactView == false)
-                                          Expanded(
-                                            flex: 8,
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Dashboard',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: pageindex ==
-                                                      0
-                                                      ? FlutterFlowTheme.of(
-                                                      context)
-                                                      .tertiary
-                                                      : FlutterFlowTheme.of(
-                                                      context)
-                                                      .secondaryText,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.w500,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
-                                        ),
-                                      ],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    pageindex = 1;
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    height: 48.0,
-                                    decoration: BoxDecoration(
-                                      color: pageindex == 1
-                                          ? FlutterFlowTheme.of(context).primary
-                                          : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: Icon(
-                                            IconlyLight.paper,
-                                            color: pageindex == 1
-                                                ? const Color(0xFF63AEFF)
-                                                : FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 20.0,
-                                          ),
-                                        ),
-                                        if (compactView == false)
-                                          Expanded(
-                                            flex: 8,
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Products',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: pageindex ==
-                                                      1
-                                                      ? const Color(0xFF63AEFF)
-                                                      : FlutterFlowTheme.of(
-                                                      context)
-                                                      .secondaryText,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.w500,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    pageindex = 2;
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    height: 48.0,
-                                    decoration: BoxDecoration(
-                                      color: pageindex == 2
-                                          ? FlutterFlowTheme.of(context).primary
-                                          : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: Icon(
-                                            Icons.person_outline,
-                                            color: pageindex == 2
-                                                ? FlutterFlowTheme.of(context)
-                                                .tertiary
-                                                : FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 20.0,
-                                          ),
-                                        ),
-                                        if (compactView == false)
-                                          Expanded(
-                                            flex: 8,
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Customers',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: pageindex ==
-                                                      2
-                                                      ? FlutterFlowTheme.of(
-                                                      context)
-                                                      .tertiary
-                                                      : FlutterFlowTheme.of(
-                                                      context)
-                                                      .secondaryText,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.w500,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    pageindex = 3;
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    height: 48.0,
-                                    decoration: BoxDecoration(
-                                      color: pageindex == 3
-                                          ? FlutterFlowTheme.of(context).primary
-                                          : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: Icon(
-                                            Icons.groups_outlined,
-                                            color: pageindex == 3
-                                                ? FlutterFlowTheme.of(context)
-                                                .tertiary
-                                                : FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 20.0,
-                                          ),
-                                        ),
-                                        if (compactView == false)
-                                          Expanded(
-                                            flex: 8,
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Vendors',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: pageindex ==
-                                                      3
-                                                      ? FlutterFlowTheme.of(
-                                                      context)
-                                                      .tertiary
-                                                      : FlutterFlowTheme.of(
-                                                      context)
-                                                      .secondaryText,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.w500,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    pageindex = 4;
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    height: 48.0,
-                                    decoration: BoxDecoration(
-                                      color: pageindex == 4
-                                          ? FlutterFlowTheme.of(context).primary
-                                          : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: Icon(
-                                            IconlyLight.document,
-                                            color: pageindex == 4
-                                                ? FlutterFlowTheme.of(context)
-                                                .tertiary
-                                                : FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 20.0,
-                                          ),
-                                        ),
-                                        if (compactView == false)
-                                          Expanded(
-                                            flex: 8,
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Sales',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: pageindex ==
-                                                      4
-                                                      ? FlutterFlowTheme.of(
-                                                      context)
-                                                      .tertiary
-                                                      : FlutterFlowTheme.of(
-                                                      context)
-                                                      .secondaryText,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.w500,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    pageindex = 5;
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    height: 48.0,
-                                    decoration: BoxDecoration(
-                                      color: pageindex == 5
-                                          ? FlutterFlowTheme.of(context).primary
-                                          : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: Icon(
-                                            IconlyLight.bag,
-                                            color: pageindex == 5
-                                                ? FlutterFlowTheme.of(context)
-                                                .tertiary
-                                                : FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 20.0,
-                                          ),
-                                        ),
-                                        if (compactView == false)
-                                          Expanded(
-                                            flex: 8,
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Purchases',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: pageindex ==
-                                                      5
-                                                      ? FlutterFlowTheme.of(
-                                                      context)
-                                                      .tertiary
-                                                      : FlutterFlowTheme.of(
-                                                      context)
-                                                      .secondaryText,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.w500,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    pageindex = 6;
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    height: 48.0,
-                                    decoration: BoxDecoration(
-                                      color: pageindex == 6
-                                          ? FlutterFlowTheme.of(context).primary
-                                          : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: Icon(
-                                            IconlyLight.wallet,
-                                            color: pageindex == 6
-                                                ? FlutterFlowTheme.of(context)
-                                                .tertiary
-                                                : FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 20.0,
-                                          ),
-                                        ),
-                                        if (compactView == false)
-                                          Expanded(
-                                            flex: 8,
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Payments',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: pageindex ==
-                                                      6
-                                                      ? FlutterFlowTheme.of(
-                                                      context)
-                                                      .tertiary
-                                                      : FlutterFlowTheme.of(
-                                                      context)
-                                                      .secondaryText,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.w500,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    pageindex = 7;
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    height: 48.0,
-                                    decoration: BoxDecoration(
-                                      color: pageindex == 7
-                                          ? FlutterFlowTheme.of(context).primary
-                                          : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: Icon(
-                                            IconlyLight.setting,
-                                            color: pageindex == 7
-                                                ? FlutterFlowTheme.of(context)
-                                                .tertiary
-                                                : FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 20.0,
-                                          ),
-                                        ),
-                                        if (compactView == false)
-                                          Expanded(
-                                            flex: 8,
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Settings',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: pageindex ==
-                                                      7
-                                                      ? FlutterFlowTheme.of(
-                                                      context)
-                                                      .tertiary
-                                                      : FlutterFlowTheme.of(
-                                                      context)
-                                                      .secondaryText,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.w500,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                         ),
-
-                        FloatingActionButton(onPressed: (){},
-                          elevation: 1,
-                          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-                        shape: const CircleBorder(),
-                          child: Icon(
-                            IconlyBold.arrow_left_2,
-                            color: FlutterFlowTheme.of(context).tertiary,
+                        Flexible(
+                          child: Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding:
+                              EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  page = 3;
+                                  setState(() {});
+                                },
+                                child: Material(
+                                  color: Colors.transparent,
+                                  elevation: page == 3 ? 1.5 : 0.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Container(
+                                    width: MediaQuery.sizeOf(context).width * 0.333,
+                                    height: MediaQuery.sizeOf(context).height * 0.5,
+                                    decoration: BoxDecoration(
+                                      color: page == 3
+                                          ? Colors.white
+                                          : FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Text(
+                                        'Stock ',
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .override(
+                                          fontFamily: 'Inter',
+                                          color: page == 3
+                                              ? FlutterFlowTheme.of(context)
+                                              .primaryText
+                                              : FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: page == 3 ? 20.0 : 18.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
-                  Builder(builder: (context){
-                    if(pageindex==0){
-                      return ProductPage();
-                    }
-                     return  Container(
-                       child: const Center(
-                         child: Text('0'),
-                       ),
-                     );
-                  }),
-
+                ),
+              ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: wrapWithModel(
+                      model: addprodsModel,
+                      updateCallback: () => setState(() {}),
+                      child: AddprodsWidget(),
+                    ),
+                  ),
                 ],
               ),
             ),

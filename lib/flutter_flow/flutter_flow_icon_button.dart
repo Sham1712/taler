@@ -77,7 +77,7 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
   @override
   Widget build(BuildContext context) {
     ButtonStyle style = ButtonStyle(
-      shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
+      shape: WidgetStateProperty.resolveWith<OutlinedBorder>(
         (states) {
           return RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius ?? 0),
@@ -88,26 +88,26 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
           );
         },
       ),
-      iconColor: MaterialStateProperty.resolveWith<Color?>(
+      iconColor: WidgetStateProperty.resolveWith<Color?>(
         (states) {
-          if (states.contains(MaterialState.disabled) &&
+          if (states.contains(WidgetState.disabled) &&
               widget.disabledIconColor != null) {
             return widget.disabledIconColor;
           }
-          if (states.contains(MaterialState.hovered) &&
+          if (states.contains(WidgetState.hovered) &&
               widget.hoverIconColor != null) {
             return widget.hoverIconColor;
           }
           return iconColor;
         },
       ),
-      backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+      backgroundColor: WidgetStateProperty.resolveWith<Color?>(
         (states) {
-          if (states.contains(MaterialState.disabled) &&
+          if (states.contains(WidgetState.disabled) &&
               widget.disabledColor != null) {
             return widget.disabledColor;
           }
-          if (states.contains(MaterialState.hovered) &&
+          if (states.contains(WidgetState.hovered) &&
               widget.hoverColor != null) {
             return widget.hoverColor;
           }
@@ -115,8 +115,8 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
           return widget.fillColor;
         },
       ),
-      overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
-        if (states.contains(MaterialState.pressed)) {
+      overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+        if (states.contains(WidgetState.pressed)) {
           return null;
         }
         return widget.hoverColor == null ? null : Colors.transparent;
