@@ -1,20 +1,21 @@
 // ignore_for_file: camel_case_types
 
-import 'package:taler/object/party.dart';
+import 'customer.dart';
 
 const String col_name = 'name';
 const String col_gst = 'gst';
 const String col_categname = 'categname';
 const String col_stock = 'stock';
-const String col_price = 'price';
+const String col_wholeprice = 'wholeprice';
 const String col_hsncode = 'hsncode';
-//const String col_ = '';
+const String col_retailprice = 'retailprice';
+const String col_quantitymeasure = 'quantitymeasure';
 
 class Product{
 
   String? id;
-  String name,categname,hsncode;
-  int stock,price;
+  String name,categname,hsncode,quantitymeasure;
+  int stock,wholeprice, retailprice;
   double gst;
 
 
@@ -24,8 +25,10 @@ class Product{
     required this.gst,
     required this.categname,
     required this.stock,
-    required this.price,
+    required this.wholeprice,
     required this.hsncode,
+    required this.retailprice,
+    required this.quantitymeasure,
   });
 
   factory Product.fromMap(Map<String, dynamic> map) =>  Product(
@@ -34,9 +37,10 @@ class Product{
     gst : map[col_gst],
     categname : map[col_categname],
     stock : map[col_stock],
-    price : map[col_price],
+    wholeprice : map[col_wholeprice],
     hsncode : map[col_hsncode],
-   // : map[col_],
+    retailprice : map[col_retailprice],
+    quantitymeasure : map[col_quantitymeasure],
   );
 
   Map<String, dynamic> toMap() {
@@ -46,9 +50,10 @@ class Product{
       col_gst: gst,
       col_categname: categname,
       col_stock: stock,
-      col_price: price,
+      col_wholeprice: wholeprice,
       col_hsncode: hsncode,
-     // col_: ,
+      col_retailprice: retailprice,
+      col_quantitymeasure: quantitymeasure,
     };
   }
 

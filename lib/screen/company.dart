@@ -1,9 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firedart/auth/user_gateway.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taler/constant/widget.dart';
 import 'package:taler/flutter_flow/flutter_flow_animations.dart';
 import 'package:taler/service/authHelper.dart ';
 
@@ -41,7 +40,6 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
       ispin = false,
       isstate = false,
       isphone = false;
-  User user = AuthHelper.myuser!;
 
   @override
   void initState() {
@@ -164,7 +162,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.network(
@@ -186,14 +184,14 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               32.0, 0.0, 32.0, 0.0),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 16.0),
                                   child: Text(
                                     'Taler',
@@ -206,7 +204,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 16.0),
                                   child: TextFormField(
                                     controller: namecon,
@@ -267,7 +265,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       ),
-                                      prefixIcon: Icon(
+                                      prefixIcon: const Icon(
                                         Icons.maps_home_work_rounded,
                                       ),
                                     ),
@@ -288,7 +286,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 16.0),
                                   child: TextFormField(
                                     controller: gstcon,
@@ -348,7 +346,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       ),
-                                      prefixIcon: Icon(
+                                      prefixIcon: const Icon(
                                         Icons.numbers_rounded,
                                       ),
                                     ),
@@ -365,7 +363,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 16.0),
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -384,10 +382,10 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 16.0, 0.0, 16.0),
                                             child: Text(
                                               'Address Details',
@@ -406,7 +404,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 16.0, 0.0),
                                           child: TextFormField(
                                             controller: doorcon,
@@ -478,7 +476,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                               ),
-                                              prefixIcon: Icon(
+                                              prefixIcon: const Icon(
                                                 Icons.storefront,
                                               ),
                                             ),
@@ -499,14 +497,14 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 24.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 16.0, 0.0),
                                                   child: TextFormField(
@@ -612,7 +610,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                               ),
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 16.0, 0.0),
                                                   child: TextFormField(
@@ -718,14 +716,14 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 24.0, 0.0, 24.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 16.0, 0.0),
                                                   child: TextFormField(
@@ -825,7 +823,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                               ),
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 16.0, 0.0),
                                                   child: TextFormField(
@@ -907,7 +905,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                             BorderRadius
                                                                 .circular(8.0),
                                                       ),
-                                                      prefixIcon: Icon(
+                                                      prefixIcon: const Icon(
                                                         Icons.phone_outlined,
                                                       ),
                                                     ),
@@ -938,7 +936,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 16.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -953,7 +951,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                             ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 0.0, 0.0),
                                         child: Theme(
                                           data: ThemeData(
@@ -1008,9 +1006,9 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  alignment: const AlignmentDirectional(1.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 12.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -1087,16 +1085,16 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                             !ispin &&
                                             !isstate &&
                                             !isphone) {
-                                          User user = AuthHelper.myuser!;
-                                          AuthHelper().updateUser(
+                                          //User? user = AuthHelper.myuser!;
+                                          /*AuthHelper().updateUser(
                                             Users(
-                                              uid: user.uid,
+                                              uid: user.id,
                                               ename: user.displayName!,
                                               name: namecon.text,
                                               crtime: timenow,
                                               logins: [timenow],
                                               email: user.email!,
-                                              url: user.photoURL!,
+                                              url: user.photoUrl!,
                                               address: doorcon.text,
                                               gstin: gstcon.text,
                                               city: citycon.text,
@@ -1104,16 +1102,16 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                               state: statecon.text,
                                               mobileno: phonecon.text,
                                             ),
-                                          );
+                                          );*/
                                         }
                                       },
                                       text: 'Submit',
                                       options: FFButtonOptions(
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: Colors.white,
                                         textStyle: FlutterFlowTheme.of(context)

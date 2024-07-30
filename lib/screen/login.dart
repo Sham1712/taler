@@ -31,7 +31,7 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(32.0),
+                    padding: const EdgeInsets.all(32.0),
                     child: Text(
                       'Taler',
                       style:
@@ -43,7 +43,7 @@ class _LoginState extends State<Login> {
                   ),
                   Padding(
                     padding:
-                    EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+                    const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
                     child: Material(
                       color: Colors.transparent,
                       elevation: 0.0,
@@ -52,13 +52,13 @@ class _LoginState extends State<Login> {
                       ),
                       child: Container(
                         height: MediaQuery.sizeOf(context).height * 0.55,
-                        constraints: BoxConstraints(
+                        constraints: const BoxConstraints(
                           maxWidth: 570.0,
                         ),
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context)
                               .secondaryBackground,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 200.0,
                               color: Color(0x33000000),
@@ -73,17 +73,17 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Spacer(flex: 2),
+                              const Spacer(flex: 2),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Text(
-                                  '\"Why cram? \nJust bill it! 📚💸\"',
+                                  '"Why cram? \nJust bill it! 📚💸"',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall
@@ -93,8 +93,8 @@ class _LoginState extends State<Login> {
                                   ),
                                 ),
                               ),
-                              Spacer(flex: 2),
-                              Divider(
+                              const Spacer(flex: 2),
+                              const Divider(
                                 height: 32.0,
                                 thickness: 1.0,
                                 indent: 32.0,
@@ -104,7 +104,7 @@ class _LoginState extends State<Login> {
                               Expanded(
                                 flex: 3,
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'Select Your Account',
                                     textAlign: TextAlign.center,
@@ -120,13 +120,12 @@ class _LoginState extends State<Login> {
                               FFButtonWidget(
                                 onPressed: () async{
                                   User? user = await AuthHelper().signInGoogle();
-                                  if(user != null)
-                                    print(user.toString());
-                                  else
-                                    print('user.email');
+                                  if(user != null) {
+                                  } else {
+                                  }
                                 },
                                 text: 'Continue with Google',
-                                icon: FaIcon(
+                                icon: const FaIcon(
                                   FontAwesomeIcons.google,
                                   color: Color(0xFF4285F4),
                                   size: 24.0,
@@ -134,9 +133,9 @@ class _LoginState extends State<Login> {
                                 options: FFButtonOptions(
                                   width: 380.0,
                                   height: 64.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 8.0, 0.0),
                                   color:
                                   FlutterFlowTheme.of(context).alternate,
@@ -160,7 +159,7 @@ class _LoginState extends State<Login> {
                                   hoverElevation: 2.0,
                                 ),
                               ),
-                              Spacer(flex: 2),
+                              const Spacer(flex: 2),
                             ],
                           ),
                         ),
@@ -172,7 +171,7 @@ class _LoginState extends State<Login> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(

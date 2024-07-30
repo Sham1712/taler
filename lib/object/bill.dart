@@ -12,7 +12,7 @@ class Bill {
 
   int totalAmount,totalQuantity;
   String partyid,billDate,saleType,description,referenceBy;
-  String? invoiceNum;
+  String? invoiceNum,id;
 
   Bill({
     required this.invoiceNum,

@@ -123,7 +123,7 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
     ButtonStyle style = ButtonStyle(
       shape: WidgetStateProperty.resolveWith<OutlinedBorder>(
         (states) {
-          if (states.contains(MaterialState.hovered) &&
+          if (states.contains(WidgetState.hovered) &&
               widget.options.hoverBorderSide != null) {
             return RoundedRectangleBorder(
               borderRadius:
@@ -140,11 +140,11 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
       ),
       foregroundColor: WidgetStateProperty.resolveWith<Color?>(
         (states) {
-          if (states.contains(MaterialState.disabled) &&
+          if (states.contains(WidgetState.disabled) &&
               widget.options.disabledTextColor != null) {
             return widget.options.disabledTextColor;
           }
-          if (states.contains(MaterialState.hovered) &&
+          if (states.contains(WidgetState.hovered) &&
               widget.options.hoverTextColor != null) {
             return widget.options.hoverTextColor;
           }
@@ -153,11 +153,11 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
       ),
       backgroundColor: WidgetStateProperty.resolveWith<Color?>(
         (states) {
-          if (states.contains(MaterialState.disabled) &&
+          if (states.contains(WidgetState.disabled) &&
               widget.options.disabledColor != null) {
             return widget.options.disabledColor;
           }
-          if (states.contains(MaterialState.hovered) &&
+          if (states.contains(WidgetState.hovered) &&
               widget.options.hoverColor != null) {
             return widget.options.hoverColor;
           }
@@ -165,7 +165,7 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
         },
       ),
       overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
-        if (states.contains(MaterialState.pressed)) {
+        if (states.contains(WidgetState.pressed)) {
           return widget.options.splashColor;
         }
         return widget.options.hoverColor == null ? null : Colors.transparent;
@@ -174,7 +174,7 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
           const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0)),
       elevation: WidgetStateProperty.resolveWith<double?>(
         (states) {
-          if (states.contains(MaterialState.hovered) &&
+          if (states.contains(WidgetState.hovered) &&
               widget.options.hoverElevation != null) {
             return widget.options.hoverElevation!;
           }

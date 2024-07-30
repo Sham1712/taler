@@ -1,16 +1,18 @@
-import 'dart:isolate';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firedart/firedart.dart';
+
+import 'package:firedart/auth/firebase_auth.dart';
+import 'package:firedart/auth/token_store.dart';
+import 'package:firedart/firestore/firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:taler/screen/company.dart';
 import 'package:taler/screen/home.dart';
+import 'package:taler/screen/invoice.dart';
 import 'package:taler/screen/login.dart';
 import 'package:taler/service/authHelper.dart';
 import '../constant/functions.dart';
@@ -23,40 +25,43 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   Firestore.initialize('taler-shop');
+
   runApp(const App());
 }
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(1000, 500),
-        builder: (BuildContext context, Widget? child) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              primaryColor: cr_pri,
-              appBarTheme:
-                  AppBarTheme(backgroundColor: Theme.of(context).primaryColor),
-              textTheme: null,
-            ),
-            initialRoute: '/',
-            routes: {
-              '/splash': (context) => const Spalsh(),
-              '/': (context) => GetUser(),
-              '/login': (context) => const Login(),
-              '/company': (context) => const Company(),
-              //'/': (context) => (),
-            },
-          );
-        });
+      designSize: const Size(1000, 500),
+      builder: (BuildContext context, Widget? child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Taler',
+          theme: ThemeData(
+            primaryColor: cr_pri,
+            appBarTheme:
+                AppBarTheme(backgroundColor: Theme.of(context).primaryColor),
+            textTheme: null,
+          ),
+          initialRoute: '/',
+          routes: {
+            '/splash': (context) => const Spalsh(),
+            '/': (context) => GetUser(),
+            '/login': (context) => const Login(),
+            '/company': (context) => const Company(),
+            '/invoice': (context) => const Invoice(),
+          },
+        );
+      },
+    );
   }
 }
 
 class GetUser extends StatelessWidget {
-  GetUser({Key? key}) : super(key: key);
+  GetUser({super.key});
   AuthHelper authHelper = AuthHelper();
 
   @override
@@ -66,11 +71,11 @@ class GetUser extends StatelessWidget {
       builder: (context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
           if (snapshot.hasData) {
-            //return const Home();
+            return const Home();
             return FutureBuilder<Users?>(
               future: authHelper.startup(),
               builder: (context, AsyncSnapshot<Users?> snapshot) {
-                return const Home();
+                //return const Home();
                 if (!snapshot.hasError) {
                   if (snapshot.connectionState != ConnectionState.active) {
                     if (snapshot.data == null) {
@@ -99,7 +104,7 @@ class GetUser extends StatelessWidget {
 }
 
 class Loading extends StatelessWidget {
-  const Loading({Key? key}) : super(key: key);
+  const Loading({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +123,7 @@ class Loading extends StatelessWidget {
 }
 
 class Errored extends StatelessWidget {
-  Errored({Key? key, required this.error}) : super(key: key);
+  Errored({super.key, required this.error});
   String? error;
 
   @override
@@ -140,7 +145,7 @@ class Errored extends StatelessWidget {
 }
 
 class Inform extends StatelessWidget {
-  Inform({Key? key, required this.info}) : super(key: key);
+  Inform({super.key, required this.info});
   String info;
 
   @override
@@ -202,7 +207,7 @@ class _SpalshState extends State<Spalsh> {
               ),
               hspace(20),
               Text(
-                '',
+                'dddddd',
                 style: GoogleFonts.dancingScript(
                   fontSize: 30,
                   letterSpacing: 5,
@@ -239,7 +244,7 @@ class _SpalshState extends State<Spalsh> {
 }
 
 class Spalsh extends StatefulWidget {
-  const Spalsh({Key? key}) : super(key: key);
+  const Spalsh({super.key});
 
   @override
   _SpalshState createState() => _SpalshState();

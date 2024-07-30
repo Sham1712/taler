@@ -1,8 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:taler/screen/customerpage.dart';
+import 'package:taler/screen/invoice.dart';
+import 'package:taler/screen/productpage.dart';
+import '../constant/functions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../service/authHelper.dart ';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -13,17 +17,16 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool compactView = false;
-  int pageindex = 0,page=0;
-  
-  bool mouseRegionHovered1 = true,
-      mouseRegionHovered2 = true,
-      mouseRegionHovered3 = true,
-      mouseRegionHovered4 = true,
-      mouseRegionHovered5 = true,
-      mouseRegionHovered6 = true,
-      mouseRegionHovered7 = true,
-      mouseRegionHovered8 = true,
-      mouseRegionHovered9 = true; 
+  int pageindex = 2, page = 1;
+  bool mouseRegionHovered1 = false,
+      mouseRegionHovered2 = false,
+      mouseRegionHovered3 = false,
+      mouseRegionHovered4 = false,
+      mouseRegionHovered5 = false,
+      mouseRegionHovered6 = false,
+      mouseRegionHovered7 = false,
+      mouseRegionHovered8 = false,
+      mouseRegionHovered9 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +116,7 @@ class _HomeState extends State<Home> {
                         children: [
                           MouseRegion(
                             opaque: false,
-                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            cursor: MouseCursor.defer,
                             onEnter: ((event) async {
                               setState(() => mouseRegionHovered1 = true);
                             }),
@@ -264,7 +267,7 @@ class _HomeState extends State<Home> {
                           ),
                           MouseRegion(
                             opaque: false,
-                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            cursor: MouseCursor.defer,
                             onEnter: ((event) async {
                               setState(() => mouseRegionHovered2 = true);
                             }),
@@ -409,7 +412,7 @@ class _HomeState extends State<Home> {
                           ),
                           MouseRegion(
                             opaque: false,
-                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            cursor: MouseCursor.defer,
                             onEnter: ((event) async {
                               setState(() => mouseRegionHovered3 = true);
                             }),
@@ -545,7 +548,7 @@ class _HomeState extends State<Home> {
                           ),
                           MouseRegion(
                             opaque: false,
-                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            cursor: MouseCursor.defer,
                             onEnter: ((event) async {
                               setState(() => mouseRegionHovered4 = true);
                             }),
@@ -681,7 +684,7 @@ class _HomeState extends State<Home> {
                           ),
                           MouseRegion(
                             opaque: false,
-                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            cursor: MouseCursor.defer,
                             onEnter: ((event) async {
                               setState(() => mouseRegionHovered5 = true);
                             }),
@@ -817,7 +820,7 @@ class _HomeState extends State<Home> {
                           ),
                           MouseRegion(
                             opaque: false,
-                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            cursor: MouseCursor.defer,
                             onEnter: ((event) async {
                               setState(() => mouseRegionHovered6 = true);
                             }),
@@ -953,7 +956,7 @@ class _HomeState extends State<Home> {
                           ),
                           MouseRegion(
                             opaque: false,
-                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            cursor: MouseCursor.defer,
                             onEnter: ((event) async {
                               setState(() => mouseRegionHovered7 = true);
                             }),
@@ -1089,7 +1092,7 @@ class _HomeState extends State<Home> {
                           ),
                           MouseRegion(
                             opaque: false,
-                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            cursor: MouseCursor.defer,
                             onEnter: ((event) async {
                               setState(() => mouseRegionHovered8 = true);
                             }),
@@ -1225,7 +1228,7 @@ class _HomeState extends State<Home> {
                           ),
                           MouseRegion(
                             opaque: false,
-                            cursor: MouseCursor.defer ?? MouseCursor.defer,
+                            cursor: MouseCursor.defer,
                             onEnter: ((event) async {
                               setState(() => mouseRegionHovered9 = true);
                             }),
@@ -1377,33 +1380,34 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           badges.Badge(
-                            badgeContent: Text(
-                              '1',
-                              style: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: Colors.white,
-                                    fontSize: 10.0,
-                                    letterSpacing: 0.0,
-                                  ),
+                            badgeContent: InkWell(
+                              onTap: () {
+                                AuthHelper().signOut();
+                              },
+                              child: Icon(
+                                Icons.logout,
+                                size: 12,
+                                color: FlutterFlowTheme.of(context).accent1,
+                              ),
                             ),
                             showBadge: true,
-                            shape: badges.BadgeShape.circle,
-                            badgeColor:
-                                FlutterFlowTheme.of(context).primaryText,
-                            elevation: 0.0,
-                            padding: const EdgeInsets.all(6.0),
-                            position: badges.BadgePosition.topStart(),
-                            animationType: badges.BadgeAnimationType.scale,
-                            toAnimate: false,
+                            position: badges.BadgePosition.bottomEnd(),
                             child: Container(
                               clipBehavior: Clip.antiAlias,
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
                               child: Image.network(
-                                ,
+                                AuthHelper.myuser.photoURL.toString(),
+                                errorBuilder: (content,error,e){
+                                  return Image.asset('assests/user.png');
+                                },
+                                frameBuilder: (content,error,r,t){
+                                  return Image.asset('assests/user.png');
+                                },
+                                loadingBuilder: (content,error,f){
+                                  return Image.asset('assests/user.png');
+                                },
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -1529,8 +1533,8 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 8.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        24.0, 24.0, 24.0, 8.0),
                     child: Container(
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1546,7 +1550,17 @@ class _HomeState extends State<Home> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Products',
+                                selectof(pageindex, {
+                                  0: 'Sales',
+                                  1: 'Purchases',
+                                  2: 'Customers',
+                                  3: 'Vendors',
+                                  4: 'Products',
+                                  5: 'Payments',
+                                  6: 'Dashboard',
+                                  7: 'Expenses',
+                                  8: 'Settings',
+                                })!,
                                 style: FlutterFlowTheme.of(context)
                                     .headlineLarge
                                     .override(
@@ -1565,207 +1579,285 @@ class _HomeState extends State<Home> {
                               children: [],
                             ),
                           ),
-              Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * 0.3,
-                    height: MediaQuery.sizeOf(context).height * 0.07,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Flexible(
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding:
-                              EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 0.0, 8.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  page = 1;
-                                  setState(() {});
-                                },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  elevation: page == 1 ? 1.5 : 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Container(
-                                    width: MediaQuery.sizeOf(context).width * 0.333,
-                                    height: MediaQuery.sizeOf(context).height * 0.5,
-                                    decoration: BoxDecoration(
-                                      color: page == 1
-                                          ? Colors.white
-                                          : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Text(
-                                        'View',
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                          fontFamily: 'Inter',
-                                          color: page == 1
-                                              ? FlutterFlowTheme.of(context)
-                                              .primaryText
-                                              : FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: page == 1 ? 20.0 : 18.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 8.0),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 0.3,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.07,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child: Align(
+                                        alignment: const AlignmentDirectional(
+                                            0.0, 0.0),
+                                        child: Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(12.0, 8.0, 0.0, 8.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              page = 1;
+                                              setState(() {});
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: page == 1 ? 1.5 : 0.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.333,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.5,
+                                                decoration: BoxDecoration(
+                                                  color: page == 1
+                                                      ? Colors.white
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        0.0, 0.0),
+                                                child: Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Text(
+                                                    'View',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: page == 1
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .primaryText
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryText,
+                                                          fontSize: page == 1
+                                                              ? 20.0
+                                                              : 18.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
+                                    Flexible(
+                                      child: Align(
+                                        alignment: const AlignmentDirectional(
+                                            0.0, 0.0),
+                                        child: Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(12.0, 8.0, 0.0, 8.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              page = 2;
+                                              setState(() {});
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: page == 2 ? 1.5 : 0.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.333,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.5,
+                                                decoration: BoxDecoration(
+                                                  color: page == 2
+                                                      ? Colors.white
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        0.0, 0.0),
+                                                child: Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Text(
+                                                    'Create',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: page == 2
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .primaryText
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryText,
+                                                          fontSize: page == 2
+                                                              ? 20.0
+                                                              : 18.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Flexible(
+                                      child: Align(
+                                        alignment: const AlignmentDirectional(
+                                            0.0, 0.0),
+                                        child: Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(12.0, 8.0, 12.0, 8.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              page = 3;
+                                              setState(() {});
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: page == 3 ? 1.5 : 0.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.333,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.5,
+                                                decoration: BoxDecoration(
+                                                  color: page == 3
+                                                      ? Colors.white
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        0.0, 0.0),
+                                                child: Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Text(
+                                                    'Stock ',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: page == 3
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .primaryText
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryText,
+                                                          fontSize: page == 3
+                                                              ? 20.0
+                                                              : 18.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        Flexible(
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding:
-                              EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 0.0, 8.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  page = 2;
-                                  setState(() {});
-                                },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  elevation: page == 2 ? 1.5 : 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Container(
-                                    width: MediaQuery.sizeOf(context).width * 0.333,
-                                    height: MediaQuery.sizeOf(context).height * 0.5,
-                                    decoration: BoxDecoration(
-                                      color: page == 2
-                                          ? Colors.white
-                                          : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Text(
-                                        'Create',
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                          fontFamily: 'Inter',
-                                          color: page == 2
-                                              ? FlutterFlowTheme.of(context)
-                                              .primaryText
-                                              : FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: page == 2 ? 20.0 : 18.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Flexible(
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding:
-                              EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  page = 3;
-                                  setState(() {});
-                                },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  elevation: page == 3 ? 1.5 : 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Container(
-                                    width: MediaQuery.sizeOf(context).width * 0.333,
-                                    height: MediaQuery.sizeOf(context).height * 0.5,
-                                    decoration: BoxDecoration(
-                                      color: page == 3
-                                          ? Colors.white
-                                          : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Text(
-                                        'Stock ',
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                          fontFamily: 'Inter',
-                                          color: page == 3
-                                              ? FlutterFlowTheme.of(context)
-                                              .primaryText
-                                              : FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: page == 3 ? 20.0 : 18.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
                         ],
                       ),
                     ),
                   ),
                   Expanded(
-                    child: wrapWithModel(
-                      model: addprodsModel,
-                      updateCallback: () => setState(() {}),
-                      child: AddprodsWidget(),
-                    ),
+                    child: Builder(builder: (con) {
+                      if (pageindex == 0) {
+                        return const Invoice();
+                      } else if (pageindex == 2) {
+                        return Customerpage(page: page);
+                      } else if (pageindex == 4) {
+                        return ProductPage(page: page);
+                      }
+                      return Row(
+                        children: [
+                          Center(child: Text(pageindex.toString())),
+                        ],
+                      );
+                    }),
                   ),
                 ],
               ),

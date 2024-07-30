@@ -2,7 +2,8 @@
 
 // ignore_for_file: camel_case_types
 
-import 'package:taler/object/party.dart';
+
+import 'customer.dart';
 
 const String col_name = 'name';
 const String col_qty = 'qty';

@@ -445,11 +445,13 @@ class _ViewProductState extends State<ViewProduct> {
                   ],
                 );
               }
-              return Container(
-                padding: const EdgeInsets.symmetric(vertical: 40),
-                child: LoadingAnimationWidget.fallingDot(
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 20,
+              return Center(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 40),
+                  child: LoadingAnimationWidget.fallingDot(
+                    color: FlutterFlowTheme.of(context).primary,
+                    size: 50,
+                  ),
                 ),
               );
             }),
@@ -2549,7 +2551,7 @@ class _EditProductState extends State<EditProduct>
                                     textInputAction: TextInputAction.next,
                                     obscureText: false,
                                     onChanged: (val) {
-                                      isname = val.isNotEmpty;
+                                      ishsn = val.isNotEmpty;
                                     },
                                     decoration: InputDecoration(
                                       labelStyle: FlutterFlowTheme.of(context)
@@ -2641,6 +2643,18 @@ class _EditProductState extends State<EditProduct>
                                     textCapitalization: TextCapitalization.none,
                                     textInputAction: TextInputAction.next,
                                     obscureText: false,
+                                    onChanged: (val) {
+                                      if (double.tryParse(
+                                          openingstockcon.text) ==
+                                          null &&
+                                          openingstockcon.text.isNotEmpty) {
+                                        openingstockcon.text =
+                                            openingstockcon.text.substring(
+                                                0,
+                                                openingstockcon.text.length -
+                                                    1);
+                                      }
+                                    },
                                     decoration: InputDecoration(
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -2915,6 +2929,18 @@ class _EditProductState extends State<EditProduct>
                                   autofocus: true,
                                   textInputAction: TextInputAction.next,
                                   obscureText: false,
+                                  onChanged: (val) {
+                                    if (double.tryParse(
+                                        wholesalepricecon.text) ==
+                                        null &&
+                                        wholesalepricecon.text.isNotEmpty) {
+                                      wholesalepricecon.text =
+                                          wholesalepricecon.text.substring(
+                                              0,
+                                              wholesalepricecon.text.length -
+                                                  1);
+                                    }
+                                  },
                                   decoration: InputDecoration(
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -2991,6 +3017,18 @@ class _EditProductState extends State<EditProduct>
                                   autofocus: true,
                                   textInputAction: TextInputAction.next,
                                   obscureText: false,
+                                  onChanged: (val) {
+                                    if (double.tryParse(
+                                        retailpricecon.text) ==
+                                        null &&
+                                        retailpricecon.text.isNotEmpty) {
+                                      retailpricecon.text =
+                                          retailpricecon.text.substring(
+                                              0,
+                                              retailpricecon.text.length -
+                                                  1);
+                                    }
+                                  },
                                   decoration: InputDecoration(
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -3068,7 +3106,17 @@ class _EditProductState extends State<EditProduct>
                                   textInputAction: TextInputAction.done,
                                   obscureText: false,
                                   onChanged: (val) {
-                                    isname = val.isNotEmpty;
+                                    if (double.tryParse(
+                                        gstcon.text) ==
+                                        null &&
+                                        gstcon.text.isNotEmpty) {
+                                      gstcon.text =
+                                          gstcon.text.substring(
+                                              0,
+                                              gstcon.text.length -
+                                                  1);
+                                    }
+                                    isgst = val.isNotEmpty;
                                   },
                                   decoration: InputDecoration(
                                     labelStyle: FlutterFlowTheme.of(context)

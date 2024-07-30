@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:taler/flutter_flow/flutter_flow_util.dart';
 
@@ -122,7 +121,7 @@ class _InvoiceState extends State<Invoice> {
                                               0.0, 0.0, 24.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () {
-                                              print('Button pressed ...');
+
                                             },
                                             text: 'Save & Print',
                                             icon: const Icon(
@@ -185,7 +184,6 @@ class _InvoiceState extends State<Invoice> {
                                               0.0, 0.0, 24.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () {
-                                              print('Button pressed ...');
                                             },
                                             text: 'Save',
                                             icon: const Icon(
@@ -764,8 +762,8 @@ class _InvoiceState extends State<Invoice> {
                                                 highlightColor:
                                                 Colors.transparent,
                                                 onTap: () async {
-                                                  final _datePickedDate =
-                                                  await showDatePicker(
+                                                  /*final _datePickedDate =
+                                                  /*await showDatePicker(
                                                     context: context,
                                                     initialDate:
                                                     getCurrentTimestamp,
@@ -773,56 +771,9 @@ class _InvoiceState extends State<Invoice> {
                                                     lastDate: DateTime(2050),
                                                     builder:
                                                         (context, child) {
-                                                      return wrapInMaterialDatePickerTheme(
-                                                        context,
-                                                        child!,
-                                                        headerBackgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .primary,
-                                                        headerForegroundColor:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .info,
-                                                        headerTextStyle:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .headlineLarge
-                                                            .override(
-                                                          fontFamily:
-                                                          'Inter',
-                                                          fontSize:
-                                                          32.0,
-                                                          letterSpacing:
-                                                          0.0,
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .w600,
-                                                        ),
-                                                        pickerBackgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .secondaryBackground,
-                                                        pickerForegroundColor:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .primaryText,
-                                                        selectedDateTimeBackgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .primary,
-                                                        selectedDateTimeForegroundColor:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .info,
-                                                        actionButtonForegroundColor:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .primaryText,
-                                                        iconSize: 24.0,
-                                                      );
+                                                      return ;
                                                     },
-                                                  );
+                                                  );*/
 
                                                   TimeOfDay? _datePickedTime;
                                                   if (_datePickedDate !=
@@ -902,7 +853,7 @@ class _InvoiceState extends State<Invoice> {
                                                                 .minute,
                                                           );
                                                     });
-                                                  }
+                                                  }*/
                                                 },
                                                 child: Icon(
                                                   Icons
@@ -1500,8 +1451,6 @@ class _InvoiceState extends State<Invoice> {
                                                     24.0, 0.0, 0.0, 0.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () {
-                                                    print(
-                                                        'Button pressed ...');
                                                   },
                                                   text: 'Add to Bill',
                                                   icon: const Icon(
@@ -2658,8 +2607,8 @@ class _InvoiceState extends State<Invoice> {
                                                                               height: double.infinity,
                                                                               decoration: BoxDecoration(
                                                                                 color: FlutterFlowTheme.of(context).accent1,
-                                                                                boxShadow: [
-                                                                                  const BoxShadow(
+                                                                                boxShadow: const [
+                                                                                  BoxShadow(
                                                                                     blurRadius: 4.0,
                                                                                     color: Color(0x33000000),
                                                                                     offset: Offset(
@@ -2704,8 +2653,8 @@ class _InvoiceState extends State<Invoice> {
                                                                               height: double.infinity,
                                                                               decoration: BoxDecoration(
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                boxShadow: [
-                                                                                  const BoxShadow(
+                                                                                boxShadow: const [
+                                                                                  BoxShadow(
                                                                                     blurRadius: 4.0,
                                                                                     color: Color(0x33000000),
                                                                                     offset: Offset(
@@ -3143,7 +3092,7 @@ class _InvoiceState extends State<Invoice> {
                                                                   .circular(
                                                                   8.0),
                                                             ),
-                                                            child: Container(
+                                                            child: SizedBox(
                                                               width: double
                                                                   .infinity,
                                                               child:

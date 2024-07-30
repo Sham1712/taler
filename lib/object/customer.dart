@@ -12,27 +12,33 @@ const String col_state = 'state';
 const String col_mobileno = 'mobileno';
 const String col_openbal = 'openbal';
 const String col_type = 'type';
+const String col_isgst = 'isgst';
+const String col_email = 'email';
 
-class Party{
+class Customer{
 
-  String id,name,gstin,address,city,state,mobileno;
-  bool type;
-  int pincode, openbal;
+  String? id;
+  String name,gstin,address,city,state,phone,email;
+  bool type, isgst;
+  int pincode;
+  double openbal;
 
-  Party({
-    required this.id,
+  Customer({
+    this.id,
     required this.name,
     required this.gstin,
     required this.address,
     required this.city,
     required this.pincode,
     required this.state,
-    required this.mobileno,
+    required this.phone,
     required this.openbal,
     required this.type,
+    required this.isgst,
+    required this.email,
   });
 
-  factory Party.fromMap(Map<String, dynamic> map) =>  Party(
+  factory Customer.fromMap(Map<String, dynamic> map) =>  Customer(
     id : map[col_id],
     name : map[col_name],
     gstin : map[col_gstin],
@@ -40,10 +46,11 @@ class Party{
     city : map[col_city],
     pincode : map[col_pincode],
     state : map[col_state],
-    mobileno : map[col_mobileno],
+    phone : map[col_mobileno],
     openbal : map[col_openbal],
     type : map[col_type],
-   // : map[col_],
+    isgst : map[col_isgst],
+    email : map[col_email],
   );
 
   Map<String, dynamic> toMap() {
@@ -55,10 +62,11 @@ class Party{
       col_city: city,
       col_pincode: pincode,
       col_state: state,
-      col_mobileno: mobileno,
+      col_mobileno: phone,
       col_openbal: openbal,
       col_type: type,
-     // col_: ,
+      col_isgst: isgst,
+      col_email: email,
     };
   }
 

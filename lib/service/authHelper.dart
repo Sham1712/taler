@@ -7,6 +7,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firedart/firestore/firestore.dart';
 import 'package:firedart/firestore/models.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 
@@ -16,10 +17,9 @@ import '../object/users.dart';
 class AuthHelper {
   static FirebaseAuth firebaseauth = FirebaseAuth.instance;
 
-  static User? get myuser => FirebaseAuth.instance.currentUser;
+  static User get myuser => FirebaseAuth.instance.currentUser!;
 
-  static DocumentReference get docuser =>
-      Firestore.instance.document('/Users/${myuser!.uid}');
+  static DocumentReference get docuser  => Firestore.instance.document('/users/${myuser.uid}');
 
   Stream<User?> authchanges() => firebaseauth.authStateChanges();
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -61,6 +61,7 @@ class AuthHelper {
         );
         final userCredential = await _auth.signInWithCredential(credential);
         createUser();
+        print(userCredential.user);
         return userCredential.user;
       }
     }
@@ -89,22 +90,17 @@ class AuthHelper {
   }
 
   Future<void> signOut() async {
-    await _auth.signOut();
-  }
-
-  Future<User?> signInAnonymously() async {
-    UserCredential userCredential = await firebaseauth.signInAnonymously();
-    return userCredential.user;
+    _auth.signOut();
   }
 
   Future<Users?> startup() async{
-    return Users.fromMap((await docuser.get()).map);
+    return Users.fromMap((await (await docuser).get()).map);
   }
 
   Future<void> createUser() async {
-    User? user = myuser;
+    User user = myuser;
     Users users = Users(
-        uid: user!.uid,
+        uid: user.uid,
         ename: user.displayName!,
         crtime: timenow,
         logins: [timenow],
@@ -119,28 +115,22 @@ class AuthHelper {
         mobileno: '',
     );
 
-    docuser.get().then((value) {
-      if (value.map.isEmpty) {
-        return;
-      } else {
-        docuser.set(users.toMap());
-      }
-    });
+    docuser.set(users.toMap());
     return;
   }
 
   Future<void> updateUser(Users users) async {
-    docuser.update(users.toMap()).then((h){},onError: (e){
-      print(e.toString());
+    (await docuser).update(users.toMap()).then((h){},onError: (e){
+      msg(e.toString());
     });
     return;
   }
 
   Future<void> addlogins() async {
-    if (myuser != null) {
-      List<String> logins = (await docuser.get()).map[col_logins];
+    if ((myuser) != null) {
+      List<String> logins = (await (await docuser).get()).map[col_logins];
       logins.add(timenow.substring(0, 16));
-      docuser.update({
+      (await docuser).update({
         col_logins: logins
       });
     } else {
