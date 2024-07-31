@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Container(
-              width: compactView == false ? 212.0 : 96.0,
+              width: compactView == false ? 250.0 : 100,
               height: MediaQuery.sizeOf(context).height * 1.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
@@ -134,6 +134,7 @@ class _HomeState extends State<Home> {
                                 onTap: () async {
                                   pageindex = 0;
                                   setState(() {});
+                                  route(context, const Invoice());
                                 },
                                 child: Container(
                                   height: 48.0,

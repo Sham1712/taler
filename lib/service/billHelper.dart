@@ -79,25 +79,25 @@ class BillHelper {
     ).asBroadcastStream();
   }
 
-  Future<void> addbill(Bill bill) async {
+  Future<void> addbill(Objname bill) async {
     bill.id = DateTime.now().toIso8601String();
     return await colbil.document(bill.id!).set(bill.toMap());
   }
 
-  Future<void> updatebill(Bill bill) async {
+  Future<void> updatebill(Objname bill) async {
     return await colbil.document(bill.id!).update(bill.toMap());
   }
 
-  Future<void> deletebill(Bill bill) async {
+  Future<void> deletebill(Objname bill) async {
     return await colbil.document(bill.id!).delete();
   }
 
-  Stream<List<Bill>> getbills() {
+  Stream<List<Objname>> getbills() {
     final snapshots = colbil.orderBy(col_id,descending: true).get().asStream();
     return snapshots.map(
       (snapshot) => snapshot.map(
         (snapshot) {
-          return Bill.fromMap(snapshot.map);
+          return Objname.fromMap(snapshot.map);
         },
       ).toList()
     ).asBroadcastStream();

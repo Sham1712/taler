@@ -39,6 +39,8 @@ dependencies:
   google_sign_in: any
   firebase_core: any
   firebase_auth: any
+  animated_custom_dropdown: any
+  one_clock: any
 
 dev_dependencies:
   flutter_test:

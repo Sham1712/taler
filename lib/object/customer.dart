@@ -38,6 +38,11 @@ class Customer{
     required this.email,
   });
 
+  @override
+  String toString() {
+    return name;
+  }
+
   factory Customer.fromMap(Map<String, dynamic> map) =>  Customer(
     id : map[col_id],
     name : map[col_name],

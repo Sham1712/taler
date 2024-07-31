@@ -46,7 +46,7 @@ class App extends StatelessWidget {
                 AppBarTheme(backgroundColor: Theme.of(context).primaryColor),
             textTheme: null,
           ),
-          initialRoute: '/',
+          initialRoute: '/invoice',
           routes: {
             '/splash': (context) => const Spalsh(),
             '/': (context) => GetUser(),

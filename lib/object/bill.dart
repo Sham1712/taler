@@ -1,53 +1,30 @@
 
-const String col_invoiceNum = 'invoiceNum';
-const String col_partyid = 'partyid';
-const String col_billDate = 'billDate';
-const String col_saleType = 'saleType';
-const String col_description = 'description';
-const String col_totalQuantity = 'totalQuantity';
-const String col_referenceBy = 'referenceBy';
-const String col_totalAmount = 'totalAmount';
+//const String col_id = 'id';
+//const String col_id = '';
 
-class Bill {
+import 'customer.dart';
 
-  int totalAmount,totalQuantity;
-  String partyid,billDate,saleType,description,referenceBy;
-  String? invoiceNum,id;
+class Objname {
 
-  Bill({
-    required this.invoiceNum,
-    required this.partyid,
-    required this.billDate,
-    required this.saleType,
-    required this.description,
-    required this.totalQuantity,
-    required this.referenceBy,
-    required this.totalAmount,
+  //int ;
+  //String ;
+  String? id; //use ? for nullable datatype
+
+  Objname({
+    this.id, //if this field is can be null
+    //required this., //if this field is required
+    //required this.,
   });
 
-  factory Bill.fromMap(Map<String, dynamic> map) =>  Bill(
-    invoiceNum : map[col_invoiceNum],
-    partyid : map[col_partyid],
-    billDate : map[col_billDate],
-    saleType : map[col_saleType],
-    description : map[col_description],
-    totalQuantity : map[col_totalQuantity],
-    referenceBy : map[col_referenceBy],
-    totalAmount : map[col_totalAmount],
-   // : map[col_],
+  factory Objname.fromMap(Map<String, dynamic> map) =>  Objname(
+    id : map[col_id],
+    // : map[col_],
   );
 
   Map<String, dynamic> toMap() {
     return {
-      col_invoiceNum: invoiceNum,
-      col_partyid: partyid,
-      col_billDate: billDate,
-      col_saleType: saleType,
-      col_description: description,
-      col_totalQuantity: totalQuantity,
-      col_referenceBy: referenceBy,
-      col_totalAmount: totalAmount,
-     // col_: ,
+      col_id: id,
+      //col_: ,
     };
   }
 

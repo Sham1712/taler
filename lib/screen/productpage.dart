@@ -639,12 +639,12 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                               BillHelper().addproduct(
                                 Product(
                                   name: namecon.text,
-                                  gst: double.parse(gstcon.text),
+                                  gst: double.tryParse(gstcon.text) ?? 0,
                                   categname: categorycon.text,
-                                  stock: int.parse(openingstockcon.text),
-                                  wholeprice: int.parse(wholesalepricecon.text),
+                                  stock: int.tryParse(openingstockcon.text) ?? 0,
+                                  wholeprice: int.tryParse(wholesalepricecon.text) ?? 0,
                                   hsncode: hsncodecon.text,
-                                  retailprice: int.parse(retailpricecon.text),
+                                  retailprice: int.tryParse(retailpricecon.text) ?? 0,
                                   quantitymeasure: quantitymeasure.text,
                                 ),
                               );
@@ -2153,13 +2153,13 @@ class _EditProductState extends State<EditProduct>
                                   Product(
                                     id: widget.product.id,
                                     name: namecon.text,
-                                    gst: double.parse(gstcon.text),
+                                    gst: double.tryParse(gstcon.text) ?? 0,
                                     categname: categorycon.text,
-                                    stock: int.parse(openingstockcon.text),
+                                    stock: int.tryParse(openingstockcon.text) ?? 0,
                                     wholeprice:
-                                        int.parse(wholesalepricecon.text),
+                                        int.tryParse(wholesalepricecon.text) ?? 0,
                                     hsncode: hsncodecon.text,
-                                    retailprice: int.parse(retailpricecon.text),
+                                    retailprice: int.tryParse(retailpricecon.text) ?? 0,
                                     quantitymeasure: quantitymeasurecon.text,
                                   ),
                                 );

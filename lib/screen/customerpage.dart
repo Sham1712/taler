@@ -324,11 +324,11 @@ class _AddCustomerState extends State<AddCustomer>
                                         gstin: gstincon.text,
                                         address: addresscon.text,
                                         city: citycon.text,
-                                        pincode: int.parse(pincodecon.text),
+                                        pincode: int.tryParse(pincodecon.text) ?? 0,
                                         state: statecon.text,
                                         phone: phonecon.text,
-                                        openbal: double.parse(
-                                            openingbalancecon.text),
+                                        openbal: double.tryParse(
+                                            openingbalancecon.text) ?? 0,
                                         type: type.contains('Wholesaler'),
                                         isgst: type.contains('with GST'),
                                         email: emailcon.text,
@@ -1863,25 +1863,23 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                 return CustomerTile(customer: customers[index]);
                               },
                             )
-                          : Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color:
-                                        FlutterFlowTheme.of(context).secondary,
-                                    borderRadius: BorderRadius.only(
-                                        bottomRight: Radius.circular(10.r),
-                                        bottomLeft: Radius.circular(10.r))),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Image.asset(
-                                      height: 200.h,
-                                      'assests/nodata.png',
-                                    ),
-                                  ],
+                          : Container(
+                            decoration: BoxDecoration(
+                                color:
+                                    FlutterFlowTheme.of(context).secondary,
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(10.r),
+                                    bottomLeft: Radius.circular(10.r))),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  height: 200.h,
+                                  'assests/nodata.png',
                                 ),
-                              ),
+                              ],
                             ),
+                          ),
                     ),
                   ],
                 );
@@ -1918,7 +1916,7 @@ class _CustomerTileState extends State<CustomerTile> {
     customer = widget.customer;
     return MouseRegion(
       opaque: false,
-      cursor: MouseCursor.defer,
+      cursor: MouseCursor.defer ?? MouseCursor.defer,
       onEnter: ((event) async {
         setState(() => mouseRegionHovered1 = true);
       }),
@@ -1930,24 +1928,24 @@ class _CustomerTileState extends State<CustomerTile> {
         height: MediaQuery.sizeOf(context).height * 0.06,
         decoration: BoxDecoration(
           color: mouseRegionHovered1
-              ? const Color(0x18FF3F25)
+              ? FlutterFlowTheme.of(context).alternate
               : FlutterFlowTheme.of(context).accent1,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
-              flex: 4,
+              flex: 5,
               child: Align(
                 alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: Text(
                   customer.name,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    fontFamily: 'Inter',
+                    fontSize: 16.0,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -1958,11 +1956,11 @@ class _CustomerTileState extends State<CustomerTile> {
                 child: Text(
                   customer.gstin,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    fontFamily: 'Inter',
+                    fontSize: 16.0,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -1971,14 +1969,14 @@ class _CustomerTileState extends State<CustomerTile> {
               child: Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: AutoSizeText(
-                  '${customer.type ? 'Wholesaler' : 'Retailer'}${customer.isgst ? 'With GST' : 'Without GST'}',
+                  '${customer.type ? 'Wholesaler' : 'Retailer'}${customer.isgst ? ' With GST' : ' Without GST'}',
                   minFontSize: 8.0,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    fontFamily: 'Inter',
+                    fontSize: 16.0,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -1990,11 +1988,11 @@ class _CustomerTileState extends State<CustomerTile> {
                   customer.phone.toString(),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    fontFamily: 'Inter',
+                    fontSize: 16.0,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -2003,15 +2001,15 @@ class _CustomerTileState extends State<CustomerTile> {
               child: Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
-                  customer.openbal.toString(),
+                  customer.phone,
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Roboto Mono',
-                        color: FlutterFlowTheme.of(context).tertiary,
-                        fontSize: 18.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontFamily: 'Roboto Mono',
+                    color: FlutterFlowTheme.of(context).tertiary,
+                    fontSize: 18.0,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -2021,13 +2019,12 @@ class _CustomerTileState extends State<CustomerTile> {
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      flex: 4,
+                    Flexible(
                       child: MouseRegion(
                         opaque: false,
-                        cursor: MouseCursor.defer,
+                        cursor: MouseCursor.defer ?? MouseCursor.defer,
                         onEnter: ((event) async {
                           setState(() => mouseRegionHovered2 = true);
                         }),
@@ -2036,73 +2033,68 @@ class _CustomerTileState extends State<CustomerTile> {
                         }),
                         child: Builder(
                           builder: (context) {
-                            if (mouseRegionHovered2) {
+                            if (mouseRegionHovered1 ?? false) {
                               return Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 8.0, 8.0),
+                                    0.0, 0.0, 8.0, 0.0),
                                 child: Material(
                                   color: Colors.transparent,
-                                  elevation: mouseRegionHovered2 ? 1.0 : 0.0,
+                                  elevation:
+                                  mouseRegionHovered2 ? 1.0 : 0.0,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(24.0),
                                   ),
                                   child: Container(
-                                    width: double.infinity,
-                                    height: double.infinity,
+                                    width: 94.0,
+                                    height: 40.0,
                                     decoration: BoxDecoration(
                                       color: mouseRegionHovered2
                                           ? FlutterFlowTheme.of(context).primary
                                           : FlutterFlowTheme.of(context)
-                                              .secondary,
+                                          .secondary,
                                       borderRadius: BorderRadius.circular(24.0),
-                                      border: Border.all(
-                                        color: mouseRegionHovered2
-                                            ? FlutterFlowTheme.of(context)
-                                                .primary
-                                            : FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                      CrossAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsetsDirectional
-                                              .fromSTEB(8.0, 0.0, 8.0, 0.0),
+                                          padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              8.0, 0.0, 8.0, 0.0),
                                           child: Icon(
                                             Icons.remove_red_eye_rounded,
                                             color: mouseRegionHovered2
                                                 ? FlutterFlowTheme.of(context)
-                                                    .accent1
+                                                .accent1
                                                 : FlutterFlowTheme.of(context)
-                                                    .primaryText,
-                                            size: 16.0,
+                                                .primaryText,
+                                            size: 18.0,
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsetsDirectional
-                                              .fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                          padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 8.0, 0.0),
                                           child: Text(
                                             'Legder',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  color: mouseRegionHovered2
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .accent1
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryText,
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              color: mouseRegionHovered2
+                                                  ? FlutterFlowTheme.of(
+                                                  context)
+                                                  .accent1
+                                                  : FlutterFlowTheme.of(
+                                                  context)
+                                                  .primaryText,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -2115,8 +2107,8 @@ class _CustomerTileState extends State<CustomerTile> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 8.0, 0.0),
                                 child: Container(
-                                  width: double.infinity,
-                                  height: double.infinity,
+                                  width: 94.0,
+                                  height: 40.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).accent1,
                                     borderRadius: BorderRadius.circular(24.0),
@@ -2128,21 +2120,17 @@ class _CustomerTileState extends State<CustomerTile> {
                         ),
                       ),
                     ),
-                    Expanded(
-                      flex: 3,
+                    Align(
+                      alignment: const AlignmentDirectional(0.6, 0.0),
                       child: InkWell(
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (con) {
-                              return EditCustomer(
-                                customer: customer,
-                              );
-                            },
-                          );
+                        onTap: (){
+                          showDialog(context: context, builder: (con){
+                            return EditCustomer(customer: customer);
+                          });
                         },
-                        child: Align(
-                          alignment: const AlignmentDirectional(-0.4, 0.0),
+                        child: Padding(
+                          padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                           child: Icon(
                             Icons.keyboard_control_rounded,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -2155,14 +2143,13 @@ class _CustomerTileState extends State<CustomerTile> {
                 ),
               ),
             ),
-          ]
-              .addToStart(const SizedBox(width: 16.0))
-              .addToEnd(const SizedBox(width: 16.0)),
+          ].addToStart(const SizedBox(width: 16.0)).addToEnd(const SizedBox(width: 16.0)),
         ),
       ),
     );
   }
 }
+
 
 class _EditCustomerState extends State<EditCustomer>
     with TickerProviderStateMixin {
@@ -2195,12 +2182,14 @@ class _EditCustomerState extends State<EditCustomer>
   ];
 
   late Customer customer;
+
   final animationsMap = <String, AnimationInfo>{};
-  bool isname = false,
-      isaddress = false,
-      iscity = false,
-      ispincode = false,
-      isstate = false;
+
+  bool isname = true,
+      isaddress = true,
+      iscity = true,
+      ispincode = true,
+      isstate = true;
 
   @override
   void initState() {
@@ -2532,15 +2521,16 @@ class _EditCustomerState extends State<EditCustomer>
                                           }
                                         } else {
                                           BillHelper().updatecustomer(Customer(
+                                            id: customer.id,
                                             name: namecon.text,
                                             gstin: gstincon.text,
                                             address: addresscon.text,
                                             city: citycon.text,
-                                            pincode: int.parse(pincodecon.text),
+                                            pincode: int.tryParse(pincodecon.text) ?? 0,
                                             state: statecon.text,
                                             phone: phonecon.text,
-                                            openbal: double.parse(
-                                                openingbalancecon.text),
+                                            openbal: double.tryParse(
+                                                openingbalancecon.text) ?? 0,
                                             type: type.contains('Wholesaler'),
                                             isgst: type.contains('with GST'),
                                             email: emailcon.text,

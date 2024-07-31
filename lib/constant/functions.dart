@@ -56,6 +56,11 @@ String timeof(String iso) {
   return '${iso.substring(11,13)}:${iso.substring(14,16)},${iso.substring(17,19)}';
 }
 
+String timedateof(DateTime now) {
+  now.toIso8601String();
+  return now.toIso8601String().substring(0, 12);
+}
+
 String getime(DateTime dateTime){
   final DateTime now = DateTime.now();
   int min = now.difference(dateTime).inMinutes;
