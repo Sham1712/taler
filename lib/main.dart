@@ -46,7 +46,7 @@ class App extends StatelessWidget {
                 AppBarTheme(backgroundColor: Theme.of(context).primaryColor),
             textTheme: null,
           ),
-          initialRoute: '/invoice',
+          initialRoute: '/',
           routes: {
             '/splash': (context) => const Spalsh(),
             '/': (context) => GetUser(),
@@ -71,7 +71,7 @@ class GetUser extends StatelessWidget {
       builder: (context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
           if (snapshot.hasData) {
-            return const Home();
+            return const Invoice();
             return FutureBuilder<Users?>(
               future: authHelper.startup(),
               builder: (context, AsyncSnapshot<Users?> snapshot) {

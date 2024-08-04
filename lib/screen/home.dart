@@ -1399,7 +1399,7 @@ class _HomeState extends State<Home> {
                                 shape: BoxShape.circle,
                               ),
                               child: Image.network(
-                                AuthHelper.myuser.photoURL.toString(),
+                                AuthHelper.myuser!.photoURL.toString(),
                                 errorBuilder: (content,error,e){
                                   return Image.asset('assests/user.png');
                                 },
@@ -1458,7 +1458,7 @@ class _HomeState extends State<Home> {
                                       ],
                                     ),
                                     Text(
-                                      'Smart Textile',
+                                      AuthHelper.myuser!.displayName!,
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium

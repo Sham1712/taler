@@ -12,22 +12,22 @@ import 'authHelper.dart';
 class BillHelper {
 
   Firestore store = Firestore.instance;
-  User user = AuthHelper.myuser;
+  User? user = AuthHelper.myuser;
 
   CollectionReference get colcus =>
-      store.collection('/users/${user.uid}/customer');
+      store.collection('/users/${user!.uid}/customer');
 
   CollectionReference get colpro =>
-      store.collection('/users/${user.uid}/product');
+      store.collection('/users/${user!.uid}/product');
 
   CollectionReference get colbnk =>
-      store.collection('/users/${user.uid}/bank');
+      store.collection('/users/${user!.uid}/bank');
 
   CollectionReference get colbil =>
-      store.collection('/users/${user.uid}/bill');
+      store.collection('/users/${user!.uid}/bill');
 
   CollectionReference get colven =>
-      store.collection('/users/${user.uid}/vendor');
+      store.collection('/users/${user!.uid}/vendor');
 
 
   Future<void> addcustomer(Customer customer) async {
@@ -79,25 +79,25 @@ class BillHelper {
     ).asBroadcastStream();
   }
 
-  Future<void> addbill(Objname bill) async {
+  Future<void> addbill(Bill bill) async {
     bill.id = DateTime.now().toIso8601String();
     return await colbil.document(bill.id!).set(bill.toMap());
   }
 
-  Future<void> updatebill(Objname bill) async {
+  Future<void> updatebill(Bill bill) async {
     return await colbil.document(bill.id!).update(bill.toMap());
   }
 
-  Future<void> deletebill(Objname bill) async {
+  Future<void> deletebill(Bill bill) async {
     return await colbil.document(bill.id!).delete();
   }
 
-  Stream<List<Objname>> getbills() {
+  Stream<List<Bill>> getbills() {
     final snapshots = colbil.orderBy(col_id,descending: true).get().asStream();
     return snapshots.map(
       (snapshot) => snapshot.map(
         (snapshot) {
-          return Objname.fromMap(snapshot.map);
+          return Bill.fromMap(snapshot.map);
         },
       ).toList()
     ).asBroadcastStream();

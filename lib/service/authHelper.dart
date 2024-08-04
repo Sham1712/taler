@@ -17,9 +17,9 @@ import '../object/users.dart';
 class AuthHelper {
   static FirebaseAuth firebaseauth = FirebaseAuth.instance;
 
-  static User get myuser => FirebaseAuth.instance.currentUser!;
+  static User? get myuser => FirebaseAuth.instance.currentUser;
 
-  static DocumentReference get docuser  => Firestore.instance.document('/users/${myuser.uid}');
+  static DocumentReference get docuser  => Firestore.instance.document('/users/${myuser!.uid}');
 
   Stream<User?> authchanges() => firebaseauth.authStateChanges();
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -98,7 +98,7 @@ class AuthHelper {
   }
 
   Future<void> createUser() async {
-    User user = myuser;
+    User user = myuser!;
     Users users = Users(
         uid: user.uid,
         ename: user.displayName!,
