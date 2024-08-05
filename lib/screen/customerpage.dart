@@ -32,8 +32,7 @@ class Customerpage extends StatelessWidget {
   }
 }
 
-class _AddCustomerState extends State<AddCustomer>
-    with TickerProviderStateMixin {
+class _AddCustomerState extends State<AddCustomer> with TickerProviderStateMixin {
   TextEditingController namecon = TextEditingController(),
       gstincon = TextEditingController(),
       openingbalancecon = TextEditingController(),
@@ -2173,8 +2172,7 @@ class _CustomerTileState extends State<CustomerTile> {
   }
 }
 
-class _EditCustomerState extends State<EditCustomer>
-    with TickerProviderStateMixin {
+class _EditCustomerState extends State<EditCustomer> with TickerProviderStateMixin {
   TextEditingController namecon = TextEditingController(),
       gstincon = TextEditingController(),
       openingbalancecon = TextEditingController(),
