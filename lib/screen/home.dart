@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taler/screen/customerpage.dart';
 import 'package:taler/screen/invoice.dart';
 import 'package:taler/screen/productpage.dart';
@@ -38,7 +39,7 @@ class _HomeState extends State<Home> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Container(
-              width: compactView == false ? 250.0 : 100,
+              width: compactView == false ? 150.w : 70.w,
               height: MediaQuery.sizeOf(context).height * 1.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
@@ -58,7 +59,7 @@ class _HomeState extends State<Home> {
                           borderRadius: BorderRadius.circular(32.0),
                           border: Border.all(
                             color:
-                                FlutterFlowTheme.of(context).primaryBackground,
+                            FlutterFlowTheme.of(context).primaryBackground,
                             width: 2.0,
                           ),
                         ),
@@ -71,7 +72,7 @@ class _HomeState extends State<Home> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     valueOrDefault<double>(
-                                      compactView == true ? 8.0 : 0.0,
+                                      compactView == true ? 6.w : 0.0,
                                       0.0,
                                     ),
                                     0.0,
@@ -80,8 +81,8 @@ class _HomeState extends State<Home> {
                                 child: Icon(
                                   Icons.biotech_outlined,
                                   color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  size: 36.0,
+                                  FlutterFlowTheme.of(context).primaryText,
+                                  size: 22.sp,
                                 ),
                               ),
                               if (compactView == false)
@@ -93,11 +94,11 @@ class _HomeState extends State<Home> {
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .override(
-                                          fontFamily: 'Noto Sans',
-                                          fontSize: 32.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w800,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      fontSize: 20.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w800,
+                                    ),
                                   ),
                                 ),
                             ],
@@ -137,12 +138,12 @@ class _HomeState extends State<Home> {
                                   route(context, const Invoice());
                                 },
                                 child: Container(
-                                  height: 48.0,
+                                  height: 30.h,
                                   decoration: BoxDecoration(
                                     color: mouseRegionHovered1 == true
                                         ? (pageindex == 0
-                                            ? const Color(0x00000000)
-                                            : const Color(0xFFEEEEEE))
+                                        ? const Color(0x00000000)
+                                        : const Color(0xFFEEEEEE))
                                         : const Color(0x00000000),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
@@ -161,11 +162,11 @@ class _HomeState extends State<Home> {
                                               height: double.infinity,
                                               decoration: BoxDecoration(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                                 border: Border.all(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .primaryText,
                                                 ),
                                               ),
@@ -184,21 +185,21 @@ class _HomeState extends State<Home> {
                                               height: double.infinity,
                                               decoration: BoxDecoration(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                                 borderRadius:
-                                                    const BorderRadius.only(
+                                                const BorderRadius.only(
                                                   bottomLeft:
-                                                      Radius.circular(2.0),
+                                                  Radius.circular(2.0),
                                                   bottomRight:
-                                                      Radius.circular(24.0),
+                                                  Radius.circular(24.0),
                                                   topLeft: Radius.circular(2.0),
                                                   topRight:
-                                                      Radius.circular(24.0),
+                                                  Radius.circular(24.0),
                                                 ),
                                                 border: Border.all(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .primaryText,
                                                 ),
                                               ),
@@ -220,10 +221,10 @@ class _HomeState extends State<Home> {
                                             Icons.pages,
                                             color: pageindex == 0
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryText
+                                                .primaryText
                                                 : FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                            size: pageindex == 0 ? 22.0 : 20.0,
+                                                .secondaryText,
+                                            size: pageindex == 0 ? 14.sp : 12.sp,
                                           ),
                                         ),
                                       ),
@@ -236,21 +237,21 @@ class _HomeState extends State<Home> {
                                             child: Text(
                                               'Sales',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: pageindex == 0
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    fontSize: 18.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: pageindex == 0
+                                                    ? FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText
+                                                    : FlutterFlowTheme.of(
+                                                    context)
+                                                    .secondaryText,
+                                                fontSize: 11.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -288,12 +289,12 @@ class _HomeState extends State<Home> {
                                   setState(() {});
                                 },
                                 child: Container(
-                                  height: 48.0,
+                                  height: 30.h,
                                   decoration: BoxDecoration(
                                     color: mouseRegionHovered2 == true
                                         ? (pageindex == 1
-                                            ? const Color(0x00000000)
-                                            : const Color(0xFFEEEEEE))
+                                        ? const Color(0x00000000)
+                                        : const Color(0xFFEEEEEE))
                                         : const Color(0x00000000),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
@@ -312,11 +313,11 @@ class _HomeState extends State<Home> {
                                               height: double.infinity,
                                               decoration: BoxDecoration(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                                 border: Border.all(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .primaryText,
                                                 ),
                                               ),
@@ -335,21 +336,21 @@ class _HomeState extends State<Home> {
                                               height: double.infinity,
                                               decoration: BoxDecoration(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                                 borderRadius:
-                                                    const BorderRadius.only(
+                                                const BorderRadius.only(
                                                   bottomLeft:
-                                                      Radius.circular(2.0),
+                                                  Radius.circular(2.0),
                                                   bottomRight:
-                                                      Radius.circular(24.0),
+                                                  Radius.circular(24.0),
                                                   topLeft: Radius.circular(2.0),
                                                   topRight:
-                                                      Radius.circular(24.0),
+                                                  Radius.circular(24.0),
                                                 ),
                                                 border: Border.all(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .primaryText,
                                                 ),
                                               ),
@@ -371,10 +372,10 @@ class _HomeState extends State<Home> {
                                             Icons.shopping_cart_outlined,
                                             color: pageindex == 1
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryText
+                                                .primaryText
                                                 : FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                            size: pageindex == 1 ? 22.0 : 20.0,
+                                                .secondaryText,
+                                            size: pageindex == 1 ? 14.sp : 12.sp,
                                           ),
                                         ),
                                       ),
@@ -387,21 +388,21 @@ class _HomeState extends State<Home> {
                                             child: Text(
                                               'Purchases',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: pageindex == 1
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: pageindex == 1
+                                                    ? FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText
+                                                    : FlutterFlowTheme.of(
+                                                    context)
+                                                    .secondaryText,
+                                                fontSize: 11.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -433,12 +434,12 @@ class _HomeState extends State<Home> {
                                   setState(() {});
                                 },
                                 child: Container(
-                                  height: 48.0,
+                                  height: 30.h,
                                   decoration: BoxDecoration(
                                     color: mouseRegionHovered3 == true
                                         ? (pageindex == 2
-                                            ? const Color(0x00000000)
-                                            : const Color(0xFFEEEEEE))
+                                        ? const Color(0x00000000)
+                                        : const Color(0xFFEEEEEE))
                                         : const Color(0x00000000),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
@@ -454,12 +455,12 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -473,21 +474,21 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               borderRadius:
-                                                  const BorderRadius.only(
+                                              const BorderRadius.only(
                                                 bottomLeft:
-                                                    Radius.circular(2.0),
+                                                Radius.circular(2.0),
                                                 bottomRight:
-                                                    Radius.circular(24.0),
+                                                Radius.circular(24.0),
                                                 topLeft: Radius.circular(2.0),
                                                 topRight: Radius.circular(24.0),
                                               ),
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -507,10 +508,10 @@ class _HomeState extends State<Home> {
                                             Icons.person_outline,
                                             color: pageindex == 2
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryText
+                                                .primaryText
                                                 : FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                            size: pageindex == 2 ? 22.0 : 20.0,
+                                                .secondaryText,
+                                            size: pageindex == 2 ? 14.sp : 12.sp,
                                           ),
                                         ),
                                       ),
@@ -523,21 +524,21 @@ class _HomeState extends State<Home> {
                                             child: Text(
                                               'Customers',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: pageindex == 2
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: pageindex == 2
+                                                    ? FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText
+                                                    : FlutterFlowTheme.of(
+                                                    context)
+                                                    .secondaryText,
+                                                fontSize: 11.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -569,12 +570,12 @@ class _HomeState extends State<Home> {
                                   setState(() {});
                                 },
                                 child: Container(
-                                  height: 48.0,
+                                  height: 30.h,
                                   decoration: BoxDecoration(
                                     color: mouseRegionHovered4 == true
                                         ? (pageindex == 3
-                                            ? const Color(0x00000000)
-                                            : const Color(0xFFEEEEEE))
+                                        ? const Color(0x00000000)
+                                        : const Color(0xFFEEEEEE))
                                         : const Color(0x00000000),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
@@ -590,12 +591,12 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -609,21 +610,21 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               borderRadius:
-                                                  const BorderRadius.only(
+                                              const BorderRadius.only(
                                                 bottomLeft:
-                                                    Radius.circular(2.0),
+                                                Radius.circular(2.0),
                                                 bottomRight:
-                                                    Radius.circular(24.0),
+                                                Radius.circular(24.0),
                                                 topLeft: Radius.circular(2.0),
                                                 topRight: Radius.circular(24.0),
                                               ),
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -643,10 +644,10 @@ class _HomeState extends State<Home> {
                                             Icons.groups_outlined,
                                             color: pageindex == 3
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryText
+                                                .primaryText
                                                 : FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                            size: pageindex == 3 ? 22.0 : 20.0,
+                                                .secondaryText,
+                                            size: pageindex == 3 ? 14.sp : 12.sp,
                                           ),
                                         ),
                                       ),
@@ -659,21 +660,21 @@ class _HomeState extends State<Home> {
                                             child: Text(
                                               'Vendors',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: pageindex == 3
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: pageindex == 3
+                                                    ? FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText
+                                                    : FlutterFlowTheme.of(
+                                                    context)
+                                                    .secondaryText,
+                                                fontSize: 11.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -705,12 +706,12 @@ class _HomeState extends State<Home> {
                                   setState(() {});
                                 },
                                 child: Container(
-                                  height: 48.0,
+                                  height: 30.h,
                                   decoration: BoxDecoration(
                                     color: mouseRegionHovered5 == true
                                         ? (pageindex == 4
-                                            ? const Color(0x00000000)
-                                            : const Color(0xFFEEEEEE))
+                                        ? const Color(0x00000000)
+                                        : const Color(0xFFEEEEEE))
                                         : const Color(0x00000000),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
@@ -726,12 +727,12 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -745,21 +746,21 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               borderRadius:
-                                                  const BorderRadius.only(
+                                              const BorderRadius.only(
                                                 bottomLeft:
-                                                    Radius.circular(2.0),
+                                                Radius.circular(2.0),
                                                 bottomRight:
-                                                    Radius.circular(24.0),
+                                                Radius.circular(24.0),
                                                 topLeft: Radius.circular(2.0),
                                                 topRight: Radius.circular(24.0),
                                               ),
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -779,10 +780,10 @@ class _HomeState extends State<Home> {
                                             Icons.add_circle_outline_rounded,
                                             color: pageindex == 4
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryText
+                                                .primaryText
                                                 : FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                            size: pageindex == 4 ? 22.0 : 20.0,
+                                                .secondaryText,
+                                            size: pageindex == 4 ? 14.sp : 12.sp,
                                           ),
                                         ),
                                       ),
@@ -795,21 +796,21 @@ class _HomeState extends State<Home> {
                                             child: Text(
                                               'Products',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: pageindex == 4
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: pageindex == 4
+                                                    ? FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText
+                                                    : FlutterFlowTheme.of(
+                                                    context)
+                                                    .secondaryText,
+                                                fontSize: 11.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -841,12 +842,12 @@ class _HomeState extends State<Home> {
                                   setState(() {});
                                 },
                                 child: Container(
-                                  height: 48.0,
+                                  height: 30.h,
                                   decoration: BoxDecoration(
                                     color: mouseRegionHovered6 == true
                                         ? (pageindex == 5
-                                            ? const Color(0x00000000)
-                                            : const Color(0xFFEEEEEE))
+                                        ? const Color(0x00000000)
+                                        : const Color(0xFFEEEEEE))
                                         : const Color(0x00000000),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
@@ -862,12 +863,12 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -881,21 +882,21 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               borderRadius:
-                                                  const BorderRadius.only(
+                                              const BorderRadius.only(
                                                 bottomLeft:
-                                                    Radius.circular(2.0),
+                                                Radius.circular(2.0),
                                                 bottomRight:
-                                                    Radius.circular(24.0),
+                                                Radius.circular(24.0),
                                                 topLeft: Radius.circular(2.0),
                                                 topRight: Radius.circular(24.0),
                                               ),
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -915,10 +916,10 @@ class _HomeState extends State<Home> {
                                             Icons.attach_money_rounded,
                                             color: pageindex == 5
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryText
+                                                .primaryText
                                                 : FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                            size: pageindex == 5 ? 22.0 : 20.0,
+                                                .secondaryText,
+                                            size: pageindex == 5 ? 14.sp : 12.sp,
                                           ),
                                         ),
                                       ),
@@ -931,21 +932,21 @@ class _HomeState extends State<Home> {
                                             child: Text(
                                               'Payments',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: pageindex == 5
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: pageindex == 5
+                                                    ? FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText
+                                                    : FlutterFlowTheme.of(
+                                                    context)
+                                                    .secondaryText,
+                                                fontSize: 11.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -977,12 +978,12 @@ class _HomeState extends State<Home> {
                                   setState(() {});
                                 },
                                 child: Container(
-                                  height: 48.0,
+                                  height: 30.h,
                                   decoration: BoxDecoration(
                                     color: mouseRegionHovered7 == true
                                         ? (pageindex == 6
-                                            ? const Color(0x00000000)
-                                            : const Color(0xFFEEEEEE))
+                                        ? const Color(0x00000000)
+                                        : const Color(0xFFEEEEEE))
                                         : const Color(0x00000000),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
@@ -998,12 +999,12 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -1017,21 +1018,21 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               borderRadius:
-                                                  const BorderRadius.only(
+                                              const BorderRadius.only(
                                                 bottomLeft:
-                                                    Radius.circular(2.0),
+                                                Radius.circular(2.0),
                                                 bottomRight:
-                                                    Radius.circular(24.0),
+                                                Radius.circular(24.0),
                                                 topLeft: Radius.circular(2.0),
                                                 topRight: Radius.circular(24.0),
                                               ),
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -1051,10 +1052,10 @@ class _HomeState extends State<Home> {
                                             Icons.dashboard_outlined,
                                             color: pageindex == 6
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryText
+                                                .primaryText
                                                 : FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                            size: pageindex == 6 ? 22.0 : 20.0,
+                                                .secondaryText,
+                                            size: pageindex == 6 ? 14.sp : 12.sp,
                                           ),
                                         ),
                                       ),
@@ -1067,21 +1068,21 @@ class _HomeState extends State<Home> {
                                             child: Text(
                                               'Dashboard',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: pageindex == 6
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: pageindex == 6
+                                                    ? FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText
+                                                    : FlutterFlowTheme.of(
+                                                    context)
+                                                    .secondaryText,
+                                                fontSize: 11.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1113,12 +1114,12 @@ class _HomeState extends State<Home> {
                                   setState(() {});
                                 },
                                 child: Container(
-                                  height: 48.0,
+                                  height: 30.h,
                                   decoration: BoxDecoration(
                                     color: mouseRegionHovered8 == true
                                         ? (pageindex == 7
-                                            ? const Color(0x00000000)
-                                            : const Color(0xFFEEEEEE))
+                                        ? const Color(0x00000000)
+                                        : const Color(0xFFEEEEEE))
                                         : const Color(0x00000000),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
@@ -1134,12 +1135,12 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -1153,21 +1154,21 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               borderRadius:
-                                                  const BorderRadius.only(
+                                              const BorderRadius.only(
                                                 bottomLeft:
-                                                    Radius.circular(2.0),
+                                                Radius.circular(2.0),
                                                 bottomRight:
-                                                    Radius.circular(24.0),
+                                                Radius.circular(24.0),
                                                 topLeft: Radius.circular(2.0),
                                                 topRight: Radius.circular(24.0),
                                               ),
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -1187,10 +1188,10 @@ class _HomeState extends State<Home> {
                                             Icons.attach_money_rounded,
                                             color: pageindex == 7
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryText
+                                                .primaryText
                                                 : FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                            size: pageindex == 7 ? 22.0 : 20.0,
+                                                .secondaryText,
+                                            size: pageindex == 7 ? 14.sp : 12.sp,
                                           ),
                                         ),
                                       ),
@@ -1203,21 +1204,21 @@ class _HomeState extends State<Home> {
                                             child: Text(
                                               'Expenses',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: pageindex == 7
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: pageindex == 7
+                                                    ? FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText
+                                                    : FlutterFlowTheme.of(
+                                                    context)
+                                                    .secondaryText,
+                                                fontSize: 11.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1249,12 +1250,12 @@ class _HomeState extends State<Home> {
                                   setState(() {});
                                 },
                                 child: Container(
-                                  height: 48.0,
+                                  height: 30.h,
                                   decoration: BoxDecoration(
                                     color: mouseRegionHovered9 == true
                                         ? (pageindex == 8
-                                            ? const Color(0x00000000)
-                                            : const Color(0xFFEEEEEE))
+                                        ? const Color(0x00000000)
+                                        : const Color(0xFFEEEEEE))
                                         : const Color(0x00000000),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
@@ -1270,12 +1271,12 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -1289,21 +1290,21 @@ class _HomeState extends State<Home> {
                                             height: double.infinity,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                               borderRadius:
-                                                  const BorderRadius.only(
+                                              const BorderRadius.only(
                                                 bottomLeft:
-                                                    Radius.circular(2.0),
+                                                Radius.circular(2.0),
                                                 bottomRight:
-                                                    Radius.circular(24.0),
+                                                Radius.circular(24.0),
                                                 topLeft: Radius.circular(2.0),
                                                 topRight: Radius.circular(24.0),
                                               ),
                                               border: Border.all(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -1323,10 +1324,10 @@ class _HomeState extends State<Home> {
                                             Icons.settings_outlined,
                                             color: pageindex == 8
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryText
+                                                .primaryText
                                                 : FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                            size: pageindex == 8 ? 22.0 : 20.0,
+                                                .secondaryText,
+                                            size: pageindex == 8 ? 14.sp : 12.sp,
                                           ),
                                         ),
                                       ),
@@ -1339,21 +1340,21 @@ class _HomeState extends State<Home> {
                                             child: Text(
                                               'Settings',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: pageindex == 8
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: pageindex == 8
+                                                    ? FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText
+                                                    : FlutterFlowTheme.of(
+                                                    context)
+                                                    .secondaryText,
+                                                fontSize: 11.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1371,7 +1372,7 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsetsDirectional.fromSTEB(
                         8.0, 4.0, 4.0, 0.0),
                     child: Container(
-                      height: 48.0,
+                      height: 30.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8.0),
                         shape: BoxShape.rectangle,
@@ -1387,7 +1388,7 @@ class _HomeState extends State<Home> {
                               },
                               child: Icon(
                                 Icons.logout,
-                                size: 12,
+                                size: 8.sp,
                                 color: FlutterFlowTheme.of(context).accent1,
                               ),
                             ),
@@ -1417,7 +1418,7 @@ class _HomeState extends State<Home> {
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 0.0, 0.0),
+                                    12.0, 0.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -1426,9 +1427,9 @@ class _HomeState extends State<Home> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                      CrossAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Welcome Back!',
@@ -1436,23 +1437,23 @@ class _HomeState extends State<Home> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                fontSize: 12.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
+                                            fontFamily: 'Inter',
+                                            color:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            fontSize: 8.sp,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsetsDirectional
-                                              .fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                              .fromSTEB(0.0, 0.0, 0, 0.0),
                                           child: Icon(
                                             Icons.keyboard_arrow_right_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            size: 18.0,
+                                            size: 12.sp,
                                           ),
                                         ),
                                       ],
@@ -1463,13 +1464,13 @@ class _HomeState extends State<Home> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            fontSize: 18.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w800,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 12.sp,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w800,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -1499,8 +1500,8 @@ class _HomeState extends State<Home> {
                               child: Icon(
                                 Icons.menu_rounded,
                                 color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                                FlutterFlowTheme.of(context).secondaryText,
+                                size: 18.sp,
                               ),
                             );
                           } else {
@@ -1516,8 +1517,8 @@ class _HomeState extends State<Home> {
                               child: Icon(
                                 Icons.filter_list_rounded,
                                 color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                                FlutterFlowTheme.of(context).secondaryText,
+                                size: 18.sp,
                               ),
                             );
                           }
@@ -1535,7 +1536,7 @@ class _HomeState extends State<Home> {
                 children: [
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(
-                        24.0, 24.0, 24.0, 8.0),
+                        24.0, 16, 24.0, 8.0),
                     child: Container(
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1565,11 +1566,11 @@ class _HomeState extends State<Home> {
                                 style: FlutterFlowTheme.of(context)
                                     .headlineLarge
                                     .override(
-                                      fontFamily: 'Inter',
-                                      fontSize: 32.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontSize: 20.sp,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -1588,7 +1589,7 @@ class _HomeState extends State<Home> {
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.3,
                                 height:
-                                    MediaQuery.sizeOf(context).height * 0.07,
+                                MediaQuery.sizeOf(context).height * 0.07,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -1619,56 +1620,56 @@ class _HomeState extends State<Home> {
                                               elevation: page == 1 ? 1.5 : 0.0,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8.0),
                                               ),
                                               child: Container(
                                                 width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.333,
+                                                MediaQuery.sizeOf(context)
+                                                    .width *
+                                                    0.333,
                                                 height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .height *
-                                                        0.5,
+                                                MediaQuery.sizeOf(context)
+                                                    .height *
+                                                    0.5,
                                                 decoration: BoxDecoration(
                                                   color: page == 1
                                                       ? Colors.white
                                                       : FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
+                                                      context)
+                                                      .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                  BorderRadius.circular(
+                                                      8.0),
                                                 ),
                                                 alignment:
-                                                    const AlignmentDirectional(
-                                                        0.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                  const AlignmentDirectional(
+                                                      0.0, 0.0),
                                                   child: Text(
                                                     'View',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .titleLarge
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          color: page == 1
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .primaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
-                                                          fontSize: page == 1
-                                                              ? 20.0
-                                                              : 18.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      color: page == 1
+                                                          ? FlutterFlowTheme
+                                                          .of(
+                                                          context)
+                                                          .primaryText
+                                                          : FlutterFlowTheme
+                                                          .of(context)
+                                                          .secondaryText,
+                                                      fontSize: page == 1
+                                                          ? 12.sp
+                                                          : 11.0.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -1698,56 +1699,56 @@ class _HomeState extends State<Home> {
                                               elevation: page == 2 ? 1.5 : 0.0,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8.0),
                                               ),
                                               child: Container(
                                                 width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.333,
+                                                MediaQuery.sizeOf(context)
+                                                    .width *
+                                                    0.333,
                                                 height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .height *
-                                                        0.5,
+                                                MediaQuery.sizeOf(context)
+                                                    .height *
+                                                    0.5,
                                                 decoration: BoxDecoration(
                                                   color: page == 2
                                                       ? Colors.white
                                                       : FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
+                                                      context)
+                                                      .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                  BorderRadius.circular(
+                                                      8.0),
                                                 ),
                                                 alignment:
-                                                    const AlignmentDirectional(
-                                                        0.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                  const AlignmentDirectional(
+                                                      0.0, 0.0),
                                                   child: Text(
                                                     'Create',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .titleLarge
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          color: page == 2
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .primaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
-                                                          fontSize: page == 2
-                                                              ? 20.0
-                                                              : 18.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      color: page == 2
+                                                          ? FlutterFlowTheme
+                                                          .of(
+                                                          context)
+                                                          .primaryText
+                                                          : FlutterFlowTheme
+                                                          .of(context)
+                                                          .secondaryText,
+                                                      fontSize: page == 2
+                                                          ? 12.sp
+                                                          : 11.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -1777,56 +1778,56 @@ class _HomeState extends State<Home> {
                                               elevation: page == 3 ? 1.5 : 0.0,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8.0),
                                               ),
                                               child: Container(
                                                 width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.333,
+                                                MediaQuery.sizeOf(context)
+                                                    .width *
+                                                    0.333,
                                                 height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .height *
-                                                        0.5,
+                                                MediaQuery.sizeOf(context)
+                                                    .height *
+                                                    0.5,
                                                 decoration: BoxDecoration(
                                                   color: page == 3
                                                       ? Colors.white
                                                       : FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
+                                                      context)
+                                                      .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                  BorderRadius.circular(
+                                                      8.0),
                                                 ),
                                                 alignment:
-                                                    const AlignmentDirectional(
-                                                        0.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                  const AlignmentDirectional(
+                                                      0.0, 0.0),
                                                   child: Text(
                                                     'Stock ',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .titleLarge
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          color: page == 3
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .primaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
-                                                          fontSize: page == 3
-                                                              ? 20.0
-                                                              : 18.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      color: page == 3
+                                                          ? FlutterFlowTheme
+                                                          .of(
+                                                          context)
+                                                          .primaryText
+                                                          : FlutterFlowTheme
+                                                          .of(context)
+                                                          .secondaryText,
+                                                      fontSize: page == 3
+                                                          ? 12.sp
+                                                          : 11.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
                                                   ),
                                                 ),
                                               ),

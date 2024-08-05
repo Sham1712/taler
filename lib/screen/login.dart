@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:taler/service/authHelper.dart';
 
@@ -36,7 +37,9 @@ class _LoginState extends State<Login> {
                       'Taler',
                       style:
                       FlutterFlowTheme.of(context).displaySmall.override(
-                        fontFamily: 'Outfit',
+                        fontFamily: 'Inter',
+                        fontSize: 28.sp,
+                        fontWeight: FontWeight.w700,
                         letterSpacing: 0.0,
                       ),
                     ),
@@ -83,12 +86,14 @@ class _LoginState extends State<Login> {
                               Align(
                                 alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Text(
-                                  '"Why cram? \nJust bill it! 📚💸"',
+                                  '"Skip the fuss,\n Just bill it! 📚💸"',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall
                                       .override(
-                                    fontFamily: 'Outfit',
+                                    fontFamily: 'Inter',
+                                    fontSize: 24.sp,
+                                    fontWeight: FontWeight.w500,
                                     letterSpacing: 0.0,
                                   ),
                                 ),
@@ -111,7 +116,9 @@ class _LoginState extends State<Login> {
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall
                                         .override(
-                                      fontFamily: 'Outfit',
+                                      fontFamily: 'Inter',
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.w400,
                                       letterSpacing: 0.0,
                                     ),
                                   ),
@@ -142,8 +149,8 @@ class _LoginState extends State<Login> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                    fontFamily: 'Outfit',
-                                    fontSize: 24.0,
+                                    fontFamily: 'Inter',
+                                    fontSize: 16.sp,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),

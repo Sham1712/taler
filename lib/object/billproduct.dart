@@ -1,4 +1,8 @@
-const String col_id = 'id';
+
+import 'dart:convert';
+
+import 'customer.dart';
+
 const String col_category = 'category';
 const String col_productid = 'productid';
 const String col_quantity = 'quantity';
@@ -32,8 +36,8 @@ class Billproduct {
     extranotes: map[col_extranotes],
   );
 
-  Map<String, dynamic> toMap() {
-    return {
+  String toMap() {
+    return jsonEncode({
       col_id: id,
       col_category: category,
       col_productid: productid,
@@ -41,7 +45,7 @@ class Billproduct {
       col_price: price,
       col_dicountpercent: dicountpercent,
       col_extranotes: extranotes,
-    };
+    });
   }
 
 }

@@ -7,7 +7,6 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firedart/firestore/firestore.dart';
 import 'package:firedart/firestore/models.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 
@@ -61,7 +60,6 @@ class AuthHelper {
         );
         final userCredential = await _auth.signInWithCredential(credential);
         createUser();
-        print(userCredential.user);
         return userCredential.user;
       }
     }

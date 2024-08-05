@@ -34,432 +34,6 @@ class ProductPage extends StatelessWidget {
   }
 }
 
-class _ViewProductState extends State<ViewProduct> {
-  TextEditingController searchcon = TextEditingController();
-  FocusNode textFieldFocusNode = FocusNode();
-  bool iswprice = true;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(16.0),
-            bottomRight: Radius.circular(16.0),
-            topLeft: Radius.circular(0.0),
-            topRight: Radius.circular(0.0),
-          ),
-        ),
-        alignment: const AlignmentDirectional(-1.0, -1.0),
-        child: StreamBuilder<List<Product>>(
-            stream: BillHelper().getproducts(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                List<Product> data = snapshot.data!;
-                List<Product> products = [];
-                products = data.where((pro) {
-                  return pro.name
-                      .toLowerCase()
-                      .contains(searchcon.text.toLowerCase());
-                }).toList();
-                return Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
-                          0.0, 16.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Your Products',
-                            style: FlutterFlowTheme.of(context)
-                                .headlineLarge
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  fontSize: 24.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                          Flexible(
-                            child: Align(
-                              alignment: const AlignmentDirectional(1.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 8.0, 0.0),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 0.3,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(0.0),
-                                  ),
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
-                                    child: TextFormField(
-                                      controller: searchcon,
-                                      focusNode: textFieldFocusNode,
-                                      onChanged: (val) {
-                                        setState(() {
-                                          products = data.where((pro) {
-                                            return pro.name.contains(val);
-                                          }).toList();
-                                        });
-                                      },
-                                      autofocus: true,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              letterSpacing: 0.0,
-                                            ),
-                                        hintText: 'Search',
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              letterSpacing: 0.0,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                            ),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                            width: 1.5,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                            width: 1.5,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 1.5,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 1.5,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        filled: true,
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        suffixIcon: Icon(
-                                          Icons.search_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(2.0, 0.0),
-                            child: FFButtonWidget(
-                              onPressed: () {},
-                              text: 'Sort By',
-                              icon: Icon(
-                                Icons.filter_list_rounded,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 20.0,
-                              ),
-                              options: FFButtonOptions(
-                                height: 50.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding:
-                                    const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 4.0, 0.0),
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 0.0,
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  width: 1.5,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                          ),
-                        ]
-                            .addToStart(const SizedBox(width: 16.0))
-                            .addToEnd(const SizedBox(width: 16.0)),
-                      ),
-                    ),
-                    Flexible(
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 0.0),
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 0.99,
-                          height: MediaQuery.sizeOf(context).height * 0.06,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).secondary,
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(8.0),
-                              topRight: Radius.circular(8.0),
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                flex: 2,
-                                child: Align(
-                                  alignment:
-                                      const AlignmentDirectional(-1.0, 0.0),
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Category',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Outfit',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            fontSize: 12.sp,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 5,
-                                child: Text(
-                                  'Name',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontSize: 12.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Align(
-                                  alignment:
-                                      const AlignmentDirectional(-1.0, 0.0),
-                                  child: Text(
-                                    'HSN Code',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 12.sp,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 2,
-                                child: Container(
-                                  decoration: const BoxDecoration(),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Expanded(
-                                        flex: 3,
-                                        child: Align(
-                                          alignment: const AlignmentDirectional(
-                                              0.0, 0.0),
-                                          child: Text(
-                                            iswprice ? 'Wholesale Price' : 'Retailer Price',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  fontSize: 12.sp,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                      Flexible(
-                                        flex: 1,
-                                        child: InkWell(
-                                          onTap: (){
-                                            setState(() {
-                                              iswprice = !iswprice;
-                                            });
-                                          },
-                                          child: Icon(
-                                            iswprice ? Icons.arrow_drop_down_rounded : Icons.arrow_drop_up_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 24.0,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Align(
-                                  alignment:
-                                      const AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    'GST%',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 12.sp,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Align(
-                                  alignment:
-                                      const AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    'Actions',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 12.sp,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    products.isNotEmpty
-                        ? Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 16.0, 0.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10.r),
-                                  bottomRight: Radius.circular(10.r)),
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                itemCount: products.length,
-                                itemBuilder: (context, productIndex) {
-                                  Product product = products[productIndex];
-                                  return ProductTile(product: product,iswprice: iswprice,);
-                                },
-                              ),
-                            ),
-                          )
-                        : Expanded(
-                            child: Container(
-                              margin: const EdgeInsets.symmetric(horizontal: 16),
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).secondary,
-                                borderRadius: BorderRadius.only(bottomRight: Radius.circular(10.r),bottomLeft: Radius.circular(10.r))
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assests/nodata.png',
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                  ],
-                );
-              }
-              return Center(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 40),
-                  child: LoadingAnimationWidget.fallingDot(
-                    color: FlutterFlowTheme.of(context).primary,
-                    size: 50,
-                  ),
-                ),
-              );
-            }),
-      ),
-    );
-  }
-}
-
 class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
   TextEditingController namecon = TextEditingController(),
       categorycon = TextEditingController(),
@@ -533,7 +107,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
     });
     setupAnimations(
       animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
+      anim.trigger == AnimationTrigger.onActionTrigger ||
           !anim.applyInitialState),
       this,
     );
@@ -557,7 +131,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
               children: [
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -573,11 +147,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Inter',
-                                    fontSize: 24.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                fontFamily: 'Inter',
+                                fontSize: 18.sp,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                           Align(
@@ -590,11 +164,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      fontSize: 14.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontSize: 10.sp,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
                               ),
                             ),
                           ),
@@ -607,30 +181,30 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                             if (!(isname && ishsn && isgst)) {
                               if (isname == false) {
                                 if (animationsMap[
-                                        'textFieldOnActionTriggerAnimation1'] !=
+                                'textFieldOnActionTriggerAnimation1'] !=
                                     null) {
                                   await animationsMap[
-                                          'textFieldOnActionTriggerAnimation1']!
+                                  'textFieldOnActionTriggerAnimation1']!
                                       .controller
                                       .forward(from: 0.0);
                                 }
                               }
                               if (ishsn == false) {
                                 if (animationsMap[
-                                        'textFieldOnActionTriggerAnimation2'] !=
+                                'textFieldOnActionTriggerAnimation2'] !=
                                     null) {
                                   await animationsMap[
-                                          'textFieldOnActionTriggerAnimation2']!
+                                  'textFieldOnActionTriggerAnimation2']!
                                       .controller
                                       .forward(from: 0.0);
                                 }
                               }
                               if (isgst == false) {
                                 if (animationsMap[
-                                        'textFieldOnActionTriggerAnimation3'] !=
+                                'textFieldOnActionTriggerAnimation3'] !=
                                     null) {
                                   await animationsMap[
-                                          'textFieldOnActionTriggerAnimation3']!
+                                  'textFieldOnActionTriggerAnimation3']!
                                       .controller
                                       .forward(from: 0.0);
                                 }
@@ -669,11 +243,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   'To view this product go to view product',
                                   style: TextStyle(
                                       color:
-                                          FlutterFlowTheme.of(context).primary),
+                                      FlutterFlowTheme.of(context).primary),
                                 ),
                                 alignment: Alignment.bottomRight,
                                 animationDuration:
-                                    const Duration(milliseconds: 300),
+                                const Duration(milliseconds: 300),
                                 icon: const Icon(Icons.check),
                                 showIcon: true,
                                 primaryColor: Colors.green,
@@ -694,7 +268,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                 ],
                                 showProgressBar: true,
                                 closeButtonShowType:
-                                    CloseButtonShowType.onHover,
+                                CloseButtonShowType.onHover,
                                 closeOnClick: false,
                                 pauseOnHover: true,
                                 dragToClose: true,
@@ -713,11 +287,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Inter',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                              fontFamily: 'Inter',
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w600,
+                            ),
                             elevation: 1.5,
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -725,7 +299,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                             ),
                             borderRadius: BorderRadius.circular(12.0),
                             hoverColor:
-                                FlutterFlowTheme.of(context).primaryText,
+                            FlutterFlowTheme.of(context).primaryText,
                             hoverBorderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).primaryText,
                               width: 1.0,
@@ -740,7 +314,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     decoration: const BoxDecoration(),
@@ -760,11 +334,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -774,11 +348,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -802,7 +376,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   focusNode: textFieldFocusNode1,
                                   autofocus: true,
                                   textCapitalization:
-                                      TextCapitalization.characters,
+                                  TextCapitalization.characters,
                                   textInputAction: TextInputAction.next,
                                   obscureText: false,
                                   onChanged: (val) {
@@ -812,18 +386,18 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: 'Name',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -843,7 +417,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -851,7 +425,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -859,27 +433,28 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     filled: true,
                                     fillColor: Colors.white,
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 0.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 0.0, 0.0),
                                     prefixIcon: Icon(
                                       Icons.shopping_cart,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 20.0,
+                                      size: 12.sp,
                                     ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ).animateOnActionTrigger(
                                 animationsMap[
-                                    'textFieldOnActionTriggerAnimation1']!,
+                                'textFieldOnActionTriggerAnimation1']!,
                               ),
                             ),
                             Expanded(
@@ -889,25 +464,25 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                 focusNode: textFieldFocusNode2,
                                 autofocus: true,
                                 textCapitalization:
-                                    TextCapitalization.characters,
+                                TextCapitalization.characters,
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Category',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -941,8 +516,8 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                  const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 0.0, 0.0),
                                   prefixIcon: Icon(
                                     Icons.category_outlined,
                                     color: FlutterFlowTheme.of(context)
@@ -953,11 +528,12 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ),
                             ),
                             const Expanded(
@@ -981,11 +557,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -995,11 +571,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -1009,11 +585,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -1042,7 +618,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     focusNode: textFieldFocusNode3,
                                     autofocus: true,
                                     textCapitalization:
-                                        TextCapitalization.characters,
+                                    TextCapitalization.characters,
                                     textInputAction: TextInputAction.next,
                                     obscureText: false,
                                     onChanged: (val) {
@@ -1052,18 +628,18 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                       hintText: 'Eg. 6107',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -1071,7 +647,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -1080,7 +656,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -1089,7 +665,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -1098,13 +674,13 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       filled: true,
                                       fillColor: Colors.white,
                                       contentPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              24.0, 0.0, 0.0, 0.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 0.0, 0.0),
                                       suffixIcon: Icon(
                                         Icons.keyboard_arrow_down_rounded,
                                         color: FlutterFlowTheme.of(context)
@@ -1114,9 +690,10 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      letterSpacing: 0.0,
+                                    ),
                                     cursorColor: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     inputFormatters: [
@@ -1126,7 +703,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   ),
                                 ).animateOnActionTrigger(
                                   animationsMap[
-                                      'textFieldOnActionTriggerAnimation2']!,
+                                  'textFieldOnActionTriggerAnimation2']!,
                                 ),
                               ),
                               Expanded(
@@ -1142,8 +719,8 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     obscureText: false,
                                     onChanged: (val) {
                                       if (double.tryParse(
-                                                  openingstockcon.text) ==
-                                              null &&
+                                          openingstockcon.text) ==
+                                          null &&
                                           openingstockcon.text.isNotEmpty) {
                                         openingstockcon.text =
                                             openingstockcon.text.substring(
@@ -1156,18 +733,18 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                       hintText: 'Eg. 1290',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -1175,7 +752,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -1184,7 +761,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -1193,7 +770,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -1202,13 +779,13 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       filled: true,
                                       fillColor: Colors.white,
                                       contentPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              24.0, 0.0, 0.0, 0.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 0.0, 0.0),
                                       prefixIcon: Icon(
                                         Icons.numbers_rounded,
                                         color: FlutterFlowTheme.of(context)
@@ -1219,9 +796,10 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      letterSpacing: 0.0,
+                                    ),
                                     cursorColor: FlutterFlowTheme.of(context)
                                         .primaryText,
                                   ),
@@ -1240,18 +818,18 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                       hintText: 'Eg. Pcs',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -1259,7 +837,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -1268,7 +846,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -1277,7 +855,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -1286,7 +864,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       filled: true,
                                       fillColor: Colors.white,
@@ -1299,9 +877,10 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      letterSpacing: 0.0,
+                                    ),
                                     cursorColor: FlutterFlowTheme.of(context)
                                         .primaryText,
                                   ),
@@ -1323,7 +902,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                   child: Container(
                     width: double.infinity,
                     decoration: const BoxDecoration(),
@@ -1337,10 +916,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                             style: FlutterFlowTheme.of(context)
                                 .titleLarge
                                 .override(
-                                  fontFamily: 'Inter',
-                                  fontSize: 20.0,
-                                  letterSpacing: 0.0,
-                                ),
+                              fontFamily: 'Inter',
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 0.0,
+                            ),
                           ),
                         ),
                         Align(
@@ -1353,9 +933,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
+                                fontFamily: 'Inter',
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.normal,
+                                letterSpacing: 0.0,
+                              ),
                             ),
                           ),
                         ),
@@ -1372,11 +954,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -1386,11 +968,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -1399,11 +981,11 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -1432,8 +1014,8 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   obscureText: false,
                                   onChanged: (val) {
                                     if (double.tryParse(
-                                                wholesalepricecon.text) ==
-                                            null &&
+                                        wholesalepricecon.text) ==
+                                        null &&
                                         wholesalepricecon.text.isNotEmpty) {
                                       wholesalepricecon.text =
                                           wholesalepricecon.text.substring(
@@ -1446,18 +1028,18 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: 'Eg. 520.65',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -1477,7 +1059,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1485,7 +1067,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1493,8 +1075,8 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     filled: true,
                                     fillColor: Colors.white,
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 0.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 0.0, 0.0),
                                     prefixIcon: Icon(
                                       Icons.currency_rupee,
                                       color: FlutterFlowTheme.of(context)
@@ -1505,11 +1087,12 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.0,
+                                  ),
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
                               Expanded(
@@ -1522,29 +1105,29 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   obscureText: false,
                                   onChanged: (val) {
                                     if (double.tryParse(retailpricecon.text) ==
-                                            null &&
+                                        null &&
                                         retailpricecon.text.isNotEmpty) {
                                       retailpricecon.text = retailpricecon.text
                                           .substring(0,
-                                              retailpricecon.text.length - 1);
+                                          retailpricecon.text.length - 1);
                                     }
                                   },
                                   decoration: InputDecoration(
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: 'Eg. 720',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -1564,7 +1147,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1572,7 +1155,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1580,8 +1163,8 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     filled: true,
                                     fillColor: Colors.white,
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 0.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 0.0, 0.0),
                                     prefixIcon: Icon(
                                       Icons.currency_rupee,
                                       color: FlutterFlowTheme.of(context)
@@ -1592,11 +1175,12 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.0,
+                                  ),
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
                               Expanded(
@@ -1619,18 +1203,18 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: '5',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -1650,7 +1234,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1658,7 +1242,7 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1666,8 +1250,8 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                     filled: true,
                                     fillColor: Colors.white,
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 0.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 0.0, 0.0),
                                     prefixIcon: Icon(
                                       Icons.percent_rounded,
                                       color: FlutterFlowTheme.of(context)
@@ -1678,14 +1262,15 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.0,
+                                  ),
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ).animateOnActionTrigger(
                                   animationsMap[
-                                      'textFieldOnActionTriggerAnimation3']!,
+                                  'textFieldOnActionTriggerAnimation3']!,
                                 ),
                               ),
                               const Expanded(
@@ -1706,6 +1291,432 @@ class _AddProductState extends State<AddProduct> with TickerProviderStateMixin {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _ViewProductState extends State<ViewProduct> {
+  TextEditingController searchcon = TextEditingController();
+  FocusNode textFieldFocusNode = FocusNode();
+  bool iswprice = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: FlutterFlowTheme.of(context).secondaryBackground,
+          borderRadius: const BorderRadius.only(
+            bottomLeft: Radius.circular(16.0),
+            bottomRight: Radius.circular(16.0),
+            topLeft: Radius.circular(0.0),
+            topRight: Radius.circular(0.0),
+          ),
+        ),
+        alignment: const AlignmentDirectional(-1.0, -1.0),
+        child: StreamBuilder<List<Product>>(
+            stream: BillHelper().getproducts(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                List<Product> data = snapshot.data!;
+                List<Product> products = [];
+                products = data.where((pro) {
+                  return pro.name
+                      .toLowerCase()
+                      .contains(searchcon.text.toLowerCase());
+                }).toList();
+                return Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 16.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Your Products',
+                            style: FlutterFlowTheme.of(context)
+                                .headlineLarge
+                                .override(
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryText,
+                              fontSize: 16.sp,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Flexible(
+                            child: Align(
+                              alignment: const AlignmentDirectional(1.0, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 8.0, 0.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.3,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(0.0),
+                                  ),
+                                  child: Padding(
+                                    padding:
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 0.0, 8.0, 0.0),
+                                    child: TextFormField(
+                                      controller: searchcon,
+                                      focusNode: textFieldFocusNode,
+                                      onChanged: (val) {
+                                        setState(() {
+                                          products = data.where((pro) {
+                                            return pro.name.contains(val);
+                                          }).toList();
+                                        });
+                                      },
+                                      autofocus: true,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
+                                        hintText: 'Search',
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                          color:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            width: 1.5,
+                                          ),
+                                          borderRadius:
+                                          BorderRadius.circular(8.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            width: 1.5,
+                                          ),
+                                          borderRadius:
+                                          BorderRadius.circular(8.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 1.5,
+                                          ),
+                                          borderRadius:
+                                          BorderRadius.circular(8.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 1.5,
+                                          ),
+                                          borderRadius:
+                                          BorderRadius.circular(8.0),
+                                        ),
+                                        filled: true,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        suffixIcon: Icon(
+                                          Icons.search_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: const AlignmentDirectional(2.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () {},
+                              text: 'Sort By',
+                              icon: Icon(
+                                Icons.filter_list_rounded,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 14.sp,
+                              ),
+                              options: FFButtonOptions(
+                                height: 30.h,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                iconPadding:
+                                const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 4.0, 0.0),
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryText,
+                                  letterSpacing: 0.0,
+                                ),
+                                elevation: 0.0,
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  width: 1.5,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ),
+                        ]
+                            .addToStart(const SizedBox(width: 16.0))
+                            .addToEnd(const SizedBox(width: 16.0)),
+                      ),
+                    ),
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            16.0, 16.0, 16.0, 0.0),
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 0.99,
+                          height: MediaQuery.sizeOf(context).height * 0.06,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).secondary,
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(8.0),
+                              topRight: Radius.circular(8.0),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment:
+                                  const AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
+                                    padding:
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      'Category',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 11.sp,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 5,
+                                child: Text(
+                                  'Name',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                    fontFamily: 'Inter',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 11.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Align(
+                                  alignment:
+                                  const AlignmentDirectional(-1.0, 0.0),
+                                  child: Text(
+                                    'HSN Code',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primary,
+                                      fontSize: 11.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Container(
+                                  decoration: const BoxDecoration(),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Expanded(
+                                        flex: 3,
+                                        child: Align(
+                                          alignment: const AlignmentDirectional(
+                                              0.0, 0.0),
+                                          child: Text(
+                                            iswprice ? 'Wholesale Price' : 'Retail Price',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                              fontFamily: 'Inter',
+                                              color: FlutterFlowTheme.of(
+                                                  context)
+                                                  .primary,
+                                              fontSize: 11.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Flexible(
+                                        flex: 1,
+                                        child: InkWell(
+                                          onTap: (){
+                                            setState(() {
+                                              iswprice = !iswprice;
+                                            });
+                                          },
+                                          child: Icon(
+                                            iswprice ? Icons.arrow_drop_down_rounded : Icons.arrow_drop_up_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 24.sp,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Align(
+                                  alignment:
+                                  const AlignmentDirectional(0.0, 0.0),
+                                  child: Text(
+                                    'GST%',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primary,
+                                      fontSize: 11.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Align(
+                                  alignment:
+                                  const AlignmentDirectional(0.0, 0.0),
+                                  child: Text(
+                                    'Actions',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primary,
+                                      fontSize: 11.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    products.isNotEmpty
+                        ? Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          16.0, 0.0, 16.0, 0.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(10.r),
+                            bottomRight: Radius.circular(10.r)),
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: products.length,
+                          itemBuilder: (context, productIndex) {
+                            Product product = products[productIndex];
+                            return ProductTile(product: product,iswprice: iswprice,);
+                          },
+                        ),
+                      ),
+                    )
+                        : Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 16),
+                        decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).secondary,
+                            borderRadius: BorderRadius.only(bottomRight: Radius.circular(10.r),bottomLeft: Radius.circular(10.r))
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assests/nodata.png',
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              }
+              return Center(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 40),
+                  child: LoadingAnimationWidget.fallingDot(
+                    color: FlutterFlowTheme.of(context).primary,
+                    size: 50,
+                  ),
+                ),
+              );
+            }),
       ),
     );
   }
@@ -1734,7 +1745,7 @@ class _ProductTileState extends State<ProductTile> {
         height: MediaQuery.sizeOf(context).height * 0.06,
         decoration: BoxDecoration(
           color: mouseRegionHovered
-              ? const Color(0x18FF3F25)
+              ? FlutterFlowTheme.of(context).secondary
               : FlutterFlowTheme.of(context).accent1,
         ),
         child: Row(
@@ -1744,15 +1755,15 @@ class _ProductTileState extends State<ProductTile> {
               flex: 2,
               child: Padding(
                 padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                 child: Text(
                   product.categname,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    fontFamily: 'Inter',
+                    fontSize: 11.sp,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -1761,11 +1772,11 @@ class _ProductTileState extends State<ProductTile> {
               child: Text(
                 product.name,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
-                      fontSize: 16.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w600,
-                    ),
+                  fontFamily: 'Inter',
+                  fontSize: 11.sp,
+                  letterSpacing: 0.0,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
             Expanded(
@@ -1774,11 +1785,11 @@ class _ProductTileState extends State<ProductTile> {
                 product.hsncode,
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
-                      fontSize: 16.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w500,
-                    ),
+                  fontFamily: 'Inter',
+                  fontSize: 11.sp,
+                  letterSpacing: 0.0,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
             Expanded(
@@ -1787,12 +1798,12 @@ class _ProductTileState extends State<ProductTile> {
                 (iswprice ? product.wholeprice : product.retailprice).toString(),
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Roboto Mono',
-                      color: FlutterFlowTheme.of(context).tertiary,
-                      fontSize: 18.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  fontFamily: 'Roboto Mono',
+                  color: FlutterFlowTheme.of(context).tertiary,
+                  fontSize: 12.sp,
+                  letterSpacing: 0.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Expanded(
@@ -1803,11 +1814,11 @@ class _ProductTileState extends State<ProductTile> {
                   product.gst.toString(),
                   textAlign: TextAlign.start,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    fontFamily: 'Inter',
+                    fontSize: 11.sp,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -1816,7 +1827,7 @@ class _ProductTileState extends State<ProductTile> {
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                   child: InkWell(
                     onTap: () {
                       showDialog(
@@ -1835,7 +1846,7 @@ class _ProductTileState extends State<ProductTile> {
                         child: FaIcon(
                           FontAwesomeIcons.penToSquare,
                           color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 22.0,
+                          size: 14.sp,
                         ),
                       ),
                     ),
@@ -1850,8 +1861,7 @@ class _ProductTileState extends State<ProductTile> {
   }
 }
 
-class _EditProductState extends State<EditProduct>
-    with TickerProviderStateMixin {
+class _EditProductState extends State<EditProduct> with TickerProviderStateMixin {
   late TextEditingController namecon,
       categorycon,
       hsncodecon,
@@ -1924,7 +1934,7 @@ class _EditProductState extends State<EditProduct>
     });
     setupAnimations(
       animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
+      anim.trigger == AnimationTrigger.onActionTrigger ||
           !anim.applyInitialState),
       this,
     );
@@ -1965,7 +1975,7 @@ class _EditProductState extends State<EditProduct>
               children: [
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     //mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1995,11 +2005,11 @@ class _EditProductState extends State<EditProduct>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      fontSize: 24.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontSize: 18.sp,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                             Padding(
@@ -2012,11 +2022,11 @@ class _EditProductState extends State<EditProduct>
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.normal,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      fontSize: 10.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
                                     maxLines: 2,
                                   ),
                                 ],
@@ -2052,7 +2062,7 @@ class _EditProductState extends State<EditProduct>
                                   ),
                                   alignment: Alignment.bottomRight,
                                   animationDuration:
-                                      const Duration(milliseconds: 300),
+                                  const Duration(milliseconds: 300),
                                   icon: const Icon(Icons.delete),
                                   showIcon: true,
                                   primaryColor: Colors.red,
@@ -2073,7 +2083,7 @@ class _EditProductState extends State<EditProduct>
                                   ],
                                   showProgressBar: true,
                                   closeButtonShowType:
-                                      CloseButtonShowType.onHover,
+                                  CloseButtonShowType.onHover,
                                   closeOnClick: false,
                                   pauseOnHover: true,
                                   dragToClose: true,
@@ -2086,18 +2096,18 @@ class _EditProductState extends State<EditProduct>
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
                                 iconPadding:
-                                    const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).accent1,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Inter',
-                                      color:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  color:
+                                  FlutterFlowTheme.of(context).tertiary,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                                 elevation: 1.5,
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context).tertiary,
@@ -2105,7 +2115,7 @@ class _EditProductState extends State<EditProduct>
                                 ),
                                 borderRadius: BorderRadius.circular(12.0),
                                 hoverColor:
-                                    FlutterFlowTheme.of(context).tertiary,
+                                FlutterFlowTheme.of(context).tertiary,
                                 hoverBorderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context).tertiary,
                                   width: 1.0,
@@ -2120,30 +2130,30 @@ class _EditProductState extends State<EditProduct>
                               if (!(isname && ishsn && isgst)) {
                                 if (isname == false) {
                                   if (animationsMap[
-                                          'textFieldOnActionTriggerAnimation1'] !=
+                                  'textFieldOnActionTriggerAnimation1'] !=
                                       null) {
                                     await animationsMap[
-                                            'textFieldOnActionTriggerAnimation1']!
+                                    'textFieldOnActionTriggerAnimation1']!
                                         .controller
                                         .forward(from: 0.0);
                                   }
                                 }
                                 if (ishsn == false) {
                                   if (animationsMap[
-                                          'textFieldOnActionTriggerAnimation2'] !=
+                                  'textFieldOnActionTriggerAnimation2'] !=
                                       null) {
                                     await animationsMap[
-                                            'textFieldOnActionTriggerAnimation2']!
+                                    'textFieldOnActionTriggerAnimation2']!
                                         .controller
                                         .forward(from: 0.0);
                                   }
                                 }
                                 if (isgst == false) {
                                   if (animationsMap[
-                                          'textFieldOnActionTriggerAnimation3'] !=
+                                  'textFieldOnActionTriggerAnimation3'] !=
                                       null) {
                                     await animationsMap[
-                                            'textFieldOnActionTriggerAnimation3']!
+                                    'textFieldOnActionTriggerAnimation3']!
                                         .controller
                                         .forward(from: 0.0);
                                   }
@@ -2157,7 +2167,7 @@ class _EditProductState extends State<EditProduct>
                                     categname: categorycon.text,
                                     stock: int.tryParse(openingstockcon.text) ?? 0,
                                     wholeprice:
-                                        int.tryParse(wholesalepricecon.text) ?? 0,
+                                    int.tryParse(wholesalepricecon.text) ?? 0,
                                     hsncode: hsncodecon.text,
                                     retailprice: int.tryParse(retailpricecon.text) ?? 0,
                                     quantitymeasure: quantitymeasurecon.text,
@@ -2181,7 +2191,7 @@ class _EditProductState extends State<EditProduct>
                                   ),
                                   alignment: Alignment.bottomRight,
                                   animationDuration:
-                                      const Duration(milliseconds: 300),
+                                  const Duration(milliseconds: 300),
                                   icon: const Icon(Icons.edit),
                                   showIcon: true,
                                   primaryColor: Colors.blue,
@@ -2202,7 +2212,7 @@ class _EditProductState extends State<EditProduct>
                                   ],
                                   showProgressBar: true,
                                   closeButtonShowType:
-                                      CloseButtonShowType.onHover,
+                                  CloseButtonShowType.onHover,
                                   closeOnClick: false,
                                   pauseOnHover: true,
                                   dragToClose: true,
@@ -2221,11 +2231,11 @@ class _EditProductState extends State<EditProduct>
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Inter',
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                fontFamily: 'Inter',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                              ),
                               elevation: 1.5,
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).primaryText,
@@ -2233,7 +2243,7 @@ class _EditProductState extends State<EditProduct>
                               ),
                               borderRadius: BorderRadius.circular(12.0),
                               hoverColor:
-                                  FlutterFlowTheme.of(context).primaryText,
+                              FlutterFlowTheme.of(context).primaryText,
                               hoverBorderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 width: 1.0,
@@ -2249,7 +2259,7 @@ class _EditProductState extends State<EditProduct>
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     decoration: const BoxDecoration(),
@@ -2269,11 +2279,11 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -2283,11 +2293,11 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -2311,7 +2321,7 @@ class _EditProductState extends State<EditProduct>
                                   focusNode: textFieldFocusNode1,
                                   autofocus: true,
                                   textCapitalization:
-                                      TextCapitalization.characters,
+                                  TextCapitalization.characters,
                                   textInputAction: TextInputAction.next,
                                   obscureText: false,
                                   onChanged: (val) {
@@ -2321,16 +2331,16 @@ class _EditProductState extends State<EditProduct>
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: 'Name',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -2350,7 +2360,7 @@ class _EditProductState extends State<EditProduct>
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -2358,7 +2368,7 @@ class _EditProductState extends State<EditProduct>
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -2366,8 +2376,8 @@ class _EditProductState extends State<EditProduct>
                                     filled: true,
                                     fillColor: Colors.white,
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 0.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 0.0, 0.0),
                                     prefixIcon: Icon(
                                       Icons.shopping_cart,
                                       color: FlutterFlowTheme.of(context)
@@ -2378,15 +2388,16 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.0,
+                                  ),
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ).animateOnActionTrigger(
                                 animationsMap[
-                                    'textFieldOnActionTriggerAnimation1']!,
+                                'textFieldOnActionTriggerAnimation1']!,
                               ),
                             ),
                             Expanded(
@@ -2396,23 +2407,23 @@ class _EditProductState extends State<EditProduct>
                                 focusNode: textFieldFocusNode2,
                                 autofocus: true,
                                 textCapitalization:
-                                    TextCapitalization.characters,
+                                TextCapitalization.characters,
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Category',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -2446,8 +2457,8 @@ class _EditProductState extends State<EditProduct>
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                  const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 0.0, 0.0),
                                   prefixIcon: Icon(
                                     Icons.category_outlined,
                                     color: FlutterFlowTheme.of(context)
@@ -2458,11 +2469,12 @@ class _EditProductState extends State<EditProduct>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ),
                             ),
                             const Expanded(
@@ -2486,11 +2498,11 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -2500,11 +2512,11 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -2514,11 +2526,11 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -2547,7 +2559,7 @@ class _EditProductState extends State<EditProduct>
                                     focusNode: textFieldFocusNode3,
                                     autofocus: true,
                                     textCapitalization:
-                                        TextCapitalization.characters,
+                                    TextCapitalization.characters,
                                     textInputAction: TextInputAction.next,
                                     obscureText: false,
                                     onChanged: (val) {
@@ -2557,16 +2569,16 @@ class _EditProductState extends State<EditProduct>
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                       hintText: 'Eg. 6107',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -2574,7 +2586,7 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -2583,7 +2595,7 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -2592,7 +2604,7 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -2601,13 +2613,13 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       filled: true,
                                       fillColor: Colors.white,
                                       contentPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              24.0, 0.0, 0.0, 0.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 0.0, 0.0),
                                       suffixIcon: Icon(
                                         Icons.keyboard_arrow_down_rounded,
                                         color: FlutterFlowTheme.of(context)
@@ -2617,9 +2629,10 @@ class _EditProductState extends State<EditProduct>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      letterSpacing: 0.0,
+                                    ),
                                     cursorColor: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     inputFormatters: [
@@ -2629,7 +2642,7 @@ class _EditProductState extends State<EditProduct>
                                   ),
                                 ).animateOnActionTrigger(
                                   animationsMap[
-                                      'textFieldOnActionTriggerAnimation2']!,
+                                  'textFieldOnActionTriggerAnimation2']!,
                                 ),
                               ),
                               Expanded(
@@ -2659,16 +2672,16 @@ class _EditProductState extends State<EditProduct>
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                       hintText: 'Eg. 1290',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -2676,7 +2689,7 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -2685,7 +2698,7 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -2694,7 +2707,7 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -2703,13 +2716,13 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       filled: true,
                                       fillColor: Colors.white,
                                       contentPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              24.0, 0.0, 0.0, 0.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 0.0, 0.0),
                                       prefixIcon: Icon(
                                         Icons.numbers_rounded,
                                         color: FlutterFlowTheme.of(context)
@@ -2720,9 +2733,10 @@ class _EditProductState extends State<EditProduct>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      letterSpacing: 0.0,
+                                    ),
                                     cursorColor: FlutterFlowTheme.of(context)
                                         .primaryText,
                                   ),
@@ -2741,16 +2755,16 @@ class _EditProductState extends State<EditProduct>
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                       hintText: 'Eg. Pcs',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -2758,7 +2772,7 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -2767,7 +2781,7 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -2776,7 +2790,7 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -2785,7 +2799,7 @@ class _EditProductState extends State<EditProduct>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                       ),
                                       filled: true,
                                       fillColor: Colors.white,
@@ -2798,9 +2812,10 @@ class _EditProductState extends State<EditProduct>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      letterSpacing: 0.0,
+                                    ),
                                     cursorColor: FlutterFlowTheme.of(context)
                                         .primaryText,
                                   ),
@@ -2822,7 +2837,7 @@ class _EditProductState extends State<EditProduct>
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                   child: Container(
                     width: double.infinity,
                     decoration: const BoxDecoration(),
@@ -2836,10 +2851,11 @@ class _EditProductState extends State<EditProduct>
                             style: FlutterFlowTheme.of(context)
                                 .titleLarge
                                 .override(
-                                  fontFamily: 'Inter',
-                                  fontSize: 20.0,
-                                  letterSpacing: 0.0,
-                                ),
+                              fontFamily: 'Inter',
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 0.0,
+                            ),
                           ),
                         ),
                         Align(
@@ -2852,9 +2868,11 @@ class _EditProductState extends State<EditProduct>
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
+                                fontFamily: 'Inter',
+                                fontSize: 10.sp,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.normal,
+                              ),
                             ),
                           ),
                         ),
@@ -2871,11 +2889,11 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -2885,11 +2903,11 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -2898,11 +2916,11 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -2945,16 +2963,16 @@ class _EditProductState extends State<EditProduct>
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: 'Eg. 520.65',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -2974,7 +2992,7 @@ class _EditProductState extends State<EditProduct>
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -2982,7 +3000,7 @@ class _EditProductState extends State<EditProduct>
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -2990,8 +3008,8 @@ class _EditProductState extends State<EditProduct>
                                     filled: true,
                                     fillColor: Colors.white,
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 0.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 0.0, 0.0),
                                     prefixIcon: Icon(
                                       Icons.currency_rupee,
                                       color: FlutterFlowTheme.of(context)
@@ -3002,11 +3020,12 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.0,
+                                  ),
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
                               Expanded(
@@ -3033,16 +3052,16 @@ class _EditProductState extends State<EditProduct>
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: 'Eg. 720',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -3062,7 +3081,7 @@ class _EditProductState extends State<EditProduct>
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -3070,7 +3089,7 @@ class _EditProductState extends State<EditProduct>
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -3078,8 +3097,8 @@ class _EditProductState extends State<EditProduct>
                                     filled: true,
                                     fillColor: Colors.white,
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 0.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 0.0, 0.0),
                                     prefixIcon: Icon(
                                       Icons.currency_rupee,
                                       color: FlutterFlowTheme.of(context)
@@ -3090,11 +3109,12 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.0,
+                                  ),
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
                               Expanded(
@@ -3122,16 +3142,16 @@ class _EditProductState extends State<EditProduct>
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: '5',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -3151,7 +3171,7 @@ class _EditProductState extends State<EditProduct>
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -3159,7 +3179,7 @@ class _EditProductState extends State<EditProduct>
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -3167,8 +3187,8 @@ class _EditProductState extends State<EditProduct>
                                     filled: true,
                                     fillColor: Colors.white,
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 20.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 20.0, 0.0),
                                     prefixIcon: Icon(
                                       Icons.percent_rounded,
                                       color: FlutterFlowTheme.of(context)
@@ -3179,14 +3199,15 @@ class _EditProductState extends State<EditProduct>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.0,
+                                  ),
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ).animateOnActionTrigger(
                                   animationsMap[
-                                      'textFieldOnActionTriggerAnimation3']!,
+                                  'textFieldOnActionTriggerAnimation3']!,
                                 ),
                               ),
                               const Expanded(

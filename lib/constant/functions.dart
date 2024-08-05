@@ -1,46 +1,46 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:taler/object/billproduct.dart';
 import 'color.dart';
 
 void msg(String msg) => Fluttertoast.showToast(msg: msg);
-void scmsg(String msg) => Fluttertoast.showToast(msg: msg,backgroundColor: Colors.lightGreen.shade400,textColor: cr_wht);
-void inmsg(String msg) => Fluttertoast.showToast(msg: msg,backgroundColor: Colors.brown.shade400,textColor: cr_wht);
-void wrmsg(String msg) => Fluttertoast.showToast(msg: msg,backgroundColor: Colors.amber.shade400,textColor: cr_wht);
-void ermsg(String msg) => Fluttertoast.showToast(msg: msg,backgroundColor: Colors.redAccent.shade400,textColor: cr_wht);
+void scmsg(String msg) => Fluttertoast.showToast(
+    msg: msg, backgroundColor: Colors.lightGreen.shade400, textColor: cr_wht);
+void inmsg(String msg) => Fluttertoast.showToast(
+    msg: msg, backgroundColor: Colors.brown.shade400, textColor: cr_wht);
+void wrmsg(String msg) => Fluttertoast.showToast(
+    msg: msg, backgroundColor: Colors.amber.shade400, textColor: cr_wht);
+void ermsg(String msg) => Fluttertoast.showToast(
+    msg: msg, backgroundColor: Colors.redAccent.shade400, textColor: cr_wht);
 
-void route(BuildContext context,Widget page){
-  Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (context) {
-            return page;
-          }
-      )
-  );
+void route(BuildContext context, Widget page) {
+  Navigator.push(context, MaterialPageRoute(builder: (context) {
+    return page;
+  }));
 }
 
-void routename(BuildContext context,String route){
-  Navigator.pushNamed(
-      context,
-      route
-  );
+void routename(BuildContext context, String route) {
+  Navigator.pushNamed(context, route);
 }
 
-Widget hspace(double height) => SizedBox(height: height.h,);
+Widget hspace(double height) => SizedBox(
+      height: height.h,
+    );
 
-Widget wspace(double width) => SizedBox(width: width.w,);
+Widget wspace(double width) => SizedBox(
+      width: width.w,
+    );
 
-void goback(BuildContext context){
+void goback(BuildContext context) {
   Navigator.pop(context);
 }
 
 TValue? selectof<TOptionType, TValue>(
-    TOptionType selectedOption,
-    Map<TOptionType, TValue> branches, [
-      TValue? defaultValue,
-    ]) {
+  TOptionType selectedOption,
+  Map<TOptionType, TValue> branches, [
+  TValue? defaultValue,
+]) {
   if (!branches.containsKey(selectedOption)) {
     return defaultValue;
   }
@@ -48,12 +48,17 @@ TValue? selectof<TOptionType, TValue>(
   return branches[selectedOption];
 }
 
+double netamountof(Billproduct billpro) {
+  return ((billpro.price * billpro.quantity) -
+      ((billpro.price * billpro.quantity) * (billpro.dicountpercent / 100)));
+}
+
 String get timenow {
   return DateTime.now().toIso8601String();
 }
 
 String timeof(String iso) {
-  return '${iso.substring(11,13)}:${iso.substring(14,16)},${iso.substring(17,19)}';
+  return '${iso.substring(11, 13)}:${iso.substring(14, 16)},${iso.substring(17, 19)}';
 }
 
 String timedateof(DateTime now) {
@@ -61,20 +66,20 @@ String timedateof(DateTime now) {
   return now.toIso8601String().substring(0, 12);
 }
 
-String getime(DateTime dateTime){
+String getime(DateTime dateTime) {
   final DateTime now = DateTime.now();
   int min = now.difference(dateTime).inMinutes;
   int hour = now.difference(dateTime).inHours;
   int day = now.difference(dateTime).inDays;
-  if(min<2){
+  if (min < 2) {
     return 'Just now';
-  }else if(min<61){
+  } else if (min < 61) {
     return '$min mins ago';
-  }else if(hour<25){
+  } else if (hour < 25) {
     return '$hour hours ago';
-  }else if(day<5){
+  } else if (day < 5) {
     return '$day days ago';
-  }else {
+  } else {
     return '${dateTime.hour}:${dateTime.minute} ${dateTime.day}/${dateTime.month}/${dateTime.year}';
   }
 }

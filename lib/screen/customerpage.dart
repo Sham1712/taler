@@ -33,8 +33,7 @@ class Customerpage extends StatelessWidget {
   }
 }
 
-class _AddCustomerState extends State<AddCustomer>
-    with TickerProviderStateMixin {
+class _AddCustomerState extends State<AddCustomer> with TickerProviderStateMixin {
   TextEditingController namecon = TextEditingController(),
       gstincon = TextEditingController(),
       openingbalancecon = TextEditingController(),
@@ -175,7 +174,7 @@ class _AddCustomerState extends State<AddCustomer>
     });
     setupAnimations(
       animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
+      anim.trigger == AnimationTrigger.onActionTrigger ||
           !anim.applyInitialState),
       this,
     );
@@ -197,7 +196,7 @@ class _AddCustomerState extends State<AddCustomer>
             children: [
               Padding(
                 padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(),
@@ -222,23 +221,23 @@ class _AddCustomerState extends State<AddCustomer>
                                   children: [
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                      const AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         'New Customer',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
-                                              fontSize: 18.0.sp,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                          fontFamily: 'Inter',
+                                          fontSize: 18.0.sp,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w700,
+                                        ),
                                       ),
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 4.0, 0.0, 16.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 4.0, 0.0, 16.0),
                                       child: Wrap(
                                         children: [
                                           Text(
@@ -246,11 +245,11 @@ class _AddCustomerState extends State<AddCustomer>
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 10.0.sp,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 10.0.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.normal,
+                                            ),
                                           )
                                         ],
                                       ),
@@ -270,50 +269,50 @@ class _AddCustomerState extends State<AddCustomer>
                                         isstate)) {
                                       if (isname == false) {
                                         if (animationsMap[
-                                                'textFieldOnActionTriggerAnimation1'] !=
+                                        'textFieldOnActionTriggerAnimation1'] !=
                                             null) {
                                           await animationsMap[
-                                                  'textFieldOnActionTriggerAnimation1']!
+                                          'textFieldOnActionTriggerAnimation1']!
                                               .controller
                                               .forward(from: 0.0);
                                         }
                                       }
                                       if (isaddress == false) {
                                         if (animationsMap[
-                                                'textFieldOnActionTriggerAnimation2'] !=
+                                        'textFieldOnActionTriggerAnimation2'] !=
                                             null) {
                                           await animationsMap[
-                                                  'textFieldOnActionTriggerAnimation2']!
+                                          'textFieldOnActionTriggerAnimation2']!
                                               .controller
                                               .forward(from: 0.0);
                                         }
                                       }
                                       if (iscity == false) {
                                         if (animationsMap[
-                                                'textFieldOnActionTriggerAnimation3'] !=
+                                        'textFieldOnActionTriggerAnimation3'] !=
                                             null) {
                                           await animationsMap[
-                                                  'textFieldOnActionTriggerAnimation3']!
+                                          'textFieldOnActionTriggerAnimation3']!
                                               .controller
                                               .forward(from: 0.0);
                                         }
                                       }
                                       if (ispincode == false) {
                                         if (animationsMap[
-                                                'textFieldOnActionTriggerAnimation4'] !=
+                                        'textFieldOnActionTriggerAnimation4'] !=
                                             null) {
                                           await animationsMap[
-                                                  'textFieldOnActionTriggerAnimation4']!
+                                          'textFieldOnActionTriggerAnimation4']!
                                               .controller
                                               .forward(from: 0.0);
                                         }
                                       }
                                       if (isstate == false) {
                                         if (animationsMap[
-                                                'textFieldOnActionTriggerAnimation5'] !=
+                                        'textFieldOnActionTriggerAnimation5'] !=
                                             null) {
                                           await animationsMap[
-                                                  'textFieldOnActionTriggerAnimation5']!
+                                          'textFieldOnActionTriggerAnimation5']!
                                               .controller
                                               .forward(from: 0.0);
                                         }
@@ -348,22 +347,22 @@ class _AddCustomerState extends State<AddCustomer>
                                         type: ToastificationType.success,
                                         style: ToastificationStyle.flat,
                                         autoCloseDuration:
-                                            const Duration(seconds: 5),
+                                        const Duration(seconds: 5),
                                         title: Text('Customer Created',
                                             style: TextStyle(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary)),
+                                                FlutterFlowTheme.of(context)
+                                                    .primary)),
                                         description: Text(
                                           'To view this Customer go to view customer',
                                           style: TextStyle(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary),
+                                              FlutterFlowTheme.of(context)
+                                                  .primary),
                                         ),
                                         alignment: Alignment.bottomRight,
                                         animationDuration:
-                                            const Duration(milliseconds: 300),
+                                        const Duration(milliseconds: 300),
                                         icon: const Icon(Icons.check),
                                         showIcon: true,
                                         primaryColor: Colors.green,
@@ -384,7 +383,7 @@ class _AddCustomerState extends State<AddCustomer>
                                         ],
                                         showProgressBar: true,
                                         closeButtonShowType:
-                                            CloseButtonShowType.onHover,
+                                        CloseButtonShowType.onHover,
                                         closeOnClick: false,
                                         pauseOnHover: true,
                                         dragToClose: true,
@@ -396,21 +395,21 @@ class _AddCustomerState extends State<AddCustomer>
                                   options: FFButtonOptions(
                                     height: 44.0,
                                     padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 24.0, 0.0),
                                     iconPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Inter',
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                     elevation: 1.5,
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -446,11 +445,11 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -460,11 +459,11 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ].divide(const SizedBox(width: 24.0)),
@@ -480,7 +479,7 @@ class _AddCustomerState extends State<AddCustomer>
                                 focusNode: textFieldFocusNode1,
                                 autofocus: true,
                                 textCapitalization:
-                                    TextCapitalization.characters,
+                                TextCapitalization.characters,
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
                                 onChanged: (val) {
@@ -490,18 +489,18 @@ class _AddCustomerState extends State<AddCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Name',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -535,8 +534,8 @@ class _AddCustomerState extends State<AddCustomer>
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                  const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 0.0, 0.0),
                                   prefixIcon: Icon(
                                     Icons.people_outlined,
                                     color: FlutterFlowTheme.of(context)
@@ -547,14 +546,15 @@ class _AddCustomerState extends State<AddCustomer>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ).animateOnActionTrigger(
                                 animationsMap[
-                                    'textFieldOnActionTriggerAnimation1']!,
+                                'textFieldOnActionTriggerAnimation1']!,
                               ),
                             ),
                             Expanded(
@@ -564,25 +564,25 @@ class _AddCustomerState extends State<AddCustomer>
                                 focusNode: textFieldFocusNode2,
                                 autofocus: true,
                                 textCapitalization:
-                                    TextCapitalization.characters,
+                                TextCapitalization.characters,
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. 29GGGGG1314R9Z6',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -616,8 +616,8 @@ class _AddCustomerState extends State<AddCustomer>
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                  const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 0.0, 0.0),
                                   prefixIcon: Icon(
                                     Icons.numbers_rounded,
                                     color: FlutterFlowTheme.of(context)
@@ -628,17 +628,18 @@ class _AddCustomerState extends State<AddCustomer>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 maxLength: 15,
                                 buildCounter: (context,
-                                        {required currentLength,
-                                        required isFocused,
-                                        maxLength}) =>
-                                    null,
+                                    {required currentLength,
+                                      required isFocused,
+                                      maxLength}) =>
+                                null,
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                                 inputFormatters: [
                                   FilteringTextInputFormatter.allow(
                                       RegExp('[a-zA-Z0-9]'))
@@ -660,11 +661,11 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -674,11 +675,11 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -688,11 +689,11 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -720,7 +721,7 @@ class _AddCustomerState extends State<AddCustomer>
                                 obscureText: false,
                                 onChanged: (val) {
                                   if (double.tryParse(openingbalancecon.text) ==
-                                          null &&
+                                      null &&
                                       openingbalancecon.text.isNotEmpty) {
                                     openingbalancecon.text =
                                         openingbalancecon.text.substring(0,
@@ -731,18 +732,18 @@ class _AddCustomerState extends State<AddCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. 10000',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -776,17 +777,18 @@ class _AddCustomerState extends State<AddCustomer>
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                  const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                                 inputFormatters: [/*textFieldMask3*/],
                               ),
                             ),
@@ -808,7 +810,7 @@ class _AddCustomerState extends State<AddCustomer>
                                   borderRadius: BorderRadius.circular(8),
                                   underline: const SizedBox(),
                                   dropdownColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                  FlutterFlowTheme.of(context).accent1,
                                   value: type,
                                   hint: const Text('Select Type'),
                                   items: items.map((String items) {
@@ -832,7 +834,7 @@ class _AddCustomerState extends State<AddCustomer>
                                   },
                                 ).animateOnActionTrigger(
                                   animationsMap[
-                                      'dropDownOnActionTriggerAnimation']!,
+                                  'dropDownOnActionTriggerAnimation']!,
                                 ),
                               ),
                             ),
@@ -849,18 +851,18 @@ class _AddCustomerState extends State<AddCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. company@gmail.com',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -894,17 +896,18 @@ class _AddCustomerState extends State<AddCustomer>
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                  const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ),
                             ),
                             const Expanded(
@@ -923,7 +926,7 @@ class _AddCustomerState extends State<AddCustomer>
               ),
               Padding(
                 padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
+                const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(),
@@ -943,11 +946,11 @@ class _AddCustomerState extends State<AddCustomer>
                               style: FlutterFlowTheme.of(context)
                                   .titleLarge
                                   .override(
-                                    fontFamily: 'Inter',
-                                    fontSize: 16.0.sp,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                fontFamily: 'Inter',
+                                fontSize: 16.0.sp,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                           ),
                         ),
@@ -964,11 +967,11 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -978,11 +981,11 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -1008,7 +1011,7 @@ class _AddCustomerState extends State<AddCustomer>
                                   focusNode: textFieldFocusNode5,
                                   autofocus: true,
                                   textCapitalization:
-                                      TextCapitalization.characters,
+                                  TextCapitalization.characters,
                                   textInputAction: TextInputAction.next,
                                   obscureText: false,
                                   onChanged: (val) {
@@ -1018,18 +1021,18 @@ class _AddCustomerState extends State<AddCustomer>
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: 'Door No., Street Name',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -1049,7 +1052,7 @@ class _AddCustomerState extends State<AddCustomer>
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1057,14 +1060,14 @@ class _AddCustomerState extends State<AddCustomer>
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     filled: true,
                                     fillColor:
-                                        FlutterFlowTheme.of(context).accent1,
+                                    FlutterFlowTheme.of(context).accent1,
                                     prefixIcon: Icon(
                                       Icons.storefront,
                                       color: FlutterFlowTheme.of(context)
@@ -1075,15 +1078,16 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.0,
+                                  ),
                                   maxLines: null,
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ).animateOnActionTrigger(
                                   animationsMap[
-                                      'textFieldOnActionTriggerAnimation2']!,
+                                  'textFieldOnActionTriggerAnimation2']!,
                                 ),
                               ),
                               Expanded(
@@ -1097,10 +1101,10 @@ class _AddCustomerState extends State<AddCustomer>
                                   obscureText: false,
                                   onChanged: (val) {
                                     if (!('1234567890+ '
-                                            .split('')
-                                            .toList()
-                                            .contains(phonecon.text[
-                                                phonecon.text.length - 1])) &&
+                                        .split('')
+                                        .toList()
+                                        .contains(phonecon.text[
+                                    phonecon.text.length - 1])) &&
                                         phonecon.text.isNotEmpty) {
                                       phonecon.text = phonecon.text.substring(
                                           0, phonecon.text.length - 1);
@@ -1110,18 +1114,18 @@ class _AddCustomerState extends State<AddCustomer>
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: 'Eg. 85551 32580',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -1141,7 +1145,7 @@ class _AddCustomerState extends State<AddCustomer>
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1149,14 +1153,14 @@ class _AddCustomerState extends State<AddCustomer>
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     filled: true,
                                     fillColor:
-                                        FlutterFlowTheme.of(context).accent1,
+                                    FlutterFlowTheme.of(context).accent1,
                                     prefixIcon: Icon(
                                       Icons.phone_outlined,
                                       color: FlutterFlowTheme.of(context)
@@ -1167,19 +1171,20 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.0,
+                                  ),
                                   maxLines: null,
                                   maxLength: 11,
                                   buildCounter: (context,
-                                          {required currentLength,
-                                          required isFocused,
-                                          maxLength}) =>
-                                      null,
+                                      {required currentLength,
+                                        required isFocused,
+                                        maxLength}) =>
+                                  null,
                                   keyboardType: TextInputType.number,
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                   inputFormatters: [/*textFieldMask6*/],
                                 ),
                               ),
@@ -1205,11 +1210,11 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -1218,11 +1223,11 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -1231,11 +1236,11 @@ class _AddCustomerState extends State<AddCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -1257,7 +1262,7 @@ class _AddCustomerState extends State<AddCustomer>
                                 focusNode: textFieldFocusNode7,
                                 autofocus: true,
                                 textCapitalization:
-                                    TextCapitalization.characters,
+                                TextCapitalization.characters,
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
                                 onChanged: (val) {
@@ -1267,18 +1272,18 @@ class _AddCustomerState extends State<AddCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. Chennai',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -1290,7 +1295,7 @@ class _AddCustomerState extends State<AddCustomer>
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
@@ -1311,19 +1316,20 @@ class _AddCustomerState extends State<AddCustomer>
                                   ),
                                   filled: true,
                                   fillColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                  FlutterFlowTheme.of(context).accent1,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ).animateOnActionTrigger(
                                 animationsMap[
-                                    'textFieldOnActionTriggerAnimation3']!,
+                                'textFieldOnActionTriggerAnimation3']!,
                               ),
                             ),
                             Expanded(
@@ -1340,18 +1346,18 @@ class _AddCustomerState extends State<AddCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. 600001',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -1363,7 +1369,7 @@ class _AddCustomerState extends State<AddCustomer>
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
@@ -1384,23 +1390,24 @@ class _AddCustomerState extends State<AddCustomer>
                                   ),
                                   filled: true,
                                   fillColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                  FlutterFlowTheme.of(context).accent1,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                                 inputFormatters: [
                                   FilteringTextInputFormatter.allow(
                                       RegExp('[0-9]'))
                                 ],
                               ).animateOnActionTrigger(
                                 animationsMap[
-                                    'textFieldOnActionTriggerAnimation4']!,
+                                'textFieldOnActionTriggerAnimation4']!,
                               ),
                             ),
                             Expanded(
@@ -1409,7 +1416,7 @@ class _AddCustomerState extends State<AddCustomer>
                                 focusNode: textFieldFocusNode9,
                                 autofocus: true,
                                 textCapitalization:
-                                    TextCapitalization.characters,
+                                TextCapitalization.characters,
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
                                 onChanged: (val) {
@@ -1419,18 +1426,18 @@ class _AddCustomerState extends State<AddCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. Tamil Nadu',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -1442,7 +1449,7 @@ class _AddCustomerState extends State<AddCustomer>
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
@@ -1463,19 +1470,20 @@ class _AddCustomerState extends State<AddCustomer>
                                   ),
                                   filled: true,
                                   fillColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                  FlutterFlowTheme.of(context).accent1,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ).animateOnActionTrigger(
                                 animationsMap[
-                                    'textFieldOnActionTriggerAnimation5']!,
+                                'textFieldOnActionTriggerAnimation5']!,
                               ),
                             ),
                             const Expanded(
@@ -1550,13 +1558,13 @@ class _ViewCustomerState extends State<ViewCustomer> {
                               style: FlutterFlowTheme.of(context)
                                   .headlineLarge
                                   .override(
-                                    fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    fontSize: 16.0.sp,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryText,
+                                fontSize: 16.0.sp,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           Flexible(
@@ -1574,8 +1582,8 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                   ),
                                   child: Padding(
                                     padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 0.0, 8.0, 0.0),
                                     child: TextFormField(
                                       controller: searchcon,
                                       focusNode: fieldFocusNode,
@@ -1592,19 +1600,19 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                              fontFamily: 'Inter',
-                                              letterSpacing: 0.0,
-                                            ),
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
                                         hintText: 'Search',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                              fontFamily: 'Inter',
-                                              letterSpacing: 0.0,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                            ),
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                          color:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -1612,7 +1620,7 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                          BorderRadius.circular(8.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -1621,7 +1629,7 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                          BorderRadius.circular(8.0),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -1630,7 +1638,7 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                          BorderRadius.circular(8.0),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -1639,7 +1647,7 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                          BorderRadius.circular(8.0),
                                         ),
                                         filled: true,
                                         fillColor: FlutterFlowTheme.of(context)
@@ -1653,9 +1661,9 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -1677,30 +1685,30 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                 icon: Icon(
                                   Icons.filter_list_rounded,
                                   color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  size: 20.0,
+                                  FlutterFlowTheme.of(context).primaryText,
+                                  size: 14.sp,
                                 ),
                                 options: FFButtonOptions(
-                                  height: 50.0,
+                                  height: 30.h,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 0.0),
                                   iconPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 4.0, 0.0),
+                                  const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 4.0, 0.0),
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    letterSpacing: 0.0,
+                                  ),
                                   elevation: 0.0,
                                   borderSide: BorderSide(
                                     color:
-                                        FlutterFlowTheme.of(context).alternate,
+                                    FlutterFlowTheme.of(context).alternate,
                                     width: 1.5,
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
@@ -1734,19 +1742,19 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                 flex: 4,
                                 child: Align(
                                   alignment:
-                                      const AlignmentDirectional(-1.0, 0.0),
+                                  const AlignmentDirectional(-1.0, 0.0),
                                   child: Text(
                                     'Name',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Outfit',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          fontSize: 12.sp,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 11.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -1754,19 +1762,19 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                 flex: 2,
                                 child: Align(
                                   alignment:
-                                      const AlignmentDirectional(0.0, 0.0),
+                                  const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'GSTIN',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          fontSize: 12.sp,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 11.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -1774,19 +1782,19 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                 flex: 3,
                                 child: Align(
                                   alignment:
-                                      const AlignmentDirectional(0.0, 0.0),
+                                  const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'Rate Type',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          fontSize: 12.sp,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 11.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -1794,19 +1802,19 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                 flex: 2,
                                 child: Align(
                                   alignment:
-                                      const AlignmentDirectional(0.0, 0.0),
+                                  const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'Contact Info',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 12.sp,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primary,
+                                      fontSize: 11.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -1814,19 +1822,19 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                 flex: 2,
                                 child: Align(
                                   alignment:
-                                      const AlignmentDirectional(0.0, 0.0),
+                                  const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'Closing Balance',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 12.sp,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primary,
+                                      fontSize: 11.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -1834,19 +1842,19 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                 flex: 2,
                                 child: Align(
                                   alignment:
-                                      const AlignmentDirectional(0.3, 0.0),
+                                  const AlignmentDirectional(0.3, 0.0),
                                   child: Text(
                                     'Action',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 12.0.sp,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primary,
+                                      fontSize: 11.0.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -1862,30 +1870,30 @@ class _ViewCustomerState extends State<ViewCustomer> {
                           24.0, 0.0, 24.0, 0.0),
                       child: customers.isNotEmpty
                           ? ListView.builder(
-                              padding: EdgeInsets.zero,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemCount: customers.length,
-                              itemBuilder: (context, index) {
-                                return CustomerTile(customer: customers[index]);
-                              },
-                            )
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: customers.length,
+                        itemBuilder: (context, index) {
+                          return CustomerTile(customer: customers[index]);
+                        },
+                      )
                           : Container(
-                              decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  borderRadius: BorderRadius.only(
-                                      bottomRight: Radius.circular(10.r),
-                                      bottomLeft: Radius.circular(10.r))),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    height: 200.h,
-                                    'assests/nodata.png',
-                                  ),
-                                ],
-                              ),
+                        decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).secondary,
+                            borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(10.r),
+                                bottomLeft: Radius.circular(10.r))),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              height: 200.h,
+                              'assests/nodata.png',
                             ),
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 );
@@ -1947,11 +1955,11 @@ class _CustomerTileState extends State<CustomerTile> {
                 child: Text(
                   customer.name,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        fontSize: 11.0.sp,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    fontFamily: 'Inter',
+                    fontSize: 11.0.sp,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -1962,11 +1970,11 @@ class _CustomerTileState extends State<CustomerTile> {
                 child: Text(
                   customer.gstin,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        fontSize: 11.0.sp,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    fontFamily: 'Inter',
+                    fontSize: 11.0.sp,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -1977,11 +1985,11 @@ class _CustomerTileState extends State<CustomerTile> {
                 child: Text(
                   '${customer.type ? 'Wholesaler' : 'Retailer'}${customer.isgst ? ' With GST' : ' Without GST'}',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        fontSize: 11.0.sp,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    fontFamily: 'Inter',
+                    fontSize: 11.0.sp,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -1993,11 +2001,11 @@ class _CustomerTileState extends State<CustomerTile> {
                   customer.phone.toString(),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        fontSize: 11.0.sp,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    fontFamily: 'Inter',
+                    fontSize: 11.0.sp,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -2009,12 +2017,12 @@ class _CustomerTileState extends State<CustomerTile> {
                   customer.phone,
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Roboto Mono',
-                        color: FlutterFlowTheme.of(context).tertiary,
-                        fontSize: 14.0.sp,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontFamily: 'Roboto Mono',
+                    color: FlutterFlowTheme.of(context).tertiary,
+                    fontSize: 11.0.sp,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -2029,7 +2037,7 @@ class _CustomerTileState extends State<CustomerTile> {
                     Flexible(
                       child: MouseRegion(
                         opaque: false,
-                        cursor: MouseCursor.defer ?? MouseCursor.defer,
+                        cursor: MouseCursor.defer,
                         onEnter: ((event) async {
                           setState(() => mouseRegionHovered2 = true);
                         }),
@@ -2038,10 +2046,10 @@ class _CustomerTileState extends State<CustomerTile> {
                         }),
                         child: Builder(
                           builder: (context) {
-                            if (mouseRegionHovered1 ?? false) {
+                            if (mouseRegionHovered1) {
                               return Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 8.0, 0.0),
+                                    0.0, 8, 8.0, 8.0),
                                 child: Material(
                                   color: Colors.transparent,
                                   elevation: mouseRegionHovered2 ? 1.0 : 0.0,
@@ -2055,15 +2063,15 @@ class _CustomerTileState extends State<CustomerTile> {
                                       color: mouseRegionHovered2
                                           ? FlutterFlowTheme.of(context).primary
                                           : FlutterFlowTheme.of(context)
-                                              .secondary,
+                                          .secondary,
                                       borderRadius: BorderRadius.circular(24.0),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                      CrossAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: const EdgeInsetsDirectional
@@ -2072,31 +2080,32 @@ class _CustomerTileState extends State<CustomerTile> {
                                             Icons.remove_red_eye_rounded,
                                             color: mouseRegionHovered2
                                                 ? FlutterFlowTheme.of(context)
-                                                    .accent1
+                                                .accent1
                                                 : FlutterFlowTheme.of(context)
-                                                    .primaryText,
-                                            size: 18.0,
+                                                .primaryText,
+                                            size: 10.sp,
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsetsDirectional
-                                              .fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                              .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Legder',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  color: mouseRegionHovered2
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .accent1
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryText,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              color: mouseRegionHovered2
+                                                  ? FlutterFlowTheme.of(
+                                                  context)
+                                                  .accent1
+                                                  : FlutterFlowTheme.of(
+                                                  context)
+                                                  .primaryText,
+                                              letterSpacing: 0.0,
+                                              fontSize: 8.sp,
+                                              fontWeight: FontWeight.w700,
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -2156,8 +2165,7 @@ class _CustomerTileState extends State<CustomerTile> {
   }
 }
 
-class _EditCustomerState extends State<EditCustomer>
-    with TickerProviderStateMixin {
+class _EditCustomerState extends State<EditCustomer> with TickerProviderStateMixin {
   TextEditingController namecon = TextEditingController(),
       gstincon = TextEditingController(),
       openingbalancecon = TextEditingController(),
@@ -2274,7 +2282,7 @@ class _EditCustomerState extends State<EditCustomer>
     });
     setupAnimations(
       animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
+      anim.trigger == AnimationTrigger.onActionTrigger ||
           !anim.applyInitialState),
       this,
     );
@@ -2310,7 +2318,7 @@ class _EditCustomerState extends State<EditCustomer>
             children: [
               Padding(
                 padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(),
@@ -2335,17 +2343,17 @@ class _EditCustomerState extends State<EditCustomer>
                                   children: [
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                      const AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         'Edit Customer',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
-                                              fontSize: 18.0.sp,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                          fontFamily: 'Inter',
+                                          fontSize: 18.0.sp,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                     Align(
@@ -2359,15 +2367,15 @@ class _EditCustomerState extends State<EditCustomer>
                                             Text(
                                               'Note: Editing the customer\'s details, such as their name or address information, will affect older bills but deleting won\'t impact on older bills.',
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontSize: 10.0.sp,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 10.0.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                FontWeight.normal,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -2388,22 +2396,22 @@ class _EditCustomerState extends State<EditCustomer>
                                         type: ToastificationType.success,
                                         style: ToastificationStyle.flat,
                                         autoCloseDuration:
-                                            const Duration(seconds: 5),
+                                        const Duration(seconds: 5),
                                         title: Text('customer deleted',
                                             style: TextStyle(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary)),
+                                                FlutterFlowTheme.of(context)
+                                                    .primary)),
                                         description: Text(
                                           'you have deleted ${customer.name} customer',
                                           style: TextStyle(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary),
+                                              FlutterFlowTheme.of(context)
+                                                  .primary),
                                         ),
                                         alignment: Alignment.bottomRight,
                                         animationDuration:
-                                            const Duration(milliseconds: 300),
+                                        const Duration(milliseconds: 300),
                                         icon: const Icon(Icons.delete),
                                         showIcon: true,
                                         primaryColor: Colors.red,
@@ -2424,7 +2432,7 @@ class _EditCustomerState extends State<EditCustomer>
                                         ],
                                         showProgressBar: true,
                                         closeButtonShowType:
-                                            CloseButtonShowType.onHover,
+                                        CloseButtonShowType.onHover,
                                         closeOnClick: false,
                                         pauseOnHover: true,
                                         dragToClose: true,
@@ -2435,22 +2443,22 @@ class _EditCustomerState extends State<EditCustomer>
                                     options: FFButtonOptions(
                                       height: 44.0,
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              24.0, 0.0, 24.0, 0.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 24.0, 0.0),
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
                                       color:
-                                          FlutterFlowTheme.of(context).accent1,
+                                      FlutterFlowTheme.of(context).accent1,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiary,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                       elevation: 1.5,
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -2459,7 +2467,7 @@ class _EditCustomerState extends State<EditCustomer>
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
                                       hoverColor:
-                                          FlutterFlowTheme.of(context).tertiary,
+                                      FlutterFlowTheme.of(context).tertiary,
                                       hoverBorderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
                                             .tertiary,
@@ -2471,7 +2479,7 @@ class _EditCustomerState extends State<EditCustomer>
                                   ),
                                   Align(
                                     alignment:
-                                        const AlignmentDirectional(1.0, 0.0),
+                                    const AlignmentDirectional(1.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         if (!(isname &&
@@ -2481,50 +2489,50 @@ class _EditCustomerState extends State<EditCustomer>
                                             isstate)) {
                                           if (isname == false) {
                                             if (animationsMap[
-                                                    'textFieldOnActionTriggerAnimation1'] !=
+                                            'textFieldOnActionTriggerAnimation1'] !=
                                                 null) {
                                               await animationsMap[
-                                                      'textFieldOnActionTriggerAnimation1']!
+                                              'textFieldOnActionTriggerAnimation1']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
                                           }
                                           if (isaddress == false) {
                                             if (animationsMap[
-                                                    'textFieldOnActionTriggerAnimation2'] !=
+                                            'textFieldOnActionTriggerAnimation2'] !=
                                                 null) {
                                               await animationsMap[
-                                                      'textFieldOnActionTriggerAnimation2']!
+                                              'textFieldOnActionTriggerAnimation2']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
                                           }
                                           if (iscity == false) {
                                             if (animationsMap[
-                                                    'textFieldOnActionTriggerAnimation3'] !=
+                                            'textFieldOnActionTriggerAnimation3'] !=
                                                 null) {
                                               await animationsMap[
-                                                      'textFieldOnActionTriggerAnimation3']!
+                                              'textFieldOnActionTriggerAnimation3']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
                                           }
                                           if (ispincode == false) {
                                             if (animationsMap[
-                                                    'textFieldOnActionTriggerAnimation4'] !=
+                                            'textFieldOnActionTriggerAnimation4'] !=
                                                 null) {
                                               await animationsMap[
-                                                      'textFieldOnActionTriggerAnimation4']!
+                                              'textFieldOnActionTriggerAnimation4']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
                                           }
                                           if (isstate == false) {
                                             if (animationsMap[
-                                                    'textFieldOnActionTriggerAnimation5'] !=
+                                            'textFieldOnActionTriggerAnimation5'] !=
                                                 null) {
                                               await animationsMap[
-                                                      'textFieldOnActionTriggerAnimation5']!
+                                              'textFieldOnActionTriggerAnimation5']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
@@ -2551,17 +2559,17 @@ class _EditCustomerState extends State<EditCustomer>
                                             type: ToastificationType.success,
                                             style: ToastificationStyle.flat,
                                             autoCloseDuration:
-                                                const Duration(seconds: 5),
+                                            const Duration(seconds: 5),
                                             title: Text('Customer updated',
                                                 style: TextStyle(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .primary)),
                                             description: Text(
                                               'To view this Customer go to view customer',
                                               style: TextStyle(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .primary),
                                             ),
                                             alignment: Alignment.bottomRight,
@@ -2577,7 +2585,7 @@ class _EditCustomerState extends State<EditCustomer>
                                             margin: const EdgeInsets.symmetric(
                                                 horizontal: 12, vertical: 8),
                                             borderRadius:
-                                                BorderRadius.circular(12),
+                                            BorderRadius.circular(12),
                                             boxShadow: const [
                                               BoxShadow(
                                                 color: Color(0x07000000),
@@ -2588,7 +2596,7 @@ class _EditCustomerState extends State<EditCustomer>
                                             ],
                                             showProgressBar: true,
                                             closeButtonShowType:
-                                                CloseButtonShowType.onHover,
+                                            CloseButtonShowType.onHover,
                                             closeOnClick: false,
                                             pauseOnHover: true,
                                             dragToClose: true,
@@ -2608,11 +2616,11 @@ class _EditCustomerState extends State<EditCustomer>
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily: 'Inter',
-                                              color: Colors.white,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
+                                          fontFamily: 'Inter',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                         elevation: 1.5,
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -2620,7 +2628,7 @@ class _EditCustomerState extends State<EditCustomer>
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                        BorderRadius.circular(12.0),
                                         hoverColor: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         hoverBorderSide: BorderSide(
@@ -2651,11 +2659,11 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -2665,11 +2673,11 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ].divide(const SizedBox(width: 24.0)),
@@ -2685,7 +2693,7 @@ class _EditCustomerState extends State<EditCustomer>
                                 focusNode: textFieldFocusNode1,
                                 autofocus: true,
                                 textCapitalization:
-                                    TextCapitalization.characters,
+                                TextCapitalization.characters,
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
                                 onChanged: (val) {
@@ -2695,16 +2703,16 @@ class _EditCustomerState extends State<EditCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Name',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -2738,8 +2746,8 @@ class _EditCustomerState extends State<EditCustomer>
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                  const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 0.0, 0.0),
                                   prefixIcon: Icon(
                                     Icons.people_outlined,
                                     color: FlutterFlowTheme.of(context)
@@ -2750,14 +2758,15 @@ class _EditCustomerState extends State<EditCustomer>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ).animateOnActionTrigger(
                                 animationsMap[
-                                    'textFieldOnActionTriggerAnimation1']!,
+                                'textFieldOnActionTriggerAnimation1']!,
                               ),
                             ),
                             Expanded(
@@ -2767,23 +2776,23 @@ class _EditCustomerState extends State<EditCustomer>
                                 focusNode: textFieldFocusNode2,
                                 autofocus: true,
                                 textCapitalization:
-                                    TextCapitalization.characters,
+                                TextCapitalization.characters,
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. 29GGGGG1314R9Z6',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -2817,8 +2826,8 @@ class _EditCustomerState extends State<EditCustomer>
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                  const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 0.0, 0.0),
                                   prefixIcon: Icon(
                                     Icons.numbers_rounded,
                                     color: FlutterFlowTheme.of(context)
@@ -2829,17 +2838,18 @@ class _EditCustomerState extends State<EditCustomer>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 maxLength: 15,
                                 buildCounter: (context,
-                                        {required currentLength,
-                                        required isFocused,
-                                        maxLength}) =>
-                                    null,
+                                    {required currentLength,
+                                      required isFocused,
+                                      maxLength}) =>
+                                null,
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                                 inputFormatters: [
                                   FilteringTextInputFormatter.allow(
                                       RegExp('[a-zA-Z0-9]'))
@@ -2861,11 +2871,11 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -2875,11 +2885,11 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -2889,11 +2899,11 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -2923,16 +2933,16 @@ class _EditCustomerState extends State<EditCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. 10000',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -2966,20 +2976,21 @@ class _EditCustomerState extends State<EditCustomer>
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                  const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 keyboardType:
-                                    const TextInputType.numberWithOptions(
-                                        decimal: true),
+                                const TextInputType.numberWithOptions(
+                                    decimal: true),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ),
                             ),
                             Expanded(
@@ -3000,7 +3011,7 @@ class _EditCustomerState extends State<EditCustomer>
                                   borderRadius: BorderRadius.circular(8),
                                   underline: const SizedBox(),
                                   dropdownColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                  FlutterFlowTheme.of(context).accent1,
                                   value: type,
                                   hint: const Text('Select Type'),
                                   items: items.map((String items) {
@@ -3031,16 +3042,16 @@ class _EditCustomerState extends State<EditCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. company@gmail.com',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -3074,17 +3085,18 @@ class _EditCustomerState extends State<EditCustomer>
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                  const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ),
                             ),
                             const Expanded(
@@ -3103,7 +3115,7 @@ class _EditCustomerState extends State<EditCustomer>
               ),
               Padding(
                 padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
+                const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(),
@@ -3123,11 +3135,11 @@ class _EditCustomerState extends State<EditCustomer>
                               style: FlutterFlowTheme.of(context)
                                   .titleLarge
                                   .override(
-                                    fontFamily: 'Inter',
-                                    fontSize: 18.0.sp,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                fontFamily: 'Inter',
+                                fontSize: 16.0.sp,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                           ),
                         ),
@@ -3144,11 +3156,11 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -3158,11 +3170,11 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -3188,7 +3200,7 @@ class _EditCustomerState extends State<EditCustomer>
                                   focusNode: textFieldFocusNode5,
                                   autofocus: true,
                                   textCapitalization:
-                                      TextCapitalization.characters,
+                                  TextCapitalization.characters,
                                   textInputAction: TextInputAction.next,
                                   obscureText: false,
                                   onChanged: (val) {
@@ -3198,16 +3210,16 @@ class _EditCustomerState extends State<EditCustomer>
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: 'Door No., Street Name',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -3227,7 +3239,7 @@ class _EditCustomerState extends State<EditCustomer>
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -3235,14 +3247,14 @@ class _EditCustomerState extends State<EditCustomer>
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     filled: true,
                                     fillColor:
-                                        FlutterFlowTheme.of(context).accent1,
+                                    FlutterFlowTheme.of(context).accent1,
                                     prefixIcon: Icon(
                                       Icons.storefront,
                                       color: FlutterFlowTheme.of(context)
@@ -3253,15 +3265,16 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.0,
+                                  ),
                                   maxLines: null,
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ).animateOnActionTrigger(
                                   animationsMap[
-                                      'textFieldOnActionTriggerAnimation2']!,
+                                  'textFieldOnActionTriggerAnimation2']!,
                                 ),
                               ),
                               Expanded(
@@ -3275,10 +3288,10 @@ class _EditCustomerState extends State<EditCustomer>
                                   obscureText: false,
                                   onChanged: (val) {
                                     if (!('1234567890+ '
-                                            .split('')
-                                            .toList()
-                                            .contains(phonecon.text[
-                                                phonecon.text.length - 1])) &&
+                                        .split('')
+                                        .toList()
+                                        .contains(phonecon.text[
+                                    phonecon.text.length - 1])) &&
                                         phonecon.text.isNotEmpty) {
                                       phonecon.text = phonecon.text.substring(
                                           0, phonecon.text.length - 1);
@@ -3288,16 +3301,16 @@ class _EditCustomerState extends State<EditCustomer>
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintText: 'Eg. 85551 32580',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -3317,7 +3330,7 @@ class _EditCustomerState extends State<EditCustomer>
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -3325,14 +3338,14 @@ class _EditCustomerState extends State<EditCustomer>
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     filled: true,
                                     fillColor:
-                                        FlutterFlowTheme.of(context).accent1,
+                                    FlutterFlowTheme.of(context).accent1,
                                     prefixIcon: Icon(
                                       Icons.phone_outlined,
                                       color: FlutterFlowTheme.of(context)
@@ -3343,19 +3356,20 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.0,
+                                  ),
                                   maxLines: null,
                                   maxLength: 11,
                                   buildCounter: (context,
-                                          {required currentLength,
-                                          required isFocused,
-                                          maxLength}) =>
-                                      null,
+                                      {required currentLength,
+                                        required isFocused,
+                                        maxLength}) =>
+                                  null,
                                   keyboardType: TextInputType.number,
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
                               const Expanded(
@@ -3380,11 +3394,11 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -3393,11 +3407,11 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -3406,11 +3420,11 @@ class _EditCustomerState extends State<EditCustomer>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12.0.sp,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 12.0.sp,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                               const Expanded(
@@ -3432,7 +3446,7 @@ class _EditCustomerState extends State<EditCustomer>
                                 focusNode: textFieldFocusNode7,
                                 autofocus: true,
                                 textCapitalization:
-                                    TextCapitalization.characters,
+                                TextCapitalization.characters,
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
                                 onChanged: (val) {
@@ -3442,16 +3456,16 @@ class _EditCustomerState extends State<EditCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. Chennai',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -3463,7 +3477,7 @@ class _EditCustomerState extends State<EditCustomer>
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
@@ -3484,19 +3498,20 @@ class _EditCustomerState extends State<EditCustomer>
                                   ),
                                   filled: true,
                                   fillColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                  FlutterFlowTheme.of(context).accent1,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ).animateOnActionTrigger(
                                 animationsMap[
-                                    'textFieldOnActionTriggerAnimation3']!,
+                                'textFieldOnActionTriggerAnimation3']!,
                               ),
                             ),
                             Expanded(
@@ -3513,16 +3528,16 @@ class _EditCustomerState extends State<EditCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. 600001',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -3534,7 +3549,7 @@ class _EditCustomerState extends State<EditCustomer>
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
@@ -3555,23 +3570,24 @@ class _EditCustomerState extends State<EditCustomer>
                                   ),
                                   filled: true,
                                   fillColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                  FlutterFlowTheme.of(context).accent1,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                                 inputFormatters: [
                                   FilteringTextInputFormatter.allow(
                                       RegExp('[0-9]'))
                                 ],
                               ).animateOnActionTrigger(
                                 animationsMap[
-                                    'textFieldOnActionTriggerAnimation4']!,
+                                'textFieldOnActionTriggerAnimation4']!,
                               ),
                             ),
                             Expanded(
@@ -3580,7 +3596,7 @@ class _EditCustomerState extends State<EditCustomer>
                                 focusNode: textFieldFocusNode9,
                                 autofocus: true,
                                 textCapitalization:
-                                    TextCapitalization.characters,
+                                TextCapitalization.characters,
                                 textInputAction: TextInputAction.done,
                                 obscureText: false,
                                 onChanged: (val) {
@@ -3590,16 +3606,16 @@ class _EditCustomerState extends State<EditCustomer>
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintText: 'Eg. Tamil Nadu',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -3611,7 +3627,7 @@ class _EditCustomerState extends State<EditCustomer>
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
@@ -3632,19 +3648,20 @@ class _EditCustomerState extends State<EditCustomer>
                                   ),
                                   filled: true,
                                   fillColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                  FlutterFlowTheme.of(context).accent1,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ).animateOnActionTrigger(
                                 animationsMap[
-                                    'textFieldOnActionTriggerAnimation5']!,
+                                'textFieldOnActionTriggerAnimation5']!,
                               ),
                             ),
                             const Expanded(
