@@ -19,7 +19,7 @@ const String col_email = 'email';
 class Customer{
 
   String? id;
-  String name,gstin,address,city,state,phone,email;
+  String name,gstin,address,city,state,mobileno,email;
   bool type, isgst;
   int pincode;
   double openbal, closebal;
@@ -32,7 +32,7 @@ class Customer{
     required this.city,
     required this.pincode,
     required this.state,
-    required this.phone,
+    required this.mobileno,
     required this.openbal,
     required this.closebal,
     required this.type,
@@ -53,7 +53,7 @@ class Customer{
     city : map[col_city],
     pincode : map[col_pincode],
     state : map[col_state],
-    phone : map[col_mobileno],
+    mobileno : map[col_mobileno],
     openbal : map[col_openbal],
     closebal : map[col_closebal],
     type : map[col_type],
