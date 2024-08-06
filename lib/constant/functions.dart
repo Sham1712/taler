@@ -1,18 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:taler/object/billproduct.dart';
-import 'color.dart';
-
-void msg(String msg) => Fluttertoast.showToast(msg: msg);
-void scmsg(String msg) => Fluttertoast.showToast(
-    msg: msg, backgroundColor: Colors.lightGreen.shade400, textColor: cr_wht);
-void inmsg(String msg) => Fluttertoast.showToast(
-    msg: msg, backgroundColor: Colors.brown.shade400, textColor: cr_wht);
-void wrmsg(String msg) => Fluttertoast.showToast(
-    msg: msg, backgroundColor: Colors.amber.shade400, textColor: cr_wht);
-void ermsg(String msg) => Fluttertoast.showToast(
-    msg: msg, backgroundColor: Colors.redAccent.shade400, textColor: cr_wht);
 
 void route(BuildContext context, Widget page) {
   Navigator.push(context, MaterialPageRoute(builder: (context) {

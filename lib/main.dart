@@ -16,7 +16,6 @@ import 'package:taler/screen/login.dart';
 import 'package:taler/service/authHelper.dart';
 import '../constant/functions.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'constant/color.dart';
 import 'firebase_options.dart';
 import 'object/users.dart';
 
@@ -40,7 +39,7 @@ class App extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Taler',
           theme: ThemeData(
-            primaryColor: cr_pri,
+            primaryColor: FlutterFlowTheme.of(context).primary,
             appBarTheme:
                 AppBarTheme(backgroundColor: Theme.of(context).primaryColor),
             textTheme: null,
@@ -196,7 +195,7 @@ class Inform extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: cr_pri.withOpacity(0.7),
+        color: FlutterFlowTheme.of(context).primary,
         child: Center(
           child: Text(
             info,

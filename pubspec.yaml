@@ -11,22 +11,15 @@ dependencies:
   flutter:
     sdk: flutter
 
-  fluttertoast: any
   google_fonts: any
   intl: any
   font_awesome_flutter: any
-  flutter_slidable: any
-  google_nav_bar: any
-  avatar_glow: any
-  progress_indicators: any
   url_launcher: any
   iconly: any
   cupertino_icons: any
   flutter_screenutil: any
-  flutter_svg: any
   loading_animation_widget: any
   flutter_animate: any
-  provider: any
   http: any
   loading_animations: any
   cached_network_image: any
