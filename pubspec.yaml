@@ -17,6 +17,7 @@ dependencies:
   url_launcher: any
   iconly: any
   cupertino_icons: any
+  provider: any
   flutter_screenutil: any
   loading_animation_widget: any
   flutter_animate: any
