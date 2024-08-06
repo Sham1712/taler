@@ -6,6 +6,7 @@ const String col_name = 'name';
 const String col_address = 'address';
 const String col_gstin = 'gstin';
 const String col_city = 'city';
+const String col_hasgst = 'hasgst';
 const String col_pincode = 'pincode';
 const String col_state = 'state';
 const String col_country = 'country';
@@ -28,6 +29,7 @@ class Users {
       pincode,
       state,
       mobileno;
+  bool hasgst;
   List<String> logins;
 
   Users({
@@ -43,6 +45,7 @@ class Users {
     required this.city,
     required this.pincode,
     required this.state,
+    required this.hasgst,
     required this.mobileno,
   });
 
@@ -59,6 +62,7 @@ class Users {
         city: map[col_city] ?? '',
         pincode: map[col_pincode] ?? '',
         state: map[col_state] ?? '',
+    hasgst: map[col_hasgst] ?? '',
         mobileno: map[col_mobileno] ?? '',
       );
 
@@ -75,6 +79,7 @@ class Users {
       col_city: city,
       col_pincode: pincode,
       col_state: state,
+      col_hasgst: hasgst,
       col_mobileno: mobileno,
     };
   }

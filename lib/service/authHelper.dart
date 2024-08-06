@@ -18,7 +18,8 @@ class AuthHelper {
 
   static User? get myuser => FirebaseAuth.instance.currentUser;
 
-  static DocumentReference get docuser  => Firestore.instance.document('/users/${myuser!.uid}');
+  static DocumentReference get docuser =>
+      Firestore.instance.document('/users/${myuser!.uid}');
 
   Stream<User?> authchanges() => firebaseauth.authStateChanges();
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -91,8 +92,25 @@ class AuthHelper {
     _auth.signOut();
   }
 
-  Future<Users?> startup() async{
-    return Users.fromMap((await (await docuser).get()).map);
+  Future<Users?> startup() async {
+    Users? users;
+    try {
+      //addlogins();
+      users = Users.fromMap((await (docuser).get()).map);
+    } catch (e) {
+      //print(e.toString());
+    }
+    return users;
+  }
+
+  Future<void> updateUser(Users users) async {
+    return docuser.update(users.toMap());
+  }
+
+  Future<void> addlogins() async {
+    List<String> logins = (await docuser.get()).map[col_logins];
+    logins.add(timenow.substring(0, 16));
+    (docuser).update({col_logins: logins});
   }
 
   Future<void> createUser() async {
@@ -111,29 +129,11 @@ class AuthHelper {
         pincode: '',
         state: '',
         mobileno: '',
+      hasgst: false,
     );
 
     docuser.set(users.toMap());
     return;
-  }
-
-  Future<void> updateUser(Users users) async {
-    (await docuser).update(users.toMap()).then((h){},onError: (e){
-      msg(e.toString());
-    });
-    return;
-  }
-
-  Future<void> addlogins() async {
-    if ((myuser) != null) {
-      List<String> logins = (await (await docuser).get()).map[col_logins];
-      logins.add(timenow.substring(0, 16));
-      (await docuser).update({
-        col_logins: logins
-      });
-    } else {
-      msg('Finish your login');
-    }
   }
 
 // 2023-08-14T14:33:54.796907

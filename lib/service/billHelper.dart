@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firedart/firestore/firestore.dart';
 import 'package:firedart/firestore/models.dart';
+import 'package:taler/object/vendor.dart';
 
 import '../object/bill.dart';
 import '../object/product.dart';
@@ -103,25 +104,25 @@ class BillHelper {
     ).asBroadcastStream();
   }
 
-  Future<void> addvendor(Customer customer) async {
-    customer.id = DateTime.now().toIso8601String();
-    return await colven.document(customer.id!).set(customer.toMap());
+  Future<void> addvendor(Vendor vendor) async {
+    vendor.id = DateTime.now().toIso8601String();
+    return await colven.document(vendor.id!).set(vendor.toMap());
   }
 
-  Future<void> update(Customer customer) async {
-    return await colven.document(customer.id!).update(customer.toMap());
+  Future<void> updatevendor(Vendor vendor) async {
+    return await colven.document(vendor.id!).update(vendor.toMap());
   }
 
-  Future<void> delete(Customer customer) async {
-    return await colven.document(customer.id!).delete();
+  Future<void> deletevendor(Vendor vendor) async {
+    return await colven.document(vendor.id!).delete();
   }
 
-  Stream<List<Customer>> getlist() {
+  Stream<List<Vendor>> getvendors() {
     final snapshots = colven.orderBy(col_id,descending: true).get().asStream();
     return snapshots.map(
       (snapshot) => snapshot.map(
         (snapshot) {
-          return Customer.fromMap(snapshot.map);
+          return Vendor.fromMap(snapshot.map);
         },
       ).toList()
     ).asBroadcastStream();

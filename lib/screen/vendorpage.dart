@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:taler/constant/functions.dart';
 import 'package:taler/flutter_flow/flutter_flow_util.dart';
-import 'package:taler/object/customer.dart';
+import 'package:taler/object/vendor.dart';
 import 'package:taler/service/billHelper.dart';
 import 'package:toastification/toastification.dart';
 
@@ -14,29 +14,29 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'home.dart';
 
-class Customerpage extends StatelessWidget {
-  Customerpage({super.key, required this.page});
+class Vendorpage extends StatelessWidget {
+  Vendorpage({super.key, required this.page});
   int page;
 
   @override
   Widget build(BuildContext context) {
     return Builder(builder: (con) {
       if (page == 1) {
-        return const ViewCustomer();
+        return const ViewVendor();
       }
       if (page == 2) {
-        return const AddCustomer();
+        return const AddVendor();
       }
       return Container();
     });
   }
 }
 
-class _AddCustomerState extends State<AddCustomer>
-    with TickerProviderStateMixin {
+class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
   TextEditingController namecon = TextEditingController(),
       gstincon = TextEditingController(),
       openingbalancecon = TextEditingController(),
+      businessnaturecon = TextEditingController(),
       emailcon = TextEditingController(),
       addresscon = TextEditingController(),
       phonecon = TextEditingController(),
@@ -52,7 +52,8 @@ class _AddCustomerState extends State<AddCustomer>
       textFieldFocusNode6 = FocusNode(),
       textFieldFocusNode7 = FocusNode(),
       textFieldFocusNode8 = FocusNode(),
-      textFieldFocusNode9 = FocusNode();
+      textFieldFocusNode9 = FocusNode(),
+      textFieldFocusNode10 = FocusNode();
 
   final animationsMap = <String, AnimationInfo>{};
   bool isname = false,
@@ -60,12 +61,10 @@ class _AddCustomerState extends State<AddCustomer>
       iscity = false,
       ispincode = false,
       isstate = false;
-  String type = 'Wholesaler with GST';
+  String type = 'With GST';
   List<String> items = [
-    'Wholesaler with GST',
-    'Retailer with GST',
-    'Wholesaler without GST',
-    'Retailer without GST'
+    'With GST',
+    'Without GST',
   ];
 
   @override
@@ -157,20 +156,6 @@ class _AddCustomerState extends State<AddCustomer>
           ),
         ],
       ),
-      'textFieldOnActionTriggerAnimation6': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effects: [
-          ShakeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 500.0.ms,
-            hz: 5,
-            offset: const Offset(5.0, 0.0),
-            rotation: 0,
-          ),
-        ],
-      ),
     });
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -223,7 +208,7 @@ class _AddCustomerState extends State<AddCustomer>
                                       alignment:
                                           const AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
-                                        'New Customer',
+                                        'New Vendor',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -241,7 +226,7 @@ class _AddCustomerState extends State<AddCustomer>
                                       child: Wrap(
                                         children: [
                                           Text(
-                                            'Note: Customers with and without GST are treated as two different categories',
+                                            'Note: Vendors with and without GST are treated as two different categories',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .override(
@@ -318,18 +303,17 @@ class _AddCustomerState extends State<AddCustomer>
                                         }
                                       }
                                     } else {
-                                      BillHelper().addcustomer(Customer(
+                                      BillHelper().addvendor(Vendor(
                                         name: namecon.text,
                                         gstin: gstincon.text,
                                         address: addresscon.text,
                                         city: citycon.text,
                                         pincode: int.parse(pincodecon.text),
                                         state: statecon.text,
-                                        phone: phonecon.text,
+                                        mobileno: phonecon.text,
                                         openbal: double.parse(
                                             openingbalancecon.text),
-                                        type: type.contains('Wholesaler'),
-                                        isgst: type.contains('with GST'),
+                                        type: type.contains('With GST'),
                                         email: emailcon.text,
                                         closebal: double.parse(
                                             openingbalancecon.text),
@@ -350,13 +334,13 @@ class _AddCustomerState extends State<AddCustomer>
                                         style: ToastificationStyle.flat,
                                         autoCloseDuration:
                                             const Duration(seconds: 5),
-                                        title: Text('Customer Created',
+                                        title: Text('Vendor Created',
                                             style: TextStyle(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary)),
                                         description: Text(
-                                          'To view this Customer go to view customer',
+                                          'To view this Vendor go to view vendor',
                                           style: TextStyle(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -443,7 +427,7 @@ class _AddCustomerState extends State<AddCustomer>
                               Expanded(
                                 flex: 3,
                                 child: Text(
-                                  'Customer Name*',
+                                  'Vendor Name*',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -673,12 +657,26 @@ class _AddCustomerState extends State<AddCustomer>
                               Expanded(
                                 flex: 2,
                                 child: Text(
-                                  'Customer Rate Type*',
+                                  'Vendor Sale Type*',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
                                         fontSize: 12.0.sp,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  'Nature of Business',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 12.sp,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -843,8 +841,77 @@ class _AddCustomerState extends State<AddCustomer>
                             Expanded(
                               flex: 2,
                               child: TextFormField(
-                                controller: emailcon,
+                                controller: businessnaturecon,
                                 focusNode: textFieldFocusNode4,
+                                autofocus: true,
+                                textCapitalization: TextCapitalization.none,
+                                textInputAction: TextInputAction.next,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  hintText: 'Eg. Cloth Merchant',
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  contentPadding:
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 0.0, 0.0),
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                                cursorColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: TextFormField(
+                                controller: emailcon,
+                                focusNode: textFieldFocusNode5,
                                 autofocus: true,
                                 textCapitalization: TextCapitalization.none,
                                 textInputAction: TextInputAction.next,
@@ -965,7 +1032,7 @@ class _AddCustomerState extends State<AddCustomer>
                               Expanded(
                                 flex: 3,
                                 child: Text(
-                                  'Customer\'s Address*',
+                                  'Vendor\'s Address*',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -1010,7 +1077,7 @@ class _AddCustomerState extends State<AddCustomer>
                                 flex: 3,
                                 child: TextFormField(
                                   controller: addresscon,
-                                  focusNode: textFieldFocusNode5,
+                                  focusNode: textFieldFocusNode6,
                                   autofocus: true,
                                   textCapitalization:
                                       TextCapitalization.characters,
@@ -1096,7 +1163,7 @@ class _AddCustomerState extends State<AddCustomer>
                                 flex: 1,
                                 child: TextFormField(
                                   controller: phonecon,
-                                  focusNode: textFieldFocusNode6,
+                                  focusNode: textFieldFocusNode7,
                                   autofocus: true,
                                   textCapitalization: TextCapitalization.none,
                                   textInputAction: TextInputAction.next,
@@ -1261,7 +1328,7 @@ class _AddCustomerState extends State<AddCustomer>
                             Expanded(
                               child: TextFormField(
                                 controller: citycon,
-                                focusNode: textFieldFocusNode7,
+                                focusNode: textFieldFocusNode8,
                                 autofocus: true,
                                 textCapitalization:
                                     TextCapitalization.characters,
@@ -1337,7 +1404,7 @@ class _AddCustomerState extends State<AddCustomer>
                             Expanded(
                               child: TextFormField(
                                 controller: pincodecon,
-                                focusNode: textFieldFocusNode8,
+                                focusNode: textFieldFocusNode9,
                                 autofocus: true,
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
@@ -1415,7 +1482,7 @@ class _AddCustomerState extends State<AddCustomer>
                             Expanded(
                               child: TextFormField(
                                 controller: statecon,
-                                focusNode: textFieldFocusNode9,
+                                focusNode: textFieldFocusNode10,
                                 autofocus: true,
                                 textCapitalization:
                                     TextCapitalization.characters,
@@ -1510,7 +1577,7 @@ class _AddCustomerState extends State<AddCustomer>
   }
 }
 
-class _ViewCustomerState extends State<ViewCustomer> {
+class _ViewVendorState extends State<ViewVendor> {
   TextEditingController searchcon = TextEditingController();
   FocusNode fieldFocusNode = FocusNode();
 
@@ -1530,13 +1597,13 @@ class _ViewCustomerState extends State<ViewCustomer> {
           ),
         ),
         alignment: const AlignmentDirectional(0.0, 0.0),
-        child: StreamBuilder<List<Customer>>(
-            stream: BillHelper().getcustomers(),
+        child: StreamBuilder<List<Vendor>>(
+            stream: BillHelper().getvendors(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                List<Customer> data = snapshot.data!;
-                List<Customer> customers = [];
-                customers = data.where((pro) {
+                List<Vendor> data = snapshot.data!;
+                List<Vendor> Vendors = [];
+                Vendors = data.where((pro) {
                   return pro.name
                       .toLowerCase()
                       .contains(searchcon.text.toLowerCase());
@@ -1556,7 +1623,7 @@ class _ViewCustomerState extends State<ViewCustomer> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Your Customers',
+                              'Your Vendors',
                               style: FlutterFlowTheme.of(context)
                                   .headlineLarge
                                   .override(
@@ -1593,7 +1660,7 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                       obscureText: false,
                                       onChanged: (val) {
                                         setState(() {
-                                          customers = data.where((pro) {
+                                          Vendors = data.where((pro) {
                                             return pro.name.contains(val);
                                           }).toList();
                                         });
@@ -1870,7 +1937,7 @@ class _ViewCustomerState extends State<ViewCustomer> {
                     Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(
                           24.0, 0.0, 24.0, 0.0),
-                      child: customers.isNotEmpty
+                      child: Vendors.isNotEmpty
                           ? ClipRRect(
                               borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(10.r),
@@ -1879,10 +1946,9 @@ class _ViewCustomerState extends State<ViewCustomer> {
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,
                                 scrollDirection: Axis.vertical,
-                                itemCount: customers.length,
+                                itemCount: Vendors.length,
                                 itemBuilder: (context, index) {
-                                  return CustomerTile(
-                                      customer: customers[index]);
+                                  return VendorTile(vendor: Vendors[index]);
                                 },
                               ),
                             )
@@ -1929,13 +1995,13 @@ class _ViewCustomerState extends State<ViewCustomer> {
   }
 }
 
-class _CustomerTileState extends State<CustomerTile> {
+class _VendorTileState extends State<VendorTile> {
   bool mouseRegionHovered1 = false;
   bool mouseRegionHovered2 = false;
-  late Customer customer;
+  late Vendor vendor;
   @override
   Widget build(BuildContext context) {
-    customer = widget.customer;
+    vendor = widget.vendor;
     return MouseRegion(
       opaque: false,
       cursor: MouseCursor.defer,
@@ -1961,7 +2027,7 @@ class _CustomerTileState extends State<CustomerTile> {
               child: Align(
                 alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: Text(
-                  customer.name,
+                  vendor.name,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
                         fontSize: 11.0.sp,
@@ -1976,7 +2042,7 @@ class _CustomerTileState extends State<CustomerTile> {
               child: Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
-                  customer.gstin,
+                  vendor.gstin,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
                         fontSize: 11.0.sp,
@@ -1991,7 +2057,7 @@ class _CustomerTileState extends State<CustomerTile> {
               child: Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
-                  '${customer.type ? 'Wholesaler' : 'Retailer'}${customer.isgst ? ' With GST' : ' Without GST'}',
+                  vendor.type == true ? 'With GST' : 'Without GST',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
                         fontSize: 11.0.sp,
@@ -2006,7 +2072,7 @@ class _CustomerTileState extends State<CustomerTile> {
               child: Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
-                  customer.phone.toString(),
+                  vendor.mobileno.toString(),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
@@ -2022,7 +2088,7 @@ class _CustomerTileState extends State<CustomerTile> {
               child: Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
-                  customer.phone,
+                  vendor.closebal.toStringAsFixed(2),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Roboto Mono',
@@ -2146,7 +2212,7 @@ class _CustomerTileState extends State<CustomerTile> {
                           showDialog(
                               context: context,
                               builder: (con) {
-                                return EditCustomer(customer: customer);
+                                return EditVendor(vendor: vendor);
                               });
                         },
                         child: Padding(
@@ -2173,11 +2239,11 @@ class _CustomerTileState extends State<CustomerTile> {
   }
 }
 
-class _EditCustomerState extends State<EditCustomer>
-    with TickerProviderStateMixin {
+class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
   TextEditingController namecon = TextEditingController(),
       gstincon = TextEditingController(),
       openingbalancecon = TextEditingController(),
+      businessnaturecon = TextEditingController(),
       emailcon = TextEditingController(),
       addresscon = TextEditingController(),
       phonecon = TextEditingController(),
@@ -2193,25 +2259,22 @@ class _EditCustomerState extends State<EditCustomer>
       textFieldFocusNode6 = FocusNode(),
       textFieldFocusNode7 = FocusNode(),
       textFieldFocusNode8 = FocusNode(),
-      textFieldFocusNode9 = FocusNode();
-
-  String type = 'Wholesaler with GST';
-  List<String> items = [
-    'Wholesaler with GST',
-    'Retailer with GST',
-    'Wholesaler without GST',
-    'Retailer without GST'
-  ];
-
-  late Customer customer;
+      textFieldFocusNode9 = FocusNode(),
+      textFieldFocusNode10 = FocusNode();
 
   final animationsMap = <String, AnimationInfo>{};
-
   bool isname = true,
       isaddress = true,
       iscity = true,
       ispincode = true,
       isstate = true;
+  String type = 'With GST';
+  List<String> items = [
+    'With GST',
+    'Without GST',
+  ];
+
+  late Vendor vendor;
 
   @override
   void initState() {
@@ -2299,17 +2362,17 @@ class _EditCustomerState extends State<EditCustomer>
 
   @override
   Widget build(BuildContext context) {
-    customer = widget.customer;
-    namecon = TextEditingController(text: customer.name);
-    gstincon = TextEditingController(text: customer.gstin);
-    openingbalancecon =
-        TextEditingController(text: customer.openbal.toString());
-    emailcon = TextEditingController(text: customer.email);
-    addresscon = TextEditingController(text: customer.address);
-    phonecon = TextEditingController(text: customer.phone);
-    citycon = TextEditingController(text: customer.city);
-    pincodecon = TextEditingController(text: customer.pincode.toString());
-    statecon = TextEditingController(text: customer.state);
+    vendor = widget.vendor;
+    namecon = TextEditingController(text: vendor.name);
+    gstincon = TextEditingController(text: vendor.gstin);
+    openingbalancecon = TextEditingController(text: vendor.openbal.toString());
+    emailcon = TextEditingController(text: vendor.email);
+    addresscon = TextEditingController(text: vendor.address);
+    phonecon = TextEditingController(text: vendor.mobileno);
+    citycon = TextEditingController(text: vendor.city);
+    pincodecon = TextEditingController(text: vendor.pincode.toString());
+    statecon = TextEditingController(text: vendor.state);
+    type = vendor.type ? 'With GST' : 'Without GST';
     return Dialog(
       insetPadding: EdgeInsets.symmetric(horizontal: 40.w),
       shape: RoundedRectangleBorder(
@@ -2354,7 +2417,7 @@ class _EditCustomerState extends State<EditCustomer>
                                       alignment:
                                           const AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
-                                        'Edit Customer',
+                                        'Edit Vendor',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -2374,7 +2437,7 @@ class _EditCustomerState extends State<EditCustomer>
                                         child: Wrap(
                                           children: [
                                             Text(
-                                              'Note: Editing the customer\'s details, such as their name or address information, will affect older bills but deleting won\'t impact on older bills.',
+                                              'Note: Editing the Vendor\'s details, such as their name or address information, will affect older bills but deleting won\'t impact on older bills.',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
@@ -2398,7 +2461,7 @@ class _EditCustomerState extends State<EditCustomer>
                                 children: [
                                   FFButtonWidget(
                                     onPressed: () async {
-                                      BillHelper().deletecustomer(customer);
+                                      BillHelper().deletevendor(vendor);
                                       route(context, const Home());
                                       toastification.show(
                                         context: context,
@@ -2406,13 +2469,13 @@ class _EditCustomerState extends State<EditCustomer>
                                         style: ToastificationStyle.flat,
                                         autoCloseDuration:
                                             const Duration(seconds: 5),
-                                        title: Text('customer deleted',
+                                        title: Text('Vendor deleted',
                                             style: TextStyle(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary)),
                                         description: Text(
-                                          'you have deleted ${customer.name} customer',
+                                          'you have deleted ${vendor.name} Vendor',
                                           style: TextStyle(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -2547,22 +2610,22 @@ class _EditCustomerState extends State<EditCustomer>
                                             }
                                           }
                                         } else {
-                                          BillHelper().updatecustomer(Customer(
-                                            id: customer.id,
+                                          BillHelper().updatevendor(Vendor(
+                                            id: vendor.id,
                                             name: namecon.text,
                                             gstin: gstincon.text,
                                             address: addresscon.text,
                                             city: citycon.text,
                                             pincode: int.parse(pincodecon.text),
                                             state: statecon.text,
-                                            phone: phonecon.text,
+                                            mobileno: phonecon.text,
                                             openbal: double.parse(
                                                 openingbalancecon.text),
-                                            type: type.contains('Wholesaler'),
-                                            isgst: type.contains('with GST'),
+                                            type: type.contains('With GST'),
                                             email: emailcon.text,
                                             closebal: double.parse(
-                                                openingbalancecon.text),
+                                              openingbalancecon.text,
+                                            ),
                                           ));
                                           route(context, const Home());
                                           toastification.show(
@@ -2571,13 +2634,13 @@ class _EditCustomerState extends State<EditCustomer>
                                             style: ToastificationStyle.flat,
                                             autoCloseDuration:
                                                 const Duration(seconds: 5),
-                                            title: Text('Customer updated',
+                                            title: Text('Vendor updated',
                                                 style: TextStyle(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary)),
                                             description: Text(
-                                              'To view this Customer go to view customer',
+                                              'To view this Vendor go to view Vendor',
                                               style: TextStyle(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -2666,7 +2729,7 @@ class _EditCustomerState extends State<EditCustomer>
                               Expanded(
                                 flex: 3,
                                 child: Text(
-                                  'Customer Name*',
+                                  'Vendor Name*',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -2892,12 +2955,26 @@ class _EditCustomerState extends State<EditCustomer>
                               Expanded(
                                 flex: 2,
                                 child: Text(
-                                  'Customer Rate Type',
+                                  'Vendor Sale Type',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
                                         fontSize: 12.0.sp,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  'Nature of Business',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 12.sp,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -3043,8 +3120,77 @@ class _EditCustomerState extends State<EditCustomer>
                             Expanded(
                               flex: 2,
                               child: TextFormField(
-                                controller: emailcon,
+                                controller: businessnaturecon,
                                 focusNode: textFieldFocusNode4,
+                                autofocus: true,
+                                textCapitalization: TextCapitalization.none,
+                                textInputAction: TextInputAction.next,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  hintText: 'Eg. Cloth Merchant',
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  contentPadding:
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 0.0, 0.0),
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                                cursorColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: TextFormField(
+                                controller: emailcon,
+                                focusNode: textFieldFocusNode5,
                                 autofocus: true,
                                 textCapitalization: TextCapitalization.none,
                                 textInputAction: TextInputAction.next,
@@ -3163,7 +3309,7 @@ class _EditCustomerState extends State<EditCustomer>
                               Expanded(
                                 flex: 3,
                                 child: Text(
-                                  'Customer\'s Address*',
+                                  'Vendor\'s Address*',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -3208,7 +3354,7 @@ class _EditCustomerState extends State<EditCustomer>
                                 flex: 3,
                                 child: TextFormField(
                                   controller: addresscon,
-                                  focusNode: textFieldFocusNode5,
+                                  focusNode: textFieldFocusNode6,
                                   autofocus: true,
                                   textCapitalization:
                                       TextCapitalization.characters,
@@ -3292,7 +3438,7 @@ class _EditCustomerState extends State<EditCustomer>
                                 flex: 1,
                                 child: TextFormField(
                                   controller: phonecon,
-                                  focusNode: textFieldFocusNode6,
+                                  focusNode: textFieldFocusNode7,
                                   autofocus: true,
                                   textCapitalization: TextCapitalization.none,
                                   textInputAction: TextInputAction.next,
@@ -3454,7 +3600,7 @@ class _EditCustomerState extends State<EditCustomer>
                             Expanded(
                               child: TextFormField(
                                 controller: citycon,
-                                focusNode: textFieldFocusNode7,
+                                focusNode: textFieldFocusNode8,
                                 autofocus: true,
                                 textCapitalization:
                                     TextCapitalization.characters,
@@ -3528,7 +3674,7 @@ class _EditCustomerState extends State<EditCustomer>
                             Expanded(
                               child: TextFormField(
                                 controller: pincodecon,
-                                focusNode: textFieldFocusNode8,
+                                focusNode: textFieldFocusNode9,
                                 autofocus: true,
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
@@ -3604,7 +3750,7 @@ class _EditCustomerState extends State<EditCustomer>
                             Expanded(
                               child: TextFormField(
                                 controller: statecon,
-                                focusNode: textFieldFocusNode9,
+                                focusNode: textFieldFocusNode10,
                                 autofocus: true,
                                 textCapitalization:
                                     TextCapitalization.characters,
@@ -3697,31 +3843,31 @@ class _EditCustomerState extends State<EditCustomer>
   }
 }
 
-class AddCustomer extends StatefulWidget {
-  const AddCustomer({super.key});
+class AddVendor extends StatefulWidget {
+  const AddVendor({super.key});
 
   @override
-  State<AddCustomer> createState() => _AddCustomerState();
+  State<AddVendor> createState() => _AddVendorState();
 }
 
-class ViewCustomer extends StatefulWidget {
-  const ViewCustomer({super.key});
+class ViewVendor extends StatefulWidget {
+  const ViewVendor({super.key});
 
   @override
-  State<ViewCustomer> createState() => _ViewCustomerState();
+  State<ViewVendor> createState() => _ViewVendorState();
 }
 
-class CustomerTile extends StatefulWidget {
-  CustomerTile({super.key, required this.customer});
-  Customer customer;
+class VendorTile extends StatefulWidget {
+  VendorTile({super.key, required this.vendor});
+  Vendor vendor;
 
   @override
-  State<CustomerTile> createState() => _CustomerTileState();
+  State<VendorTile> createState() => _VendorTileState();
 }
 
-class EditCustomer extends StatefulWidget {
-  EditCustomer({super.key, required this.customer});
-  Customer customer;
+class EditVendor extends StatefulWidget {
+  EditVendor({super.key, required this.vendor});
+  Vendor vendor;
   @override
-  State<EditCustomer> createState() => _EditCustomerState();
+  State<EditVendor> createState() => _EditVendorState();
 }

@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.dark3r" "\0"
-            VALUE "FileDescription", "taler" "\0"
+            VALUE "FileDescription", "Taler" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "taler" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.dark3r. All rights reserved." "\0"
+            VALUE "InternalName", "Taler" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 Dark3r All rights reserved." "\0"
             VALUE "OriginalFilename", "taler.exe" "\0"
-            VALUE "ProductName", "taler" "\0"
+            VALUE "ProductName", "Taler" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

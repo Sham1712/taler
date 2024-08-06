@@ -2,7 +2,8 @@
 
 // ignore_for_file: camel_case_types
 
-const String col_id = 'id';
+import 'customer.dart';
+
 const String col_name = 'name';
 const String col_gstin = 'gstin';
 const String col_address = 'address';
@@ -13,18 +14,17 @@ const String col_mobileno = 'mobileno';
 const String col_openbal = 'openbal';
 const String col_closebal = 'closebal';
 const String col_type = 'type';
-const String col_isgst = 'isgst';
 const String col_email = 'email';
 
-class Customer{
+class Vendor{
 
   String? id;
-  String name,gstin,address,city,state,phone,email;
-  bool type, isgst;
+  String name,gstin,address,city,state,mobileno,email;
+  bool type;
   int pincode;
   double openbal, closebal;
 
-  Customer({
+  Vendor({
     this.id,
     required this.name,
     required this.gstin,
@@ -32,11 +32,10 @@ class Customer{
     required this.city,
     required this.pincode,
     required this.state,
-    required this.phone,
+    required this.mobileno,
     required this.openbal,
     required this.closebal,
     required this.type,
-    required this.isgst,
     required this.email,
   });
 
@@ -45,7 +44,7 @@ class Customer{
     return name;
   }
 
-  factory Customer.fromMap(Map<String, dynamic> map) =>  Customer(
+  factory Vendor.fromMap(Map<String, dynamic> map) =>  Vendor(
     id : map[col_id],
     name : map[col_name],
     gstin : map[col_gstin],
@@ -53,11 +52,10 @@ class Customer{
     city : map[col_city],
     pincode : map[col_pincode],
     state : map[col_state],
-    phone : map[col_mobileno],
+    mobileno : map[col_mobileno],
     openbal : map[col_openbal],
     closebal : map[col_closebal],
     type : map[col_type],
-    isgst : map[col_isgst],
     email : map[col_email],
   );
 
@@ -70,11 +68,10 @@ class Customer{
       col_city: city,
       col_pincode: pincode,
       col_state: state,
-      col_mobileno: phone,
+      col_mobileno: mobileno,
       col_openbal: openbal,
       col_closebal: closebal,
       col_type: type,
-      col_isgst: isgst,
       col_email: email,
     };
   }

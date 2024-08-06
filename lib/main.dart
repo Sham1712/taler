@@ -1,4 +1,5 @@
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -7,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:taler/flutter_flow/flutter_flow_theme.dart';
 import 'package:taler/screen/company.dart';
 import 'package:taler/screen/home.dart';
 import 'package:taler/screen/invoice.dart';
@@ -63,39 +65,82 @@ class GetUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<User?>(
-      stream: authHelper.authchanges(),
-      builder: (context, AsyncSnapshot snapshot) {
-        if (snapshot.connectionState != ConnectionState.done) {
-          if (snapshot.hasData) {
-            return const Invoice();
-            return FutureBuilder<Users?>(
-              future: authHelper.startup(),
-              builder: (context, AsyncSnapshot<Users?> snapshot) {
-                //return const Home();
-                if (!snapshot.hasError) {
-                  if (snapshot.connectionState != ConnectionState.active) {
-                    if (snapshot.data == null) {
-                      return const Home();
+    return StreamBuilder<List<ConnectivityResult>>(
+      stream: Connectivity().onConnectivityChanged,
+      builder: (context, snapshot) {
+        
+        if(snapshot.hasData){
+          if(snapshot.data!.contains(ConnectivityResult.wifi) || snapshot.data!.contains(ConnectivityResult.ethernet)) {
+            return StreamBuilder<User?>(
+                stream: authHelper.authchanges(),
+                builder: (context, AsyncSnapshot snapshot) {
+                  if (snapshot.connectionState != ConnectionState.done) {
+                    if (snapshot.hasData) {
+                      return FutureBuilder<Users?>(
+                        future: authHelper.startup(),
+                        builder: (context, AsyncSnapshot<Users?> snapshot) {
+                          if (!snapshot.hasError) {
+                            if (snapshot.connectionState != ConnectionState.active) {
+                              if (snapshot.hasData) {
+                                if(snapshot.data!.name.isNotEmpty) {
+                                  return const Home();
+                                }
+                                return const Company();
+                              }
+                            }
+                            return const Loading();
+                          } else {
+                            return Errored(error: '${snapshot.error}1');
+                          }
+                        },
+                      );
                     } else {
-                      return const Company();
+                      return const Login();
                     }
                   }
-                  return const Loading();
-                } else {
-                  return Errored(error: '${snapshot.error}1');
-                }
-              },
-            );
-          } else {
-            return const Login();
+                  if (snapshot.hasError) {
+                    return Errored(error: '${snapshot.error}2');
+                  }
+                  return const Spalsh();
+                },
+              );
           }
+          return Scaffold(
+            body: SafeArea(
+              child: Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: FlutterFlowTheme.of(context).secondary,
+                child: Stack(
+                  children: [
+                    Center(child: Image.asset('assests/nonet.png',height: 400.h,)),
+                    Align(
+                      alignment: const Alignment(0,0.6),
+                      child: Text('No Internet Connectivity',style: TextStyle(
+                        color: FlutterFlowTheme.of(context).primary,
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.bold,
+
+                      ),),
+                    ),
+                    Align(
+                      alignment: const Alignment(0,0.7),
+                      child: Text('Connect to network to use the application',style: TextStyle(
+                        color: FlutterFlowTheme.of(context).primary,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w300,
+
+                      ),),
+                    ),
+
+                  ],
+                ),
+              ),
+            ),
+          );
         }
-        if (snapshot.hasError) {
-          return Errored(error: '${snapshot.error}2');
-        }
-        return const Spalsh();
-      },
+        return const Loading();
+      }
     );
   }
 }
@@ -110,9 +155,9 @@ class Loading extends StatelessWidget {
         child: Container(
           width: double.infinity,
           height: double.infinity,
-          color: cr_pri.withOpacity(0.7),
+          color: FlutterFlowTheme.of(context).secondary,
           child:
-              LoadingAnimationWidget.halfTriangleDot(color: cr_wht, size: 50),
+              LoadingAnimationWidget.halfTriangleDot(color: FlutterFlowTheme.of(context).primary, size: 50),
         ),
       ),
     );
@@ -129,11 +174,11 @@ class Errored extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: cr_pri.withOpacity(0.7),
+        color: FlutterFlowTheme.of(context).secondary,
         child: Center(
           child: Text(
             'error :$error',
-            style: TextStyle(color: Colors.redAccent.withOpacity(0.5)),
+            style: TextStyle(color: FlutterFlowTheme.of(context).primary,),
           ),
         ),
       ),
