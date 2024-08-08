@@ -19,10 +19,10 @@ const String col_url = 'photo_url';
 class Users {
   String uid,
       ename,
-      name,
       crtime,
       email,
       url,
+      name,
       address,
       gstin,
       city,
@@ -62,7 +62,7 @@ class Users {
         city: map[col_city] ?? '',
         pincode: map[col_pincode] ?? '',
         state: map[col_state] ?? '',
-    hasgst: map[col_hasgst] ?? '',
+        hasgst: map[col_hasgst] ?? false,
         mobileno: map[col_mobileno] ?? '',
       );
 
@@ -70,10 +70,10 @@ class Users {
     return {
       col_uid: uid,
       col_ename: ename,
-      col_name: name,
       col_crtm: crtime,
       col_email: email,
       col_url: url,
+      col_name: name,
       col_address: address,
       col_gstin: gstin,
       col_city: city,

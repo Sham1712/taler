@@ -75,19 +75,20 @@ class GetUser extends StatelessWidget {
                 builder: (context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState != ConnectionState.done) {
                     if (snapshot.hasData) {
-                      return FutureBuilder<Users?>(
-                        future: authHelper.startup(),
+                      return StreamBuilder<Users?>(
+                        stream: authHelper.startup(),
                         builder: (context, AsyncSnapshot<Users?> snapshot) {
                           if (!snapshot.hasError) {
-                            if (snapshot.connectionState != ConnectionState.active) {
+                            if (snapshot.connectionState == ConnectionState.done) {
                               if (snapshot.hasData) {
                                 if(snapshot.data!.name.isNotEmpty) {
                                   return const Home();
                                 }
                                 return const Company();
                               }
+
                             }
-                            return const Loading();
+                            return Loading();
                           } else {
                             return Errored(error: '${snapshot.error}1');
                           }

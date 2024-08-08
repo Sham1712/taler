@@ -92,47 +92,55 @@ class AuthHelper {
     _auth.signOut();
   }
 
-  Future<Users?> startup() async {
-    Users? users;
-    try {
-      //addlogins();
-      users = Users.fromMap((await (docuser).get()).map);
-    } catch (e) {
-      //print(e.toString());
-    }
-    return users;
+  Stream<Users?> startup() {
+    addlogins();
+    return docuser.get().asStream().map((data){
+      return Users.fromMap(data.map);
+    });
   }
 
-  Future<void> updateUser(Users users) async {
-    return docuser.update(users.toMap());
+  Future<void> updateUser(
+    String name,
+    String address,
+    String gstin,
+    String city,
+    String pincode,
+    String state,
+    String mobileno,
+    bool hasgst,
+  ) async {
+    return docuser.update({
+      col_name: name,
+      col_address: address,
+      col_gstin: gstin,
+      col_city: city,
+      col_pincode: pincode,
+      col_state: state,
+      col_mobileno: mobileno,
+      col_hasgst: hasgst,
+    });
   }
 
   Future<void> addlogins() async {
-    List<String> logins = (await docuser.get()).map[col_logins];
+    List<String> logins = [];
+    (await docuser.get()).map[col_logins];
     logins.add(timenow.substring(0, 16));
     (docuser).update({col_logins: logins});
   }
 
   Future<void> createUser() async {
     User user = myuser!;
-    Users users = Users(
-        uid: user.uid,
-        ename: user.displayName!,
-        crtime: timenow,
-        logins: [timenow],
-        email: user.email!,
-        url: user.photoURL!,
-        name: '',
-        address: '',
-        gstin: '',
-        city: '',
-        pincode: '',
-        state: '',
-        mobileno: '',
-      hasgst: false,
-    );
+    if (!(await docuser.exists)) {
+      docuser.set({
+        col_uid: user.uid,
+        col_ename: user.displayName!,
+        col_crtm: timenow,
+        col_email: user.email!,
+        col_url: user.photoURL!,
+        col_logins: <String>[timenow],
+      });
+    }
 
-    docuser.set(users.toMap());
     return;
   }
 

@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firedart/firestore/firestore.dart';
 import 'package:firedart/firestore/models.dart';
+import 'package:taler/object/paymentin.dart';
 import 'package:taler/object/vendor.dart';
 
 import '../object/bill.dart';
@@ -29,6 +30,9 @@ class BillHelper {
 
   CollectionReference get colven =>
       store.collection('/users/${user!.uid}/vendor');
+
+  CollectionReference get colpay =>
+      store.collection('/users/${user!.uid}/payment');
 
 
   Future<void> addcustomer(Customer customer) async {
@@ -123,6 +127,30 @@ class BillHelper {
       (snapshot) => snapshot.map(
         (snapshot) {
           return Vendor.fromMap(snapshot.map);
+        },
+      ).toList()
+    ).asBroadcastStream();
+  }
+
+  Future<void> addpayment(PaymentIn payment) async {
+    payment.id = DateTime.now().toIso8601String();
+    return await colpay.document(payment.id!).set(payment.toMap());
+  }
+
+  Future<void> updatepayment(PaymentIn payment) async {
+    return await colpay.document(payment.id!).update(payment.toMap());
+  }
+
+  Future<void> deletepayment(PaymentIn payment) async {
+    return await colpay.document(payment.id!).delete();
+  }
+
+  Stream<List<PaymentIn>> getpayments() {
+    final snapshots = colpay.orderBy(col_id,descending: true).get().asStream();
+    return snapshots.map(
+      (snapshot) => snapshot.map(
+        (snapshot) {
+          return PaymentIn.fromMap(snapshot.map);
         },
       ).toList()
     ).asBroadcastStream();

@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -8,7 +7,6 @@ import 'package:taler/flutter_flow/flutter_flow_animations.dart';
 import '../constant/functions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../object/users.dart';
 import '../service/authHelper.dart ';
 
 class Company extends StatefulWidget {
@@ -1001,66 +999,75 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                         isstate &&
                                         isphone)) {
                                       if (isname == false) {
-                                        if (animationsMap['textFieldOnActionTriggerAnimation1'] != null) {
-                                          await animationsMap['textFieldOnActionTriggerAnimation1']!
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation1'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation1']!
                                               .controller
                                               .forward(from: 0.0);
                                         }
                                       }
                                       if (isdoor == false) {
-                                        if (animationsMap['textFieldOnActionTriggerAnimation2'] != null) {
-                                          await animationsMap['textFieldOnActionTriggerAnimation2']!
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation2'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation2']!
                                               .controller
                                               .forward(from: 0.0);
                                         }
                                       }
                                       if (iscity == false) {
-                                        if (animationsMap['textFieldOnActionTriggerAnimation3'] != null) {
-                                          await animationsMap['textFieldOnActionTriggerAnimation3']!
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation3'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation3']!
                                               .controller
                                               .forward(from: 0.0);
                                         }
                                       }
                                       if (ispin == false) {
-                                        if (animationsMap['textFieldOnActionTriggerAnimation4'] != null) {
-                                          await animationsMap['textFieldOnActionTriggerAnimation4']!
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation4'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation4']!
                                               .controller
                                               .forward(from: 0.0);
                                         }
                                       }
                                       if (isstate == false) {
-                                        if (animationsMap['textFieldOnActionTriggerAnimation5'] != null) {
-                                          await animationsMap['textFieldOnActionTriggerAnimation5']!
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation5'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation5']!
                                               .controller
                                               .forward(from: 0.0);
                                         }
                                       }
                                       if (isphone == false) {
-                                        if (animationsMap['textFieldOnActionTriggerAnimation6'] != null) {
-                                          await animationsMap['textFieldOnActionTriggerAnimation6']!
+                                        if (animationsMap[
+                                                'textFieldOnActionTriggerAnimation6'] !=
+                                            null) {
+                                          await animationsMap[
+                                                  'textFieldOnActionTriggerAnimation6']!
                                               .controller
                                               .forward(from: 0.0);
                                         }
                                       }
-                                    }else{
-                                      User? user = AuthHelper.myuser!;
+                                    } else {
                                       AuthHelper().updateUser(
-                                        Users(
-                                          uid: user.uid,
-                                          ename: user.displayName!,
-                                          name: namecon.text,
-                                          crtime: timenow,
-                                          logins: [timenow],
-                                          email: user.email!,
-                                          url: user.photoURL!,
-                                          address: doorcon.text,
-                                          gstin: gstcon.text,
-                                          city: citycon.text,
-                                          pincode: pincodecon.text,
-                                          state: statecon.text,
-                                          mobileno: phonecon.text,
-                                          hasgst: hasgst,
-                                        )
+                                        namecon.text,
+                                        doorcon.text,
+                                        gstcon.text,
+                                        citycon.text,
+                                        pincodecon.text,
+                                        statecon.text,
+                                        phonecon.text,
+                                        hasgst,
                                       );
                                       routename(context, '/');
                                     }

@@ -38,7 +38,7 @@ class _InvoiceState extends State<Invoice> {
                   stream: billHelper.getproducts(),
                   builder: (context, snappro) {
                     if (snappro.hasData && snapcus.hasData) {
-                      return Invoicecontent(
+                      return InvoiceBody(
                         catdata: snapcus.data!,
                         prodata: snappro.data!,
                       );
@@ -66,17 +66,7 @@ class _InvoiceState extends State<Invoice> {
   }
 }
 
-class Invoicecontent extends StatefulWidget {
-  Invoicecontent({super.key, required this.catdata, required this.prodata});
-
-  List<Customer> catdata;
-  List<Product> prodata;
-
-  @override
-  State<Invoicecontent> createState() => _InvoicecontentState();
-}
-
-class _InvoicecontentState extends State<Invoicecontent> {
+class _InvoiceBodyState extends State<InvoiceBody> {
   TextEditingController referencecon = TextEditingController(),
       despatchcon = TextEditingController(),
       quantitycon = TextEditingController(),
@@ -268,6 +258,9 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                     0.0, 0.0, 24.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () {
+
+
+
                                     BillHelper().addbill(
                                       Bill(
                                         customerid: namecon.value!.id!,
@@ -287,6 +280,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                         products: billproducts,
                                       ),
                                     );
+
                                   },
                                   text: 'Save',
                                   icon: const Icon(
@@ -3704,4 +3698,14 @@ class _InvoicecontentState extends State<Invoicecontent> {
       ),
     );
   }
+}
+
+class InvoiceBody extends StatefulWidget {
+  InvoiceBody({super.key, required this.catdata, required this.prodata});
+
+  List<Customer> catdata;
+  List<Product> prodata;
+
+  @override
+  State<InvoiceBody> createState() => _InvoiceBodyState();
 }

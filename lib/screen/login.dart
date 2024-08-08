@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:taler/constant/functions.dart';
 import 'package:taler/service/authHelper.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -128,7 +129,9 @@ class _LoginState extends State<Login> {
                                 onPressed: () async{
                                   User? user = await AuthHelper().signInGoogle();
                                   if(user != null) {
+                                    routename(context, '/');
                                   } else {
+
                                   }
                                 },
                                 text: 'Continue with Google',

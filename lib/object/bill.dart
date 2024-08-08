@@ -15,7 +15,6 @@ const String col_chargesdecription = 'chargesdecription';
 const String col_extradiscount = 'extradiscount';
 const String col_products = 'products';
 
-
 class Bill {
 
   double extradiscount, additionalcharges,total;
@@ -45,7 +44,7 @@ class Bill {
     reference : map[col_reference],
     despatchthrough : map[col_despatchthrough],
       total : map[col_total],
-    date : map[col_customerid],
+    date : DateTime.parse(map[col_customerid]),
     iswithgst : map[col_iswithgst],
     additionalcharges : map[col_additionalcharges],
     chargesdecription : map[col_chargesdecription],
@@ -55,9 +54,9 @@ class Bill {
 
   Map<String, dynamic> toMap() {
     List<String> pros = [];
-    products.forEach((product){
+    for (var product in products) {
       pros.add(product.toMap());
-    });
+    }
     return {
       col_id: id,
       col_customerid: customerid,
@@ -73,4 +72,8 @@ class Bill {
     };
   }
 
+  @override
+  String toString() {
+    return id ?? '';
+  }
 }
