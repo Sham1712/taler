@@ -38,7 +38,7 @@ class _InvoiceState extends State<Invoice> {
                   stream: billHelper.getproducts(),
                   builder: (context, snappro) {
                     if (snappro.hasData && snapcus.hasData) {
-                      return Invoicecontent(
+                      return InvoiceBody(
                         catdata: snapcus.data!,
                         prodata: snappro.data!,
                       );
@@ -66,17 +66,7 @@ class _InvoiceState extends State<Invoice> {
   }
 }
 
-class Invoicecontent extends StatefulWidget {
-  Invoicecontent({super.key, required this.catdata, required this.prodata});
-
-  List<Customer> catdata;
-  List<Product> prodata;
-
-  @override
-  State<Invoicecontent> createState() => _InvoicecontentState();
-}
-
-class _InvoicecontentState extends State<Invoicecontent> {
+class _InvoiceBodyState extends State<InvoiceBody> {
   TextEditingController referencecon = TextEditingController(),
       despatchcon = TextEditingController(),
       quantitycon = TextEditingController(),
@@ -184,7 +174,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                         child: Icon(
                           Icons.clear,
                           color: FlutterFlowTheme.of(context).primaryText,
-                          size: 30.0,
+                          size: 24.sp,
                         ),
                       ),
                     ),
@@ -196,7 +186,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                         style:
                             FlutterFlowTheme.of(context).headlineLarge.override(
                                   fontFamily: 'Outfit',
-                                  fontSize: 32.0,
+                                  fontSize: 22.sp,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w800,
                                 ),
@@ -218,12 +208,12 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                 child: FFButtonWidget(
                                   onPressed: () {},
                                   text: 'Save & Print',
-                                  icon: const Icon(
+                                  icon: Icon(
                                     Icons.print_rounded,
-                                    size: 20.0,
+                                    size: 14.sp,
                                   ),
                                   options: FFButtonOptions(
-                                    height: 40.0,
+                                    height: 26.h,
                                     padding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 0.0),
@@ -237,7 +227,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                           fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
-                                          fontSize: 14.0,
+                                          fontSize: 10.sp,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -245,7 +235,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
                                           .alternate,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                     hoverColor:
@@ -268,6 +258,9 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                     0.0, 0.0, 24.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () {
+
+
+
                                     BillHelper().addbill(
                                       Bill(
                                         customerid: namecon.value!.id!,
@@ -287,14 +280,15 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                         products: billproducts,
                                       ),
                                     );
+
                                   },
                                   text: 'Save',
-                                  icon: const Icon(
+                                  icon: Icon(
                                     Icons.arrow_forward_rounded,
-                                    size: 15.0,
+                                    size: 11.sp,
                                   ),
                                   options: FFButtonOptions(
-                                    height: 40.0,
+                                    height: 26.h,
                                     padding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 0.0, 20.0, 0.0),
@@ -308,7 +302,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                           fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
                                               .accent1,
-                                          fontSize: 14.0,
+                                          fontSize: 10.sp,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -366,7 +360,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                 .titleLarge
                                 .override(
                                   fontFamily: 'Inter',
-                                  fontSize: 24.0,
+                                  fontSize: 16.sp,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -390,7 +384,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 18.0,
+                                          fontSize: 12.sp,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -411,9 +405,9 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                           fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
-                                          fontSize: 20.0,
+                                          fontSize: 14.sp,
                                           letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w800,
+                                          fontWeight: FontWeight.w900,
                                         ),
                                   ),
                                 ),
@@ -468,14 +462,15 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        fontSize: 13.0,
+                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                        fontSize: 9.sp,
                                         letterSpacing: 0.0,
                                       ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        fontSize: 13.0,
+                                        fontSize: 8.sp,
                                         letterSpacing: 0.0,
                                       ),
                                   enabledBorder: OutlineInputBorder(
@@ -515,13 +510,15 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                     Icons.keyboard_arrow_down_rounded,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
+                                    size: 14.sp,
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      fontSize: 13.0,
+                                      fontSize: 9.sp,
+                                      fontWeight: FontWeight.w600,
                                       letterSpacing: 0.0,
                                     ),
                                 cursorColor:
@@ -553,14 +550,15 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 13.0,
+                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                          fontSize: 9.sp,
                                           letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 13.0,
+                                          fontSize: 9.sp,
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: OutlineInputBorder(
@@ -602,13 +600,15 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                       Icons.keyboard_arrow_down_rounded,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
+                                      size: 14.sp,
                                     ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        fontSize: 13.0,
+                                        fontSize: 9.sp,
+                                        fontWeight: FontWeight.w600,
                                         letterSpacing: 0.0,
                                       ),
                                   cursorColor:
@@ -692,7 +692,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                         Icons.calendar_month_rounded,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24.0,
+                                        size: 16.sp,
                                       ),
                                     ),
                                   ],
@@ -748,7 +748,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                         .titleLarge
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 20.0,
+                                          fontSize: 14.sp,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -864,7 +864,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                       .labelMedium
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        fontSize: 13.0,
+                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                        fontSize: 9.sp,
                                                         letterSpacing: 0.0,
                                                       ),
                                               hintStyle:
@@ -872,7 +873,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                       .labelMedium
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        fontSize: 13.0,
+                                                        fontSize: 10.sp,
                                                         letterSpacing: 0.0,
                                                       ),
                                               enabledBorder: OutlineInputBorder(
@@ -925,7 +926,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                size: 20.0,
+                                                size: 14.sp,
                                               ),
                                             ),
                                             style: FlutterFlowTheme.of(context)
@@ -1085,9 +1086,9 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                           }
                                         },
                                         text: 'Add to Bill',
-                                        icon: const Icon(
+                                        icon: Icon(
                                           Icons.add_rounded,
-                                          size: 24.0,
+                                          size: 14.sp,
                                         ),
                                         options: FFButtonOptions(
                                           height: 40.0,
@@ -1156,6 +1157,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
+                                                  fontSize: 9.5.sp,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -1173,6 +1175,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                           context)
                                                       .primaryText,
                                                   letterSpacing: 0.0,
+                                                  fontSize: 9.5.sp,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -1192,6 +1195,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
+                                                    fontSize: 9.5.sp,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -1213,6 +1217,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
+                                                    fontSize: 9.5.sp,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -1234,6 +1239,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
+                                                    fontSize: 9.5.sp,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -1255,6 +1261,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
+                                                    fontSize: 9.5.sp,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -1276,6 +1283,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
+                                                    fontSize: 9.5.sp,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -1293,6 +1301,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
+                                                  fontSize: 9.5.sp,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -1376,7 +1385,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 24.0,
+                                                      size: 16.sp,
                                                     ),
                                                   ),
                                                 ),
@@ -1389,7 +1398,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 16.0,
+                                                          fontSize: 11.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -1412,8 +1421,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                     'Inter',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryText,
-                                                                fontSize: 13.0,
+                                                                    .primaryText,
+                                                                fontSize: 10.sp,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -1428,7 +1437,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryText,
-                                                                fontSize: 13.0,
+                                                                fontSize: 9.sp,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -1494,7 +1503,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .tertiary,
-                                                          size: 20.0,
+                                                          size: 14.sp,
                                                         ),
                                                       ),
                                                       suffixIcon: InkWell(
@@ -1511,7 +1520,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .tertiary,
-                                                          size: 20.0,
+                                                          size: 14.sp,
                                                         ),
                                                       ),
                                                     ),
@@ -1542,7 +1551,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 13.0,
+                                                          fontSize: 9.sp,
+                                                          fontWeight: FontWeight.w600,
                                                           letterSpacing: 0.0,
                                                         ),
                                                     cursorColor:
@@ -1597,10 +1607,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
+                                                                  fontSize: 9.sp,
+                                                                  letterSpacing: 0.0,
                                                                 ),
                                                         hintText: '₹',
                                                         hintStyle:
@@ -1611,7 +1619,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                   fontFamily:
                                                                       'Inter',
                                                                   fontSize:
-                                                                      13.0,
+                                                                      9.sp,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1677,7 +1685,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily: 'Inter',
-                                                            fontSize: 13.0,
+                                                            fontSize:  9.sp,
+                                                            fontWeight: FontWeight.w600,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -1730,8 +1739,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
-                                                                  fontSize:
-                                                                      13.0,
+                                                                  fontSize: 9.sp,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1743,8 +1751,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
-                                                                  fontSize:
-                                                                      13.0,
+                                                                  fontSize: 9.sp,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1810,7 +1817,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily: 'Inter',
-                                                            fontSize: 13.0,
+                                                            fontSize:  9.sp,
+                                                            fontWeight: FontWeight.w600,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -1842,8 +1850,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize:
-                                                                      16.0,
+                                                                  fontSize: 10.sp,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1883,13 +1890,12 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
-                                                                  fontSize:
-                                                                      13.0,
+                                                                  fontSize: 9.sp,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                         hintText:
-                                                            'Additional info',
+                                                            'Notes',
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1897,8 +1903,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
-                                                                  fontSize:
-                                                                      13.0,
+                                                                  fontSize: 9.sp,
+                                                                  color: FlutterFlowTheme.of(context).secondaryText,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1964,7 +1970,9 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily: 'Inter',
-                                                            fontSize: 13.0,
+                                                            fontSize:  9.sp,
+                                                            fontWeight: FontWeight.w600,
+                                                            color: FlutterFlowTheme.of(context).primaryText,
                                                             letterSpacing: 0.0,
                                                           ),
                                                       cursorColor:
@@ -2004,7 +2012,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .tertiary,
-                                                          size: 24.0,
+                                                          size: 16.sp,
                                                         ),
                                                       ),
                                                     ),
@@ -2066,7 +2074,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 16.0,
+                                                  fontSize: 10.sp,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -2075,8 +2083,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                             padding: const EdgeInsetsDirectional
                                                 .fromSTEB(2.0, 0.0, 0.0, 0.0),
                                             child: Container(
-                                              width: 16.0,
-                                              height: 16.0,
+                                              width: 11.w,
+                                              height: 11.h,
                                               decoration: const BoxDecoration(
                                                 color: Color(0x8757636C),
                                                 shape: BoxShape.circle,
@@ -2090,7 +2098,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent1,
-                                                  size: 10.0,
+                                                  size: 7.sp,
                                                 ),
                                               ),
                                             ),
@@ -2120,7 +2128,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryText,
-                                                    fontSize: 10.0,
+                                                    fontSize: 7.sp,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -2459,8 +2467,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                           .secondaryText,
                                                                   fontSize:
                                                                       isaddpercent
-                                                                          ? 16.0
-                                                                          : 14.0,
+                                                                          ? 11.sp
+                                                                          : 9.sp,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -2527,8 +2535,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                   fontSize:
                                                                       isaddpercent ==
                                                                               false
-                                                                          ? 16.0
-                                                                          : 14.0,
+                                                                          ? 11.sp
+                                                                          : 9.sp,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -2558,7 +2566,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 16.0,
+                                                  fontSize: 10.sp,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -2571,8 +2579,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                             padding: const EdgeInsetsDirectional
                                                 .fromSTEB(2.0, 0.0, 0.0, 0.0),
                                             child: Container(
-                                              width: 16.0,
-                                              height: 16.0,
+                                              width: 11.w,
+                                              height: 11.h,
                                               decoration: const BoxDecoration(
                                                 color: Color(0x8757636C),
                                                 shape: BoxShape.circle,
@@ -2586,7 +2594,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent1,
-                                                  size: 10.0,
+                                                  size: 7.sp,
                                                 ),
                                               ),
                                             ),
@@ -2721,7 +2729,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 16.0,
+                                                  fontSize: 10.sp,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -2730,8 +2738,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                             padding: const EdgeInsetsDirectional
                                                 .fromSTEB(2.0, 0.0, 0.0, 0.0),
                                             child: Container(
-                                              width: 16.0,
-                                              height: 16.0,
+                                              width: 11.w,
+                                              height: 11.h,
                                               decoration: const BoxDecoration(
                                                 color: Color(0x8757636C),
                                                 shape: BoxShape.circle,
@@ -2745,7 +2753,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent1,
-                                                  size: 10.0,
+                                                  size: 7.sp,
                                                 ),
                                               ),
                                             ),
@@ -3013,8 +3021,8 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                                   fontSize:
                                                                   isextradispercent ==
                                                                               false
-                                                                          ? 16.0
-                                                                          : 14.0,
+                                                                          ? 11.sp
+                                                                          : 9.sp,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -3056,7 +3064,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 14.0,
+                                              fontSize: 11.sp,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -3075,7 +3083,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
-                                                fontSize: 14.0,
+                                                fontSize: 10.sp,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -3085,7 +3093,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
-                                                fontSize: 14.0,
+                                                fontSize: 10.sp,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -3108,7 +3116,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 14.0,
+                                                  fontSize: 10.sp,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -3119,7 +3127,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 14.0,
+                                                  fontSize: 10.sp,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -3144,7 +3152,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 14.0,
+                                                  fontSize: 10.sp,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -3154,7 +3162,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 14.0,
+                                                  fontSize: 10.sp,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -3178,7 +3186,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 14.0,
+                                                  fontSize: 10.sp,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -3189,7 +3197,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 14.0,
+                                                  fontSize: 10.sp,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -3224,7 +3232,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
-                                                fontSize: 16.0,
+                                                fontSize: 11.sp,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                               ),
@@ -3250,7 +3258,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   );
@@ -3262,7 +3270,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -3277,7 +3285,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                   .bodyMedium
                                                   .override(
                                                 fontFamily: 'Inter',
-                                                fontSize: 14.0,
+                                                fontSize: 10.sp,
                                                 letterSpacing: 0.0,
                                                 fontWeight: isaddcharges ? FontWeight.bold : FontWeight.w400,
                                               ),
@@ -3305,7 +3313,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -3319,7 +3327,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -3338,7 +3346,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -3352,7 +3360,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -3384,7 +3392,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -3398,7 +3406,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -3417,7 +3425,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -3431,7 +3439,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   );
@@ -3461,7 +3469,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -3475,7 +3483,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -3494,7 +3502,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -3508,7 +3516,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 14.0,
+                                                          fontSize: 10.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -3552,7 +3560,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 16.0,
+                                                  fontSize: 11.sp,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -3563,7 +3571,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 16.0,
+                                                  fontSize: 11.sp,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -3587,7 +3595,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        fontSize: 16.0,
+                                                        fontSize: 11.sp,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -3600,7 +3608,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        fontSize: 16.0,
+                                                        fontSize: 11.sp,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -3626,7 +3634,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        fontSize: 14.0,
+                                                        fontSize: 10.sp,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -3637,7 +3645,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        fontSize: 14.0,
+                                                        fontSize: 10.sp,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -3661,7 +3669,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        fontSize: 22.0,
+                                                        fontSize: 12.sp,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w800,
@@ -3674,7 +3682,7 @@ class _InvoicecontentState extends State<Invoicecontent> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        fontSize: 22.0,
+                                                        fontSize: 14.sp,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w800,
@@ -3704,4 +3712,14 @@ class _InvoicecontentState extends State<Invoicecontent> {
       ),
     );
   }
+}
+
+class InvoiceBody extends StatefulWidget {
+  InvoiceBody({super.key, required this.catdata, required this.prodata});
+
+  List<Customer> catdata;
+  List<Product> prodata;
+
+  @override
+  State<InvoiceBody> createState() => _InvoiceBodyState();
 }
