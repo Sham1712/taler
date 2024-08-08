@@ -75,11 +75,11 @@ class _InvoiceBodyState extends State<InvoiceBody> {
       extradiscountcon = TextEditingController();
 
   SingleSelectController<Customer> namecon =
-      SingleSelectController<Customer>(null);
+  SingleSelectController<Customer>(null);
   SingleSelectController<String> categorycon =
-      SingleSelectController<String>(null);
+  SingleSelectController<String>(null);
   SingleSelectController<Product> productcon =
-      SingleSelectController<Product>(null);
+  SingleSelectController<Product>(null);
 
   List<TextEditingController> cond = [], cone = [], conq = [], conp = [];
 
@@ -158,7 +158,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
               alignment: const AlignmentDirectional(-1.0, -1.0),
               child: Padding(
                 padding:
-                    const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -174,7 +174,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                         child: Icon(
                           Icons.clear,
                           color: FlutterFlowTheme.of(context).primaryText,
-                          size: 30.0,
+                          size: 24.sp,
                         ),
                       ),
                     ),
@@ -184,12 +184,12 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                       child: Text(
                         'New Invoice',
                         style:
-                            FlutterFlowTheme.of(context).headlineLarge.override(
-                                  fontFamily: 'Outfit',
-                                  fontSize: 32.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w800,
-                                ),
+                        FlutterFlowTheme.of(context).headlineLarge.override(
+                          fontFamily: 'Outfit',
+                          fontSize: 22.sp,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
                     ),
                     Expanded(
@@ -208,41 +208,41 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                 child: FFButtonWidget(
                                   onPressed: () {},
                                   text: 'Save & Print',
-                                  icon: const Icon(
+                                  icon: Icon(
                                     Icons.print_rounded,
-                                    size: 20.0,
+                                    size: 14.sp,
                                   ),
                                   options: FFButtonOptions(
-                                    height: 40.0,
+                                    height: 26.h,
                                     padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
                                     iconPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Colors.white,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 10.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                     elevation: 1.5,
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
                                           .alternate,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                     hoverColor:
-                                        FlutterFlowTheme.of(context).primary,
+                                    FlutterFlowTheme.of(context).primary,
                                     hoverBorderSide: BorderSide(
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
                                     hoverTextColor: Colors.white,
@@ -270,12 +270,12 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                         date: datePicked,
                                         iswithgst: iswithgst,
                                         additionalcharges: double.tryParse(
-                                                additionalchargescon.text) ??
+                                            additionalchargescon.text) ??
                                             0,
                                         chargesdecription:
-                                            chargesdescriptioncon.text,
+                                        chargesdescriptioncon.text,
                                         extradiscount: double.tryParse(
-                                                extradiscountcon.text) ??
+                                            extradiscountcon.text) ??
                                             0,
                                         products: billproducts,
                                       ),
@@ -283,41 +283,41 @@ class _InvoiceBodyState extends State<InvoiceBody> {
 
                                   },
                                   text: 'Save',
-                                  icon: const Icon(
+                                  icon: Icon(
                                     Icons.arrow_forward_rounded,
-                                    size: 15.0,
+                                    size: 11.sp,
                                   ),
                                   options: FFButtonOptions(
-                                    height: 40.0,
+                                    height: 26.h,
                                     padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 0.0, 20.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 0.0, 20.0, 0.0),
                                     iconPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .accent1,
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .accent1,
+                                      fontSize: 10.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                     elevation: 1.5,
                                     borderSide: BorderSide(
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                     hoverColor:
-                                        FlutterFlowTheme.of(context).primary,
+                                    FlutterFlowTheme.of(context).primary,
                                     hoverBorderSide: BorderSide(
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
                                     hoverTextColor: Colors.white,
@@ -359,11 +359,11 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                             style: FlutterFlowTheme.of(context)
                                 .titleLarge
                                 .override(
-                                  fontFamily: 'Inter',
-                                  fontSize: 24.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                              fontFamily: 'Inter',
+                              fontSize: 16.sp,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         Padding(
@@ -374,7 +374,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                             children: [
                               Align(
                                 alignment:
-                                    const AlignmentDirectional(-1.0, 0.0),
+                                const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
@@ -383,17 +383,17 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      fontSize: 12.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
                               Align(
                                 alignment:
-                                    const AlignmentDirectional(-1.0, 0.0),
+                                const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
@@ -402,13 +402,13 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          fontSize: 20.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w800,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 14.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w900,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -461,17 +461,18 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 13.0,
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                    fontSize: 9.sp,
+                                    letterSpacing: 0.0,
+                                  ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 13.0,
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 8.sp,
+                                    letterSpacing: 0.0,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -504,22 +505,24 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                   ),
                                   filled: true,
                                   fillColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                  FlutterFlowTheme.of(context).accent1,
                                   suffixIcon: Icon(
                                     Icons.keyboard_arrow_down_rounded,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
+                                    size: 14.sp,
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
-                                      fontSize: 13.0,
-                                      letterSpacing: 0.0,
-                                    ),
+                                  fontFamily: 'Inter',
+                                  fontSize: 9.sp,
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 0.0,
+                                ),
                                 cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
                               ),
                             ),
                           ),
@@ -546,17 +549,18 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          fontSize: 13.0,
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context).secondaryText,
+                                      fontSize: 9.sp,
+                                      letterSpacing: 0.0,
+                                    ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
-                                          fontSize: 13.0,
-                                          letterSpacing: 0.0,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      fontSize: 9.sp,
+                                      letterSpacing: 0.0,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -576,7 +580,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -584,29 +588,31 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color:
-                                            FlutterFlowTheme.of(context).error,
+                                        FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     filled: true,
                                     fillColor:
-                                        FlutterFlowTheme.of(context).accent1,
+                                    FlutterFlowTheme.of(context).accent1,
                                     suffixIcon: Icon(
                                       Icons.keyboard_arrow_down_rounded,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
+                                      size: 14.sp,
                                     ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 13.0,
-                                        letterSpacing: 0.0,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    fontSize: 9.sp,
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: 0.0,
+                                  ),
                                   cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
                             ),
@@ -653,7 +659,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         final datePickedDate =
-                                            await showDatePicker(
+                                        await showDatePicker(
                                           context: context,
                                           initialDate: getCurrentTimestamp,
                                           firstDate: DateTime(1900),
@@ -686,7 +692,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                         Icons.calendar_month_rounded,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24.0,
+                                        size: 16.sp,
                                       ),
                                     ),
                                   ],
@@ -732,7 +738,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                             children: [
                               Align(
                                 alignment:
-                                    const AlignmentDirectional(-1.0, 0.0),
+                                const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
@@ -741,11 +747,11 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .override(
-                                          fontFamily: 'Inter',
-                                          fontSize: 20.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                      fontFamily: 'Inter',
+                                      fontSize: 14.sp,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -789,7 +795,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                           decoration: CustomDropdownDecoration(
                                               expandedBorder: Border.all(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .secondary,
                                                   width: 1)),
                                           controller: categorycon,
@@ -854,93 +860,94 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             decoration: InputDecoration(
                                               labelText: 'Quantity',
                                               labelStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontSize: 13.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .override(
+                                                fontFamily: 'Inter',
+                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                fontSize: 9.sp,
+                                                letterSpacing: 0.0,
+                                              ),
                                               hintStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontSize: 13.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 10.sp,
+                                                letterSpacing: 0.0,
+                                              ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .alternate,
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .secondaryText,
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .error,
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8.0),
                                               ),
                                               focusedErrorBorder:
-                                                  OutlineInputBorder(
+                                              OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .error,
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8.0),
                                               ),
                                               filled: true,
                                               fillColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
+                                              FlutterFlowTheme.of(context)
+                                                  .accent1,
                                               suffixIcon: Icon(
                                                 Icons.numbers_rounded,
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                size: 20.0,
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                                size: 14.sp,
                                               ),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  letterSpacing: 0.0,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
                                             cursorColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryText,
+                                            FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             onChanged: (val) {
                                               if (int.tryParse(
-                                                          quantitycon.text) ==
-                                                      null &&
+                                                  quantitycon.text) ==
+                                                  null &&
                                                   quantitycon.text.isNotEmpty) {
                                                 quantitycon.text =
                                                     quantitycon.text.substring(
                                                         0,
                                                         quantitycon
-                                                                .text.length -
+                                                            .text.length -
                                                             1);
                                               }
                                             },
@@ -950,8 +957,8 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              24.0, 0.0, 0.0, 0.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () {
                                           if (quantitycon.text.isEmpty ||
@@ -965,26 +972,26 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   'Fill the quantity',
                                                   style: TextStyle(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .primary,
                                                   ),
                                                 ),
                                                 alignment:
-                                                    Alignment.bottomRight,
+                                                Alignment.bottomRight,
                                                 icon: const Icon(Icons.check),
                                                 primaryColor: Colors.red,
                                                 backgroundColor: Colors.white,
                                                 foregroundColor: Colors.black,
                                                 padding:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 12,
-                                                        vertical: 16),
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 12,
+                                                    vertical: 16),
                                                 margin:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 12,
-                                                        vertical: 8),
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 12,
+                                                    vertical: 8),
                                                 borderRadius:
-                                                    BorderRadius.circular(12),
+                                                BorderRadius.circular(12),
                                                 boxShadow: const [
                                                   BoxShadow(
                                                     color: Color(0x07000000),
@@ -995,7 +1002,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                 ],
                                                 showProgressBar: true,
                                                 closeButtonShowType:
-                                                    CloseButtonShowType.onHover,
+                                                CloseButtonShowType.onHover,
                                                 closeOnClick: false,
                                                 applyBlurEffect: true,
                                               );
@@ -1010,26 +1017,26 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   'Select the product',
                                                   style: TextStyle(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .primary,
                                                   ),
                                                 ),
                                                 alignment:
-                                                    Alignment.bottomRight,
+                                                Alignment.bottomRight,
                                                 icon: const Icon(Icons.check),
                                                 primaryColor: Colors.red,
                                                 backgroundColor: Colors.white,
                                                 foregroundColor: Colors.black,
                                                 padding:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 12,
-                                                        vertical: 16),
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 12,
+                                                    vertical: 16),
                                                 margin:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 12,
-                                                        vertical: 8),
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 12,
+                                                    vertical: 8),
                                                 borderRadius:
-                                                    BorderRadius.circular(12),
+                                                BorderRadius.circular(12),
                                                 boxShadow: const [
                                                   BoxShadow(
                                                     color: Color(0x07000000),
@@ -1040,7 +1047,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                 ],
                                                 showProgressBar: true,
                                                 closeButtonShowType:
-                                                    CloseButtonShowType.onHover,
+                                                CloseButtonShowType.onHover,
                                                 closeOnClick: false,
                                                 applyBlurEffect: true,
                                               );
@@ -1049,9 +1056,9 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             billproducts.add(
                                               Billproduct(
                                                 category:
-                                                    productcon.value!.categname,
+                                                productcon.value!.categname,
                                                 productid:
-                                                    productcon.value!.id!,
+                                                productcon.value!.id!,
                                                 quantity: double.parse(
                                                   quantitycon.text,
                                                 ),
@@ -1079,29 +1086,29 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                           }
                                         },
                                         text: 'Add to Bill',
-                                        icon: const Icon(
+                                        icon: Icon(
                                           Icons.add_rounded,
-                                          size: 24.0,
+                                          size: 14.sp,
                                         ),
                                         options: FFButtonOptions(
                                           height: 40.0,
                                           padding: const EdgeInsetsDirectional
                                               .fromSTEB(16.0, 0.0, 16.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                          const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           textStyle: FlutterFlowTheme.of(
-                                                  context)
+                                              context)
                                               .titleSmall
                                               .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
-                                                letterSpacing: 0.0,
-                                              ),
+                                            fontFamily: 'Inter',
+                                            color:
+                                            FlutterFlowTheme.of(context)
+                                                .accent1,
+                                            letterSpacing: 0.0,
+                                          ),
                                           elevation: 1.5,
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -1109,7 +1116,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                          BorderRadius.circular(8.0),
                                         ),
                                       ),
                                     ),
@@ -1134,8 +1141,8 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                   ),
                                   child: Padding(
                                     padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 0.0, 0.0),
+                                    const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1146,13 +1153,14 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              color: FlutterFlowTheme.of(
+                                                  context)
+                                                  .primaryText,
+                                              fontSize: 9.5.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                           ),
                                         ),
                                         Expanded(
@@ -1162,13 +1170,14 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              color: FlutterFlowTheme.of(
+                                                  context)
+                                                  .primaryText,
+                                              letterSpacing: 0.0,
+                                              fontSize: 9.5.sp,
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                           ),
                                         ),
                                         Expanded(
@@ -1179,16 +1188,17 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             child: Text(
                                               'Quantity',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText,
+                                                fontSize: 9.5.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1200,16 +1210,17 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             child: Text(
                                               'Unit Price',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText,
+                                                fontSize: 9.5.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1221,16 +1232,17 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             child: Text(
                                               'Discount%',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText,
+                                                fontSize: 9.5.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1242,16 +1254,17 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             child: Text(
                                               'Net Amount',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText,
+                                                fontSize: 9.5.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1263,16 +1276,17 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             child: Text(
                                               'Extra Notes',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: FlutterFlowTheme.of(
+                                                    context)
+                                                    .primaryText,
+                                                fontSize: 9.5.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1283,13 +1297,14 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              color: FlutterFlowTheme.of(
+                                                  context)
+                                                  .primaryText,
+                                              fontSize: 9.5.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -1306,12 +1321,12 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                       padding: EdgeInsets.zero,
                                       shrinkWrap: true,
                                       physics:
-                                          const NeverScrollableScrollPhysics(),
+                                      const NeverScrollableScrollPhysics(),
                                       scrollDirection: Axis.vertical,
                                       itemCount: billproducts.length,
                                       itemBuilder: (con, index) {
                                         Billproduct billpro =
-                                            billproducts[index];
+                                        billproducts[index];
 
                                         Product? pro;
                                         for (var prod in widget.prodata) {
@@ -1321,7 +1336,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                         }
 
                                         TextEditingController discountcon =
-                                                cond[index],
+                                        cond[index],
                                             extrainfocon = cone[index],
                                             quacon = conq[index],
                                             pricecon = conp[index];
@@ -1332,7 +1347,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             color: FlutterFlowTheme.of(context)
                                                 .accent1,
                                             borderRadius:
-                                                const BorderRadius.only(
+                                            const BorderRadius.only(
                                               bottomLeft: Radius.circular(4.0),
                                               bottomRight: Radius.circular(4.0),
                                               topLeft: Radius.circular(0.0),
@@ -1340,8 +1355,8 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             ),
                                             border: Border.all(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
+                                              FlutterFlowTheme.of(context)
+                                                  .alternate,
                                               width: 0.5,
                                             ),
                                           ),
@@ -1351,7 +1366,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                               children: [
                                                 Expanded(
                                                   flex: 2,
@@ -1360,17 +1375,17 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                     height: 100.0,
                                                     decoration: BoxDecoration(
                                                       color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent1,
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .accent1,
                                                     ),
                                                     child: Icon(
                                                       Icons.toc_rounded,
                                                       color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      size: 24.0,
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .secondaryText,
+                                                      size: 16.sp,
                                                     ),
                                                   ),
                                                 ),
@@ -1379,15 +1394,15 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   child: Text(
                                                     pro!.name,
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 11.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.w600,
+                                                    ),
                                                   ),
                                                 ),
                                                 Expanded(
@@ -1398,81 +1413,81 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                     obscureText: false,
                                                     decoration: InputDecoration(
                                                       labelStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Inter',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                fontSize: 13.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyMedium
+                                                          .override(
+                                                        fontFamily:
+                                                        'Inter',
+                                                        color: FlutterFlowTheme.of(
+                                                            context)
+                                                            .primaryText,
+                                                        fontSize: 10.sp,
+                                                        letterSpacing:
+                                                        0.0,
+                                                      ),
                                                       hintText: 'Qty',
                                                       hintStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Inter',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                fontSize: 13.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .labelMedium
+                                                          .override(
+                                                        fontFamily:
+                                                        'Inter',
+                                                        color: FlutterFlowTheme.of(
+                                                            context)
+                                                            .secondaryText,
+                                                        fontSize: 9.sp,
+                                                        letterSpacing:
+                                                        0.0,
+                                                      ),
                                                       enabledBorder:
-                                                          OutlineInputBorder(
+                                                      OutlineInputBorder(
                                                         borderSide: BorderSide(
                                                           color: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .alternate,
                                                           width: 1.0,
                                                         ),
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
+                                                        BorderRadius
+                                                            .circular(8.0),
                                                       ),
                                                       focusedBorder:
-                                                          OutlineInputBorder(
+                                                      OutlineInputBorder(
                                                         borderSide: BorderSide(
                                                           color: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .secondaryText,
                                                           width: 1.0,
                                                         ),
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
+                                                        BorderRadius
+                                                            .circular(8.0),
                                                       ),
                                                       errorBorder:
-                                                          OutlineInputBorder(
+                                                      OutlineInputBorder(
                                                         borderSide: BorderSide(
                                                           color: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .error,
                                                           width: 1.0,
                                                         ),
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
+                                                        BorderRadius
+                                                            .circular(8.0),
                                                       ),
                                                       focusedErrorBorder:
-                                                          OutlineInputBorder(
+                                                      OutlineInputBorder(
                                                         borderSide: BorderSide(
                                                           color: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .error,
                                                           width: 1.0,
                                                         ),
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
+                                                        BorderRadius
+                                                            .circular(8.0),
                                                       ),
                                                       prefixIcon: InkWell(
                                                         onTap: () {
@@ -1486,9 +1501,9 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                         child: Icon(
                                                           Icons.remove_rounded,
                                                           color: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .tertiary,
-                                                          size: 20.0,
+                                                          size: 14.sp,
                                                         ),
                                                       ),
                                                       suffixIcon: InkWell(
@@ -1503,177 +1518,177 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                         child: Icon(
                                                           Icons.add_rounded,
                                                           color: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .tertiary,
-                                                          size: 20.0,
+                                                          size: 14.sp,
                                                         ),
                                                       ),
                                                     ),
                                                     onChanged: (val) {
                                                       if (double.tryParse(quacon
-                                                                  .text) ==
-                                                              null &&
+                                                          .text) ==
+                                                          null &&
                                                           quacon.text
                                                               .isNotEmpty) {
                                                         quacon.text = quacon
                                                             .text
                                                             .substring(
-                                                                0,
-                                                                quacon.text
-                                                                        .length -
-                                                                    1);
+                                                            0,
+                                                            quacon.text
+                                                                .length -
+                                                                1);
                                                       }
                                                       setState(() {
                                                         billpro
                                                             .quantity = double
-                                                                .tryParse(quacon
-                                                                    .text) ??
+                                                            .tryParse(quacon
+                                                            .text) ??
                                                             0;
                                                       });
                                                     },
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 13.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 9.sp,
+                                                      fontWeight: FontWeight.w600,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                     cursorColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText,
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .primaryText,
                                                   ),
                                                 ),
                                                 Expanded(
                                                   flex: 5,
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                            8.0, 0.0, 8.0, 0.0),
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        8.0, 0.0, 8.0, 0.0),
                                                     child: TextFormField(
                                                       controller: pricecon,
                                                       autofocus: true,
                                                       obscureText: false,
                                                       onChanged: (val) {
                                                         if (double.tryParse(
-                                                                    pricecon
-                                                                        .text) ==
-                                                                null &&
+                                                            pricecon
+                                                                .text) ==
+                                                            null &&
                                                             pricecon.text
                                                                 .isNotEmpty) {
                                                           pricecon.text = pricecon
                                                               .text
                                                               .substring(
-                                                                  0,
-                                                                  pricecon.text
-                                                                          .length -
-                                                                      1);
+                                                              0,
+                                                              pricecon.text
+                                                                  .length -
+                                                                  1);
                                                         }
                                                         setState(() {
                                                           billpro.price =
                                                               double.tryParse(
-                                                                      pricecon
-                                                                          .text) ??
+                                                                  pricecon
+                                                                      .text) ??
                                                                   0;
                                                         });
                                                       },
                                                       decoration:
-                                                          InputDecoration(
+                                                      InputDecoration(
                                                         labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyMedium
+                                                            .override(
+                                                          fontFamily:
+                                                          'Inter',
+                                                          color: FlutterFlowTheme.of(
+                                                              context)
+                                                              .secondaryText,
+                                                          fontSize: 9.sp,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                         hintText: '₹',
                                                         hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .labelMedium
+                                                            .override(
+                                                          fontFamily:
+                                                          'Inter',
+                                                          fontSize:
+                                                          9.sp,
+                                                          letterSpacing:
+                                                          0.0,
+                                                        ),
                                                         enabledBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .alternate,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                         focusedBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .secondaryText,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                         errorBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .error,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                         focusedErrorBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .error,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                       ),
                                                       style: FlutterFlowTheme
-                                                              .of(context)
+                                                          .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
-                                                            fontSize: 13.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                        fontFamily: 'Inter',
+                                                        fontSize:  9.sp,
+                                                        fontWeight: FontWeight.w600,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -1681,132 +1696,131 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   flex: 3,
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                            8.0, 0.0, 8.0, 0.0),
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        8.0, 0.0, 8.0, 0.0),
                                                     child: TextFormField(
                                                       controller: discountcon,
                                                       autofocus: true,
                                                       obscureText: false,
                                                       onChanged: (val) {
                                                         if (double.tryParse(
-                                                                    discountcon
-                                                                        .text) ==
-                                                                null &&
+                                                            discountcon
+                                                                .text) ==
+                                                            null &&
                                                             discountcon.text
                                                                 .isNotEmpty) {
                                                           discountcon.text =
                                                               discountcon.text
                                                                   .substring(
-                                                            0,
-                                                            discountcon.text
+                                                                0,
+                                                                discountcon.text
                                                                     .length -
-                                                                1,
-                                                          );
+                                                                    1,
+                                                              );
                                                         }
                                                         setState(() {
                                                           billpro.dicountpercent =
                                                               double.tryParse(
-                                                                      discountcon
-                                                                          .text) ??
+                                                                  discountcon
+                                                                      .text) ??
                                                                   0;
                                                         });
                                                       },
                                                       decoration:
-                                                          InputDecoration(
+                                                      InputDecoration(
                                                         labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyMedium
+                                                            .override(
+                                                          fontFamily:
+                                                          'Inter',
+                                                          color: FlutterFlowTheme.of(
+                                                              context)
+                                                              .secondaryText,
+                                                          fontSize: 9.sp,
+                                                          letterSpacing:
+                                                          0.0,
+                                                        ),
                                                         hintText: '%',
                                                         hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .labelMedium
+                                                            .override(
+                                                          fontFamily:
+                                                          'Inter',
+                                                          fontSize: 9.sp,
+                                                          letterSpacing:
+                                                          0.0,
+                                                        ),
                                                         enabledBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .alternate,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                         focusedBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .secondaryText,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                         errorBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .error,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                         focusedErrorBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .error,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                       ),
                                                       style: FlutterFlowTheme
-                                                              .of(context)
+                                                          .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
-                                                            fontSize: 13.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                        fontFamily: 'Inter',
+                                                        fontSize:  9.sp,
+                                                        fontWeight: FontWeight.w600,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -1814,36 +1828,35 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   flex: 5,
                                                   child: Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
-                                                            -1.0, 0.0),
+                                                    const AlignmentDirectional(
+                                                        -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(12.0,
-                                                              0.0, 8.0, 8.0),
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(12.0,
+                                                          0.0, 8.0, 8.0),
                                                       child: Text(
                                                         netamountof(billpro)
                                                             .toString(),
                                                         textAlign:
-                                                            TextAlign.start,
+                                                        TextAlign.start,
                                                         style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyMedium
+                                                            .override(
+                                                          fontFamily:
+                                                          'Inter',
+                                                          color: FlutterFlowTheme.of(
+                                                              context)
+                                                              .primaryText,
+                                                          fontSize: 10.sp,
+                                                          letterSpacing:
+                                                          0.0,
+                                                          fontWeight:
+                                                          FontWeight
+                                                              .bold,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -1852,9 +1865,9 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   flex: 4,
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                            8.0, 0.0, 8.0, 0.0),
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        8.0, 0.0, 8.0, 0.0),
                                                     child: TextFormField(
                                                       controller: extrainfocon,
                                                       autofocus: true,
@@ -1866,105 +1879,106 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                         });
                                                       },
                                                       decoration:
-                                                          InputDecoration(
+                                                      InputDecoration(
                                                         labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyMedium
+                                                            .override(
+                                                          fontFamily:
+                                                          'Inter',
+                                                          color: FlutterFlowTheme.of(
+                                                              context)
+                                                              .secondaryText,
+                                                          fontSize: 9.sp,
+                                                          letterSpacing:
+                                                          0.0,
+                                                        ),
                                                         hintText:
-                                                            'Additional info',
+                                                        'Notes',
                                                         hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .labelMedium
+                                                            .override(
+                                                          fontFamily:
+                                                          'Inter',
+                                                          fontSize: 9.sp,
+                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                          letterSpacing:
+                                                          0.0,
+                                                        ),
                                                         enabledBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .alternate,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                         focusedBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .secondaryText,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                         errorBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .error,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                         focusedErrorBorder:
-                                                            OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                          BorderSide(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .error,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                          BorderRadius
+                                                              .circular(
+                                                              8.0),
                                                         ),
                                                       ),
                                                       style: FlutterFlowTheme
-                                                              .of(context)
+                                                          .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
-                                                            fontSize: 13.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                        fontFamily: 'Inter',
+                                                        fontSize:  9.sp,
+                                                        fontWeight: FontWeight.w600,
+                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                       cursorColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .primaryText,
                                                     ),
                                                   ),
                                                 ),
@@ -1972,9 +1986,9 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   flex: 2,
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                            0.0, 0.0, 8.0, 0.0),
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0.0, 0.0, 8.0, 0.0),
                                                     child: InkWell(
                                                       onTap: () {
                                                         billproducts
@@ -1987,18 +2001,18 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                       },
                                                       child: Container(
                                                         decoration:
-                                                            BoxDecoration(
+                                                        BoxDecoration(
                                                           color: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .accent1,
                                                         ),
                                                         child: Icon(
                                                           Icons
                                                               .delete_outline_rounded,
                                                           color: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .tertiary,
-                                                          size: 24.0,
+                                                          size: 16.sp,
                                                         ),
                                                       ),
                                                     ),
@@ -2045,46 +2059,46 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                   children: [
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 4.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 4.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                        MainAxisAlignment.start,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Additional Charges',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 10.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                           ),
                                           Padding(
                                             padding: const EdgeInsetsDirectional
                                                 .fromSTEB(2.0, 0.0, 0.0, 0.0),
                                             child: Container(
-                                              width: 16.0,
-                                              height: 16.0,
+                                              width: 11.w,
+                                              height: 11.h,
                                               decoration: const BoxDecoration(
                                                 color: Color(0x8757636C),
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Align(
                                                 alignment:
-                                                    const AlignmentDirectional(
-                                                        0.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: Icon(
                                                   Icons.question_mark_rounded,
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .accent1,
-                                                  size: 10.0,
+                                                  size: 7.sp,
                                                 ),
                                               ),
                                             ),
@@ -2094,8 +2108,8 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 4.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 4.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -2107,17 +2121,17 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   ? 'W/O GST'
                                                   : 'With GST',
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    fontSize: 10.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                color: FlutterFlowTheme.of(
+                                                    context)
+                                                    .secondaryText,
+                                                fontSize: 7.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
                                           ),
                                           Container(
@@ -2125,23 +2139,23 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             height: 24.0,
                                             decoration: BoxDecoration(
                                               color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
+                                              FlutterFlowTheme.of(context)
+                                                  .alternate,
                                               borderRadius:
-                                                  BorderRadius.circular(24.0),
+                                              BorderRadius.circular(24.0),
                                             ),
                                             child: Builder(
                                               builder: (context) {
                                                 if (iswithgst == false) {
                                                   return Row(
                                                     mainAxisSize:
-                                                        MainAxisSize.max,
+                                                    MainAxisSize.max,
                                                     children: [
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsets
-                                                                  .all(4.0),
+                                                          const EdgeInsets
+                                                              .all(4.0),
                                                           child: InkWell(
                                                             splashColor: Colors
                                                                 .transparent,
@@ -2150,8 +2164,8 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                             hoverColor: Colors
                                                                 .transparent,
                                                             highlightColor:
-                                                                Colors
-                                                                    .transparent,
+                                                            Colors
+                                                                .transparent,
                                                             onTap: () async {
                                                               iswithgst = true;
                                                               setState(() {});
@@ -2162,18 +2176,18 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                               height: double
                                                                   .infinity,
                                                               decoration:
-                                                                  BoxDecoration(
+                                                              BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
-                                                                        context)
+                                                                    context)
                                                                     .accent1,
                                                                 boxShadow: const [
                                                                   BoxShadow(
                                                                     blurRadius:
-                                                                        4.0,
+                                                                    4.0,
                                                                     color: Color(
                                                                         0x33000000),
                                                                     offset:
-                                                                        Offset(
+                                                                    Offset(
                                                                       0.0,
                                                                       2.0,
                                                                     ),
@@ -2192,14 +2206,14 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                 } else {
                                                   return Row(
                                                     mainAxisSize:
-                                                        MainAxisSize.max,
+                                                    MainAxisSize.max,
                                                     children: [
                                                       const Spacer(),
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsets
-                                                                  .all(4.0),
+                                                          const EdgeInsets
+                                                              .all(4.0),
                                                           child: InkWell(
                                                             splashColor: Colors
                                                                 .transparent,
@@ -2208,8 +2222,8 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                             hoverColor: Colors
                                                                 .transparent,
                                                             highlightColor:
-                                                                Colors
-                                                                    .transparent,
+                                                            Colors
+                                                                .transparent,
                                                             onTap: () async {
                                                               iswithgst = false;
                                                               setState(() {});
@@ -2220,18 +2234,18 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                               height: double
                                                                   .infinity,
                                                               decoration:
-                                                                  BoxDecoration(
+                                                              BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
-                                                                        context)
+                                                                    context)
                                                                     .primaryText,
                                                                 boxShadow: const [
                                                                   BoxShadow(
                                                                     blurRadius:
-                                                                        4.0,
+                                                                    4.0,
                                                                     color: Color(
                                                                         0x33000000),
                                                                     offset:
-                                                                        Offset(
+                                                                    Offset(
                                                                       0.0,
                                                                       2.0,
                                                                     ),
@@ -2272,113 +2286,113 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                               },
                                               decoration: InputDecoration(
                                                 labelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                  fontFamily: 'Inter',
+                                                  letterSpacing: 0.0,
+                                                ),
                                                 hintStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                  fontFamily: 'Inter',
+                                                  letterSpacing: 0.0,
+                                                ),
                                                 enabledBorder:
-                                                    OutlineInputBorder(
+                                                OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .alternate,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      const BorderRadius.only(
+                                                  const BorderRadius.only(
                                                     bottomLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     bottomRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                     topLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     topRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                   ),
                                                 ),
                                                 focusedBorder:
-                                                    OutlineInputBorder(
+                                                OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .secondaryText,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      const BorderRadius.only(
+                                                  const BorderRadius.only(
                                                     bottomLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     bottomRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                     topLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     topRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                   ),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .error,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      const BorderRadius.only(
+                                                  const BorderRadius.only(
                                                     bottomLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     bottomRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                     topLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     topRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                   ),
                                                 ),
                                                 focusedErrorBorder:
-                                                    OutlineInputBorder(
+                                                OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .error,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      const BorderRadius.only(
+                                                  const BorderRadius.only(
                                                     bottomLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     bottomRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                     topLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     topRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                   ),
                                                 ),
                                                 filled: true,
                                                 fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
+                                                FlutterFlowTheme.of(context)
+                                                    .accent1,
                                               ),
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Inter',
+                                                letterSpacing: 0.0,
+                                              ),
                                               cursorColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                             ),
                                           ),
                                         ),
@@ -2391,21 +2405,21 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                               height: 32.0,
                                               decoration: BoxDecoration(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
+                                                FlutterFlowTheme.of(context)
+                                                    .accent1,
                                                 borderRadius:
-                                                    const BorderRadius.only(
+                                                const BorderRadius.only(
                                                   bottomLeft:
-                                                      Radius.circular(0.0),
+                                                  Radius.circular(0.0),
                                                   bottomRight:
-                                                      Radius.circular(8.0),
+                                                  Radius.circular(8.0),
                                                   topLeft: Radius.circular(0.0),
                                                   topRight:
-                                                      Radius.circular(8.0),
+                                                  Radius.circular(8.0),
                                                 ),
                                                 border: Border.all(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .alternate,
                                                   width: 1.0,
                                                 ),
@@ -2418,11 +2432,11 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                       width: double.infinity,
                                                       height: double.infinity,
                                                       decoration:
-                                                          const BoxDecoration(),
+                                                      const BoxDecoration(),
                                                       child: Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -2439,28 +2453,28 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                           child: Text(
                                                             '%',
                                                             style: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: isaddpercent
-                                                                      ? FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .tertiary
-                                                                      : FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                  fontSize:
-                                                                      isaddpercent
-                                                                          ? 16.0
-                                                                          : 14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
+                                                              fontFamily:
+                                                              'Inter',
+                                                              color: isaddpercent
+                                                                  ? FlutterFlowTheme.of(
+                                                                  context)
+                                                                  .tertiary
+                                                                  : FlutterFlowTheme.of(
+                                                                  context)
+                                                                  .secondaryText,
+                                                              fontSize:
+                                                              isaddpercent
+                                                                  ? 11.sp
+                                                                  : 9.sp,
+                                                              letterSpacing:
+                                                              0.0,
+                                                              fontWeight:
+                                                              FontWeight
+                                                                  .bold,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -2474,9 +2488,9 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                       indent: 5.0,
                                                       endIndent: 5.0,
                                                       color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .alternate,
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .alternate,
                                                     ),
                                                   ),
                                                   Expanded(
@@ -2484,11 +2498,11 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                       width: double.infinity,
                                                       height: double.infinity,
                                                       decoration:
-                                                          const BoxDecoration(),
+                                                      const BoxDecoration(),
                                                       child: Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -2500,32 +2514,32 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                               .transparent,
                                                           onTap: () async {
                                                             isaddpercent =
-                                                                false;
+                                                            false;
                                                             setState(() {});
                                                           },
                                                           child: Text(
                                                             '₹',
                                                             style: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: isaddpercent == false
-                                                                      ? FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .tertiary
-                                                                      : FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                  fontSize:
-                                                                      isaddpercent ==
-                                                                              false
-                                                                          ? 16.0
-                                                                          : 14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                              fontFamily:
+                                                              'Inter',
+                                                              color: isaddpercent == false
+                                                                  ? FlutterFlowTheme.of(
+                                                                  context)
+                                                                  .tertiary
+                                                                  : FlutterFlowTheme.of(
+                                                                  context)
+                                                                  .secondaryText,
+                                                              fontSize:
+                                                              isaddpercent ==
+                                                                  false
+                                                                  ? 11.sp
+                                                                  : 9.sp,
+                                                              letterSpacing:
+                                                              0.0,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -2541,7 +2555,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                      CrossAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: const EdgeInsetsDirectional
@@ -2551,11 +2565,11 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 10.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                           ),
                                         ),
                                         Align(
@@ -2565,22 +2579,22 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             padding: const EdgeInsetsDirectional
                                                 .fromSTEB(2.0, 0.0, 0.0, 0.0),
                                             child: Container(
-                                              width: 16.0,
-                                              height: 16.0,
+                                              width: 11.w,
+                                              height: 11.h,
                                               decoration: const BoxDecoration(
                                                 color: Color(0x8757636C),
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Align(
                                                 alignment:
-                                                    const AlignmentDirectional(
-                                                        0.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: Icon(
                                                   Icons.question_mark_rounded,
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .accent1,
-                                                  size: 10.0,
+                                                  size: 7.sp,
                                                 ),
                                               ),
                                             ),
@@ -2597,101 +2611,101 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                             height: 32.0,
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                             ),
                                             child: SizedBox(
                                               width: double.infinity,
                                               child: TextFormField(
                                                 controller:
-                                                    chargesdescriptioncon,
+                                                chargesdescriptioncon,
                                                 focusNode: textFieldFocusNode13,
                                                 autofocus: true,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  FlutterFlowTheme.of(
+                                                      context)
+                                                      .labelMedium
+                                                      .override(
+                                                    fontFamily: 'Inter',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                                   hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  FlutterFlowTheme.of(
+                                                      context)
+                                                      .labelMedium
+                                                      .override(
+                                                    fontFamily: 'Inter',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                                   enabledBorder:
-                                                      OutlineInputBorder(
+                                                  OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .alternate,
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .alternate,
                                                       width: 1.0,
                                                     ),
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
+                                                    BorderRadius.circular(
+                                                        8.0),
                                                   ),
                                                   focusedBorder:
-                                                      OutlineInputBorder(
+                                                  OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .secondaryText,
                                                       width: 1.0,
                                                     ),
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
+                                                    BorderRadius.circular(
+                                                        8.0),
                                                   ),
                                                   errorBorder:
-                                                      OutlineInputBorder(
+                                                  OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .error,
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .error,
                                                       width: 1.0,
                                                     ),
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
+                                                    BorderRadius.circular(
+                                                        8.0),
                                                   ),
                                                   focusedErrorBorder:
-                                                      OutlineInputBorder(
+                                                  OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .error,
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .error,
                                                       width: 1.0,
                                                     ),
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
+                                                    BorderRadius.circular(
+                                                        8.0),
                                                   ),
                                                   filled: true,
                                                   fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .accent1,
+                                                  FlutterFlowTheme.of(
+                                                      context)
+                                                      .accent1,
                                                 ),
                                                 style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                  fontFamily: 'Inter',
+                                                  letterSpacing: 0.0,
+                                                ),
                                                 cursorColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
@@ -2700,46 +2714,46 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 8.0, 0.0, 8.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 0.0, 8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                        MainAxisAlignment.start,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Extra Discount',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 10.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                           ),
                                           Padding(
                                             padding: const EdgeInsetsDirectional
                                                 .fromSTEB(2.0, 0.0, 0.0, 0.0),
                                             child: Container(
-                                              width: 16.0,
-                                              height: 16.0,
+                                              width: 11.w,
+                                              height: 11.h,
                                               decoration: const BoxDecoration(
                                                 color: Color(0x8757636C),
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Align(
                                                 alignment:
-                                                    const AlignmentDirectional(
-                                                        0.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: Icon(
                                                   Icons.question_mark_rounded,
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .accent1,
-                                                  size: 10.0,
+                                                  size: 7.sp,
                                                 ),
                                               ),
                                             ),
@@ -2764,106 +2778,106 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                               },
                                               decoration: InputDecoration(
                                                 labelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                  fontFamily: 'Inter',
+                                                  letterSpacing: 0.0,
+                                                ),
                                                 hintStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                  fontFamily: 'Inter',
+                                                  letterSpacing: 0.0,
+                                                ),
                                                 enabledBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .alternate,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      const BorderRadius.only(
+                                                  const BorderRadius.only(
                                                     bottomLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     bottomRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                     topLeft: Radius.circular(8.0),
                                                     topRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                   ),
                                                 ),
                                                 focusedBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .primary,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      const BorderRadius.only(
+                                                  const BorderRadius.only(
                                                     bottomLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     bottomRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                     topLeft: Radius.circular(8.0),
                                                     topRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                   ),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .error,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      const BorderRadius.only(
+                                                  const BorderRadius.only(
                                                     bottomLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     bottomRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                     topLeft: Radius.circular(8.0),
                                                     topRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                   ),
                                                 ),
                                                 focusedErrorBorder:
-                                                    OutlineInputBorder(
+                                                OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .error,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      const BorderRadius.only(
+                                                  const BorderRadius.only(
                                                     bottomLeft:
-                                                        Radius.circular(8.0),
+                                                    Radius.circular(8.0),
                                                     bottomRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                     topLeft: Radius.circular(8.0),
                                                     topRight:
-                                                        Radius.circular(0.0),
+                                                    Radius.circular(0.0),
                                                   ),
                                                 ),
                                                 filled: true,
                                                 fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
+                                                FlutterFlowTheme.of(context)
+                                                    .accent1,
                                               ),
                                               style: FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                                fontFamily: 'Inter',
+                                                letterSpacing: 0.0,
+                                              ),
                                               cursorColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryText,
                                             ),
                                           ),
                                         ),
@@ -2876,21 +2890,21 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                               height: 32.0,
                                               decoration: BoxDecoration(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
+                                                FlutterFlowTheme.of(context)
+                                                    .accent1,
                                                 borderRadius:
-                                                    const BorderRadius.only(
+                                                const BorderRadius.only(
                                                   bottomLeft:
-                                                      Radius.circular(0.0),
+                                                  Radius.circular(0.0),
                                                   bottomRight:
-                                                      Radius.circular(8.0),
+                                                  Radius.circular(8.0),
                                                   topLeft: Radius.circular(0.0),
                                                   topRight:
-                                                      Radius.circular(8.0),
+                                                  Radius.circular(8.0),
                                                 ),
                                                 border: Border.all(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .alternate,
                                                   width: 1.0,
                                                 ),
@@ -2903,11 +2917,11 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                       width: double.infinity,
                                                       height: double.infinity,
                                                       decoration:
-                                                          const BoxDecoration(),
+                                                      const BoxDecoration(),
                                                       child: Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -2919,34 +2933,34 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                               .transparent,
                                                           onTap: () async {
                                                             isextradispercent =
-                                                                true;
+                                                            true;
                                                             setState(() {});
                                                           },
                                                           child: Text(
                                                             '%',
                                                             style: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: isextradispercent
-                                                                      ? FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .tertiary
-                                                                      : FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                  fontSize:
-                                                                      isextradispercent
-                                                                          ? 16.0
-                                                                          : 14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
+                                                              fontFamily:
+                                                              'Inter',
+                                                              color: isextradispercent
+                                                                  ? FlutterFlowTheme.of(
+                                                                  context)
+                                                                  .tertiary
+                                                                  : FlutterFlowTheme.of(
+                                                                  context)
+                                                                  .secondaryText,
+                                                              fontSize:
+                                                              isextradispercent
+                                                                  ? 16.0
+                                                                  : 14.0,
+                                                              letterSpacing:
+                                                              0.0,
+                                                              fontWeight:
+                                                              FontWeight
+                                                                  .bold,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -2960,9 +2974,9 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                       indent: 5.0,
                                                       endIndent: 5.0,
                                                       color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .alternate,
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .alternate,
                                                     ),
                                                   ),
                                                   Expanded(
@@ -2970,11 +2984,11 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                       width: double.infinity,
                                                       height: double.infinity,
                                                       decoration:
-                                                          const BoxDecoration(),
+                                                      const BoxDecoration(),
                                                       child: Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -2986,32 +3000,32 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                               .transparent,
                                                           onTap: () async {
                                                             isextradispercent =
-                                                                false;
+                                                            false;
                                                             setState(() {});
                                                           },
                                                           child: Text(
                                                             '₹',
                                                             style: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: isextradispercent == false
-                                                                      ? FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .tertiary
-                                                                      : FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                  fontSize:
-                                                                  isextradispercent ==
-                                                                              false
-                                                                          ? 16.0
-                                                                          : 14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                              fontFamily:
+                                                              'Inter',
+                                                              color: isextradispercent == false
+                                                                  ? FlutterFlowTheme.of(
+                                                                  context)
+                                                                  .tertiary
+                                                                  : FlutterFlowTheme.of(
+                                                                  context)
+                                                                  .secondaryText,
+                                                              fontSize:
+                                                              isextradispercent ==
+                                                                  false
+                                                                  ? 11.sp
+                                                                  : 9.sp,
+                                                              letterSpacing:
+                                                              0.0,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -3042,151 +3056,151 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                   children: [
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 4.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 4.0),
                                       child: Text(
                                         'Qty & Discount Details',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                          fontFamily: 'Inter',
+                                          fontSize: 11.sp,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           'Total Items ',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                              ),
+                                            fontFamily: 'Inter',
+                                            fontSize: 10.sp,
+                                            letterSpacing: 0.0,
+                                          ),
                                         ),
                                         Text(
                                           billproducts.length.toString(),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                              ),
+                                            fontFamily: 'Inter',
+                                            fontSize: 10.sp,
+                                            letterSpacing: 0.0,
+                                          ),
                                         ),
                                       ],
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 8.0, 0.0, 0.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Total Qty',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 14.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 10.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                           Text(
                                             totitem.toString(),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 14.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 10.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ],
                                       ),
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 8.0, 0.0, 0.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Extra Discount',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 14.0,
-                                                  letterSpacing: 0.0,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 10.sp,
+                                              letterSpacing: 0.0,
+                                            ),
                                           ),
                                           Text(
                                             '₹${double.tryParse(extradiscountcon.text) ?? 0}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 14.0,
-                                                  letterSpacing: 0.0,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 10.sp,
+                                              letterSpacing: 0.0,
+                                            ),
                                           ),
                                         ],
                                       ),
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 8.0, 0.0, 0.0),
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Total Discount',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 14.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 10.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                           Text(
                                             '₹${(discount+disitems).toStringAsFixed(2)}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 14.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 10.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -3207,7 +3221,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     children: [
                                       Align(
                                         alignment: const AlignmentDirectional(
@@ -3217,11 +3231,11 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                                            fontFamily: 'Inter',
+                                            fontSize: 11.sp,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                       Padding(
@@ -3230,9 +3244,9 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Builder(
                                               builder: (context) {
@@ -3240,27 +3254,27 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   return Text(
                                                     'Additional Charges',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                   );
                                                 } else {
                                                   return Text(
                                                     'Additional Charges',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
                                                   );
                                                 }
                                               },
@@ -3271,7 +3285,7 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   .bodyMedium
                                                   .override(
                                                 fontFamily: 'Inter',
-                                                fontSize: 14.0,
+                                                fontSize: 10.sp,
                                                 letterSpacing: 0.0,
                                                 fontWeight: isaddcharges ? FontWeight.bold : FontWeight.w400,
                                               ),
@@ -3285,9 +3299,9 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Builder(
                                               builder: (context) {
@@ -3295,29 +3309,29 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   return Text(
                                                     'SGST',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
                                                   );
                                                 } else {
                                                   return Text(
                                                     'SGST',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.w500,
+                                                    ),
                                                   );
                                                 }
                                               },
@@ -3328,29 +3342,29 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   return Text(
                                                     '₹ 0.00',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
                                                   );
                                                 } else {
                                                   return Text(
                                                     '₹ 0.00',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.normal,
+                                                    ),
                                                   );
                                                 }
                                               },
@@ -3364,9 +3378,9 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Builder(
                                               builder: (context) {
@@ -3374,29 +3388,29 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   return Text(
                                                     'CGST',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
                                                   );
                                                 } else {
                                                   return Text(
                                                     'CGST',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.normal,
+                                                    ),
                                                   );
                                                 }
                                               },
@@ -3407,27 +3421,27 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   return Text(
                                                     '₹ 0.00',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
                                                   );
                                                 } else {
                                                   return Text(
                                                     '₹ 0.00',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                   );
                                                 }
                                               },
@@ -3441,9 +3455,9 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Builder(
                                               builder: (context) {
@@ -3451,29 +3465,29 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   return Text(
                                                     'IGST',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.normal,
+                                                    ),
                                                   );
                                                 } else {
                                                   return Text(
                                                     'IGST',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
                                                   );
                                                 }
                                               },
@@ -3484,29 +3498,29 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                                   return Text(
                                                     '₹ 0.00',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.normal,
+                                                    ),
                                                   );
                                                 } else {
                                                   return Text(
                                                     '₹ 0.00',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 10.sp,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
                                                   );
                                                 }
                                               },
@@ -3531,36 +3545,36 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     children: [
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Taxable Amount',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 11.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                           ),
                                           Text(
                                             '₹ 0',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                              fontFamily: 'Inter',
+                                              fontSize: 11.sp,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -3570,35 +3584,35 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               'Total Tax',
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 11.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                FontWeight.w600,
+                                              ),
                                             ),
                                             Text(
                                               '₹ 0.00',
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 11.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                FontWeight.w600,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -3609,31 +3623,31 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               'Round Off',
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 10.sp,
+                                                letterSpacing: 0.0,
+                                              ),
                                             ),
                                             Text(
                                               '-0.00',
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 10.sp,
+                                                letterSpacing: 0.0,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -3644,35 +3658,35 @@ class _InvoiceBodyState extends State<InvoiceBody> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               'Total Amount',
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontSize: 22.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w800,
-                                                      ),
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 12.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                FontWeight.w800,
+                                              ),
                                             ),
                                             Text(
                                               '₹${total.toStringAsFixed(2)}',
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontSize: 22.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w800,
-                                                      ),
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 14.sp,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                FontWeight.w800,
+                                              ),
                                             ),
                                           ],
                                         ),

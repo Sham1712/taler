@@ -39,9 +39,7 @@ class _ViewSalesState extends State<ViewSales> {
     List<Bill> data = widget.bildata;
     List<Bill> bills = [];
     bills = data.where((bill) {
-      return bill.id!
-          .toLowerCase()
-          .contains(searchcon.text.toLowerCase());
+      return true;
     }).toList();
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -357,12 +355,12 @@ class _ViewSalesState extends State<ViewSales> {
 
 class _SalesListState extends State<SalesList> {
 
-  late Bill salelist;
+  late Bill bill;
   bool mouseRegionHovered1 = false, mouseRegionHovered2 = false, mouseRegionHovered3 = false;
 
   @override
   Widget build(BuildContext context) {
-
+    bill = widget.bill;
     return MouseRegion(
       opaque: false,
       cursor: MouseCursor.defer,
@@ -386,7 +384,7 @@ class _SalesListState extends State<SalesList> {
             Expanded(
               flex: 1,
               child: Text(
-                  salelist.date.toString(),
+                  bill.date.toString(),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Inter',
                   fontSize: 11.sp,
@@ -398,7 +396,7 @@ class _SalesListState extends State<SalesList> {
             Expanded(
               flex: 1,
               child: Text(
-                  salelist.id!,
+                  bill.id!,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Inter',
                   fontSize: 11.sp,
@@ -412,7 +410,7 @@ class _SalesListState extends State<SalesList> {
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                 child: Text(
-                    salelist.customerid,
+                    bill.customerid,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Inter',
                     fontSize: 11.sp,
@@ -425,7 +423,7 @@ class _SalesListState extends State<SalesList> {
             Expanded(
               flex: 1,
               child: Text(
-                  salelist.total.toString(),
+                  bill.total.toString(),
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto Mono',
@@ -449,9 +447,9 @@ class _SalesListState extends State<SalesList> {
                       height: MediaQuery.sizeOf(context).width * 0.008,
                       decoration: BoxDecoration(
                         color: () {
-                          if (salelist.total == 432.0) {
+                          if (bill.total == 432.0) {
                             return FlutterFlowTheme.of(context).tertiary;
-                          } else if (salelist.total > 23.0) {
+                          } else if (bill.total > 23.0) {
                             return FlutterFlowTheme.of(context).accent4;
                           } else {
                             return FlutterFlowTheme.of(context).accent3;
@@ -472,9 +470,9 @@ class _SalesListState extends State<SalesList> {
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Text(
                                 () {
-                              if (salelist.total == 432.0) {
+                              if (bill.total == 432.0) {
                                 return 'Unpaid';
-                              } else if (salelist.total > 23.0) {
+                              } else if (bill.total > 23.0) {
                                 return 'Active';
                               } else {
                                 return 'Paid';
@@ -493,7 +491,7 @@ class _SalesListState extends State<SalesList> {
                             ),
                           ),
                         ),
-                        if (salelist.total == 43.0 ? false : true)
+                        if (bill.total == 43.0 ? false : true)
                           Align(
                             alignment: const AlignmentDirectional(-0.4, 0.0),
                             child: Padding(
