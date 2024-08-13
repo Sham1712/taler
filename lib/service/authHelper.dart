@@ -123,7 +123,7 @@ class AuthHelper {
 
   Future<void> addlogins() async {
     List<String> logins = [];
-    (await docuser.get()).map[col_logins];
+    ((await docuser.get()).map[col_logins] as List<dynamic>);
     logins.add(timenow.substring(0, 16));
     (docuser).update({col_logins: logins});
   }

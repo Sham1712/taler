@@ -24,9 +24,9 @@ abstract class FlutterFlowTheme {
   late Color secondaryBackground = const Color(0xFFF6F6F6);
   late Color accent1 = const Color(0xFFFFFFFF);
   late Color accent2 = const Color(0xFFF2F2F2);
-  late Color accent3 = const Color(0xFFB6A4D9);
-  late Color accent4 = const Color(0xFFCCA285);
-  late Color success = const Color(0xFF249689);
+  late Color accent3 = const Color(0xFF4BC36D);
+  late Color accent4 = const Color(0xFFFFA817);
+  late Color success = const Color(0xFFDFF7E5);
   late Color warning = const Color(0xFFF9CF58);
   late Color error = const Color(0xFFff5963);
   late Color info = const Color(0xFFFFFFFF);

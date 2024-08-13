@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:taler/object/billproduct.dart';
 
 void route(BuildContext context, Widget page) {
@@ -22,6 +23,20 @@ Widget wspace(double width) => SizedBox(
 
 void goback(BuildContext context) {
   Navigator.pop(context);
+}
+
+const String ky_page = 'page';
+const String ky_screen = 'screen';
+
+void setscreens(int screen, int page) async {
+  SharedPreferences pref = await SharedPreferences.getInstance();
+  pref.setInt(ky_screen, screen);
+  pref.setInt(ky_page, page);
+}
+
+Future<List<int>> get getscreens async {
+  SharedPreferences pref = await SharedPreferences.getInstance();
+  return [pref.getInt(ky_screen) ?? 0, pref.getInt(ky_page) ?? 1];
 }
 
 TValue? selectof<TOptionType, TValue>(

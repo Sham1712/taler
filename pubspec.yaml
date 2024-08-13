@@ -13,6 +13,7 @@ dependencies:
 
   google_fonts: any
   intl: any
+  shared_preferences: any
   font_awesome_flutter: any
   url_launcher: any
   iconly: any
