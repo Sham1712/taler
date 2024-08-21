@@ -2195,12 +2195,14 @@ class _HomeState extends State<Home> {
                                                                   ),
                                                                   6: Row(
                                                                     children: [
+
                                                                       Center(
                                                                         child: Text(
                                                                           screen
                                                                               .toString(),
                                                                         ),
                                                                       ),
+
                                                                     ],
                                                                   ),
                                                                   7: Row(
