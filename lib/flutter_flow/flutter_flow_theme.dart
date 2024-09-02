@@ -13,23 +13,27 @@ abstract class FlutterFlowTheme {
   @Deprecated('Use secondary instead')
   Color get secondaryColor => secondary;
   @Deprecated('Use tertiary instead')
-  Color get tertiaryColor => tertiary;
-  late Color primary = const Color(0xFF0C1619);
-  late Color secondary = const Color(0xFFECECED);
+  Color get tertiaryColor => tertiary;late Color primary = const Color(0xFF0C1619);
+  late Color secondary = const Color(0xFFEEEEEE);
   late Color tertiary = const Color(0xFFFF3F25);
   late Color alternate = const Color(0xFFDFE2E3);
   late Color primaryText = const Color(0xFF232432);
   late Color secondaryText = const Color(0xFF57636C);
-  late Color primaryBackground = const Color(0xFFF9F9FA);
-  late Color secondaryBackground = const Color(0xFFF6F6F6);
+  late Color primaryBackground = const Color(0xFFFAFAFA);
+  late Color secondaryBackground = const Color(0xFFF8F8F8);
   late Color accent1 = const Color(0xFFFFFFFF);
-  late Color accent2 = const Color(0xFFF2F2F2);
-  late Color accent3 = const Color(0xFF4BC36D);
-  late Color accent4 = const Color(0xFFFFA817);
+  late Color accent2 = const Color(0xFF0FC459);
+  late Color accent3 = const Color(0xFFFBC817);
+  late Color accent4 = const Color(0xFFEF0003);
   late Color success = const Color(0xFFDFF7E5);
   late Color warning = const Color(0xFFF9CF58);
   late Color error = const Color(0xFFff5963);
   late Color info = const Color(0xFFFFFFFF);
+  late Color customColor1 = const Color(0xFFECFEF2);
+  late Color customColor2 = const Color(0xFFFCFBEA);
+  late Color customColor3 = const Color(0xFFFCF1EF);
+  late Color customColor4 = const Color(0xFF6B55E4);
+  late Color customColor5 = const Color(0xFFECEFFF);
   late Color lineColor = secondary;
   late Color primaryBtnText = primary;
 
@@ -103,24 +107,27 @@ class LightModeTheme extends FlutterFlowTheme {
   Color get secondaryColor => secondary;
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
-
   late Color primary = const Color(0xFF0C1619);
-  late Color secondary = const Color(0xFFECECED);
+  late Color secondary = const Color(0xFFEEEEEE);
   late Color tertiary = const Color(0xFFFF3F25);
   late Color alternate = const Color(0xFFDFE2E3);
   late Color primaryText = const Color(0xFF232432);
   late Color secondaryText = const Color(0xFF57636C);
-  late Color primaryBackground = const Color(0xFFF9F9FA);
-  late Color secondaryBackground = const Color(0xFFF6F6F6);
+  late Color primaryBackground = const Color(0xFFFAFAFA);
+  late Color secondaryBackground = const Color(0xFFF8F8F8);
   late Color accent1 = const Color(0xFFFFFFFF);
-  late Color accent2 = const Color(0xFFF2F2F2);
-  late Color accent3 = const Color(0xFFB6A4D9);
-  late Color accent4 = const Color(0xFFCCA285);
-  late Color success = const Color(0xFF249689);
+  late Color accent2 = const Color(0xFF0FC459);
+  late Color accent3 = const Color(0xFFFBC817);
+  late Color accent4 = const Color(0xFFEF0003);
+  late Color success = const Color(0xFFDFF7E5);
   late Color warning = const Color(0xFFF9CF58);
   late Color error = const Color(0xFFff5963);
   late Color info = const Color(0xFFFFFFFF);
-
+  late Color customColor1 = const Color(0xFFECFEF2);
+  late Color customColor2 = const Color(0xFFFCFBEA);
+  late Color customColor3 = const Color(0xFFFCF1EF);
+  late Color customColor4 = const Color(0xFF6B55E4);
+  late Color customColor5 = const Color(0xFFECEFFF);
   late Color lineColor = secondary;
   late Color primaryBtnText = primary;
 
