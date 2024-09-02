@@ -132,25 +132,25 @@ class BillHelper {
     ).asBroadcastStream();
   }
 
-  Future<void> addpayment(PaymentIn payment) async {
+  Future<void> addpayment(Payment payment) async {
     payment.id = DateTime.now().toIso8601String();
     return await colpay.document(payment.id!).set(payment.toMap());
   }
 
-  Future<void> updatepayment(PaymentIn payment) async {
+  Future<void> updatepayment(Payment payment) async {
     return await colpay.document(payment.id!).update(payment.toMap());
   }
 
-  Future<void> deletepayment(PaymentIn payment) async {
+  Future<void> deletepayment(Payment payment) async {
     return await colpay.document(payment.id!).delete();
   }
 
-  Stream<List<PaymentIn>> getpayments() {
+  Stream<List<Payment>> getpayments() {
     final snapshots = colpay.orderBy(col_id,descending: true).get().asStream();
     return snapshots.map(
       (snapshot) => snapshot.map(
         (snapshot) {
-          return PaymentIn.fromMap(snapshot.map);
+          return Payment.fromMap(snapshot.map);
         },
       ).toList()
     ).asBroadcastStream();
