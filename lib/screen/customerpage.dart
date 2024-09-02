@@ -1,22 +1,34 @@
+import 'dart:core';
+
+import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:taler/constant/functions.dart';
 import 'package:taler/flutter_flow/flutter_flow_util.dart';
 import 'package:taler/object/customer.dart';
+import 'package:taler/object/paymentin.dart';
 import 'package:taler/service/billHelper.dart';
 import 'package:toastification/toastification.dart';
 
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../object/bill.dart';
 import 'home.dart';
 
 class Customerpage extends StatelessWidget {
-  Customerpage({super.key, required this.page, required this.cusdata});
+  Customerpage(
+      {super.key,
+      required this.page,
+      required this.cusdata,
+      required this.billdata,
+      required this.paydata});
   List<Customer> cusdata;
+  List<Bill> billdata;
+  List<Payment> paydata;
+
   int page;
 
   @override
@@ -28,6 +40,14 @@ class Customerpage extends StatelessWidget {
       if (page == 2) {
         return const AddCustomer();
       }
+      if (page == 3) {
+        return Ledger(
+          cusdata: cusdata,
+          billdata: billdata,
+          paydata: paydata,
+        );
+      }
+
       return Container();
     });
   }
@@ -2126,6 +2146,1675 @@ class _CustomerTileState extends State<CustomerTile> {
   }
 }
 
+class _LedgerState extends State<Ledger> {
+  TextEditingController textController1 = TextEditingController(),
+      textController2 = TextEditingController();
+  FocusNode textFieldFocusNode1 = FocusNode(),
+      textFieldFocusNode2 = FocusNode();
+
+  SingleSelectController<Customer> namecon =
+      SingleSelectController<Customer>(null);
+
+  bool mouseRegionHovered1 = false,
+      mouseRegionHovered2 = false,
+      mouseRegionHovered3 = false,
+      mouseRegionHovered4 = false;
+
+  double totalcredit = 0, totaldebit = 0, standingbalance = 0;
+  int active = 0;
+  DateTime datePicked1 = DateTime.now(), datePicked2 = DateTime.now();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
+      child: Container(
+        width: MediaQuery.sizeOf(context).width * 1.0,
+        decoration: BoxDecoration(
+          color: FlutterFlowTheme.of(context).accent1,
+          borderRadius: BorderRadius.circular(16.0),
+          border: Border.all(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
+        ),
+        alignment: const AlignmentDirectional(-1.0, -1.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Padding(
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Ledger',
+                      style: FlutterFlowTheme.of(context)
+                          .headlineLarge
+                          .override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            fontSize: 24.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ),
+                  Expanded(
+                    child: CustomDropdown<Customer>.search(
+                      decoration: CustomDropdownDecoration(
+                        expandedBorder: Border.all(
+                          color: FlutterFlowTheme.of(context).secondary,
+                          width: 1,
+                        ),
+                      ),
+                      controller: namecon,
+                      hintText: 'Select Customer',
+                      items: widget.cusdata,
+                      onChanged: (value) {},
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 48.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).accent1,
+                        borderRadius: BorderRadius.circular(8.0),
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 1.0,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            6.0, 0.0, 6.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: TextFormField(
+                                controller: textController1,
+                                focusNode: textFieldFocusNode1,
+                                onFieldSubmitted: (_) async {
+                                  final _datePicked1Date = await showDatePicker(
+                                    context: context,
+                                    initialDate: getCurrentTimestamp,
+                                    firstDate: DateTime(1900),
+                                    lastDate: DateTime(2050),
+                                  );
+
+                                  if (_datePicked1Date != null) {
+                                    safeSetState(() {
+                                      datePicked1 = DateTime(
+                                        _datePicked1Date.year,
+                                        _datePicked1Date.month,
+                                        _datePicked1Date.day,
+                                      );
+                                    });
+                                  }
+                                },
+                                autofocus: true,
+                                readOnly: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 13.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  hintText: 'From Date',
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                  enabledBorder: InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                  errorBorder: InputBorder.none,
+                                  focusedErrorBorder: InputBorder.none,
+                                  filled: true,
+                                  fillColor:
+                                      FlutterFlowTheme.of(context).accent1,
+                                  contentPadding:
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 0.0, 4.0),
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 8.0, 0.0),
+                              child: Icon(
+                                Icons.compare_arrows_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 24.0,
+                              ),
+                            ),
+                            Expanded(
+                              child: TextFormField(
+                                controller: textController2,
+                                focusNode: textFieldFocusNode2,
+                                onFieldSubmitted: (_) async {
+                                  final _datePicked2Date = await showDatePicker(
+                                    context: context,
+                                    initialDate: getCurrentTimestamp,
+                                    firstDate: DateTime(1900),
+                                    lastDate: DateTime(2050),
+                                  );
+
+                                  if (_datePicked2Date != null) {
+                                    safeSetState(() {
+                                      datePicked2 = DateTime(
+                                        _datePicked2Date.year,
+                                        _datePicked2Date.month,
+                                        _datePicked2Date.day,
+                                      );
+                                    });
+                                  }
+                                },
+                                autofocus: true,
+                                readOnly: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 13.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  hintText: 'To Date',
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                  enabledBorder: InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                  errorBorder: InputBorder.none,
+                                  focusedErrorBorder: InputBorder.none,
+                                  filled: true,
+                                  fillColor:
+                                      FlutterFlowTheme.of(context).accent1,
+                                  contentPadding:
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 0.0, 4.0),
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              child: Icon(
+                                Icons.calendar_month_rounded,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 24.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  FFButtonWidget(
+                    onPressed: () {
+                      ;
+                    },
+                    text: 'Sort By',
+                    icon: Icon(
+                      Icons.filter_list_rounded,
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      size: 20.0,
+                    ),
+                    options: FFButtonOptions(
+                      height: 48.0,
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          16.0, 0.0, 16.0, 0.0),
+                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 0.0, 4.0, 0.0),
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 0.0,
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).alternate,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                      hoverColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      hoverBorderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).alternate,
+                        width: 1.0,
+                      ),
+                      hoverTextColor: FlutterFlowTheme.of(context).primaryText,
+                      hoverElevation: 1.0,
+                    ),
+                  ),
+                  FFButtonWidget(
+                    onPressed: () {
+                      print('Button pressed ...');
+                    },
+                    text: 'Print',
+                    icon: const Icon(
+                      Icons.arrow_forward_rounded,
+                      size: 15.0,
+                    ),
+                    options: FFButtonOptions(
+                      height: 40.0,
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          20.0, 0.0, 20.0, 0.0),
+                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).accent1,
+                                fontSize: 14.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                      elevation: 1.5,
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                      hoverColor: FlutterFlowTheme.of(context).primary,
+                      hoverBorderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 1.0,
+                      ),
+                      hoverTextColor: Colors.white,
+                      hoverElevation: 2.0,
+                    ),
+                  ),
+                ]
+                    .divide(const SizedBox(width: 24.0))
+                    .addToStart(const SizedBox(width: 12.0))
+                    .addToEnd(const SizedBox(width: 12.0)),
+              ),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: MouseRegion(
+                      opaque: false,
+                      cursor: MouseCursor.defer,
+                      onEnter: ((event) async {
+                        setState(() => mouseRegionHovered1 = true);
+                      }),
+                      onExit: ((event) async {
+                        setState(() => mouseRegionHovered1 = false);
+                      }),
+                      child: Material(
+                        color: Colors.transparent,
+                        elevation: mouseRegionHovered1 ? 1.5 : 0.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Container(
+                          width: 100.0,
+                          height: 80.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: mouseRegionHovered1
+                                  ? FlutterFlowTheme.of(context)
+                                      .secondaryBackground
+                                  : const Color(0x00000000),
+                            ),
+                          ),
+                          child: Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment:
+                                      const AlignmentDirectional(0.0, 0.0),
+                                  child: Text(
+                                    'Standing Balance',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          fontSize: 20.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                                Text(
+                                  valueOrDefault<String>(
+                                    standingbalance.toString(),
+                                    '₹1,00,000',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Open Sans',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 18.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ].divide(const SizedBox(height: 8.0)),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: MouseRegion(
+                      opaque: false,
+                      cursor: MouseCursor.defer,
+                      onEnter: ((event) async {
+                        setState(() => mouseRegionHovered2 = true);
+                      }),
+                      onExit: ((event) async {
+                        setState(() => mouseRegionHovered2 = false);
+                      }),
+                      child: Material(
+                        color: Colors.transparent,
+                        elevation: mouseRegionHovered2 ? 1.5 : 0.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Container(
+                          width: 100.0,
+                          height: 80.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: mouseRegionHovered2
+                                  ? FlutterFlowTheme.of(context)
+                                      .secondaryBackground
+                                  : const Color(0x00000000),
+                            ),
+                          ),
+                          child: Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment:
+                                      const AlignmentDirectional(0.0, 0.0),
+                                  child: Text(
+                                    'Active Bills',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          fontSize: 20.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                                Text(
+                                  valueOrDefault<String>(
+                                    active.toString(),
+                                    '5',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Open Sans',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 18.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ].divide(const SizedBox(height: 8.0)),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: MouseRegion(
+                      opaque: false,
+                      cursor: MouseCursor.defer,
+                      onEnter: ((event) async {
+                        setState(() => mouseRegionHovered3 = true);
+                      }),
+                      onExit: ((event) async {
+                        setState(() => mouseRegionHovered3 = false);
+                      }),
+                      child: Material(
+                        color: Colors.transparent,
+                        elevation: mouseRegionHovered3 ? 1.5 : 0.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Container(
+                          width: 100.0,
+                          height: 80.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: mouseRegionHovered3
+                                  ? FlutterFlowTheme.of(context)
+                                      .secondaryBackground
+                                  : const Color(0x00000000),
+                            ),
+                          ),
+                          child: Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment:
+                                      const AlignmentDirectional(0.0, 0.0),
+                                  child: Text(
+                                    'Total Debit',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          fontSize: 20.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                                Text(
+                                  valueOrDefault<String>(
+                                    totaldebit.toString(),
+                                    '₹2,00,000',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Open Sans',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 18.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ].divide(const SizedBox(height: 8.0)),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: MouseRegion(
+                      opaque: false,
+                      cursor: MouseCursor.defer,
+                      onEnter: ((event) async {
+                        setState(() => mouseRegionHovered4 = true);
+                      }),
+                      onExit: ((event) async {
+                        setState(() => mouseRegionHovered4 = false);
+                      }),
+                      child: Material(
+                        color: Colors.transparent,
+                        elevation: mouseRegionHovered4 ? 1.5 : 0.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Container(
+                          width: 100.0,
+                          height: 80.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: mouseRegionHovered4
+                                  ? FlutterFlowTheme.of(context)
+                                      .secondaryBackground
+                                  : const Color(0x00000000),
+                            ),
+                          ),
+                          child: Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment:
+                                      const AlignmentDirectional(0.0, 0.0),
+                                  child: Text(
+                                    'Total Credit',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          fontSize: 20.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                                Text(
+                                  valueOrDefault<String>(
+                                    totalcredit.toString(),
+                                    '₹2,00,555',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Open Sans',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 18.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ].divide(const SizedBox(height: 8.0)),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]
+                    .divide(const SizedBox(width: 24.0))
+                    .addToStart(const SizedBox(width: 8.0))
+                    .addToEnd(const SizedBox(width: 8.0)),
+              ),
+            ),
+            Flexible(
+              child: Padding(
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(8.0, 16.0, 8.0, 0.0),
+                child: Container(
+                  width: MediaQuery.sizeOf(context).width * 0.99,
+                  height: MediaQuery.sizeOf(context).height * 0.06,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(0.0),
+                      bottomRight: Radius.circular(0.0),
+                      topLeft: Radius.circular(8.0),
+                      topRight: Radius.circular(8.0),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Align(
+                          alignment: const AlignmentDirectional(-0.8, 0.0),
+                          child: Text(
+                            'Date',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'Reference No.',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'Against Bill No.',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'Mode',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'Bill Status',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 4,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'Notes',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'Debit',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'Credit',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'Action',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ),
+                    ]
+                        .addToStart(const SizedBox(width: 16.0))
+                        .addToEnd(const SizedBox(width: 16.0)),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+              child: Builder(
+                builder: (context) {
+                  List<dynamic> legers = [];
+
+                  widget.billdata.forEach((bill) {
+                    if (bill.customerid == namecon.value!.id) {
+                      legers.add(bill);
+                    }
+                  });
+
+                  widget.paydata.forEach((pay) {
+                    if (pay.customerid == namecon.value!.id) {
+                      legers.add(pay);
+                    }
+                  });
+
+                  return ListView.builder(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: legers.length,
+                    itemBuilder: (context, index) {
+                      dynamic leger = legers[index];
+                      return ListLedger(ledger: leger);
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
+  bool mouseRegionHovered1 = false,
+      mouseRegionHovered2 = false,
+      mouseRegionHovered3 = false,
+      mouseRegionHovered4 = false,
+      ispayment = false;
+
+  DateTime date = DateTime.now();
+  late String refrenceno, againstbill, notes;
+  late int modeint, status;
+  late double debit, credit;
+  final animationsMap = <String, AnimationInfo>{};
+
+  @override
+  void initState() {
+    super.initState();
+    animationsMap.addAll({
+      'dividerOnActionTriggerAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effects: [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'dividerOnActionTriggerAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effects: [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ispayment = widget.ledger.runtimeType == Bill;
+
+    return Builder(
+      builder: (context) {
+        if (ispayment) {
+
+          return MouseRegion(
+            opaque: false,
+            cursor: MouseCursor.defer,
+            onEnter: ((event) async {
+              setState(() => mouseRegionHovered1 = true);
+              if (animationsMap['dividerOnActionTriggerAnimation1'] != null) {
+                await animationsMap['dividerOnActionTriggerAnimation1']!
+                    .controller
+                    .forward(from: 0.0);
+              }
+            }),
+            onExit: ((event) async {
+              setState(() => mouseRegionHovered1 = false);
+              if (animationsMap['dividerOnActionTriggerAnimation1'] != null) {
+                animationsMap['dividerOnActionTriggerAnimation1']!
+                    .controller
+                    .reset();
+              }
+            }),
+            child: Container(
+              width: double.infinity,
+              height: 52.0,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).accent1,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Row(mainAxisSize: MainAxisSize.max, children: [
+                    wspace(10),
+                    Expanded(
+                      flex: 2,
+                      child: Align(
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        child: Text(
+                          date.toString(),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Inter',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          refrenceno,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Inter',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          againstbill,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Inter',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: () {
+                                if (modeint == 1) {
+                                  return FlutterFlowTheme.of(context)
+                                      .customColor5;
+                                } else if (modeint == 2) {
+                                  return FlutterFlowTheme.of(context)
+                                      .customColor1;
+                                } else if (modeint == 3) {
+                                  return FlutterFlowTheme.of(context)
+                                      .customColor5;
+                                } else if (modeint == 4) {
+                                  return FlutterFlowTheme.of(context)
+                                      .customColor1;
+                                } else if (modeint == 5) {
+                                  return FlutterFlowTheme.of(context)
+                                      .customColor5;
+                                } else if (modeint == 6) {
+                                  return FlutterFlowTheme.of(context)
+                                      .customColor2;
+                                } else if (modeint == 7) {
+                                  return FlutterFlowTheme.of(context)
+                                      .customColor3;
+                                } else {
+                                  return const Color(0x00000000);
+                                }
+                              }(),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 6.0, 12.0, 6.0),
+                              child: Text(
+                                modeint.toString(),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: () {
+                                        if (modeint == 1) {
+                                          return FlutterFlowTheme.of(context)
+                                              .customColor4;
+                                        } else if (modeint == 2) {
+                                          return FlutterFlowTheme.of(context)
+                                              .accent2;
+                                        } else if (modeint == 3) {
+                                          return FlutterFlowTheme.of(context)
+                                              .customColor4;
+                                        } else if (modeint == 4) {
+                                          return FlutterFlowTheme.of(context)
+                                              .accent2;
+                                        } else if (modeint == 5) {
+                                          return FlutterFlowTheme.of(context)
+                                              .customColor4;
+                                        } else if (modeint == 6) {
+                                          return FlutterFlowTheme.of(context)
+                                              .accent3;
+                                        } else if (modeint == 7) {
+                                          return FlutterFlowTheme.of(context)
+                                              .accent4;
+                                        } else {
+                                          return const Color(0x00000000);
+                                        }
+                                      }(),
+                                      fontSize: 13.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Expanded(
+                      flex: 3,
+                      child: SizedBox(),
+                    ),
+                    Expanded(
+                      flex: 4,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          notes,
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Inter',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          '₹${debit.toString()}',
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Open Sans',
+                                    color: FlutterFlowTheme.of(context).accent2,
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    const Expanded(
+                      flex: 3,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [],
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.5, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 8.0),
+                          child: Container(
+                            height: 32.0,
+                            decoration: const BoxDecoration(),
+                            child: Builder(
+                              builder: (context) {
+                                if (mouseRegionHovered1) {
+                                  return MouseRegion(
+                                    opaque: false,
+                                    cursor: MouseCursor.defer,
+                                    onEnter: ((event) async {
+                                      setState(
+                                          () => mouseRegionHovered2 = true);
+                                    }),
+                                    onExit: ((event) async {
+                                      setState(
+                                          () => mouseRegionHovered2 = false);
+                                    }),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      elevation:
+                                          mouseRegionHovered2 ? 1.0 : 0.0,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: Container(
+                                        width: 80.0,
+                                        height: 40.0,
+                                        decoration: BoxDecoration(
+                                          color: mouseRegionHovered2
+                                              ? FlutterFlowTheme.of(context)
+                                                  .secondaryBackground
+                                              : FlutterFlowTheme.of(context)
+                                                  .accent1,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          border: Border.all(
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 0.0, 8.0, 0.0),
+                                              child: Icon(
+                                                Icons.remove_red_eye_rounded,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 16.0,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 0.0, 0.0, 1.0),
+                                              child: Text(
+                                                'View',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                } else {
+                                  return Container(
+                                    width: 94.0,
+                                    height: 40.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(24.0),
+                                    ),
+                                  );
+                                }
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    wspace(10),
+                  ]),
+                  Divider(
+                    height: 4.0,
+                    thickness: 1.0,
+                    indent: 8.0,
+                    endIndent: 8.0,
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ).animateOnActionTrigger(
+                    animationsMap['dividerOnActionTriggerAnimation1']!,
+                  ),
+                ],
+              ),
+            ),
+          );
+        } else {
+          return MouseRegion(
+            opaque: false,
+            cursor: MouseCursor.defer,
+            onEnter: ((event) async {
+              setState(() => mouseRegionHovered3 = true);
+              if (animationsMap['dividerOnActionTriggerAnimation2'] != null) {
+                await animationsMap['dividerOnActionTriggerAnimation2']!
+                    .controller
+                    .forward(from: 0.0);
+              }
+            }),
+            onExit: ((event) async {
+              setState(() => mouseRegionHovered3 = false);
+              if (animationsMap['dividerOnActionTriggerAnimation2'] != null) {
+                animationsMap['dividerOnActionTriggerAnimation2']!
+                    .controller
+                    .reset();
+              }
+            }),
+            child: Container(
+              width: double.infinity,
+              height: 52.0,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).accent1,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Align(
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          child: Text(
+                            date.toString(),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            refrenceno,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            againstbill,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: () {
+                                  if (modeint == 1) {
+                                    return FlutterFlowTheme.of(context)
+                                        .customColor5;
+                                  } else if (modeint == 2) {
+                                    return FlutterFlowTheme.of(context)
+                                        .customColor1;
+                                  } else if (modeint == 3) {
+                                    return FlutterFlowTheme.of(context)
+                                        .customColor5;
+                                  } else if (modeint == 4) {
+                                    return FlutterFlowTheme.of(context)
+                                        .customColor1;
+                                  } else if (modeint == 5) {
+                                    return FlutterFlowTheme.of(context)
+                                        .customColor5;
+                                  } else if (modeint == 6) {
+                                    return FlutterFlowTheme.of(context)
+                                        .customColor2;
+                                  } else if (modeint == 7) {
+                                    return FlutterFlowTheme.of(context)
+                                        .customColor3;
+                                  } else {
+                                    return const Color(0x00000000);
+                                  }
+                                }(),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 6.0, 12.0, 6.0),
+                                child: Text(
+                                  modeint.toString(),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: () {
+                                          if (modeint == 1) {
+                                            return FlutterFlowTheme.of(context)
+                                                .customColor4;
+                                          } else if (modeint == 2) {
+                                            return FlutterFlowTheme.of(context)
+                                                .accent2;
+                                          } else if (modeint == 3) {
+                                            return FlutterFlowTheme.of(context)
+                                                .customColor4;
+                                          } else if (modeint == 4) {
+                                            return FlutterFlowTheme.of(context)
+                                                .accent2;
+                                          } else if (modeint == 5) {
+                                            return FlutterFlowTheme.of(context)
+                                                .customColor4;
+                                          } else if (modeint == 6) {
+                                            return FlutterFlowTheme.of(context)
+                                                .accent3;
+                                          } else if (modeint == 7) {
+                                            return FlutterFlowTheme.of(context)
+                                                .accent4;
+                                          } else {
+                                            return const Color(0x00000000);
+                                          }
+                                        }(),
+                                        fontSize: 13.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: () {
+                                  if (modeint == 1) {
+                                    return FlutterFlowTheme.of(context)
+                                        .customColor1;
+                                  } else if (modeint == 2) {
+                                    return FlutterFlowTheme.of(context)
+                                        .customColor2;
+                                  } else if (modeint == 3) {
+                                    return FlutterFlowTheme.of(context)
+                                        .customColor3;
+                                  } else {
+                                    return const Color(0x00000000);
+                                  }
+                                }(),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 6.0, 12.0, 6.0),
+                                child: Text(
+                                  status.toString(),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: () {
+                                          if (modeint == 1) {
+                                            return FlutterFlowTheme.of(context)
+                                                .accent2;
+                                          } else if (modeint == 2) {
+                                            return FlutterFlowTheme.of(context)
+                                                .accent3;
+                                          } else if (modeint == 3) {
+                                            return FlutterFlowTheme.of(context)
+                                                .accent4;
+                                          } else {
+                                            return const Color(0x00000000);
+                                          }
+                                        }(),
+                                        fontSize: 13.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 4,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            notes,
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ),
+                      const Expanded(
+                        flex: 3,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                              '₹${credit.toString()}',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Open Sans',
+                                  color: FlutterFlowTheme.of(context).accent4,
+                                  fontSize: 18.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.5, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 8.0),
+                            child: Container(
+                              height: 32.0,
+                              decoration: const BoxDecoration(),
+                              child: Builder(
+                                builder: (context) {
+                                  if (mouseRegionHovered3 ?? false) {
+                                    return MouseRegion(
+                                      opaque: false,
+                                      cursor: MouseCursor.defer ??
+                                          MouseCursor.defer,
+                                      onEnter: ((event) async {
+                                        setState(
+                                            () => mouseRegionHovered4 = true);
+                                      }),
+                                      onExit: ((event) async {
+                                        setState(
+                                            () => mouseRegionHovered4 = false);
+                                      }),
+                                      child: Material(
+                                        color: Colors.transparent,
+                                        elevation:
+                                            mouseRegionHovered4 ? 1.0 : 0.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        child: Container(
+                                          width: 80.0,
+                                          height: 40.0,
+                                          decoration: BoxDecoration(
+                                            color: mouseRegionHovered4
+                                                ? FlutterFlowTheme.of(context)
+                                                    .secondaryBackground
+                                                : FlutterFlowTheme.of(context)
+                                                    .accent1,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0.0, 0.0, 8.0, 0.0),
+                                                child: Icon(
+                                                  Icons.remove_red_eye_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  size: 16.0,
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0.0, 0.0, 0.0, 1.0),
+                                                child: Text(
+                                                  'View',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  } else {
+                                    return Container(
+                                      width: 94.0,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(24.0),
+                                      ),
+                                    );
+                                  }
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ]
+                        .addToStart(const SizedBox(width: 16.0))
+                        .addToEnd(const SizedBox(width: 16.0)),
+                  ),
+                  Divider(
+                    height: 4.0,
+                    thickness: 1.0,
+                    indent: 8.0,
+                    endIndent: 8.0,
+                    color: FlutterFlowTheme.of(context).alternate,
+                  ).animateOnActionTrigger(
+                    animationsMap['dividerOnActionTriggerAnimation2']!,
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+      },
+    );
+  }
+}
+
 class _EditCustomerState extends State<EditCustomer>
     with TickerProviderStateMixin {
   TextEditingController namecon = TextEditingController(),
@@ -3648,6 +5337,28 @@ class _EditCustomerState extends State<EditCustomer>
       ),
     );
   }
+}
+
+class Ledger extends StatefulWidget {
+  Ledger(
+      {super.key,
+      required this.cusdata,
+      required this.billdata,
+      required this.paydata});
+  List<Customer> cusdata;
+  List<Bill> billdata;
+  List<Payment> paydata;
+
+  @override
+  State<Ledger> createState() => _LedgerState();
+}
+
+class ListLedger extends StatefulWidget {
+  ListLedger({super.key, required this.ledger});
+  dynamic ledger;
+
+  @override
+  State<ListLedger> createState() => _ListLedgerState();
 }
 
 class AddCustomer extends StatefulWidget {
