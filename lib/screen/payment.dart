@@ -28,7 +28,7 @@ class PaymentInPage extends StatelessWidget {
       required this.paydata});
   List<Bill> bildata;
   List<Customer> cusdata;
-  List<PaymentIn> paydata;
+  List<Payment> paydata;
   int page;
 
   @override
@@ -258,7 +258,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                     }
                                   } else {
                                     BillHelper().addpayment(
-                                      PaymentIn(
+                                      Payment(
                                         invoiceid: billno.value!.id!,
                                         customerid: namecon.value!.id!,
                                         amount: double.parse(
@@ -270,6 +270,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                                 amountadjustmentcon.text) ??
                                             0,
                                         notes: notescon.text,
+                                        isin: true
                                       ),
                                     );
                                     toastification.show(
@@ -1085,8 +1086,8 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
 
   @override
   Widget build(BuildContext context) {
-    List<PaymentIn> data = widget.paydata;
-    List<PaymentIn> payments = [];
+    List<Payment> data = widget.paydata;
+    List<Payment> payments = [];
     payments = data.where((pro) {
       return true;
     }).toList();
@@ -1423,7 +1424,7 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
                 scrollDirection: Axis.vertical,
                 itemCount: payments.length,
                 itemBuilder: (context, index) {
-                  PaymentIn paymentin = payments[index];
+                  Payment paymentin = payments[index];
                   return PaymentInList(
                     paymentin: paymentin,
                     cusdata: widget.cusdata,
@@ -1440,7 +1441,7 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
 
 class _PaymentInListState extends State<PaymentInList> {
   bool mouseRegionHovered1 = false, mouseRegionHovered2 = false;
-  late PaymentIn paymentin;
+  late Payment paymentin;
   String name = '';
 
   @override
@@ -3065,7 +3066,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
 class ViewPaymentIn extends StatefulWidget {
   ViewPaymentIn({super.key, required this.paydata, required this.cusdata});
   List<Customer> cusdata;
-  List<PaymentIn> paydata;
+  List<Payment> paydata;
 
   @override
   State<ViewPaymentIn> createState() => _ViewPaymentInState();
@@ -3074,7 +3075,7 @@ class ViewPaymentIn extends StatefulWidget {
 class PaymentInList extends StatefulWidget {
   PaymentInList({super.key, required this.paymentin, required this.cusdata});
   List<Customer> cusdata;
-  PaymentIn paymentin;
+  Payment paymentin;
 
   @override
   State<PaymentInList> createState() => _PaymentInListState();
