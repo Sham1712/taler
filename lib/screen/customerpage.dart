@@ -2165,6 +2165,12 @@ class _LedgerState extends State<Ledger> {
   DateTime datePicked1 = DateTime.now(), datePicked2 = DateTime.now();
 
   @override
+  void initState() {
+    super.initState();
+    //namecon = SingleSelectController<Customer>(null);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
@@ -2991,13 +2997,13 @@ class _LedgerState extends State<Ledger> {
                   List<dynamic> legers = [];
 
                   widget.billdata.forEach((bill) {
-                    if (bill.customerid == namecon.value!.id) {
+                    if (bill.customerid == (namecon.value ?? widget.cusdata[0]).id) {
                       legers.add(bill);
                     }
                   });
 
                   widget.paydata.forEach((pay) {
-                    if (pay.customerid == namecon.value!.id) {
+                    if (pay.customerid == (namecon.value ?? widget.cusdata[0]).id) {
                       legers.add(pay);
                     }
                   });
@@ -3030,9 +3036,9 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
       ispayment = false;
 
   DateTime date = DateTime.now();
-  late String refrenceno, againstbill, notes;
-  late int modeint, status;
-  late double debit, credit;
+  //late String refrenceno, againstbill, notes;
+  //late int modeint, status;
+  //late double debit, credit;
   final animationsMap = <String, AnimationInfo>{};
 
   @override
@@ -3076,12 +3082,13 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    ispayment = widget.ledger.runtimeType == Bill;
+    ispayment = widget.ledger.runtimeType == Payment;
 
     return Builder(
       builder: (context) {
         if (ispayment) {
-
+          Payment pay = (widget.ledger as Payment);
+          int modeint = 0;
           return MouseRegion(
             opaque: false,
             cursor: MouseCursor.defer,
@@ -3134,7 +3141,7 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          refrenceno,
+                          pay.id ?? '',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
@@ -3151,7 +3158,7 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          againstbill,
+                          pay.invoiceid ?? '',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
@@ -3253,7 +3260,7 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          notes,
+                          pay.notes ?? '',
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -3271,7 +3278,7 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          '₹${debit.toString()}',
+                          '₹${pay.amount}',
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -3414,6 +3421,9 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
             ),
           );
         } else {
+          Bill bill = (widget.ledger as Bill);
+          int modeint = 0;
+          String status = 'paid';
           return MouseRegion(
             opaque: false,
             cursor: MouseCursor.defer,
@@ -3468,7 +3478,7 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                         child: Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Text(
-                            refrenceno,
+                            bill.id ?? '',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -3486,7 +3496,7 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                         child: Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Text(
-                            againstbill,
+                            bill.id ?? '',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -3608,7 +3618,7 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     12.0, 6.0, 12.0, 6.0),
                                 child: Text(
-                                  status.toString(),
+                                  status,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -3642,7 +3652,7 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                         child: Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Text(
-                            notes,
+                            bill.reference ?? '',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -3668,7 +3678,7 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                         child: Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Text(
-                              '₹${credit.toString()}',
+                              '₹${bill.total}',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
