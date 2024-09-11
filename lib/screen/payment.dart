@@ -47,6 +47,22 @@ class PaymentInPage extends StatelessWidget {
   }
 }
 
+List<String> types = ['Net Banking', 'Cheque', 'Cash', 'UPI', 'Card'];
+List<Color> ticlr(context) => [
+      FlutterFlowTheme.of(context).customColor4,
+      FlutterFlowTheme.of(context).accent2,
+      FlutterFlowTheme.of(context).customColor4,
+      FlutterFlowTheme.of(context).accent2,
+      FlutterFlowTheme.of(context).customColor4,
+    ];
+List<Color> toclr(context) => [
+      FlutterFlowTheme.of(context).customColor5,
+      FlutterFlowTheme.of(context).customColor1,
+      FlutterFlowTheme.of(context).customColor5,
+      FlutterFlowTheme.of(context).customColor1,
+      FlutterFlowTheme.of(context).customColor5,
+    ];
+
 class _AddPaymentInState extends State<AddPaymentIn>
     with TickerProviderStateMixin {
   TextEditingController amountreceivedcon = TextEditingController(),
@@ -70,8 +86,6 @@ class _AddPaymentInState extends State<AddPaymentIn>
       SingleSelectController<Customer>(null);
   SingleSelectController<Bill> billno = SingleSelectController<Bill>(null);
   SingleSelectController<String> bankcon = SingleSelectController<String>(null);
-
-  List<String> types = ['Net Banking', 'Cheque', 'Cash', 'UPI', 'Card'];
 
   @override
   void initState() {
@@ -259,19 +273,18 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                   } else {
                                     BillHelper().addpayment(
                                       Payment(
-                                        invoiceid: billno.value!.id!,
-                                        customerid: namecon.value!.id!,
-                                        amount: double.parse(
-                                            amountreceivedcon.text),
-                                        date: datePicked,
-                                        mode: types[type],
-                                        bank: bankcon.value ?? '',
-                                        billadjamount: double.tryParse(
-                                                amountadjustmentcon.text) ??
-                                            0,
-                                        notes: notescon.text,
-                                        isin: true
-                                      ),
+                                          invoiceid: billno.value!.id!,
+                                          customerid: namecon.value!.id!,
+                                          amount: double.parse(
+                                              amountreceivedcon.text),
+                                          date: datePicked,
+                                          mode: types[type],
+                                          bank: bankcon.value ?? '',
+                                          billadjamount: double.tryParse(
+                                                  amountadjustmentcon.text) ??
+                                              0,
+                                          notes: notescon.text,
+                                          isin: true),
                                     );
                                     toastification.show(
                                       context: context,
@@ -1410,7 +1423,9 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
                           ),
                         ),
                       ),
-                    ].addToStart(const SizedBox(width: 16.0)).divide(wspace(10.w)),
+                    ]
+                        .addToStart(const SizedBox(width: 16.0))
+                        .divide(wspace(10.w)),
                   ),
                 ),
               ),

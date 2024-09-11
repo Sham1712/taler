@@ -82,13 +82,12 @@ class GetUser extends StatelessWidget {
                             if (snapshot.connectionState == ConnectionState.done) {
                               if (snapshot.hasData) {
                                 if(snapshot.data!.name.isNotEmpty) {
-                                  return const Invoice();
+                                  return const Home();
                                 }
                                 return const Company();
                               }
-
                             }
-                            return Loading();
+                            return const Loading();
                           } else {
                             return Errored(error: '${snapshot.error}1');
                           }
