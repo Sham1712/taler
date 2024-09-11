@@ -9,6 +9,7 @@ import 'package:taler/constant/functions.dart';
 import 'package:taler/flutter_flow/flutter_flow_util.dart';
 import 'package:taler/object/customer.dart';
 import 'package:taler/object/paymentin.dart';
+import 'package:taler/screen/payment.dart';
 import 'package:taler/service/billHelper.dart';
 import 'package:toastification/toastification.dart';
 
@@ -2162,7 +2163,7 @@ class _LedgerState extends State<Ledger> {
 
   double totalcredit = 0, totaldebit = 0, standingbalance = 0;
   int active = 0;
-  DateTime datePicked1 = DateTime.now(), datePicked2 = DateTime.now();
+  DateTime? datePicked1, datePicked2;
 
   @override
   void initState() {
@@ -2244,14 +2245,13 @@ class _LedgerState extends State<Ledger> {
                               child: TextFormField(
                                 controller: textController1,
                                 focusNode: textFieldFocusNode1,
-                                onFieldSubmitted: (_) async {
+                                onTap: () async {
                                   final _datePicked1Date = await showDatePicker(
                                     context: context,
                                     initialDate: getCurrentTimestamp,
-                                    firstDate: DateTime(1900),
-                                    lastDate: DateTime(2050),
+                                    firstDate: DateTime(2010),
+                                    lastDate: DateTime(2100),
                                   );
-
                                   if (_datePicked1Date != null) {
                                     safeSetState(() {
                                       datePicked1 = DateTime(
@@ -2261,6 +2261,7 @@ class _LedgerState extends State<Ledger> {
                                       );
                                     });
                                   }
+                                  textController1.text = DateFormat('dd-MM-yyyy').format(datePicked1!);
                                 },
                                 autofocus: true,
                                 readOnly: true,
@@ -2317,12 +2318,12 @@ class _LedgerState extends State<Ledger> {
                               child: TextFormField(
                                 controller: textController2,
                                 focusNode: textFieldFocusNode2,
-                                onFieldSubmitted: (_) async {
+                                onTap: () async {
                                   final _datePicked2Date = await showDatePicker(
                                     context: context,
                                     initialDate: getCurrentTimestamp,
-                                    firstDate: DateTime(1900),
-                                    lastDate: DateTime(2050),
+                                    firstDate: DateTime(2010),
+                                    lastDate: DateTime(2100),
                                   );
 
                                   if (_datePicked2Date != null) {
@@ -2334,6 +2335,7 @@ class _LedgerState extends State<Ledger> {
                                       );
                                     });
                                   }
+                                  textController2.text = DateFormat('dd-MM-yyyy').format(datePicked2!);
                                 },
                                 autofocus: true,
                                 readOnly: true,
@@ -2377,6 +2379,11 @@ class _LedgerState extends State<Ledger> {
                               ),
                             ),
                             InkWell(
+                              onTap: (){
+                                setState(() {
+
+                                });
+                              },
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
                               hoverColor: Colors.transparent,
@@ -2394,7 +2401,7 @@ class _LedgerState extends State<Ledger> {
                   ),
                   FFButtonWidget(
                     onPressed: () {
-                      ;
+
                     },
                     text: 'Sort By',
                     icon: Icon(
@@ -2793,6 +2800,7 @@ class _LedgerState extends State<Ledger> {
                     .addToEnd(const SizedBox(width: 8.0)),
               ),
             ),
+
             Flexible(
               child: Padding(
                 padding:
@@ -3008,6 +3016,16 @@ class _LedgerState extends State<Ledger> {
                     }
                   });
 
+                  for (int i=0;i<legers.length;i++) {
+                    dynamic leg = legers[i];
+                    if(datePicked1!=null && leg.date.isBefore(datePicked1!)){
+                      legers.remove(leg);
+                    }
+                    if(datePicked2!=null && leg.date.isAfter(datePicked2!)){
+                      legers.remove(leg);
+                    }
+                  }
+
                   return ListView.builder(
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
@@ -3015,7 +3033,7 @@ class _LedgerState extends State<Ledger> {
                     itemCount: legers.length,
                     itemBuilder: (context, index) {
                       dynamic leger = legers[index];
-                      return ListLedger(ledger: leger);
+                      return ListLedger(ledger: leger,paydata: widget.paydata,);
                     },
                   );
                 },
@@ -3036,9 +3054,6 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
       ispayment = false;
 
   DateTime date = DateTime.now();
-  //late String refrenceno, againstbill, notes;
-  //late int modeint, status;
-  //late double debit, credit;
   final animationsMap = <String, AnimationInfo>{};
 
   @override
@@ -3088,7 +3103,8 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
       builder: (context) {
         if (ispayment) {
           Payment pay = (widget.ledger as Payment);
-          int modeint = 0;
+          int modeint = types.indexOf(pay.mode) ;
+
           return MouseRegion(
             opaque: false,
             cursor: MouseCursor.defer,
@@ -3124,7 +3140,7 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                       child: Align(
                         alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Text(
-                          date.toString(),
+                          DateFormat('dd-MM-yyyy').format(pay.date),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
@@ -3178,69 +3194,19 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              color: () {
-                                if (modeint == 1) {
-                                  return FlutterFlowTheme.of(context)
-                                      .customColor5;
-                                } else if (modeint == 2) {
-                                  return FlutterFlowTheme.of(context)
-                                      .customColor1;
-                                } else if (modeint == 3) {
-                                  return FlutterFlowTheme.of(context)
-                                      .customColor5;
-                                } else if (modeint == 4) {
-                                  return FlutterFlowTheme.of(context)
-                                      .customColor1;
-                                } else if (modeint == 5) {
-                                  return FlutterFlowTheme.of(context)
-                                      .customColor5;
-                                } else if (modeint == 6) {
-                                  return FlutterFlowTheme.of(context)
-                                      .customColor2;
-                                } else if (modeint == 7) {
-                                  return FlutterFlowTheme.of(context)
-                                      .customColor3;
-                                } else {
-                                  return const Color(0x00000000);
-                                }
-                              }(),
+                              color: toclr(context)[modeint],
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 6.0, 12.0, 6.0),
                               child: Text(
-                                modeint.toString(),
+                                pay.mode,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      color: () {
-                                        if (modeint == 1) {
-                                          return FlutterFlowTheme.of(context)
-                                              .customColor4;
-                                        } else if (modeint == 2) {
-                                          return FlutterFlowTheme.of(context)
-                                              .accent2;
-                                        } else if (modeint == 3) {
-                                          return FlutterFlowTheme.of(context)
-                                              .customColor4;
-                                        } else if (modeint == 4) {
-                                          return FlutterFlowTheme.of(context)
-                                              .accent2;
-                                        } else if (modeint == 5) {
-                                          return FlutterFlowTheme.of(context)
-                                              .customColor4;
-                                        } else if (modeint == 6) {
-                                          return FlutterFlowTheme.of(context)
-                                              .accent3;
-                                        } else if (modeint == 7) {
-                                          return FlutterFlowTheme.of(context)
-                                              .accent4;
-                                        } else {
-                                          return const Color(0x00000000);
-                                        }
-                                      }(),
+                                      color: ticlr(context)[modeint],
                                       fontSize: 13.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
@@ -3422,8 +3388,22 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
           );
         } else {
           Bill bill = (widget.ledger as Bill);
-          int modeint = 0;
-          String status = 'paid';
+          int modeint = 1;
+          String status = 'unpaid';
+
+          double sum = 0;
+          widget.paydata.forEach((pay){
+            if(pay.invoiceid==bill.id && pay.isin){
+              sum+=pay.amount;
+            }
+          });
+
+          if(sum>0){
+            status = 'Active';
+          } else if(bill.total==sum){
+            status = 'Paid';
+          }
+
           return MouseRegion(
             opaque: false,
             cursor: MouseCursor.defer,
@@ -3460,7 +3440,7 @@ class _ListLedgerState extends State<ListLedger> with TickerProviderStateMixin {
                         child: Align(
                           alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Text(
-                            date.toString(),
+                            DateFormat('dd-MM-yyyy').format(bill.date),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -5364,8 +5344,9 @@ class Ledger extends StatefulWidget {
 }
 
 class ListLedger extends StatefulWidget {
-  ListLedger({super.key, required this.ledger});
+  ListLedger({super.key, required this.ledger,required this.paydata});
   dynamic ledger;
+  List<Payment> paydata;
 
   @override
   State<ListLedger> createState() => _ListLedgerState();
