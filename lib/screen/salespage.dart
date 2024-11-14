@@ -41,14 +41,14 @@ class _ViewSalesState extends State<ViewSales> {
       return true;
     }).toList();
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(8.w, 8.h, 8.h, 8.w),
+      padding: EdgeInsetsDirectional.fromSTEB(8.w, 8.h, 8.w, 8.h),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(16.0),
-            bottomRight: Radius.circular(16.0),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(10.r),
+            bottomRight: Radius.circular(10.r),
             topLeft: Radius.circular(0.0),
             topRight: Radius.circular(0.0),
           ),
@@ -114,7 +114,7 @@ class _ViewSalesState extends State<ViewSales> {
                                     FlutterFlowTheme.of(context).alternate,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -122,21 +122,21 @@ class _ViewSalesState extends State<ViewSales> {
                                     FlutterFlowTheme.of(context).alternate,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
@@ -174,7 +174,7 @@ class _ViewSalesState extends State<ViewSales> {
                         size: 14.sp,
                       ),
                       options: FFButtonOptions(
-                        height: 50.0,
+                        height: 32.sp,
                         padding: EdgeInsetsDirectional.fromSTEB(
                             8.w, 0.0, 8.w, 0.0),
                         iconPadding:
@@ -192,157 +192,157 @@ class _ViewSalesState extends State<ViewSales> {
                           color: FlutterFlowTheme.of(context).alternate,
                           width: 1.5,
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(5.r),
                       ),
                     ),
                   ),
                 ]
-                    .addToStart(const SizedBox(width: 16.0))
-                    .addToEnd(const SizedBox(width: 16.0)),
-              ),
-            ),
-            Flexible(
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.w, 8.h, 8.w, 0.0),
-                child: Container(
-                  width: double.infinity,
-                  height: 28.h,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondary,
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(0.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(8.0),
-                      topRight: Radius.circular(8.0),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          'Date',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                            fontFamily: 'Outfit',
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            fontSize: 11.sp,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          'Invoice No.',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                            fontFamily: 'Outfit',
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            fontSize: 11.sp,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              4.w, 0.0, 0.0, 0.0),
-                          child: Text(
-                            'Name',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Inter',
-                              color:
-                              FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 11.sp,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Bill Amount',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).primary,
-                              fontSize: 11.sp,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Status',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).primary,
-                              fontSize: 11.sp,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Actions',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).primary,
-                              fontSize: 11.sp,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ].addToStart(const SizedBox(width: 16.0)),
-                  ),
-                ),
+                    .addToStart(SizedBox(width: 10.w))
+                    .addToEnd(SizedBox(width: 10.w)),
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(8.w, 0.0, 8.w, 0.0),
-              child: Builder(
-                builder: (context) {
-                  return ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: bills.length,
-                    itemBuilder: (context, index) {
-                      Bill bill = bills[index];
-                      return SalesList(bill: bill);
-                    },
-                  );
-                },
+              padding: EdgeInsetsDirectional.fromSTEB(8.w, 8.h, 8.w, 0.0),
+              child: Container(
+                width: double.infinity,
+                height: 28.h,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondary,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(0.0),
+                    bottomRight: Radius.circular(0.0),
+                    topLeft: Radius.circular(5.r),
+                    topRight: Radius.circular(5.r),
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'Date',
+                        style: FlutterFlowTheme.of(context)
+                            .bodyMedium
+                            .override(
+                          fontFamily: 'Outfit',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          fontSize: 11.sp,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'Invoice No.',
+                        style: FlutterFlowTheme.of(context)
+                            .bodyMedium
+                            .override(
+                          fontFamily: 'Outfit',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          fontSize: 11.sp,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            4.w, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'Name',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                            fontFamily: 'Inter',
+                            color:
+                            FlutterFlowTheme.of(context).primaryText,
+                            fontSize: 11.sp,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Bill Amount',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context).primary,
+                            fontSize: 11.sp,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Status',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context).primary,
+                            fontSize: 11.sp,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Actions',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context).primary,
+                            fontSize: 11.sp,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ].addToStart(SizedBox(width: 10.w)),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(8.w, 0.0, 8.w, 0.0),
+                child: Builder(
+                  builder: (context) {
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: bills.length,
+                      itemBuilder: (context, index) {
+                        Bill bill = bills[index];
+                        return SalesList(bill: bill);
+                      },
+                    );
+                  },
+                ),
               ),
             ),
           ],
@@ -549,7 +549,7 @@ class _SalesListState extends State<SalesList> {
                                     elevation:
                                     mouseRegionHovered2 ? 1.0 : 0.0,
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(24.0),
+                                      borderRadius: BorderRadius.circular(16.r),
                                     ),
                                     child: Container(
                                       width: double.infinity,
@@ -561,7 +561,7 @@ class _SalesListState extends State<SalesList> {
                                             : FlutterFlowTheme.of(context)
                                             .secondary,
                                         borderRadius:
-                                        BorderRadius.circular(24.0),
+                                        BorderRadius.circular(16.r),
                                         border: Border.all(
                                           color: mouseRegionHovered2
                                               ? FlutterFlowTheme.of(context)
@@ -626,7 +626,7 @@ class _SalesListState extends State<SalesList> {
                                     width: double.infinity,
                                     height: double.infinity,
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(24.0),
+                                      borderRadius: BorderRadius.circular(16.r),
                                     ),
                                   ),
                                 );
@@ -658,7 +658,7 @@ class _SalesListState extends State<SalesList> {
                                   elevation:
                                   mouseRegionHovered3 ? 1.0 : 0.0,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(24.0),
+                                    borderRadius: BorderRadius.circular(16.r),
                                   ),
                                   child: Container(
                                     width: double.infinity,
@@ -669,7 +669,7 @@ class _SalesListState extends State<SalesList> {
                                           .primary
                                           : FlutterFlowTheme.of(context)
                                           .secondary,
-                                      borderRadius: BorderRadius.circular(24.0),
+                                      borderRadius: BorderRadius.circular(16.r),
                                       border: Border.all(
                                         color: mouseRegionHovered3
                                             ? FlutterFlowTheme.of(context)
@@ -747,7 +747,7 @@ class _SalesListState extends State<SalesList> {
                                   width: double.infinity,
                                   height: double.infinity,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(24.0),
+                                    borderRadius: BorderRadius.circular(16.r),
                                   ),
                                 ),
                               );
@@ -767,11 +767,11 @@ class _SalesListState extends State<SalesList> {
                         ),
                       ),
                     ),
-                  ].addToStart(const SizedBox(width: 24.0)),
+                  ].addToStart(SizedBox(width: 16.w)),
                 ),
               ),
             ),
-          ].addToStart(const SizedBox(width: 16.0)),
+          ].addToStart(SizedBox(width: 10.w)),
         ),
       ),
     );

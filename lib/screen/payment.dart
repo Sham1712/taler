@@ -176,7 +176,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
     return Dialog(
       insetPadding: EdgeInsets.symmetric(horizontal: 40.w),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(12.r),
       ),
       child: Container(
         width: double.infinity,
@@ -189,8 +189,8 @@ class _AddPaymentInState extends State<AddPaymentIn>
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(
-                    16.0, 16.0, 16.0, 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    10.w, 10.h, 10.w, 10.h),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(),
@@ -198,8 +198,8 @@ class _AddPaymentInState extends State<AddPaymentIn>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 0.0, 0.0, 16.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 0.0, 10.h),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -243,8 +243,8 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                         const AlignmentDirectional(-1.0, -1.0),
                                     child: Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 4.0, 0.0, 16.0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 1.h, 0.0, 10.h),
                                       child: Text(
                                         'Note: A payment-in is processed for every bill.',
                                         style: FlutterFlowTheme.of(context)
@@ -339,11 +339,11 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                       primaryColor: Colors.green,
                                       backgroundColor: Colors.white,
                                       foregroundColor: Colors.black,
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 12, vertical: 16),
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 12, vertical: 8),
-                                      borderRadius: BorderRadius.circular(12),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 8.w, vertical: 10.h),
+                                      margin: EdgeInsets.symmetric(
+                                          horizontal: 8.w, vertical: 4.h),
+                                      borderRadius: BorderRadius.circular(8.r),
                                       boxShadow: const [
                                         BoxShadow(
                                           color: Color(0x07000000),
@@ -373,9 +373,9 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                 },
                                 text: 'Add Payment',
                                 options: FFButtonOptions(
-                                  height: 44.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
+                                  height: 20.sp,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.w, 0.0, 16.w, 0.0),
                                   iconPadding:
                                       const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
@@ -395,7 +395,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                         .primaryText,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                   hoverColor:
                                       FlutterFlowTheme.of(context).primaryText,
                                   hoverBorderSide: BorderSide(
@@ -412,8 +412,8 @@ class _AddPaymentInState extends State<AddPaymentIn>
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 0.0, 0.0, 8.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 0.0, 4.h),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -459,7 +459,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                     ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                       ),
                       Row(
@@ -469,11 +469,11 @@ class _AddPaymentInState extends State<AddPaymentIn>
                             flex: 5,
                             child: Container(
                               decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(8.0),
+                                  bottomRight: Radius.circular(5.r),
                                   topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(8.0),
+                                  topRight: Radius.circular(5.r),
                                 ),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(
@@ -481,10 +481,10 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                   ).secondary,
                                 ),
                               ),
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 4.0, 0.0, 8.0),
-                              margin: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 10.0, 10.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 1.h, 0.0, 4.h),
+                              margin: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 5.w, 5.h),
                               child: CustomDropdown<Customer>.search(
                                 decoration: CustomDropdownDecoration(
                                   expandedBorder: Border.all(
@@ -513,11 +513,11 @@ class _AddPaymentInState extends State<AddPaymentIn>
                             flex: 2,
                             child: Container(
                               decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(8.0),
+                                  bottomRight: Radius.circular(5.r),
                                   topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(8.0),
+                                  topRight: Radius.circular(5.r),
                                 ),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(
@@ -525,10 +525,10 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                   ).secondary,
                                 ),
                               ),
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 4.0, 0.0, 8.0),
-                              margin: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 10.0, 10.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 1.h, 0.0, 4.h),
+                              margin: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 5.w, 5.w),
                               child: CustomDropdown<Bill>.search(
                                 decoration: CustomDropdownDecoration(
                                   expandedBorder: Border.all(
@@ -554,19 +554,19 @@ class _AddPaymentInState extends State<AddPaymentIn>
                             flex: 2,
                             child: Container(
                               width: double.infinity,
-                              height: 48.0,
+                              height: 36.h,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(5.r),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context).alternate,
                                   width: 1.0,
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    6.0, 0.0, 6.0, 0.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    2.w, 0.0, 2.w, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -623,7 +623,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                         Icons.calendar_month_rounded,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24.0,
+                                        size: 12.sp,
                                       ),
                                     ),
                                   ],
@@ -631,11 +631,11 @@ class _AddPaymentInState extends State<AddPaymentIn>
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 24.0)),
+                        ].divide(SizedBox(width: 16.w)),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 16.0, 0.0, 8.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 10.h, 0.0, 4.h),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -674,7 +674,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                 children: [],
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                       ),
                       Row(
@@ -720,7 +720,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                         FlutterFlowTheme.of(context).alternate,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -728,28 +728,28 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                         .secondaryText,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 contentPadding:
-                                    const EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 0.0, 0.0),
+                                    EdgeInsetsDirectional.fromSTEB(
+                                        16.w, 0.0, 0.0, 0.0),
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -768,12 +768,12 @@ class _AddPaymentInState extends State<AddPaymentIn>
                             flex: 2,
                             child: Container(
                               width: double.infinity,
-                              height: 48.0,
+                              height: 28.h,
                               decoration: const BoxDecoration(),
                               child: // Generated code for this Row Widget...
                                   Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 4.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 2.h, 0.0, 2.h),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children:
@@ -796,7 +796,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                               : FlutterFlowTheme.of(context)
                                                   .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(5.r),
                                           shape: BoxShape.rectangle,
                                           border: Border.all(
                                             color: index == type
@@ -808,8 +808,8 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsetsDirectional
-                                              .fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                          padding: EdgeInsetsDirectional
+                                              .fromSTEB(8.w, 0.0, 8.w, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -818,16 +818,16 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                               if (index == type)
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(
-                                                          0.0, 0.0, 8.0, 0.0),
+                                                          0.0, 0.0, 4.w, 0.0),
                                                   child: FaIcon(
                                                     FontAwesomeIcons
                                                         .circleCheck,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    size: 14.0,
+                                                    size: 9.sp,
                                                   ),
                                                 ),
                                               Align(
@@ -836,9 +836,9 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                                         0.0, 0.0),
                                                 child: Padding(
                                                   padding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(
-                                                          0.0, 4.0, 0.0, 4.0),
+                                                          0.0, 2.h, 0.0, 2.h),
                                                   child: Text(
                                                     modeItem,
                                                     style: FlutterFlowTheme.of(
@@ -856,8 +856,8 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                                                   .secondaryText,
                                                           fontSize:
                                                               index == type
-                                                                  ? 13.0
-                                                                  : 12.0,
+                                                                  ? 7.sp
+                                                                  : 8.sp,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -870,7 +870,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                         ),
                                       ),
                                     );
-                                  }).divide(const SizedBox(width: 16.0)),
+                                  }).divide(SizedBox(width: 10.w)),
                                 ),
                               ),
                             ),
@@ -882,11 +882,11 @@ class _AddPaymentInState extends State<AddPaymentIn>
                               children: [],
                             ),
                           ),
-                        ].divide(const SizedBox(width: 24.0)),
+                        ].divide(SizedBox(width: 16.w)),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 16.0, 0.0, 8.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 10.h, 0.0, 4.h),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -932,7 +932,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                     ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                       ),
                       Row(
@@ -944,7 +944,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                             child: Container(
                               decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).accent1,
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(5.r),
                                   border: Border.all(
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
@@ -954,7 +954,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                 horizontal: 5.w,
                               ),
                               child: DropdownButton(
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(5.r),
                                 underline: const SizedBox(),
                                 //value: '',
 
@@ -1011,28 +1011,28 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                         FlutterFlowTheme.of(context).alternate,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).primary,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 filled: true,
                               ),
@@ -1072,28 +1072,28 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                         FlutterFlowTheme.of(context).alternate,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).primary,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 filled: true,
                               ),
@@ -1105,7 +1105,7 @@ class _AddPaymentInState extends State<AddPaymentIn>
                                   ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 24.0)),
+                        ].divide(SizedBox(width: 16.w)),
                       ),
                     ],
                   ),
@@ -1131,14 +1131,14 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
       return pro.isin;
     }).toList();
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(10.sp),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(16.0),
-            bottomRight: Radius.circular(16.0),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(10.r),
+            bottomRight: Radius.circular(10.r),
             topLeft: Radius.circular(0.0),
             topRight: Radius.circular(0.0),
           ),
@@ -1149,7 +1149,7 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
           children: [
             Padding(
               padding:
-                  const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  EdgeInsetsDirectional.fromSTEB(0.0, 10.h, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -1169,8 +1169,8 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
                     child: Align(
                       alignment: const AlignmentDirectional(1.0, 0.0),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 0.0, 8.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 4.w, 0.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.3,
                           decoration: BoxDecoration(
@@ -1179,8 +1179,8 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
                             borderRadius: BorderRadius.circular(0.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 4.w, 0.0),
                             child: TextFormField(
                               controller: textController,
                               focusNode: textFieldFocusNode,
@@ -1206,7 +1206,7 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
                                         FlutterFlowTheme.of(context).alternate,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -1214,21 +1214,21 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
                                         FlutterFlowTheme.of(context).alternate,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
@@ -1259,14 +1259,14 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
                       icon: Icon(
                         Icons.filter_list_rounded,
                         color: FlutterFlowTheme.of(context).primaryText,
-                        size: 20.0,
+                        size: 12.sp,
                       ),
                       options: FFButtonOptions(
-                        height: 50.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 0.0, 4.0, 0.0),
+                        height: 32.h,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.w, 0.0, 10.w, 0.0),
+                        iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 1.w, 0.0),
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         textStyle: FlutterFlowTheme.of(context)
                             .titleSmall
@@ -1280,15 +1280,15 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
                           color: FlutterFlowTheme.of(context).alternate,
                           width: 1.5,
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(5.r),
                       ),
                     ),
                   ),
                   Align(
                     alignment: const AlignmentDirectional(2.0, 0.0),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
-                          16.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.w, 0.0, 0.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () {
                           showDialog(
@@ -1304,14 +1304,14 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
                         icon: Icon(
                           Icons.add_box,
                           color: FlutterFlowTheme.of(context).accent1,
-                          size: 20.0,
+                          size: 12.sp,
                         ),
                         options: FFButtonOptions(
-                          height: 50.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 4.0, 0.0),
+                          height: 32.sp,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.w, 0.0, 10.w, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 1.h, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
@@ -1324,7 +1324,7 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
                             color: FlutterFlowTheme.of(context).primary,
                             width: 1.5,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(5.r),
                           hoverColor: FlutterFlowTheme.of(context).primary,
                           hoverBorderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).primary,
@@ -1337,149 +1337,149 @@ class _ViewPaymentInState extends State<ViewPaymentIn> {
                     ),
                   ),
                 ]
-                    .addToStart(const SizedBox(width: 16.0))
-                    .addToEnd(const SizedBox(width: 16.0)),
-              ),
-            ),
-            Flexible(
-              child: Padding(
-                padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-                child: Container(
-                  width: MediaQuery.sizeOf(context).width * 0.99,
-                  height: MediaQuery.sizeOf(context).height * 0.06,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondary,
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(0.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(8.0),
-                      topRight: Radius.circular(8.0),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          'Date',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 11.sp,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          'Invoice No.',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 11.sp,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 4,
-                        child: Text(
-                          'Customer',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 11.sp,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Amount',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  fontSize: 12.sp,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Mode',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  fontSize: 11.sp,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Actions',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  fontSize: 11.sp,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ),
-                    ]
-                        .addToStart(const SizedBox(width: 16.0))
-                        .divide(wspace(10.w)),
-                  ),
-                ),
+                    .addToStart(SizedBox(width: 10.w))
+                    .addToEnd(SizedBox(width: 10.w)),
               ),
             ),
             Padding(
               padding:
-                  const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-              child: ListView.builder(
-                padding: EdgeInsets.zero,
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemCount: payments.length,
-                itemBuilder: (context, index) {
-                  Payment paymentin = payments[index];
-                  return PaymentInList(
-                    paymentin: paymentin,
-                    cusdata: widget.cusdata,
-                  );
-                },
+                  EdgeInsetsDirectional.fromSTEB(10.w, 10.h, 10.w, 0.0),
+              child: Container(
+                width: MediaQuery.sizeOf(context).width * 0.99,
+                height: MediaQuery.sizeOf(context).height * 0.06,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondary,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(0.0),
+                    bottomRight: Radius.circular(0.0),
+                    topLeft: Radius.circular(5.r),
+                    topRight: Radius.circular(5.r),
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'Date',
+                        style: FlutterFlowTheme.of(context)
+                            .bodyMedium
+                            .override(
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 11.sp,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'Invoice No.',
+                        style: FlutterFlowTheme.of(context)
+                            .bodyMedium
+                            .override(
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 11.sp,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        'Customer',
+                        style: FlutterFlowTheme.of(context)
+                            .bodyMedium
+                            .override(
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 11.sp,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Amount',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primary,
+                                fontSize: 12.sp,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Mode',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primary,
+                                fontSize: 11.sp,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Actions',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primary,
+                                fontSize: 11.sp,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                        ),
+                      ),
+                    ),
+                  ]
+                      .addToStart(SizedBox(width: 10.w))
+                      .divide(wspace(10.w)),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding:
+                    EdgeInsetsDirectional.fromSTEB(10.w, 0.0, 10.w, 0.0),
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount: payments.length,
+                  itemBuilder: (context, index) {
+                    Payment paymentin = payments[index];
+                    return PaymentInList(
+                      paymentin: paymentin,
+                      cusdata: widget.cusdata,
+                    );
+                  },
+                ),
               ),
             ),
           ],
@@ -1580,11 +1580,11 @@ class _PaymentInListState extends State<PaymentInList> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 12.0, 0.0, 12.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 8.h, 0.0, 8.h),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(5.r),
                         shape: BoxShape.rectangle,
                         border: Border.all(
                           color: FlutterFlowTheme.of(context).accent3,
@@ -1594,8 +1594,8 @@ class _PaymentInListState extends State<PaymentInList> {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.w, 0.0, 8.w, 0.0),
                           child: Text(
                             paymentin.mode.toString(),
                             style: FlutterFlowTheme.of(context)
@@ -1646,15 +1646,15 @@ class _PaymentInListState extends State<PaymentInList> {
                                       const AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 8.0, 0.0, 8.0),
+                                        EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.h, 0.0, 4.h),
                                     child: Material(
                                       color: Colors.transparent,
                                       elevation:
                                           mouseRegionHovered2 ? 1.0 : 0.0,
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
-                                            BorderRadius.circular(24.0),
+                                            BorderRadius.circular(16.r),
                                       ),
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -1664,7 +1664,7 @@ class _PaymentInListState extends State<PaymentInList> {
                                               : FlutterFlowTheme.of(context)
                                                   .secondary,
                                           borderRadius:
-                                              BorderRadius.circular(24.0),
+                                              BorderRadius.circular(16.r),
                                           border: Border.all(
                                             color: mouseRegionHovered2
                                                 ? FlutterFlowTheme.of(context)
@@ -1682,9 +1682,9 @@ class _PaymentInListState extends State<PaymentInList> {
                                           children: [
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      8.0, 0.0, 8.0, 0.0),
+                                                      8.0, 0.0, 4.w, 0.0),
                                               child: Icon(
                                                 Icons.remove_red_eye_rounded,
                                                 color: mouseRegionHovered2
@@ -1694,7 +1694,7 @@ class _PaymentInListState extends State<PaymentInList> {
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                size: 16.0,
+                                                size: 8.sp,
                                               ),
                                             ),
                                             Align(
@@ -1703,9 +1703,9 @@ class _PaymentInListState extends State<PaymentInList> {
                                                       -1.0, 0.0),
                                               child: Padding(
                                                 padding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(
-                                                        0.0, 0.0, 8.0, 0.0),
+                                                        0.0, 0.0, 4.w, 0.0),
                                                 child: Text(
                                                   'View',
                                                   style:
@@ -1739,12 +1739,12 @@ class _PaymentInListState extends State<PaymentInList> {
                             );
                           } else {
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 8.0, 0.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 4.w, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).accent1,
-                                  borderRadius: BorderRadius.circular(24.0),
+                                  borderRadius: BorderRadius.circular(16.r),
                                 ),
                               ),
                             );
@@ -1753,19 +1753,19 @@ class _PaymentInListState extends State<PaymentInList> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
-                          12.0, 0.0, 8.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          8.w, 0.0, 4.w, 0.0),
                       child: Icon(
                         Icons.keyboard_control_rounded,
                         color: FlutterFlowTheme.of(context).primaryText,
-                        size: 28.0,
+                        size: 16.sp,
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-          ].addToStart(const SizedBox(width: 16.0)).divide(wspace(10.w)),
+          ].addToStart(SizedBox(width: 10.w)).divide(wspace(10.w)),
         ),
       ),
     );
@@ -1853,7 +1853,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.all(24.0),
+      margin: EdgeInsets.all(16.r),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).accent1,
         borderRadius: BorderRadius.circular(0.0),
@@ -1864,15 +1864,15 @@ class _EditPaymentInState extends State<EditPaymentIn>
           children: [
             Container(
               margin:
-                  const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  EdgeInsetsDirectional.fromSTEB(10.w, 10.h, 10.w, 10.h),
               width: double.infinity,
               decoration: const BoxDecoration(),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 0.0, 0.0, 16.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 0.0, 0.0, 10.h),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1899,8 +1899,8 @@ class _EditPaymentInState extends State<EditPaymentIn>
                             Align(
                               alignment: const AlignmentDirectional(-1.0, -1.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 16.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 1.h, 0.0, 10.h),
                                 child: Text(
                                   'Note: A payment-in is processed for every bill.',
                                   style: FlutterFlowTheme.of(context)
@@ -1923,9 +1923,9 @@ class _EditPaymentInState extends State<EditPaymentIn>
                               onPressed: () {},
                               text: 'Delete',
                               options: FFButtonOptions(
-                                height: 44.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
+                                height: 32.h,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.w, 0.0, 16.w, 0.0),
                                 iconPadding:
                                     const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
@@ -1944,7 +1944,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                   color: FlutterFlowTheme.of(context).tertiary,
                                   width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(12.0),
+                                borderRadius: BorderRadius.circular(8.r),
                                 hoverColor:
                                     FlutterFlowTheme.of(context).tertiary,
                                 hoverBorderSide: BorderSide(
@@ -1994,9 +1994,9 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                 },
                                 text: 'Update',
                                 options: FFButtonOptions(
-                                  height: 44.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
+                                  height: 32.sp,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.w, 0.0, 16.w, 0.0),
                                   iconPadding:
                                       const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
@@ -2016,7 +2016,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                         .primaryText,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                   hoverColor:
                                       FlutterFlowTheme.of(context).primaryText,
                                   hoverBorderSide: BorderSide(
@@ -2029,14 +2029,14 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 0.0, 0.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 0.0, 0.0, 4.h),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -2082,7 +2082,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                 ),
                           ),
                         ),
-                      ].divide(const SizedBox(width: 24.0)),
+                      ].divide(SizedBox(width: 16.w)),
                     ),
                   ),
                   Row(
@@ -2119,7 +2119,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                 color: FlutterFlowTheme.of(context).alternate,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -2127,32 +2127,32 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                     FlutterFlowTheme.of(context).secondaryText,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             filled: true,
                             fillColor: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             contentPadding:
-                                const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 0.0, 0.0),
+                                EdgeInsetsDirectional.fromSTEB(
+                                    16.w, 0.0, 0.0, 0.0),
                             prefixIcon: Icon(
                               Icons.people_outlined,
                               color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 20.0,
+                              size: 12.sp,
                             ),
                           ),
                           style:
@@ -2196,7 +2196,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                 color: FlutterFlowTheme.of(context).alternate,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -2204,28 +2204,28 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                     FlutterFlowTheme.of(context).secondaryText,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             filled: true,
                             fillColor: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             contentPadding:
-                                const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 0.0, 0.0),
+                                EdgeInsetsDirectional.fromSTEB(
+                                    16.w, 0.0, 0.0, 0.0),
                             suffixIcon: Icon(
                               Icons.keyboard_arrow_down_rounded,
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -2245,19 +2245,19 @@ class _EditPaymentInState extends State<EditPaymentIn>
                         flex: 2,
                         child: Container(
                           width: double.infinity,
-                          height: 48.0,
+                          height: 34.sp,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(5.r),
                             border: Border.all(
                               color: FlutterFlowTheme.of(context).alternate,
                               width: 1.0,
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                6.0, 0.0, 6.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                2.w, 0.0, 2.w, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -2273,7 +2273,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            fontSize: 13.0,
+                                            fontSize: 8.sp,
                                             letterSpacing: 0.0,
                                           ),
                                       hintText: 'Date',
@@ -2292,8 +2292,8 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                       fillColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       contentPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              12.0, 0.0, 0.0, 4.0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              8.w, 0.0, 0.0, 1.h),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -2342,7 +2342,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                     Icons.calendar_month_rounded,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 24.0,
+                                    size: 14.sp,
                                   ),
                                 ),
                               ],
@@ -2350,11 +2350,11 @@ class _EditPaymentInState extends State<EditPaymentIn>
                           ),
                         ),
                       ),
-                    ].divide(const SizedBox(width: 24.0)),
+                    ].divide(SizedBox(width: 16.w)),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 16.0, 0.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 10.h, 0.0, 8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -2393,7 +2393,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                             children: [],
                           ),
                         ),
-                      ].divide(const SizedBox(width: 24.0)),
+                      ].divide(SizedBox(width: 16.w)),
                     ),
                   ),
                   Row(
@@ -2431,7 +2431,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                 color: FlutterFlowTheme.of(context).alternate,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -2439,28 +2439,28 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                     FlutterFlowTheme.of(context).secondaryText,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             filled: true,
                             fillColor: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             contentPadding:
-                                const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 0.0, 0.0),
+                                EdgeInsetsDirectional.fromSTEB(
+                                    16.w, 0.0, 0.0, 0.0),
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -2476,11 +2476,11 @@ class _EditPaymentInState extends State<EditPaymentIn>
                         flex: 2,
                         child: Container(
                           width: double.infinity,
-                          height: 48.0,
+                          height: 30.sp,
                           decoration: const BoxDecoration(),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 4.0, 0.0, 4.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 1.h, 0.0, 1.h),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -2503,7 +2503,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                             : FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(8.0),
+                                            BorderRadius.circular(5.r),
                                         shape: BoxShape.rectangle,
                                         border: Border.all(
                                           color: type == 1
@@ -2522,15 +2522,15 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                           if (type == 1)
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 0.0, 8.0, 0.0),
+                                                      0.0, 0.0, 4.w, 0.0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.circleCheck,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                size: 14.0,
+                                                size: 8.sp,
                                               ),
                                             ),
                                           Align(
@@ -2539,9 +2539,9 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                                     0.0, 0.0),
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 4.0, 0.0, 4.0),
+                                                      0.0, 1.h, 0.0, 1.h),
                                               child: Text(
                                                 'Net Banking',
                                                 style: FlutterFlowTheme.of(
@@ -2588,7 +2588,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                             : FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(8.0),
+                                            BorderRadius.circular(5.r),
                                         shape: BoxShape.rectangle,
                                         border: Border.all(
                                           color: type == 2
@@ -2615,7 +2615,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                size: 14.0,
+                                                size: 8.sp,
                                               ),
                                             ),
                                           Align(
@@ -2624,9 +2624,9 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                                     0.0, 0.0),
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 4.0, 0.0, 4.0),
+                                                      0.0, 1.h, 0.0, 1.h),
                                               child: Text(
                                                 'UPI',
                                                 style: FlutterFlowTheme.of(
@@ -2673,7 +2673,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                             : FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(8.0),
+                                            BorderRadius.circular(5.r),
                                         shape: BoxShape.rectangle,
                                         border: Border.all(
                                           color: type == 3
@@ -2692,15 +2692,15 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                           if (type == 3)
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 0.0, 8.0, 0.0),
+                                                      0.0, 0.0, 4.w, 0.0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.circleCheck,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                size: 14.0,
+                                                size: 8.sp,
                                               ),
                                             ),
                                           Align(
@@ -2709,9 +2709,9 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                                     0.0, 0.0),
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 4.0, 0.0, 4.0),
+                                                      0.0, 1.h, 0.0, 1.h),
                                               child: Text(
                                                 'Cheque',
                                                 style: FlutterFlowTheme.of(
@@ -2758,7 +2758,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                             : FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(8.0),
+                                            BorderRadius.circular(5.r),
                                         shape: BoxShape.rectangle,
                                         border: Border.all(
                                           color: type == 4
@@ -2777,15 +2777,15 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                           if (type == 4)
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 0.0, 8.0, 0.0),
+                                                      0.0, 0.0, 4.w, 0.0),
                                               child: FaIcon(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
                                                 FontAwesomeIcons.circleCheck,
-                                                size: 14.0,
+                                                size: 8.sp,
                                               ),
                                             ),
                                           Align(
@@ -2794,9 +2794,9 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                                     0.0, 0.0),
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 4.0, 0.0, 4.0),
+                                                      0.0, 1.h, 0.0, 1.h),
                                               child: Text(
                                                 'Cash',
                                                 style: FlutterFlowTheme.of(
@@ -2843,7 +2843,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                             : FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(8.0),
+                                            BorderRadius.circular(5.r),
                                         shape: BoxShape.rectangle,
                                         border: Border.all(
                                           color: type == 5
@@ -2862,15 +2862,15 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                           if (type == 5)
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 0.0, 8.0, 0.0),
+                                                      0.0, 0.0, 4.w, 0.0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.circleCheck,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                size: 14.0,
+                                                size: 8.sp,
                                               ),
                                             ),
                                           Align(
@@ -2879,9 +2879,9 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                                     0.0, 0.0),
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 4.0, 0.0, 4.0),
+                                                      0.0, 1.h, 0.0, 1.h),
                                               child: Text(
                                                 'Card',
                                                 style: FlutterFlowTheme.of(
@@ -2909,7 +2909,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 10.w)),
                             ),
                           ),
                         ),
@@ -2921,11 +2921,11 @@ class _EditPaymentInState extends State<EditPaymentIn>
                           children: [],
                         ),
                       ),
-                    ].divide(const SizedBox(width: 24.0)),
+                    ].divide(SizedBox(width: 16.w)),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 16.0, 0.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 10.h, 0.0, 4.h),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -2971,7 +2971,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                 ),
                           ),
                         ),
-                      ].divide(const SizedBox(width: 24.0)),
+                      ].divide(SizedBox(width: 16.w)),
                     ),
                   ),
                   Row(
@@ -3010,28 +3010,28 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                 color: FlutterFlowTheme.of(context).alternate,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).primary,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             filled: true,
                           ),
@@ -3069,28 +3069,28 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                 color: FlutterFlowTheme.of(context).alternate,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).primary,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             filled: true,
                           ),
@@ -3101,7 +3101,7 @@ class _EditPaymentInState extends State<EditPaymentIn>
                                   ),
                         ),
                       ),
-                    ].divide(const SizedBox(width: 24.0)),
+                    ].divide(SizedBox(width: 16.w)),
                   ),
                 ],
               ),
@@ -3221,7 +3221,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
     return Dialog(
       insetPadding: EdgeInsets.symmetric(horizontal: 40.w),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(12.r),
       ),
       child: Container(
         width: double.infinity,
@@ -3234,8 +3234,8 @@ class _AddPaymentOutState extends State<AddPaymentOut>
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(
-                    16.0, 16.0, 16.0, 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    10.w, 10.h, 10.w, 10.h),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(),
@@ -3243,8 +3243,8 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 0.0, 0.0, 16.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 0.0, 10.h),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -3288,8 +3288,8 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                     const AlignmentDirectional(-1.0, -1.0),
                                     child: Padding(
                                       padding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 16.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 1.h, 0.0, 10.h),
                                       child: Text(
                                         'Note: A payment-out is processed for every bill.',
                                         style: FlutterFlowTheme.of(context)
@@ -3385,11 +3385,11 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                       primaryColor: Colors.green,
                                       backgroundColor: Colors.white,
                                       foregroundColor: Colors.black,
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 12, vertical: 16),
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 12, vertical: 8),
-                                      borderRadius: BorderRadius.circular(12),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 8.w, vertical: 8.h),
+                                      margin: EdgeInsets.symmetric(
+                                          horizontal: 8.w, vertical: 4.h),
+                                      borderRadius: BorderRadius.circular(8.r),
                                       boxShadow: const [
                                         BoxShadow(
                                           color: Color(0x07000000),
@@ -3419,9 +3419,9 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                 },
                                 text: 'Add Payment',
                                 options: FFButtonOptions(
-                                  height: 44.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
+                                  height: 28.h,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.w, 0.0, 16.w, 0.0),
                                   iconPadding:
                                   const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
@@ -3441,7 +3441,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                         .primaryText,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                   hoverColor:
                                   FlutterFlowTheme.of(context).primaryText,
                                   hoverBorderSide: BorderSide(
@@ -3505,7 +3505,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                       ),
                       Row(
@@ -3515,11 +3515,11 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                             flex: 5,
                             child: Container(
                               decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(8.0),
+                                  bottomRight: Radius.circular(5.r),
                                   topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(8.0),
+                                  topRight: Radius.circular(5.r),
                                 ),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(
@@ -3527,10 +3527,10 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                   ).secondary,
                                 ),
                               ),
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 4.0, 0.0, 8.0),
-                              margin: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 10.0, 10.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 1.h, 0.0, 4.h),
+                              margin: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 6.w, 6.h),
                               child: CustomDropdown<Customer>.search(
                                 decoration: CustomDropdownDecoration(
                                   expandedBorder: Border.all(
@@ -3559,11 +3559,11 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                             flex: 2,
                             child: Container(
                               decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(8.0),
+                                  bottomRight: Radius.circular(5.r),
                                   topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(8.0),
+                                  topRight: Radius.circular(5.r),
                                 ),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(
@@ -3571,10 +3571,10 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                   ).secondary,
                                 ),
                               ),
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 4.0, 0.0, 8.0),
-                              margin: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 10.0, 10.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 1.h, 0.0, 4.h),
+                              margin: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 6.w, 6.h),
                               child: CustomDropdown<Bill>.search(
                                 decoration: CustomDropdownDecoration(
                                   expandedBorder: Border.all(
@@ -3604,15 +3604,15 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(5.r),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context).alternate,
                                   width: 1.0,
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    6.0, 0.0, 6.0, 0.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    2.w, 0.0, 2.w, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -3669,7 +3669,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                         Icons.calendar_month_rounded,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24.0,
+                                        size: 16.sp,
                                       ),
                                     ),
                                   ],
@@ -3677,11 +3677,11 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 24.0)),
+                        ].divide(SizedBox(width: 16.w)),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 16.0, 0.0, 8.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 10.h, 0.0, 4.h),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -3720,7 +3720,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                 children: [],
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                       ),
                       Row(
@@ -3766,7 +3766,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                     FlutterFlowTheme.of(context).alternate,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -3774,28 +3774,28 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                         .secondaryText,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 contentPadding:
-                                const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 0.0, 0.0),
+                                EdgeInsetsDirectional.fromSTEB(
+                                    16.w, 0.0, 0.0, 0.0),
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -3814,12 +3814,12 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                             flex: 2,
                             child: Container(
                               width: double.infinity,
-                              height: 48.0,
+                              height: 30.h,
                               decoration: const BoxDecoration(),
                               child: // Generated code for this Row Widget...
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 4.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 1.h, 0.0, 1.h),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children:
@@ -3842,7 +3842,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                               : FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                          BorderRadius.circular(8.0),
+                                          BorderRadius.circular(5.r),
                                           shape: BoxShape.rectangle,
                                           border: Border.all(
                                             color: index == type
@@ -3854,8 +3854,8 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsetsDirectional
-                                              .fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                          padding: EdgeInsetsDirectional
+                                              .fromSTEB(8.w, 0.0, 8.w, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -3864,16 +3864,16 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                               if (index == type)
                                                 Padding(
                                                   padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 0.0, 8.0, 0.0),
+                                                      0.0, 0.0, 4.w, 0.0),
                                                   child: FaIcon(
                                                     FontAwesomeIcons
                                                         .circleCheck,
                                                     color: FlutterFlowTheme.of(
                                                         context)
                                                         .primaryText,
-                                                    size: 14.0,
+                                                    size: 8.sp,
                                                   ),
                                                 ),
                                               Align(
@@ -3882,9 +3882,9 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                                     0.0, 0.0),
                                                 child: Padding(
                                                   padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 4.0, 0.0, 4.0),
+                                                      0.0, 1.h, 0.0, 1.h),
                                                   child: Text(
                                                     modeItem,
                                                     style: FlutterFlowTheme.of(
@@ -3902,8 +3902,8 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                                           .secondaryText,
                                                       fontSize:
                                                       index == type
-                                                          ? 13.0
-                                                          : 12.0,
+                                                          ? 8.sp
+                                                          : 7.sp,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                       FontWeight.bold,
@@ -3916,7 +3916,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                         ),
                                       ),
                                     );
-                                  }).divide(const SizedBox(width: 16.0)),
+                                  }).divide(SizedBox(width: 10.w)),
                                 ),
                               ),
                             ),
@@ -3928,11 +3928,11 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                               children: [],
                             ),
                           ),
-                        ].divide(const SizedBox(width: 24.0)),
+                        ].divide(SizedBox(width: 16.w)),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 16.0, 0.0, 8.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 10.h, 0.0, 4.h),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -3978,7 +3978,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                       ),
                       Row(
@@ -3990,7 +3990,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                             child: Container(
                               decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).accent1,
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(5.r),
                                   border: Border.all(
                                     color:
                                     FlutterFlowTheme.of(context).alternate,
@@ -4000,7 +4000,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                 horizontal: 5.w,
                               ),
                               child: DropdownButton(
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(5.r),
                                 underline: const SizedBox(),
                                 //value: '',
 
@@ -4057,28 +4057,28 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                     FlutterFlowTheme.of(context).alternate,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).primary,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 filled: true,
                               ),
@@ -4118,28 +4118,28 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                                     FlutterFlowTheme.of(context).alternate,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).primary,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 filled: true,
                               ),
@@ -4151,7 +4151,7 @@ class _AddPaymentOutState extends State<AddPaymentOut>
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 24.0)),
+                        ].divide(SizedBox(width: 16.w)),
                       ),
                     ],
                   ),
@@ -4177,14 +4177,14 @@ class _ViewPaymentOutState extends State<ViewPaymentOut> {
       return !pro.isin;
     }).toList();
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(10.sp),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(16.0),
-            bottomRight: Radius.circular(16.0),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(10.r),
+            bottomRight: Radius.circular(10.r),
             topLeft: Radius.circular(0.0),
             topRight: Radius.circular(0.0),
           ),
@@ -4195,7 +4195,7 @@ class _ViewPaymentOutState extends State<ViewPaymentOut> {
           children: [
             Padding(
               padding:
-                  const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  EdgeInsetsDirectional.fromSTEB(0.0, 10.h, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -4215,8 +4215,8 @@ class _ViewPaymentOutState extends State<ViewPaymentOut> {
                     child: Align(
                       alignment: const AlignmentDirectional(1.0, 0.0),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 0.0, 8.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 4.w, 0.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.3,
                           decoration: BoxDecoration(
@@ -4225,8 +4225,8 @@ class _ViewPaymentOutState extends State<ViewPaymentOut> {
                             borderRadius: BorderRadius.circular(0.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                4.w, 0.0, 4.w, 0.0),
                             child: TextFormField(
                               controller: textController,
                               focusNode: textFieldFocusNode,
@@ -4252,7 +4252,7 @@ class _ViewPaymentOutState extends State<ViewPaymentOut> {
                                         FlutterFlowTheme.of(context).alternate,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -4260,21 +4260,21 @@ class _ViewPaymentOutState extends State<ViewPaymentOut> {
                                         FlutterFlowTheme.of(context).alternate,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.5,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
@@ -4305,14 +4305,14 @@ class _ViewPaymentOutState extends State<ViewPaymentOut> {
                       icon: Icon(
                         Icons.filter_list_rounded,
                         color: FlutterFlowTheme.of(context).primaryText,
-                        size: 20.0,
+                        size: 12.sp,
                       ),
                       options: FFButtonOptions(
-                        height: 50.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 0.0, 4.0, 0.0),
+                        height: 32.sp,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.w, 0.0, 10.w, 0.0),
+                        iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 1.w, 0.0),
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         textStyle: FlutterFlowTheme.of(context)
                             .titleSmall
@@ -4326,15 +4326,15 @@ class _ViewPaymentOutState extends State<ViewPaymentOut> {
                           color: FlutterFlowTheme.of(context).alternate,
                           width: 1.5,
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(5.r),
                       ),
                     ),
                   ),
                   Align(
                     alignment: const AlignmentDirectional(2.0, 0.0),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
-                          16.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.w, 0.0, 0.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () {
                           showDialog(
@@ -4344,18 +4344,18 @@ class _ViewPaymentOutState extends State<ViewPaymentOut> {
                               },
                           );
                         },
-                        text: 'Pay In',
+                        text: 'Pay Out',
                         icon: Icon(
                           Icons.add_box,
                           color: FlutterFlowTheme.of(context).accent1,
-                          size: 20.0,
+                          size: 12.sp,
                         ),
                         options: FFButtonOptions(
-                          height: 50.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 4.0, 0.0),
+                          height: 32.sp,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.w, 0.0, 10.w, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 1.w, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
@@ -4368,7 +4368,7 @@ class _ViewPaymentOutState extends State<ViewPaymentOut> {
                             color: FlutterFlowTheme.of(context).primary,
                             width: 1.5,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(5.r),
                           hoverColor: FlutterFlowTheme.of(context).primary,
                           hoverBorderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).primary,
@@ -4381,149 +4381,149 @@ class _ViewPaymentOutState extends State<ViewPaymentOut> {
                     ),
                   ),
                 ]
-                    .addToStart(const SizedBox(width: 16.0))
-                    .addToEnd(const SizedBox(width: 16.0)),
-              ),
-            ),
-            Flexible(
-              child: Padding(
-                padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-                child: Container(
-                  width: MediaQuery.sizeOf(context).width * 0.99,
-                  height: MediaQuery.sizeOf(context).height * 0.06,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondary,
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(0.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(8.0),
-                      topRight: Radius.circular(8.0),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          'Date',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 11.sp,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          'Invoice No.',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 11.sp,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 4,
-                        child: Text(
-                          'Customer',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 11.sp,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Amount',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  fontSize: 12.sp,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Mode',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  fontSize: 11.sp,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Actions',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  fontSize: 11.sp,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ),
-                    ]
-                        .addToStart(const SizedBox(width: 16.0))
-                        .divide(wspace(10.w)),
-                  ),
-                ),
+                    .addToStart(SizedBox(width: 10.w))
+                    .addToEnd(SizedBox(width: 10.w)),
               ),
             ),
             Padding(
               padding:
-                  const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-              child: ListView.builder(
-                padding: EdgeInsets.zero,
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemCount: payments.length,
-                itemBuilder: (context, index) {
-                  Payment paymentin = payments[index];
-                  return PaymentOutList(
-                    paymentout: paymentin,
-                    cusdata: widget.cusdata,
-                  );
-                },
+                  EdgeInsetsDirectional.fromSTEB(10.w, 10.h, 10.w, 0.0),
+              child: Container(
+                width: MediaQuery.sizeOf(context).width * 0.99,
+                height: MediaQuery.sizeOf(context).height * 0.06,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondary,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(0.0),
+                    bottomRight: Radius.circular(0.0),
+                    topLeft: Radius.circular(5.r),
+                    topRight: Radius.circular(5.r),
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'Date',
+                        style: FlutterFlowTheme.of(context)
+                            .bodyMedium
+                            .override(
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 11.sp,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'Invoice No.',
+                        style: FlutterFlowTheme.of(context)
+                            .bodyMedium
+                            .override(
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 11.sp,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        'Customer',
+                        style: FlutterFlowTheme.of(context)
+                            .bodyMedium
+                            .override(
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 11.sp,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Amount',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primary,
+                                fontSize: 12.sp,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Mode',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primary,
+                                fontSize: 11.sp,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Actions',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primary,
+                                fontSize: 11.sp,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                        ),
+                      ),
+                    ),
+                  ]
+                      .addToStart(SizedBox(width: 10.w))
+                      .divide(wspace(10.w)),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding:
+                    EdgeInsetsDirectional.fromSTEB(10.w, 0.0, 10.w, 0.0),
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount: payments.length,
+                  itemBuilder: (context, index) {
+                    Payment paymentin = payments[index];
+                    return PaymentOutList(
+                      paymentout: paymentin,
+                      cusdata: widget.cusdata,
+                    );
+                  },
+                ),
               ),
             ),
           ],
@@ -4624,11 +4624,11 @@ class _PaymentOutListState extends State<PaymentOutList> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 12.0, 0.0, 12.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 8.h, 0.0, 8.h),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(5.r),
                         shape: BoxShape.rectangle,
                         border: Border.all(
                           color: FlutterFlowTheme.of(context).accent3,
@@ -4638,8 +4638,8 @@ class _PaymentOutListState extends State<PaymentOutList> {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.w, 0.0, 8.w, 0.0),
                           child: Text(
                             paymentin.mode.toString(),
                             style: FlutterFlowTheme.of(context)
@@ -4690,15 +4690,15 @@ class _PaymentOutListState extends State<PaymentOutList> {
                                       const AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 8.0, 0.0, 8.0),
+                                        EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.h, 0.0, 4.h),
                                     child: Material(
                                       color: Colors.transparent,
                                       elevation:
                                           mouseRegionHovered2 ? 1.0 : 0.0,
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
-                                            BorderRadius.circular(24.0),
+                                            BorderRadius.circular(16.r),
                                       ),
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -4708,7 +4708,7 @@ class _PaymentOutListState extends State<PaymentOutList> {
                                               : FlutterFlowTheme.of(context)
                                                   .secondary,
                                           borderRadius:
-                                              BorderRadius.circular(24.0),
+                                              BorderRadius.circular(16.r),
                                           border: Border.all(
                                             color: mouseRegionHovered2
                                                 ? FlutterFlowTheme.of(context)
@@ -4726,9 +4726,9 @@ class _PaymentOutListState extends State<PaymentOutList> {
                                           children: [
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      8.0, 0.0, 8.0, 0.0),
+                                                      4.w, 0.0, 4.w, 0.0),
                                               child: Icon(
                                                 Icons.remove_red_eye_rounded,
                                                 color: mouseRegionHovered2
@@ -4738,7 +4738,7 @@ class _PaymentOutListState extends State<PaymentOutList> {
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                size: 16.0,
+                                                size: 10.sp,
                                               ),
                                             ),
                                             Align(
@@ -4783,12 +4783,12 @@ class _PaymentOutListState extends State<PaymentOutList> {
                             );
                           } else {
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 8.0, 0.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 4.w, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).accent1,
-                                  borderRadius: BorderRadius.circular(24.0),
+                                  borderRadius: BorderRadius.circular(16.r),
                                 ),
                               ),
                             );
@@ -4797,19 +4797,19 @@ class _PaymentOutListState extends State<PaymentOutList> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
-                          12.0, 0.0, 8.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          8.w, 0.0, 4.w, 0.0),
                       child: Icon(
                         Icons.keyboard_control_rounded,
                         color: FlutterFlowTheme.of(context).primaryText,
-                        size: 28.0,
+                        size: 16.sp,
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-          ].addToStart(const SizedBox(width: 16.0)).divide(wspace(10.w)),
+          ].addToStart(SizedBox(width: 10.w)).divide(wspace(10.w)),
         ),
       ),
     );
@@ -4897,7 +4897,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.all(24.0),
+      margin: EdgeInsets.all(16.sp),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).accent1,
         borderRadius: BorderRadius.circular(0.0),
@@ -4908,15 +4908,15 @@ class _EditPaymentOutState extends State<EditPaymentOut>
           children: [
             Container(
               margin:
-                  const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  EdgeInsetsDirectional.fromSTEB(10.w, 10.h, 10.w, 10.h),
               width: double.infinity,
               decoration: const BoxDecoration(),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 0.0, 0.0, 16.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 0.0, 0.0, 10.h),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -4943,8 +4943,8 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                             Align(
                               alignment: const AlignmentDirectional(-1.0, -1.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 16.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 1.h, 0.0, 10.h),
                                 child: Text(
                                   'Note: A payment-in is processed for every bill.',
                                   style: FlutterFlowTheme.of(context)
@@ -4967,9 +4967,9 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                               onPressed: () {},
                               text: 'Delete',
                               options: FFButtonOptions(
-                                height: 44.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
+                                height: 30.h,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.w, 0.0, 16.w, 0.0),
                                 iconPadding:
                                     const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
@@ -4988,7 +4988,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                   color: FlutterFlowTheme.of(context).tertiary,
                                   width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(12.0),
+                                borderRadius: BorderRadius.circular(8.r),
                                 hoverColor:
                                     FlutterFlowTheme.of(context).tertiary,
                                 hoverBorderSide: BorderSide(
@@ -5038,9 +5038,9 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                 },
                                 text: 'Update',
                                 options: FFButtonOptions(
-                                  height: 44.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
+                                  height: 30.h,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.w, 0.0, 16.w, 0.0),
                                   iconPadding:
                                       const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
@@ -5060,7 +5060,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                         .primaryText,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                   hoverColor:
                                       FlutterFlowTheme.of(context).primaryText,
                                   hoverBorderSide: BorderSide(
@@ -5073,14 +5073,14 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 0.0, 0.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 0.0, 0.0, 4.h),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -5126,7 +5126,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                 ),
                           ),
                         ),
-                      ].divide(const SizedBox(width: 24.0)),
+                      ].divide(SizedBox(width: 16.w)),
                     ),
                   ),
                   Row(
@@ -5163,7 +5163,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                 color: FlutterFlowTheme.of(context).alternate,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -5171,32 +5171,32 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                     FlutterFlowTheme.of(context).secondaryText,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             filled: true,
                             fillColor: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             contentPadding:
-                                const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 0.0, 0.0),
+                                EdgeInsetsDirectional.fromSTEB(
+                                    16.w, 0.0, 0.0, 0.0),
                             prefixIcon: Icon(
                               Icons.people_outlined,
                               color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 20.0,
+                              size: 10.sp,
                             ),
                           ),
                           style:
@@ -5240,7 +5240,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                 color: FlutterFlowTheme.of(context).alternate,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -5248,28 +5248,28 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                     FlutterFlowTheme.of(context).secondaryText,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             filled: true,
                             fillColor: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             contentPadding:
-                                const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 0.0, 0.0),
+                                EdgeInsetsDirectional.fromSTEB(
+                                    16.w, 0.0, 0.0, 0.0),
                             suffixIcon: Icon(
                               Icons.keyboard_arrow_down_rounded,
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -5289,19 +5289,19 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                         flex: 2,
                         child: Container(
                           width: double.infinity,
-                          height: 48.0,
+                          height: 34.h,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(5.r),
                             border: Border.all(
                               color: FlutterFlowTheme.of(context).alternate,
                               width: 1.0,
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                6.0, 0.0, 6.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                2.w, 0.0, 2.w, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -5317,7 +5317,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            fontSize: 13.0,
+                                            fontSize: 8.sp,
                                             letterSpacing: 0.0,
                                           ),
                                       hintText: 'Date',
@@ -5336,8 +5336,8 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                       fillColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       contentPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              12.0, 0.0, 0.0, 4.0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              8.w, 0.0, 0.0, 1.h),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -5386,7 +5386,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                     Icons.calendar_month_rounded,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 24.0,
+                                    size: 16.sp,
                                   ),
                                 ),
                               ],
@@ -5394,11 +5394,11 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                           ),
                         ),
                       ),
-                    ].divide(const SizedBox(width: 24.0)),
+                    ].divide(SizedBox(width: 16.w)),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 16.0, 0.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 10.h, 0.0, 4.h),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -5437,7 +5437,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                             children: [],
                           ),
                         ),
-                      ].divide(const SizedBox(width: 24.0)),
+                      ].divide(SizedBox(width: 16.w)),
                     ),
                   ),
                   Row(
@@ -5475,7 +5475,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                 color: FlutterFlowTheme.of(context).alternate,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -5483,28 +5483,28 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                     FlutterFlowTheme.of(context).secondaryText,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             filled: true,
                             fillColor: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             contentPadding:
-                                const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 0.0, 0.0),
+                                EdgeInsetsDirectional.fromSTEB(
+                                    16.w, 0.0, 0.0, 0.0),
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -5520,11 +5520,11 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                         flex: 2,
                         child: Container(
                           width: double.infinity,
-                          height: 48.0,
+                          height: 32.sp,
                           decoration: const BoxDecoration(),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 4.0, 0.0, 4.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 1.h, 0.0, 1.h),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -5547,7 +5547,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                             : FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(8.0),
+                                            BorderRadius.circular(5.r),
                                         shape: BoxShape.rectangle,
                                         border: Border.all(
                                           color: type == 1
@@ -5566,15 +5566,15 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                           if (type == 1)
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 0.0, 8.0, 0.0),
+                                                      0.0, 0.0, 4.w, 0.0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.circleCheck,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                size: 14.0,
+                                                size: 8.sp,
                                               ),
                                             ),
                                           Align(
@@ -5583,9 +5583,9 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                                     0.0, 0.0),
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 4.0, 0.0, 4.0),
+                                                      0.0, 1.h, 0.0, 1.h),
                                               child: Text(
                                                 'Net Banking',
                                                 style: FlutterFlowTheme.of(
@@ -5632,7 +5632,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                             : FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(8.0),
+                                            BorderRadius.circular(5.r),
                                         shape: BoxShape.rectangle,
                                         border: Border.all(
                                           color: type == 2
@@ -5651,15 +5651,15 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                           if (type == 2)
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 0.0, 8.0, 0.0),
+                                                      0.0, 0.0, 4.w, 0.0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.circleCheck,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                size: 14.0,
+                                                size: 8.sp,
                                               ),
                                             ),
                                           Align(
@@ -5668,9 +5668,9 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                                     0.0, 0.0),
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 4.0, 0.0, 4.0),
+                                                      0.0, 1.h, 0.0, 1.h),
                                               child: Text(
                                                 'UPI',
                                                 style: FlutterFlowTheme.of(
@@ -5717,7 +5717,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                             : FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(8.0),
+                                            BorderRadius.circular(5.r),
                                         shape: BoxShape.rectangle,
                                         border: Border.all(
                                           color: type == 3
@@ -5736,15 +5736,15 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                           if (type == 3)
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 0.0, 8.0, 0.0),
+                                                      0.0, 0.0, 4.w, 0.0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.circleCheck,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                size: 14.0,
+                                                size: 8.sp,
                                               ),
                                             ),
                                           Align(
@@ -5753,9 +5753,9 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                                     0.0, 0.0),
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 4.0, 0.0, 4.0),
+                                                      0.0, 1.h, 0.0, 1.h),
                                               child: Text(
                                                 'Cheque',
                                                 style: FlutterFlowTheme.of(
@@ -5802,7 +5802,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                             : FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(8.0),
+                                            BorderRadius.circular(5.r),
                                         shape: BoxShape.rectangle,
                                         border: Border.all(
                                           color: type == 4
@@ -5821,15 +5821,15 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                           if (type == 4)
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 0.0, 8.0, 0.0),
+                                                      0.0, 0.0, 4.w, 0.0),
                                               child: FaIcon(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
                                                 FontAwesomeIcons.circleCheck,
-                                                size: 14.0,
+                                                size: 8.sp,
                                               ),
                                             ),
                                           Align(
@@ -5838,9 +5838,9 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                                     0.0, 0.0),
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 4.0, 0.0, 4.0),
+                                                      0.0, 1.h, 0.0, 1.h),
                                               child: Text(
                                                 'Cash',
                                                 style: FlutterFlowTheme.of(
@@ -5887,7 +5887,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                             : FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(8.0),
+                                            BorderRadius.circular(5.r),
                                         shape: BoxShape.rectangle,
                                         border: Border.all(
                                           color: type == 5
@@ -5906,15 +5906,15 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                           if (type == 5)
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 0.0, 8.0, 0.0),
+                                                      0.0, 0.0, 4.w, 0.0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.circleCheck,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                size: 14.0,
+                                                size: 8.sp,
                                               ),
                                             ),
                                           Align(
@@ -5923,9 +5923,9 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                                     0.0, 0.0),
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 4.0, 0.0, 4.0),
+                                                      0.0, 1.h, 0.0, 1.h),
                                               child: Text(
                                                 'Card',
                                                 style: FlutterFlowTheme.of(
@@ -5953,7 +5953,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 10.w)),
                             ),
                           ),
                         ),
@@ -5965,11 +5965,11 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                           children: [],
                         ),
                       ),
-                    ].divide(const SizedBox(width: 24.0)),
+                    ].divide(SizedBox(width: 16.w)),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 16.0, 0.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 10.h, 0.0, 4.h),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -6015,7 +6015,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                 ),
                           ),
                         ),
-                      ].divide(const SizedBox(width: 24.0)),
+                      ].divide(SizedBox(width: 16.w)),
                     ),
                   ),
                   Row(
@@ -6054,28 +6054,28 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                 color: FlutterFlowTheme.of(context).alternate,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).primary,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             filled: true,
                           ),
@@ -6113,28 +6113,28 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                 color: FlutterFlowTheme.of(context).alternate,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).primary,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).error,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(5.r),
                             ),
                             filled: true,
                           ),
@@ -6145,7 +6145,7 @@ class _EditPaymentOutState extends State<EditPaymentOut>
                                   ),
                         ),
                       ),
-                    ].divide(const SizedBox(width: 24.0)),
+                    ].divide(SizedBox(width: 16.w)),
                   ),
                 ],
               ),

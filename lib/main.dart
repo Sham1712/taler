@@ -82,7 +82,7 @@ class GetUser extends StatelessWidget {
                             if (snapshot.connectionState == ConnectionState.done) {
                               if (snapshot.hasData) {
                                 if(snapshot.data!.name.isNotEmpty) {
-                                  return const Home();
+                                  return const Invoice();
                                 }
                                 return const Company();
                               }
@@ -175,7 +175,7 @@ class Errored extends StatelessWidget {
         height: double.infinity,
         color: FlutterFlowTheme.of(context).secondary,
         child: Center(
-          child: Text(
+          child: SelectableText(
             'error :$error',
             style: TextStyle(color: FlutterFlowTheme.of(context).primary,),
           ),

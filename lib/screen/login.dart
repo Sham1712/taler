@@ -33,7 +33,7 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(32.0),
+                    padding: EdgeInsets.all(24.sp),
                     child: Text(
                       'Taler',
                       style:
@@ -47,12 +47,12 @@ class _LoginState extends State<Login> {
                   ),
                   Padding(
                     padding:
-                    const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+                    EdgeInsetsDirectional.fromSTEB(20.w, 0.0, 20.w, 0.0),
                     child: Material(
                       color: Colors.transparent,
                       elevation: 0.0,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24.0),
+                        borderRadius: BorderRadius.circular(16.r),
                       ),
                       child: Container(
                         height: MediaQuery.sizeOf(context).height * 0.55,
@@ -62,14 +62,14 @@ class _LoginState extends State<Login> {
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context)
                               .secondaryBackground,
-                          boxShadow: const [
+                          boxShadow: [
                             BoxShadow(
                               blurRadius: 200.0,
                               color: Color(0x33000000),
-                              spreadRadius: 24.0,
+                              spreadRadius: 16.r,
                             )
                           ],
-                          borderRadius: BorderRadius.circular(24.0),
+                          borderRadius: BorderRadius.circular(16.r),
                           border: Border.all(
                             color: FlutterFlowTheme.of(context)
                                 .primaryBackground,
@@ -100,11 +100,11 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                               const Spacer(flex: 2),
-                              const Divider(
-                                height: 32.0,
+                              Divider(
+                                height: 20.h,
                                 thickness: 1.0,
-                                indent: 32.0,
-                                endIndent: 32.0,
+                                indent: 20.w,
+                                endIndent: 20.w,
                                 color: Color(0x81636370),
                               ),
                               Expanded(
@@ -135,18 +135,18 @@ class _LoginState extends State<Login> {
                                   }
                                 },
                                 text: 'Continue with Google',
-                                icon: const FaIcon(
+                                icon: FaIcon(
                                   FontAwesomeIcons.google,
                                   color: Color(0xFF4285F4),
-                                  size: 24.0,
+                                  size: 16.sp,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 380.0,
-                                  height: 64.0,
+                                  width: 280.w,
+                                  height: 44.h,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 4.h, 0.0),
                                   color:
                                   FlutterFlowTheme.of(context).alternate,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -163,7 +163,7 @@ class _LoginState extends State<Login> {
                                         .alternate,
                                     width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(40.0),
+                                  borderRadius: BorderRadius.circular(28.r),
                                   hoverColor: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   hoverElevation: 2.0,
@@ -181,9 +181,9 @@ class _LoginState extends State<Login> {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.w, 0.0, 24.w, 0.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(5.r),
                   child: Image.network(
                     'https://firebasestorage.googleapis.com/v0/b/firesamp-uhaalm.appspot.com/o/Receipt-bro.png?alt=media&token=a6ce133b-fec5-4a12-a1fc-60a577c96ba7',
                     height: MediaQuery.sizeOf(context).height * 0.75,

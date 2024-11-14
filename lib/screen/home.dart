@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
                                                         .primaryBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            32.0),
+                                                            24.r),
                                                     border: Border.all(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -133,8 +133,8 @@ class _HomeState extends State<Home> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsets.all(
-                                                            4.0),
+                                                        EdgeInsets.all(
+                                                            2.h),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -169,11 +169,11 @@ class _HomeState extends State<Home> {
                                                             false)
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                     0.0,
                                                                     0.0,
-                                                                    16.0,
+                                                                    10.w,
                                                                     0.0),
                                                             child: Text(
                                                               'Taler',
@@ -224,9 +224,9 @@ class _HomeState extends State<Home> {
                                                       }),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(0.0,
-                                                                0.0, 0.0, 8.0),
+                                                                0.0, 0.0, 4.h),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -256,7 +256,7 @@ class _HomeState extends State<Home> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          10.r),
                                                             ),
                                                             child: Row(
                                                               mainAxisSize:
@@ -271,12 +271,12 @@ class _HomeState extends State<Home> {
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
                                                                           0.0,
-                                                                          2.0,
+                                                                          1.h,
                                                                           0.0,
-                                                                          2.0),
+                                                                          1.h),
                                                                       child:
                                                                           Container(
                                                                         width:
@@ -304,16 +304,16 @@ class _HomeState extends State<Home> {
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
                                                                           0.0,
-                                                                          2.0,
+                                                                          1.h,
                                                                           0.0,
-                                                                          2.0),
+                                                                          1.h),
                                                                       child:
                                                                           Container(
                                                                         width:
-                                                                            6.0,
+                                                                            3.w,
                                                                         height:
                                                                             double.infinity,
                                                                         decoration:
@@ -321,15 +321,15 @@ class _HomeState extends State<Home> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryText,
                                                                           borderRadius:
-                                                                              const BorderRadius.only(
+                                                                              BorderRadius.only(
                                                                             bottomLeft:
-                                                                                Radius.circular(2.0),
+                                                                                Radius.circular(1.r),
                                                                             bottomRight:
-                                                                                Radius.circular(24.0),
+                                                                                Radius.circular(16.r),
                                                                             topLeft:
-                                                                                Radius.circular(2.0),
+                                                                                Radius.circular(1.r),
                                                                             topRight:
-                                                                                Radius.circular(24.0),
+                                                                                Radius.circular(16.r),
                                                                           ),
                                                                           border:
                                                                               Border.all(
@@ -371,9 +371,9 @@ class _HomeState extends State<Home> {
                                                                     flex: 8,
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
-                                                                          12.0,
+                                                                          8.w,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
@@ -421,9 +421,9 @@ class _HomeState extends State<Home> {
                                                       }),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(0.0,
-                                                                0.0, 0.0, 8.0),
+                                                                0.0, 0.0, 4.h),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -453,7 +453,7 @@ class _HomeState extends State<Home> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          10.r),
                                                             ),
                                                             child: Row(
                                                               mainAxisSize:
@@ -468,12 +468,12 @@ class _HomeState extends State<Home> {
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
                                                                           0.0,
-                                                                          2.0,
+                                                                          1.h,
                                                                           0.0,
-                                                                          2.0),
+                                                                          1.h),
                                                                       child:
                                                                           Container(
                                                                         width:
@@ -501,16 +501,16 @@ class _HomeState extends State<Home> {
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
                                                                           0.0,
-                                                                          2.0,
+                                                                          1.h,
                                                                           0.0,
-                                                                          2.0),
+                                                                          1.h),
                                                                       child:
                                                                           Container(
                                                                         width:
-                                                                            6.0,
+                                                                            3.w,
                                                                         height:
                                                                             double.infinity,
                                                                         decoration:
@@ -518,15 +518,15 @@ class _HomeState extends State<Home> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryText,
                                                                           borderRadius:
-                                                                              const BorderRadius.only(
+                                                                              BorderRadius.only(
                                                                             bottomLeft:
-                                                                                Radius.circular(2.0),
+                                                                                Radius.circular(1.r),
                                                                             bottomRight:
-                                                                                Radius.circular(24.0),
+                                                                                Radius.circular(16.r),
                                                                             topLeft:
-                                                                                Radius.circular(2.0),
+                                                                                Radius.circular(1.r),
                                                                             topRight:
-                                                                                Radius.circular(24.0),
+                                                                                Radius.circular(16.r),
                                                                           ),
                                                                           border:
                                                                               Border.all(
@@ -568,9 +568,9 @@ class _HomeState extends State<Home> {
                                                                     flex: 8,
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
-                                                                          12.0,
+                                                                          8.w,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
@@ -610,9 +610,9 @@ class _HomeState extends State<Home> {
                                                       }),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(0.0,
-                                                                0.0, 0.0, 8.0),
+                                                                0.0, 0.0, 4.h),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -642,7 +642,7 @@ class _HomeState extends State<Home> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          10.r),
                                                             ),
                                                             child: Row(
                                                               mainAxisSize:
@@ -651,12 +651,12 @@ class _HomeState extends State<Home> {
                                                               children: [
                                                                 if (screen == 2)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
@@ -677,16 +677,16 @@ class _HomeState extends State<Home> {
                                                                   ),
                                                                 if (screen == 2)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          6.0,
+                                                                          3.w,
                                                                       height: double
                                                                           .infinity,
                                                                       decoration:
@@ -694,15 +694,15 @@ class _HomeState extends State<Home> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         borderRadius:
-                                                                            const BorderRadius.only(
+                                                                            BorderRadius.only(
                                                                           bottomLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           bottomRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                           topLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           topRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                         ),
                                                                         border:
                                                                             Border.all(
@@ -743,9 +743,9 @@ class _HomeState extends State<Home> {
                                                                     flex: 8,
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
-                                                                          12.0,
+                                                                          8.w,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
@@ -785,9 +785,9 @@ class _HomeState extends State<Home> {
                                                       }),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(0.0,
-                                                                0.0, 0.0, 8.0),
+                                                                0.0, 0.0, 4.h),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -817,7 +817,7 @@ class _HomeState extends State<Home> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          10.r),
                                                             ),
                                                             child: Row(
                                                               mainAxisSize:
@@ -826,12 +826,12 @@ class _HomeState extends State<Home> {
                                                               children: [
                                                                 if (screen == 3)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
@@ -852,16 +852,16 @@ class _HomeState extends State<Home> {
                                                                   ),
                                                                 if (screen == 3)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          6.0,
+                                                                          3.w,
                                                                       height: double
                                                                           .infinity,
                                                                       decoration:
@@ -869,15 +869,15 @@ class _HomeState extends State<Home> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         borderRadius:
-                                                                            const BorderRadius.only(
+                                                                            BorderRadius.only(
                                                                           bottomLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           bottomRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                           topLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           topRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                         ),
                                                                         border:
                                                                             Border.all(
@@ -918,9 +918,9 @@ class _HomeState extends State<Home> {
                                                                     flex: 8,
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
-                                                                          12.0,
+                                                                          8.w,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
@@ -960,9 +960,9 @@ class _HomeState extends State<Home> {
                                                       }),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(0.0,
-                                                                0.0, 0.0, 8.0),
+                                                                0.0, 0.0, 4.w),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -992,7 +992,7 @@ class _HomeState extends State<Home> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          10.r),
                                                             ),
                                                             child: Row(
                                                               mainAxisSize:
@@ -1001,12 +1001,12 @@ class _HomeState extends State<Home> {
                                                               children: [
                                                                 if (screen == 4)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
@@ -1027,16 +1027,16 @@ class _HomeState extends State<Home> {
                                                                   ),
                                                                 if (screen == 4)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          6.0,
+                                                                          3.w,
                                                                       height: double
                                                                           .infinity,
                                                                       decoration:
@@ -1044,15 +1044,15 @@ class _HomeState extends State<Home> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         borderRadius:
-                                                                            const BorderRadius.only(
+                                                                            BorderRadius.only(
                                                                           bottomLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           bottomRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                           topLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           topRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                         ),
                                                                         border:
                                                                             Border.all(
@@ -1093,9 +1093,9 @@ class _HomeState extends State<Home> {
                                                                     flex: 8,
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
-                                                                          12.0,
+                                                                          8.w,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
@@ -1135,9 +1135,9 @@ class _HomeState extends State<Home> {
                                                       }),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(0.0,
-                                                                0.0, 0.0, 8.0),
+                                                                0.0, 0.0, 4.h),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -1167,7 +1167,7 @@ class _HomeState extends State<Home> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          10.r),
                                                             ),
                                                             child: Row(
                                                               mainAxisSize:
@@ -1176,12 +1176,12 @@ class _HomeState extends State<Home> {
                                                               children: [
                                                                 if (screen == 5)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
@@ -1202,12 +1202,12 @@ class _HomeState extends State<Home> {
                                                                   ),
                                                                 if (screen == 5)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
@@ -1219,15 +1219,15 @@ class _HomeState extends State<Home> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         borderRadius:
-                                                                            const BorderRadius.only(
+                                                                            BorderRadius.only(
                                                                           bottomLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           bottomRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                           topLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           topRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                         ),
                                                                         border:
                                                                             Border.all(
@@ -1268,9 +1268,9 @@ class _HomeState extends State<Home> {
                                                                     flex: 8,
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
-                                                                          12.0,
+                                                                          8.w,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
@@ -1310,9 +1310,9 @@ class _HomeState extends State<Home> {
                                                       }),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(0.0,
-                                                                0.0, 0.0, 8.0),
+                                                                0.0, 0.0, 4.h),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -1351,12 +1351,12 @@ class _HomeState extends State<Home> {
                                                               children: [
                                                                 if (screen == 6)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
@@ -1377,16 +1377,16 @@ class _HomeState extends State<Home> {
                                                                   ),
                                                                 if (screen == 6)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          6.0,
+                                                                          3.w,
                                                                       height: double
                                                                           .infinity,
                                                                       decoration:
@@ -1394,15 +1394,15 @@ class _HomeState extends State<Home> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         borderRadius:
-                                                                            const BorderRadius.only(
+                                                                            BorderRadius.only(
                                                                           bottomLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           bottomRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                           topLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           topRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                         ),
                                                                         border:
                                                                             Border.all(
@@ -1443,9 +1443,9 @@ class _HomeState extends State<Home> {
                                                                     flex: 8,
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
-                                                                          12.0,
+                                                                          8.w,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
@@ -1485,9 +1485,9 @@ class _HomeState extends State<Home> {
                                                       }),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(0.0,
-                                                                0.0, 0.0, 8.0),
+                                                                0.0, 0.0, 4.h),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -1517,7 +1517,7 @@ class _HomeState extends State<Home> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          10.r),
                                                             ),
                                                             child: Row(
                                                               mainAxisSize:
@@ -1526,12 +1526,12 @@ class _HomeState extends State<Home> {
                                                               children: [
                                                                 if (screen == 7)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
@@ -1552,16 +1552,16 @@ class _HomeState extends State<Home> {
                                                                   ),
                                                                 if (screen == 7)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          6.0,
+                                                                          3.w,
                                                                       height: double
                                                                           .infinity,
                                                                       decoration:
@@ -1569,15 +1569,15 @@ class _HomeState extends State<Home> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         borderRadius:
-                                                                            const BorderRadius.only(
+                                                                            BorderRadius.only(
                                                                           bottomLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           bottomRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                           topLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           topRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                         ),
                                                                         border:
                                                                             Border.all(
@@ -1618,9 +1618,9 @@ class _HomeState extends State<Home> {
                                                                     flex: 8,
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
-                                                                          12.0,
+                                                                          8.w,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
@@ -1660,9 +1660,9 @@ class _HomeState extends State<Home> {
                                                       }),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(0.0,
-                                                                0.0, 0.0, 8.0),
+                                                                0.0, 0.0, 4.h),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -1692,7 +1692,7 @@ class _HomeState extends State<Home> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          10.r),
                                                             ),
                                                             child: Row(
                                                               mainAxisSize:
@@ -1701,12 +1701,12 @@ class _HomeState extends State<Home> {
                                                               children: [
                                                                 if (screen == 8)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
@@ -1727,16 +1727,16 @@ class _HomeState extends State<Home> {
                                                                   ),
                                                                 if (screen == 8)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                         0.0,
-                                                                        2.0,
+                                                                        1.h,
                                                                         0.0,
-                                                                        2.0),
+                                                                        1.h),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          6.0,
+                                                                          3.w,
                                                                       height: double
                                                                           .infinity,
                                                                       decoration:
@@ -1744,15 +1744,15 @@ class _HomeState extends State<Home> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         borderRadius:
-                                                                            const BorderRadius.only(
+                                                                            BorderRadius.only(
                                                                           bottomLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           bottomRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                           topLeft:
-                                                                              Radius.circular(2.0),
+                                                                              Radius.circular(1.r),
                                                                           topRight:
-                                                                              Radius.circular(24.0),
+                                                                              Radius.circular(16.r),
                                                                         ),
                                                                         border:
                                                                             Border.all(
@@ -1793,9 +1793,9 @@ class _HomeState extends State<Home> {
                                                                     flex: 8,
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
-                                                                          12.0,
+                                                                          8.w,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
@@ -1826,15 +1826,15 @@ class _HomeState extends State<Home> {
                                             ),
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      8.0, 4.0, 4.0, 0.0),
+                                                      8.0, 2.h, 2.w, 0.0),
                                               child: Container(
                                                 height: 30.h,
                                                 decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.circular(
-                                                          8.0),
+                                                          4.r),
                                                   shape: BoxShape.rectangle,
                                                 ),
                                                 child: Row(
@@ -1899,9 +1899,9 @@ class _HomeState extends State<Home> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                  12.0,
+                                                                  8.w,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
@@ -2006,9 +2006,9 @@ class _HomeState extends State<Home> {
                                                       0.0, 1.0),
                                               child: Padding(
                                                 padding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(
-                                                        0.0, 32.0, 0.0, 32.0),
+                                                        0.0, 24.h, 0.0, 24.h),
                                                 child: Builder(
                                                   builder: (context) {
                                                     if (compactView == false) {
@@ -2072,9 +2072,9 @@ class _HomeState extends State<Home> {
                                           children: [
                                             Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      24.0, 16, 24.0, 8.0),
+                                                      16.w, 10.h, 16.w, 4.h),
                                               child: Container(
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
@@ -2095,8 +2095,8 @@ class _HomeState extends State<Home> {
                                                               0.0, -1.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(12.0,
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(8.w,
                                                                 0.0, 0.0, 0.0),
                                                         child: Text(
                                                           selectof(screen, {
@@ -2142,9 +2142,9 @@ class _HomeState extends State<Home> {
                                                               0.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(0.0,
-                                                                8.0, 0.0, 8.0),
+                                                                4.h, 0.0, 4.h),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -2164,7 +2164,7 @@ class _HomeState extends State<Home> {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8.0),
+                                                                        5.r),
                                                           ),
                                                           child: Row(
                                                             mainAxisSize:
@@ -2182,12 +2182,12 @@ class _HomeState extends State<Home> {
                                                                           0.0),
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                        12.0,
-                                                                        8.0,
+                                                                        8.w,
+                                                                        4.h,
                                                                         0.0,
-                                                                        8.0),
+                                                                        4.h),
                                                                     child:
                                                                         InkWell(
                                                                       splashColor:
@@ -2221,7 +2221,7 @@ class _HomeState extends State<Home> {
                                                                         shape:
                                                                             RoundedRectangleBorder(
                                                                           borderRadius:
-                                                                              BorderRadius.circular(8.0),
+                                                                              BorderRadius.circular(5.r),
                                                                         ),
                                                                         child:
                                                                             Container(
@@ -2235,7 +2235,7 @@ class _HomeState extends State<Home> {
                                                                                 ? Colors.white
                                                                                 : FlutterFlowTheme.of(context).secondaryBackground,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8.0),
+                                                                                BorderRadius.circular(5.r),
                                                                           ),
                                                                           alignment: const AlignmentDirectional(
                                                                               0.0,
@@ -2276,12 +2276,12 @@ class _HomeState extends State<Home> {
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsetsDirectional
+                                                                        EdgeInsetsDirectional
                                                                             .fromSTEB(
-                                                                      12.0,
-                                                                      8.0,
+                                                                      8.w,
+                                                                      4.h,
                                                                       0.0,
-                                                                      8.0,
+                                                                      4.h,
                                                                     ),
                                                                     child:
                                                                         InkWell(
@@ -2323,7 +2323,7 @@ class _HomeState extends State<Home> {
                                                                         shape:
                                                                             RoundedRectangleBorder(
                                                                           borderRadius:
-                                                                              BorderRadius.circular(8.0),
+                                                                              BorderRadius.circular(5.r),
                                                                         ),
                                                                         child:
                                                                             Container(
@@ -2337,7 +2337,7 @@ class _HomeState extends State<Home> {
                                                                                 ? Colors.white
                                                                                 : FlutterFlowTheme.of(context).secondaryBackground,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8.0),
+                                                                                BorderRadius.circular(5.r),
                                                                           ),
                                                                           alignment: const AlignmentDirectional(
                                                                               0.0,
@@ -2378,12 +2378,12 @@ class _HomeState extends State<Home> {
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional
+                                                                      padding: EdgeInsetsDirectional
                                                                           .fromSTEB(
-                                                                          12.0,
-                                                                          8.0,
-                                                                          12.0,
-                                                                          8.0),
+                                                                          8.w,
+                                                                          4.h,
+                                                                          8.w,
+                                                                          4.h),
                                                                       child:
                                                                           InkWell(
                                                                         splashColor:
@@ -2412,7 +2412,7 @@ class _HomeState extends State<Home> {
                                                                           shape:
                                                                               RoundedRectangleBorder(
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8.0),
+                                                                                BorderRadius.circular(5.r),
                                                                           ),
                                                                           child:
                                                                               Container(
@@ -2463,7 +2463,7 @@ class _HomeState extends State<Home> {
                                                     page: page,
                                                     bildata: snapbil.data!,
                                                   ),
-                                                  1: const Invoice(),
+                                                  1: Container(),
                                                   2: Customerpage(
                                                     page: page,
                                                     cusdata: snapcus.data!,

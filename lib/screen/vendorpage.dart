@@ -169,7 +169,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: EdgeInsets.all(16.sp),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -182,19 +182,19 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
             children: [
               Padding(
                 padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                    EdgeInsetsDirectional.fromSTEB(10.w, 0.0, 10.w, 0.0),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 0.0, 0.0, 16.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 0.0, 0.0, 10.h),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 16.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.h, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -222,8 +222,8 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 4.0, 0.0, 16.0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 1.h, 0.0, 10.h),
                                       child: Wrap(
                                         children: [
                                           Text(
@@ -355,11 +355,11 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                         primaryColor: Colors.green,
                                         backgroundColor: Colors.white,
                                         foregroundColor: Colors.black,
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 12, vertical: 16),
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 12, vertical: 8),
-                                        borderRadius: BorderRadius.circular(12),
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 8.w, vertical: 10.h),
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 8.w, vertical: 4.h),
+                                        borderRadius: BorderRadius.circular(8.r),
                                         boxShadow: const [
                                           BoxShadow(
                                             color: Color(0x07000000),
@@ -380,10 +380,10 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                   },
                                   text: 'Create',
                                   options: FFButtonOptions(
-                                    height: 44.0,
+                                    height: 28.sp,
                                     padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
+                                         EdgeInsetsDirectional.fromSTEB(
+                                            16.w, 0.0, 16.w, 0.0),
                                     iconPadding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
@@ -403,7 +403,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .primaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                     hoverColor: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     hoverBorderSide: BorderSide(
@@ -420,8 +420,8 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 8.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 4.h),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -453,7 +453,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                       ),
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 24.0)),
+                            ].divide(SizedBox(width: 16.w)),
                           ),
                         ),
                         Row(
@@ -494,7 +494,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -502,32 +502,32 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .secondaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.w, 0.0, 0.0, 0.0),
                                   prefixIcon: Icon(
                                     Icons.people_outlined,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 20.0,
+                                    size: 12.sp,
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -576,7 +576,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -584,32 +584,32 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .secondaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.w, 0.0, 0.0, 0.0),
                                   prefixIcon: Icon(
                                     Icons.numbers_rounded,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 20.0,
+                                    size: 12.sp,
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -633,11 +633,11 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                 ],
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 16.0, 0.0, 8.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.h, 0.0, 4.h),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -704,7 +704,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                   children: [],
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 24.0)),
+                            ].divide(SizedBox(width: 16.w)),
                           ),
                         ),
                         Row(
@@ -751,7 +751,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -759,27 +759,27 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .secondaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.w, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -798,7 +798,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                               child: Container(
                                 decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).accent1,
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(5.r),
                                     border: Border.all(
                                       color: FlutterFlowTheme.of(context)
                                           .alternate,
@@ -808,7 +808,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                   horizontal: 5.w,
                                 ),
                                 child: DropdownButton(
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(5.r),
                                   underline: const SizedBox(),
                                   dropdownColor:
                                       FlutterFlowTheme.of(context).accent1,
@@ -868,7 +868,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -876,27 +876,27 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .secondaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.w, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -939,7 +939,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -947,27 +947,27 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .secondaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.w, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -987,7 +987,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                 children: [],
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                       ],
                     ),
@@ -996,21 +996,21 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
               ),
               Padding(
                 padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
+                    EdgeInsetsDirectional.fromSTEB(10.w, 0.0, 10.w, 10.h),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 16.0, 0.0, 16.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 10.h, 0.0, 10.h),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Align(
                           alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 16.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 10.h),
                             child: Text(
                               'Billing Address',
                               style: FlutterFlowTheme.of(context)
@@ -1025,8 +1025,8 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 8.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 4.h),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -1065,12 +1065,12 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                   children: [],
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 24.0)),
+                            ].divide(SizedBox(width: 16.w)),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 16.0, 16.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 10.w, 10.h),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -1109,7 +1109,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                             .alternate,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -1117,7 +1117,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                             .primary,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -1125,7 +1125,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                             FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -1133,7 +1133,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                             FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     filled: true,
                                     fillColor:
@@ -1142,7 +1142,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                       Icons.storefront,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 20.0,
+                                      size: 12.sp,
                                     ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -1202,7 +1202,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                             .alternate,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -1210,7 +1210,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                             .primary,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -1218,7 +1218,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                             FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -1226,7 +1226,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                             FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     filled: true,
                                     fillColor:
@@ -1235,7 +1235,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                       Icons.phone_outlined,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 20.0,
+                                      size: 12.sp,
                                     ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -1265,12 +1265,12 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                   children: [],
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 24.0)),
+                            ].divide(SizedBox(width: 16.w)),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 8.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 4.h),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -1320,7 +1320,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                   children: [],
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 24.0)),
+                            ].divide(SizedBox(width: 16.w)),
                           ),
                         ),
                         Row(
@@ -1360,7 +1360,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -1368,21 +1368,21 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor:
@@ -1434,7 +1434,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -1442,21 +1442,21 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor:
@@ -1514,7 +1514,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -1522,21 +1522,21 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                           FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor:
@@ -1563,7 +1563,7 @@ class _AddVendorState extends State<AddVendor> with TickerProviderStateMixin {
                                 children: [],
                               ),
                             ),
-                          ].divide(const SizedBox(width: 16.0)),
+                          ].divide(SizedBox(width: 10.w)),
                         ),
                       ],
                     ),
@@ -1592,14 +1592,14 @@ class _ViewVendorState extends State<ViewVendor> {
           .contains(searchcon.text.toLowerCase());
     }).toList();
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(10.sp),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(16.0),
-            bottomRight: Radius.circular(16.0),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(10.r),
+            bottomRight: Radius.circular(10.r),
             topLeft: Radius.circular(0.0),
             topRight: Radius.circular(0.0),
           ),
@@ -1609,16 +1609,16 @@ class _ViewVendorState extends State<ViewVendor> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(
-                  0.0, 16.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(
+                  0.0, 10.h, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        24.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        16.w, 0.0, 0.0, 0.0),
                     child: Text(
                       'Your vendors',
                       style: FlutterFlowTheme.of(context)
@@ -1637,8 +1637,8 @@ class _ViewVendorState extends State<ViewVendor> {
                     child: Align(
                       alignment: const AlignmentDirectional(1.0, 0.0),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 0.0, 8.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 4.w, 0.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.3,
                           decoration: BoxDecoration(
@@ -1648,8 +1648,8 @@ class _ViewVendorState extends State<ViewVendor> {
                           ),
                           child: Padding(
                             padding:
-                            const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(
+                                4.w, 0.0, 4.w, 0.0),
                             child: TextFormField(
                               controller: searchcon,
                               focusNode: fieldFocusNode,
@@ -1686,7 +1686,7 @@ class _ViewVendorState extends State<ViewVendor> {
                                     width: 1.5,
                                   ),
                                   borderRadius:
-                                  BorderRadius.circular(8.0),
+                                  BorderRadius.circular(5.r),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -1695,7 +1695,7 @@ class _ViewVendorState extends State<ViewVendor> {
                                     width: 1.5,
                                   ),
                                   borderRadius:
-                                  BorderRadius.circular(8.0),
+                                  BorderRadius.circular(5.r),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -1704,7 +1704,7 @@ class _ViewVendorState extends State<ViewVendor> {
                                     width: 1.5,
                                   ),
                                   borderRadius:
-                                  BorderRadius.circular(8.0),
+                                  BorderRadius.circular(5.r),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -1713,7 +1713,7 @@ class _ViewVendorState extends State<ViewVendor> {
                                     width: 1.5,
                                   ),
                                   borderRadius:
-                                  BorderRadius.circular(8.0),
+                                  BorderRadius.circular(5.r),
                                 ),
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
@@ -1739,10 +1739,10 @@ class _ViewVendorState extends State<ViewVendor> {
                   Align(
                     alignment: const AlignmentDirectional(2.0, 0.0),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      padding: EdgeInsetsDirectional.fromSTEB(
                         0.0,
                         0.0,
-                        24.0,
+                        16.w,
                         0.0,
                       ),
                       child: FFButtonWidget(
@@ -1756,11 +1756,11 @@ class _ViewVendorState extends State<ViewVendor> {
                         ),
                         options: FFButtonOptions(
                           height: 30.h,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.w, 0.0, 10.w, 0.0),
                           iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 4.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 1.w, 0.0),
                           color: FlutterFlowTheme.of(context)
                               .secondaryBackground,
                           textStyle: FlutterFlowTheme.of(context)
@@ -1777,7 +1777,7 @@ class _ViewVendorState extends State<ViewVendor> {
                             FlutterFlowTheme.of(context).alternate,
                             width: 1.5,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(5.r),
                         ),
                       ),
                     ),
@@ -1785,184 +1785,184 @@ class _ViewVendorState extends State<ViewVendor> {
                 ],
               ),
             ),
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(
-                    24.0, 16.0, 24.0, 0.0),
-                child: Container(
-                  width: MediaQuery.sizeOf(context).width * 0.99,
-                  height: MediaQuery.sizeOf(context).height * 0.06,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondary,
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(0.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(8.0),
-                      topRight: Radius.circular(8.0),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(
+                  16.w, 10.h, 16.w, 0.0),
+              child: Container(
+                width: MediaQuery.sizeOf(context).width * 0.99,
+                height: MediaQuery.sizeOf(context).height * 0.06,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondary,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(0.0),
+                    bottomRight: Radius.circular(0.0),
+                    topLeft: Radius.circular(5.r),
+                    topRight: Radius.circular(5.r),
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      flex: 4,
+                      child: Align(
+                        alignment:
+                        const AlignmentDirectional(-1.0, 0.0),
+                        child: Text(
+                          'Name',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context)
+                                .primaryText,
+                            fontSize: 11.sp,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        flex: 4,
-                        child: Align(
-                          alignment:
-                          const AlignmentDirectional(-1.0, 0.0),
-                          child: Text(
-                            'Name',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryText,
-                              fontSize: 11.sp,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
+                    Expanded(
+                      flex: 2,
+                      child: Align(
+                        alignment:
+                        const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'GSTIN',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context)
+                                .primaryText,
+                            fontSize: 11.sp,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                      Expanded(
-                        flex: 2,
-                        child: Align(
-                          alignment:
-                          const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'GSTIN',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryText,
-                              fontSize: 11.sp,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Align(
+                        alignment:
+                        const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Rate Type',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context)
+                                .primaryText,
+                            fontSize: 11.sp,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                      Expanded(
-                        flex: 3,
-                        child: Align(
-                          alignment:
-                          const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Rate Type',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryText,
-                              fontSize: 11.sp,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Align(
+                        alignment:
+                        const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Contact Info',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context)
+                                .primary,
+                            fontSize: 11.sp,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                      Expanded(
-                        flex: 2,
-                        child: Align(
-                          alignment:
-                          const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Contact Info',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context)
-                                  .primary,
-                              fontSize: 11.sp,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Align(
+                        alignment:
+                        const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Closing Balance',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context)
+                                .primary,
+                            fontSize: 11.sp,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                      Expanded(
-                        flex: 2,
-                        child: Align(
-                          alignment:
-                          const AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            'Closing Balance',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context)
-                                  .primary,
-                              fontSize: 11.sp,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Align(
+                        alignment:
+                        const AlignmentDirectional(0.3, 0.0),
+                        child: Text(
+                          'Action',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context)
+                                .primary,
+                            fontSize: 11.0.sp,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                      Expanded(
-                        flex: 2,
-                        child: Align(
-                          alignment:
-                          const AlignmentDirectional(0.3, 0.0),
-                          child: Text(
-                            'Action',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context)
-                                  .primary,
-                              fontSize: 11.0.sp,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ]
-                        .addToStart(const SizedBox(width: 16.0))
-                        .addToEnd(const SizedBox(width: 16.0)),
-                  ),
+                    ),
+                  ]
+                      .addToStart(SizedBox(width: 10.w))
+                      .addToEnd(SizedBox(width: 10.w)),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(
-                  24.0, 0.0, 24.0, 0.0),
-              child: vendors.isNotEmpty
-                  ? ClipRRect(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10.r),
-                    bottomRight: Radius.circular(10.r)),
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemCount: vendors.length,
-                  itemBuilder: (context, index) {
-                    return VendorTile(vendor: vendors[index]);
-                  },
-                ),
-              )
-                  : Container(
-                decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondary,
-                    borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(10.r),
-                        bottomLeft: Radius.circular(10.r))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      height: 200.h,
-                      'assests/nodata.png',
-                    ),
-                  ],
+            Expanded(
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    16.w, 0.0, 16.w, 0.0),
+                child: vendors.isNotEmpty
+                    ? ClipRRect(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10.r),
+                      bottomRight: Radius.circular(10.r)),
+                  child: ListView.builder(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: vendors.length,
+                    itemBuilder: (context, index) {
+                      return VendorTile(vendor: vendors[index]);
+                    },
+                  ),
+                )
+                    : Container(
+                  decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondary,
+                      borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(10.r),
+                          bottomLeft: Radius.circular(10.r))),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        height: 200.h,
+                        'assests/nodata.png',
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -2100,23 +2100,23 @@ class _VendorTileState extends State<VendorTile> {
                           builder: (context) {
                             if (mouseRegionHovered1) {
                               return Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8, 8.0, 8.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 4.h, 4.w, 4.h),
                                 child: Material(
                                   color: Colors.transparent,
                                   elevation: mouseRegionHovered2 ? 1.0 : 0.0,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(24.0),
+                                    borderRadius: BorderRadius.circular(16.r),
                                   ),
                                   child: Container(
-                                    width: 94.0,
-                                    height: 40.0,
+                                    width: 66.w,
+                                    height: 24.h,
                                     decoration: BoxDecoration(
                                       color: mouseRegionHovered2
                                           ? FlutterFlowTheme.of(context).primary
                                           : FlutterFlowTheme.of(context)
                                               .secondary,
-                                      borderRadius: BorderRadius.circular(24.0),
+                                      borderRadius: BorderRadius.circular(16.r),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -2126,8 +2126,8 @@ class _VendorTileState extends State<VendorTile> {
                                           CrossAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsetsDirectional
-                                              .fromSTEB(8.0, 0.0, 8.0, 0.0),
+                                          padding: EdgeInsetsDirectional
+                                              .fromSTEB(4.w, 0.0, 4.w, 0.0),
                                           child: Icon(
                                             Icons.remove_red_eye_rounded,
                                             color: mouseRegionHovered2
@@ -2170,11 +2170,11 @@ class _VendorTileState extends State<VendorTile> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 8.0, 0.0),
                                 child: Container(
-                                  width: 94.0,
-                                  height: 40.0,
+                                  width: 66.w,
+                                  height: 24.h,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).accent1,
-                                    borderRadius: BorderRadius.circular(24.0),
+                                    borderRadius: BorderRadius.circular(16.r),
                                   ),
                                 ),
                               );
@@ -2194,12 +2194,12 @@ class _VendorTileState extends State<VendorTile> {
                               });
                         },
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 8.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 4.w, 0.0),
                           child: Icon(
                             Icons.keyboard_control_rounded,
                             color: FlutterFlowTheme.of(context).primaryText,
-                            size: 28.0,
+                            size: 16.sp,
                           ),
                         ),
                       ),
@@ -2209,8 +2209,8 @@ class _VendorTileState extends State<VendorTile> {
               ),
             ),
           ]
-              .addToStart(const SizedBox(width: 16.0))
-              .addToEnd(const SizedBox(width: 16.0)),
+              .addToStart(SizedBox(width: 10.w))
+              .addToEnd(SizedBox(width: 10.h)),
         ),
       ),
     );
@@ -2354,33 +2354,33 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
     return Dialog(
       insetPadding: EdgeInsets.symmetric(horizontal: 40.w),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(12.r),
       ),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
-            borderRadius: BorderRadius.circular(20)),
-        padding: const EdgeInsets.all(10),
+            borderRadius: BorderRadius.circular(12.r)),
+        padding: EdgeInsets.all(6.sp),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
                 padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                    EdgeInsetsDirectional.fromSTEB(10.w, 0.0, 10.w, 0.0),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 0.0, 0.0, 16.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 0.0, 0.0, 10.h),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 16.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.h, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -2410,8 +2410,8 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                       alignment: const AlignmentDirectional(
                                           -1.0, -1.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional
-                                            .fromSTEB(0.0, 4.0, 0.0, 16.0),
+                                        padding: EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 1.h, 0.0, 10.h),
                                         child: Wrap(
                                           children: [
                                             Text(
@@ -2467,11 +2467,11 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                         primaryColor: Colors.red,
                                         backgroundColor: Colors.white,
                                         foregroundColor: Colors.black,
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 12, vertical: 16),
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 12, vertical: 8),
-                                        borderRadius: BorderRadius.circular(12),
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 8.w, vertical: 10.h),
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 8.w, vertical: 4.h),
+                                        borderRadius: BorderRadius.circular(8.r),
                                         boxShadow: const [
                                           BoxShadow(
                                             color: Color(0x07000000),
@@ -2491,10 +2491,10 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                     },
                                     text: 'Delete',
                                     options: FFButtonOptions(
-                                      height: 44.0,
+                                      height: 28.h,
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              24.0, 0.0, 24.0, 0.0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              16.w, 0.0, 16.w, 0.0),
                                       iconPadding:
                                           const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
@@ -2515,7 +2515,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                             .tertiary,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                       hoverColor:
                                           FlutterFlowTheme.of(context).tertiary,
                                       hoverBorderSide: BorderSide(
@@ -2632,12 +2632,12 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                             primaryColor: Colors.green,
                                             backgroundColor: Colors.white,
                                             foregroundColor: Colors.black,
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 12, vertical: 16),
-                                            margin: const EdgeInsets.symmetric(
-                                                horizontal: 12, vertical: 8),
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 8.w, vertical: 10.h),
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 8.w, vertical: 4.h),
                                             borderRadius:
-                                                BorderRadius.circular(12),
+                                                BorderRadius.circular(8.r),
                                             boxShadow: const [
                                               BoxShadow(
                                                 color: Color(0x07000000),
@@ -2658,9 +2658,9 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                       },
                                       text: 'Save',
                                       options: FFButtonOptions(
-                                        height: 44.0,
-                                        padding: const EdgeInsetsDirectional
-                                            .fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                        height: 28.sp,
+                                        padding: EdgeInsetsDirectional
+                                            .fromSTEB(16.w, 0.0, 16.w, 0.0),
                                         iconPadding: const EdgeInsetsDirectional
                                             .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
@@ -2680,7 +2680,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           width: 1.0,
                                         ),
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                            BorderRadius.circular(8.r),
                                         hoverColor: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         hoverBorderSide: BorderSide(
@@ -2693,14 +2693,14 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                       ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 24.0)),
+                                ].divide(SizedBox(width: 16.w)),
                               ),
                             ],
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 8.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 4.h),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -2732,7 +2732,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                       ),
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 24.0)),
+                            ].divide(SizedBox(width: 16.w)),
                           ),
                         ),
                         Row(
@@ -2771,7 +2771,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -2779,32 +2779,32 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .secondaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.w, 0.0, 0.0, 0.0),
                                   prefixIcon: Icon(
                                     Icons.people_outlined,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 20.0,
+                                    size: 12.sp,
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -2851,7 +2851,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -2859,32 +2859,32 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .secondaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.w, 0.0, 0.0, 0.0),
                                   prefixIcon: Icon(
                                     Icons.numbers_rounded,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 20.0,
+                                    size: 12.sp,
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -2908,11 +2908,11 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                 ],
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 16.0, 0.0, 8.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.h, 0.0, 4.h),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -2979,7 +2979,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                   children: [],
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 24.0)),
+                            ].divide(SizedBox(width: 16.w)),
                           ),
                         ),
                         Row(
@@ -3015,7 +3015,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -3023,27 +3023,27 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .secondaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.w, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -3074,7 +3074,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                   horizontal: 5.w,
                                 ),
                                 child: DropdownButton(
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(5.r),
                                   underline: const SizedBox(),
                                   dropdownColor:
                                       FlutterFlowTheme.of(context).accent1,
@@ -3124,7 +3124,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -3132,27 +3132,27 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .secondaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.w, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -3193,7 +3193,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -3201,27 +3201,27 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .secondaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 0.0, 0.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.w, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -3241,7 +3241,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                 children: [],
                               ),
                             ),
-                          ].divide(const SizedBox(width: 24.0)),
+                          ].divide(SizedBox(width: 16.w)),
                         ),
                       ],
                     ),
@@ -3250,21 +3250,21 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
               ),
               Padding(
                 padding:
-                    const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
+                    EdgeInsetsDirectional.fromSTEB(10.w, 0.0, 10.w, 10.h),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        0.0, 16.0, 0.0, 16.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0, 10.h, 0.0, 10.h),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Align(
                           alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 16.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 10.h),
                             child: Text(
                               'Billing Address',
                               style: FlutterFlowTheme.of(context)
@@ -3279,8 +3279,8 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 8.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 4.h),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -3319,12 +3319,12 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                   children: [],
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 24.0)),
+                            ].divide(SizedBox(width: 16.w)),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 16.0, 16.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 10.w, 10.h),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -3361,7 +3361,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                             .alternate,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -3369,7 +3369,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                             .primary,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -3377,7 +3377,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                             FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -3385,7 +3385,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                             FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     filled: true,
                                     fillColor:
@@ -3394,7 +3394,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                       Icons.storefront,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 20.0,
+                                      size: 12.sp,
                                     ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -3452,7 +3452,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                             .alternate,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -3460,7 +3460,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                             .primary,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -3468,7 +3468,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                             FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -3476,7 +3476,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                             FlutterFlowTheme.of(context).error,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     filled: true,
                                     fillColor:
@@ -3485,7 +3485,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                       Icons.phone_outlined,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 20.0,
+                                      size: 12.sp,
                                     ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -3514,12 +3514,12 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                   children: [],
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 24.0)),
+                            ].divide(SizedBox(width: 16.w)),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 8.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 4.h),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -3569,7 +3569,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                   children: [],
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 24.0)),
+                            ].divide(SizedBox(width: 16.w)),
                           ),
                         ),
                         Row(
@@ -3607,7 +3607,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -3615,21 +3615,21 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor:
@@ -3679,7 +3679,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -3687,21 +3687,21 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor:
@@ -3757,7 +3757,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -3765,21 +3765,21 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                           FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   filled: true,
                                   fillColor:
@@ -3806,7 +3806,7 @@ class _EditVendorState extends State<EditVendor> with TickerProviderStateMixin {
                                 children: [],
                               ),
                             ),
-                          ].divide(const SizedBox(width: 16.0)),
+                          ].divide(SizedBox(width: 10.w)),
                         ),
                       ],
                     ),

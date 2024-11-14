@@ -166,7 +166,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                         padding: EdgeInsetsDirectional.symmetric(
                             horizontal: 10.w, vertical: 10.h),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(5.r),
                           child: Image.network(
                             'https://firebasestorage.googleapis.com/v0/b/firesamp-uhaalm.appspot.com/o/Team%20work-bro.png?alt=media&token=31ee41c5-0141-4645-8cfb-a6728be0b94f',
                             //height: MediaQuery.sizeOf(context).height * 0.75,
@@ -181,11 +181,11 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                       margin: EdgeInsetsDirectional.fromSTEB(20.w, 0, 40.w, 0),
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(8.r),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            32.0, 0.0, 32.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.w, 0.0, 24.w, 0.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -232,7 +232,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -240,21 +240,21 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                           FlutterFlowTheme.of(context).primary,
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   prefixIcon: const Icon(
                                     Icons.maps_home_work_rounded,
@@ -264,7 +264,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      fontSize: 14.0,
+                                      fontSize: 10.sp,
                                       letterSpacing: 0.0,
                                     ),
                                 inputFormatters: [
@@ -304,7 +304,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                           .alternate,
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -312,21 +312,21 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                           FlutterFlowTheme.of(context).primary,
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                   prefixIcon: const Icon(
                                     Icons.numbers_rounded,
@@ -348,7 +348,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(8.r),
                                   border: Border.all(
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
@@ -363,15 +363,15 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                       alignment:
                                           const AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional
-                                            .fromSTEB(16.0, 16.0, 0.0, 16.0),
+                                        padding: EdgeInsetsDirectional
+                                            .fromSTEB(10.w, 10.h, 0.0, 10.h),
                                         child: Text(
                                           'Address Details',
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
                                                 fontFamily: 'Outfit',
-                                                fontSize: 20.0,
+                                                fontSize: 14.sp,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -380,8 +380,8 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              16.0, 0.0, 16.0, 0.0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10.w, 0.0, 10.w, 0.0),
                                       child: TextFormField(
                                         controller: doorcon,
                                         focusNode: textFieldFocusNode3,
@@ -417,7 +417,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                               width: 2.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(5.r),
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -427,7 +427,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                               width: 2.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(5.r),
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -437,7 +437,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                               width: 2.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(5.r),
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
@@ -448,7 +448,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                               width: 2.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(5.r),
                                           ),
                                           prefixIcon: const Icon(
                                             Icons.storefront,
@@ -471,17 +471,17 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 24.0, 0.0, 0.0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 16.h, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
+                                                      10.w, 0.0, 10.w, 0.0),
                                               child: TextFormField(
                                                 controller: citycon,
                                                 focusNode: textFieldFocusNode4,
@@ -525,7 +525,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
@@ -538,7 +538,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
@@ -551,7 +551,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
@@ -564,7 +564,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                 ),
                                                 style:
@@ -588,9 +588,9 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                           Expanded(
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
+                                                      10.w, 0.0, 10.w, 0.0),
                                               child: TextFormField(
                                                 controller: pincodecon,
                                                 focusNode: textFieldFocusNode5,
@@ -632,7 +632,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
@@ -645,7 +645,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
@@ -658,7 +658,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
@@ -671,7 +671,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                 ),
                                                 style:
@@ -697,17 +697,17 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 24.0, 0.0, 24.0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 16.h, 0.0, 16.h),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
+                                                      10.w, 0.0, 10.w, 0.0),
                                               child: TextFormField(
                                                 controller: statecon,
                                                 focusNode: textFieldFocusNode6,
@@ -751,7 +751,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
@@ -764,7 +764,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
@@ -777,7 +777,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
@@ -790,7 +790,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                 ),
                                                 style:
@@ -810,9 +810,9 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                           Expanded(
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
+                                                      10.w, 0.0, 10.w, 0.0),
                                               child: TextFormField(
                                                 controller: phonecon,
                                                 focusNode: textFieldFocusNode7,
@@ -854,7 +854,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
@@ -867,7 +867,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
@@ -880,7 +880,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
@@ -893,7 +893,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.r),
                                                   ),
                                                   prefixIcon: const Icon(
                                                     Icons.phone_outlined,
@@ -949,7 +949,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                               MaterialTapTargetSize.shrinkWrap,
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(4.0),
+                                                BorderRadius.circular(2.r),
                                           ),
                                         ),
                                         unselectedWidgetColor:
@@ -1074,10 +1074,10 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                   },
                                   text: 'Submit',
                                   options: FFButtonOptions(
-                                    height: 40.0,
+                                    height: 28.h,
                                     padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
+                                        EdgeInsetsDirectional.fromSTEB(
+                                            16.w, 0.0, 16.w, 0.0),
                                     iconPadding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
@@ -1096,7 +1096,7 @@ class _CompanyState extends State<Company> with TickerProviderStateMixin {
                                           FlutterFlowTheme.of(context).tertiary,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(5.r),
                                     hoverColor:
                                         FlutterFlowTheme.of(context).tertiary,
                                     hoverBorderSide: BorderSide(
